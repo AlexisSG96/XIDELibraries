@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.cwg.CWGViewer">
+    <children>
+      <GridPane hgap="5.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <columnConstraints>
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints vgrow="NEVER" />
+         </rowConstraints>
+         <children>
+              <TitledPane animated="false" collapsible="false" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" GridPane.hgrow="ALWAYS" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+               <content>
+                  <GridPane hgap="5.0" vgap="5.0">
+                     <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                     </rowConstraints>
+                     <children>
+                              <CheckBox fx:id="enableCWG" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAction" text="Enable CWG" GridPane.columnSpan="1" />
+                        <Label text="Input Source:" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="inputSource" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label text="Output Mode:" GridPane.rowIndex="3" />
+                        <ComboBox fx:id="outputMode" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label text="Clock Source: " GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </Label>
+                        <ComboBox fx:id="clockSource" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label text="Dead-band uncertainty: " GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="deadBand_clk" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Accordion GridPane.columnSpan="2" GridPane.rowIndex="8">
+                           <panes>
+                              <TitledPane fx:id="eventsPane" animated="false" expanded="false" text="Events">
+                                 <content>
+                                    <GridPane hgap="5.0" vgap="5.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints fillWidth="false" />
+                                          <ColumnConstraints />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label text="Rising Counts:" />
+                                          <ComboBox fx:id="risingCount" onAction="#onAction" GridPane.columnIndex="1" />
+                                          <Label text="Minimum Dead-band:" GridPane.rowIndex="1" />
+                                          <Label fx:id="minDeadBand_rising" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label text="Maximum Dead-band:" GridPane.rowIndex="2" />
+                                          <Label fx:id="maxDeadBand_rising" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label text="Falling Counts:" GridPane.rowIndex="5" />
+                                          <ComboBox fx:id="fallingCount" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <Label text="Minimum Dead-band:" GridPane.rowIndex="6" />
+                                          <Label text="Maximum Dead-band:" GridPane.rowIndex="7" />
+                                          <Label fx:id="minDeadBand_falling" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                          <Label fx:id="maxDeadBand_falling" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </GridPane>
+                                 </content>
+                              </TitledPane>
+                              <TitledPane fx:id="pnConfigPane" animated="false" expanded="false" text="Output Pin Config">
+                                 <content>
+                                    <GridPane fx:id="gridPaneSteering" hgap="5.0" minHeight="-Infinity" vgap="5.0">
+                                       <children>
+                                          <TabPane fx:id="pinConfigTabPane" maxWidth="1.7976931348623157E308" minHeight="-Infinity" tabClosingPolicy="UNAVAILABLE">
+                                            <tabs>
+                                              <Tab text="CWGA">
+                                                   <content>
+                                                      <GridPane fx:id="cwgaConfigGrid" hgap="5.0" vgap="5.0">
+                                                        <columnConstraints>
+                                                          <ColumnConstraints fillWidth="false" />
+                                                          <ColumnConstraints />
+                                                        </columnConstraints>
+                                                        <rowConstraints>
+                                                          <RowConstraints />
+                                                            <RowConstraints />
+                                                          <RowConstraints />
+                                                            <RowConstraints />
+                                                        </rowConstraints>
+                                                         <children>
+                                                            <CheckBox fx:id="enableSteeringCWGA" mnemonicParsing="false" onAction="#onAction" text="Enable Steering" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                                            <Label text="Steering data" GridPane.rowIndex="2" />
+                                                            <ComboBox fx:id="steeringDataCWGA" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                            <Label text="Polarity" GridPane.rowIndex="3" />
+                                                            <ComboBox fx:id="cwga" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                            <CheckBox fx:id="enableOutputCWGA" mnemonicParsing="false" onAction="#onAction" text="Enable CWGA Output Pin " GridPane.columnSpan="2" />
+                                                         </children>
+                                                         <padding>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </padding>
+                                                      </GridPane>
+                                                   </content>
+                                              </Tab>
+                                              <Tab text="CWGB">
+                                                   <content>
+                                                      <GridPane fx:id="cwgbConfigGrid" hgap="5.0" vgap="5.0">
+                                                         <children>
+                                                            <Label text="Steering data" GridPane.rowIndex="2" />
+                                                            <Label text="Polarity" GridPane.rowIndex="3" />
+                                                            <CheckBox fx:id="enableSteeringCWGB" mnemonicParsing="false" onAction="#onAction" text="Enable Steering" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                                            <ComboBox fx:id="steeringDataCWGB" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                            <ComboBox fx:id="cwgb" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                            <CheckBox fx:id="enableOutputCWGB" mnemonicParsing="false" onAction="#onAction" text="Enable CWGB Output Pin " GridPane.columnSpan="2" />
+                                                         </children>
+                                                         <columnConstraints>
+                                                            <ColumnConstraints fillWidth="false" />
+                                                            <ColumnConstraints />
+                                                         </columnConstraints>
+                                                         <padding>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </padding>
+                                                         <rowConstraints>
+                                                            <RowConstraints vgrow="NEVER" />
+                                                            <RowConstraints vgrow="NEVER" />
+                                                            <RowConstraints vgrow="NEVER" />
+                                                            <RowConstraints vgrow="NEVER" />
+                                                         </rowConstraints>
+                                                      </GridPane>
+                                                   </content>
+                                              </Tab>
+                                                <Tab fx:id="cwgcPinTab" text="CWGC">
+                                                   <content>
+                                                      <GridPane fx:id="cwgcConfigGrid" hgap="5.0" vgap="5.0">
+                                                         <children>
+                                                            <Label text="Steering data" GridPane.rowIndex="2" />
+                                                            <Label text="Polarity" GridPane.rowIndex="3" />
+                                                            <CheckBox fx:id="enableSteeringCWGC" mnemonicParsing="false" onAction="#onAction" text="Enable Steering" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                                            <ComboBox fx:id="steeringDataCWGC" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                            <ComboBox fx:id="cwgc" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                            <CheckBox fx:id="enableOutputCWGC" mnemonicParsing="false" onAction="#onAction" text="Enable CWGC Output Pin " GridPane.columnSpan="2" />
+                                                         </children>
+                                                         <columnConstraints>
+                                                            <ColumnConstraints fillWidth="false" />
+                                                            <ColumnConstraints />
+                                                         </columnConstraints>
+                                                         <padding>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </padding>
+                                                         <rowConstraints>
+                                                            <RowConstraints vgrow="NEVER" />
+                                                            <RowConstraints vgrow="NEVER" />
+                                                            <RowConstraints vgrow="NEVER" />
+                                                            <RowConstraints vgrow="NEVER" />
+                                                         </rowConstraints>
+                                                      </GridPane>
+                                                   </content>
+                                                </Tab>
+                                                <Tab fx:id="cwgdPinTab" text="CWGD">
+                                                   <content>
+                                                      <GridPane fx:id="cwgdConfigGrid" hgap="5.0" vgap="5.0">
+                                                         <children>
+                                                            <Label text="Steering data" GridPane.rowIndex="2" />
+                                                            <Label text="Polarity" GridPane.rowIndex="3" />
+                                                            <CheckBox fx:id="enableSteeringCWGD" mnemonicParsing="false" onAction="#onAction" text="Enable Steering" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                                            <ComboBox fx:id="steeringDataCWGD" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                            <ComboBox fx:id="cwgd" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                            <CheckBox fx:id="enableOutputCWGD" mnemonicParsing="false" onAction="#onAction" text="Enable CWGD Output Pin " GridPane.columnSpan="2" />
+                                                         </children>
+                                                         <columnConstraints>
+                                                            <ColumnConstraints fillWidth="false" />
+                                                            <ColumnConstraints />
+                                                         </columnConstraints>
+                                                         <padding>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </padding>
+                                                         <rowConstraints>
+                                                            <RowConstraints vgrow="NEVER" />
+                                                            <RowConstraints vgrow="NEVER" />
+                                                            <RowConstraints vgrow="NEVER" />
+                                                            <RowConstraints vgrow="NEVER" />
+                                                         </rowConstraints>
+                                                      </GridPane>
+                                                   </content>
+                                                </Tab>
+                                            </tabs>
+                                          </TabPane>
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints />
+                                       </rowConstraints>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </GridPane>
+                                 </content>
+                              </TitledPane>
+                              <TitledPane fx:id="autoShutdownPane" animated="false" expanded="false" text="Auto-Shutdown">
+                                 <content>
+                                    <GridPane fx:id="autoshutdownGrid" hgap="5.0" vgap="5.0">
+                                      <columnConstraints>
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints vgrow="NEVER" />
+                                      </rowConstraints>
+                                       <children>
+                                          <CheckBox fx:id="enableAutoRestart" mnemonicParsing="false" onAction="#onAction" text="Enable Auto-Restart" />
+                                          <Label text="CWGA and CWGC Shutdown State" GridPane.rowIndex="3" />
+                                          <Label text="CWGB and CWGD Shutdown State" GridPane.rowIndex="5" />
+                                          <ComboBox fx:id="shtStateBD" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <ComboBox fx:id="shtStateAC" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <CheckBox fx:id="AS0E" mnemonicParsing="false" onAction="#onAction" text="TMR2 Postscale Output" GridPane.rowIndex="7" />
+                                          <CheckBox fx:id="AS1E" mnemonicParsing="false" onAction="#onAction" text="TMR4 Postscale Output" GridPane.rowIndex="9" />
+                                          <CheckBox fx:id="AS2E" mnemonicParsing="false" onAction="#onAction" text="TMR6 Postscale Output" GridPane.rowIndex="11" />
+                                          <CheckBox fx:id="AS3E" mnemonicParsing="false" onAction="#onAction" text="CWG Input Pin" GridPane.rowIndex="13" />
+                                          <CheckBox fx:id="AS4E" mnemonicParsing="false" onAction="#onAction" text="Comparator1 Output" GridPane.rowIndex="15" />
+                                          <CheckBox fx:id="AS5E" mnemonicParsing="false" onAction="#onAction" text="Comparator2 Output" GridPane.rowIndex="17" />
+                                          <CheckBox fx:id="AS6E" mnemonicParsing="false" onAction="#onAction" text="CLC2 Output" GridPane.columnSpan="2" GridPane.rowIndex="18" />
+                                          <CheckBox fx:id="AS7E" mnemonicParsing="false" onAction="#onAction" text="CLC4 Output" GridPane.columnSpan="2" GridPane.rowIndex="19" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </GridPane>
+                                 </content>
+                              </TitledPane>
+                           </panes>
+                        </Accordion>
+                        <CheckBox fx:id="enableCWGInterupts" mnemonicParsing="false" onAction="#onAction" text="CWG Interrupt" visible="false" GridPane.columnIndex="1" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </GridPane>
+               </content>
+              </TitledPane>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </GridPane>
+    </children>
+    
+      </AnchorPane>

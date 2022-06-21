@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>FVR</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>Fixed Voltage Referance (FVR)</h2>
+        <hr>
+        <section>
+            <h3 id="buffergain" name="buffergain">FVR Buffer Gain</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td> The output of the FVR is routed through one or two independent gain amplifiers, depending on the device.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>The FVR_buffer Gain, when available, can be modified to amplify 1x, 2x, 4x or can be turned off. </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td> The Buffer Gain is not available on some devices, which have only the Enable checkbox for the FVR module. Examples : PIC18(L)F4XK20, PIC18(L)F2XK20, PIC12F752.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="tempsensor" name="tempsensor">Temperature Sensor</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td> Summary:</td>
+                            <td> The Temperature Indicator circuit operates is either high or low range. </td>
+                        </tr>
+                        <tr>
+                            <td> Description:</td>
+                            <td> The minimum recommended VDD voltage for the high range is 3.6 V and provides a wider output voltage and a better resolution.  The minimum recommende VDD voltage for low range is 1.8 V. The output of the circuit is measured using the internal ADC. A channel is reserved for the temperature circuit output. The Voltage Range Selection dropdown box is available if the Temperature Sensor checkbox is enabled, only on the device that have a Temperature Indicator circuit. </td>
+                        </tr>
+                        <tr>
+                            <td> Availability:</td>
+                            <td> The Temperature Indicator circuit is available on most of the PIC16(L)F1XXX families and on the PIC18(L)F6XK40/PIC18(L)F4XK40/PIC18(L)F2XK40 devices.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+    </body>
+</html>

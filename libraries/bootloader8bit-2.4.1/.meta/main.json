@@ -1,0 +1,40 @@
+{
+    "metaDataVersion": "1.0.0",
+    "category": "com.microchip.mcc3.library",
+    "content": {
+        "metaDataVersion": "1.0.0",
+        "name": "com.microchip.mcc.mcu8.bootloaders.BootloadersLibrary",
+        "version": "2.4.1",
+        "file": "bootloader8bit-2.4.1.jar",
+        "displayName": "8-bit Bootloader Library",
+        "coreVersion": "^5.0.0",
+        "vendor": "Microchip Technology, Inc.",
+        "readme_url": "http://ww1.microchip.com/downloads/en/DeviceDoc/MCC-8-bit-Bootloader-Library-Release-Notes-2.3.3.pdf",
+        "summary": "<!DOCTYPE html><html><head><meta charset='UTF-8'/><title>Bootloader Generator 8bit Library</title></head><body style=\"background-color:grey;\"><h2>Bootloader Generator 8bit Library</h2></body></html>",
+    "category": [
+            "Software"
+        ],
+        "dependencies": [
+            {
+                "metaDataVersion": "1.0.0",
+                "category": "com.microchip.portal.contentRef",
+                "content": {
+                    "metaDataVersion": "1.0.0",
+                    "category": "com.microchip.mcc3.library",
+                    "name": "com.microchip.mcc.mcu8.Mcu8PeripheralLibrary",
+                    "version": "^1.81.5"
+                }
+            },
+            {
+                "metaDataVersion": "1.0.0",
+                "category": "com.microchip.portal.contentRef",
+                "content": {
+                    "metaDataVersion": "1.0.0",
+                    "category": "com.microchip.mcc3.library",
+                    "name": "com.microchip.mcc.mcu8.Mcu8AVRPeripheralLibrary",
+                    "version": "^2.4.0"
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<VBox fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.modules.mcu8.lin.slave.LINViewer">
+    <children>
+      <TitledPane text="LIN Slave">
+         <content>
+            <VBox spacing="10.0">
+               <children>
+                  <VBox>
+                     <children>
+                        <Label fx:id="helpLabel" alignment="TOP_LEFT" minHeight="35.0" text="AN2059" />
+                        <Hyperlink fx:id="helpLink" text="AN2059" />
+                     </children>
+                  </VBox>
+                  <TableView fx:id="scheduleTable" editable="true" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="signalColumn" maxWidth="-1.0" minWidth="75.0" prefWidth="-1.0" text="Signal" />
+                        <TableColumn fx:id="pidColumn" maxWidth="-1.0" minWidth="75.0" prefWidth="-1.0" text="ID" />
+                        <TableColumn fx:id="typeColumn" maxWidth="-1.0" minWidth="75.0" prefWidth="-1.0" text="Type" />
+                        <TableColumn fx:id="lengthColumn" maxWidth="-1.0" minWidth="75.0" prefWidth="-1.0" text="Length" />
+                     </columns>
+                  </TableView>
+                  <HBox spacing="10.0">
+                     <children>
+                        <Label prefHeight="25.0" prefWidth="89.0" text="Checksum Type: " />
+                        <ComboBox fx:id="checksumSel" />
+                     </children>
+                  </HBox>
+                  <HBox spacing="10.0">
+                     <children>
+                        <Button fx:id="addButton" mnemonicParsing="false" onAction="#addRow" text="Add" />
+                        <Button fx:id="removeButton" mnemonicParsing="false" onAction="#removeRow" text="Remove" />
+                        <Label prefHeight="25.0" text="Select a Timer:" />
+                        <ComboBox fx:id="timerSel" />
+                        <Label prefHeight="25.0" text="Select a EUSART:" />
+                        <ComboBox fx:id="eusartSel" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </TitledPane>
+    </children></VBox>

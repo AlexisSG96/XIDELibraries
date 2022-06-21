@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.adc.ADCViewer">
+   <children>
+      <TitledPane fx:id="hardwareSettings" alignment="TOP_LEFT" animated="false" collapsible="false" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <GridPane fx:id="baseGridPane" hgap="5.0" vgap="5.0">
+              <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints vgrow="NEVER" />
+                <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+              </rowConstraints>
+               <children>
+                  <CheckBox fx:id="enableADC" mnemonicParsing="false" onAction="#onAction" text="Enable ADC" />
+                  <TitledPane collapsible="false" text="ADC Clock" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                     <content>
+                        <GridPane fx:id="gridPaneADClk" hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                              <ColumnConstraints />
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                            <RowConstraints />
+                            <RowConstraints />
+                              <RowConstraints />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Clock Source" />
+                              <ComboBox fx:id="clockSrc" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.hgrow="ALWAYS" />
+                              <Label text="1 TAD " GridPane.rowIndex="3" />
+                              <Label text="Sampling Frequency  " GridPane.rowIndex="4" />
+                              <Label GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label fx:id="tadValue" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
+                              <Label fx:id="convTimeLbl" maxWidth="1.7976931348623157E308" text="= 11.5 * TAD = " GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Label fx:id="samplingFrequency" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" />
+                              <Label text="Conversion Time" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+                              <Label fx:id="conversionTime" minWidth="70.0" text="label" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="5" />
+                              <ComboBox fx:id="clkSelect" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                              <Label fx:id="lbAdClk" text="Clock" GridPane.rowIndex="1" />
+                              <Label fx:id="AcqTimeLabel" text="Acquisition Time" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="acqTime" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <CheckBox fx:id="enableInterrupt" mnemonicParsing="false" onAction="#onAction" text="Enable ADC Interrupt" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                  <GridPane fx:id="gridPane1" hgap="5.0" vgap="5.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                    <columnConstraints>
+                      <ColumnConstraints />
+                      <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints />
+                      <RowConstraints />
+                        <RowConstraints />
+                      <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+                     <children>
+                        <Label fx:id="lbresultAlign" text="Result Alignment" />
+                        <ComboBox fx:id="resultAlign" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" />
+                        <Label fx:id="lbposRef" text="Positive Reference" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="posRef" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="lbAutoTrigger" text="Auto-conversion Trigger" GridPane.rowIndex="3" />
+                        <ComboBox fx:id="autoTrigger" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="lbNegRef" text="Negative Reference" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="negRef" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="lbPosRefFrJ60" text="Positive Reference" GridPane.rowIndex="5" />
+                        <Label fx:id="lbNegRefFrJ60" text="Negative Reference" GridPane.rowIndex="6" />
+                        <ComboBox fx:id="cmbPosRefFrJ60" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <ComboBox fx:id="cmbNegRefFrJ60" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label fx:id="lbCalibration" text="Calibration" GridPane.rowIndex="7" />
+                        <ComboBox fx:id="cmbADCalibration" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <ComboBox fx:id="cmbAutoTriggerADACT" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="lbAutoTriggerADACT" text="Auto-Conversion Trigger" GridPane.rowIndex="4" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </GridPane>
+                  <TitledPane alignment="TOP_LEFT" animated="false" collapsible="false" text="Selected Channels" GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.vgrow="NEVER">
+                     <content>
+                        <GridPane hgap="5.0" vgap="5.0">
+                           <children>
+                              <TableView fx:id="adcChannelTable" editable="true" GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER">
+                                 <columns>
+                                    <TableColumn fx:id="pinColumn" maxWidth="-1.0" minWidth="125.0" prefWidth="-1.0" text="Pin" />
+                                    <TableColumn fx:id="adcChannelColumn" maxWidth="-1.0" minWidth="125.0" prefWidth="-1.0" text="Channel " />
+                                    <TableColumn fx:id="customNameColumn" maxWidth="-1.0" minWidth="400.0" prefWidth="-1.0" text="Custom Name" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints />
+                           </columnConstraints>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <rowConstraints>
+                              <RowConstraints minHeight="120.0" vgrow="NEVER" />
+                           </rowConstraints>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane fx:id="titlePaneAdvanceADCFeature" expanded="false" maxWidth="-Infinity" text="Advanced ADC Feature" GridPane.columnSpan="3" GridPane.rowIndex="4">
+                     <content>
+                        <GridPane fx:id="gridPaneAdvanceADC" hgap="5.0" vgap="5.0">
+                           <children>
+                              <TitledPane animated="false" collapsible="false" text="Pre-Charge">
+                                 <content>
+                                    <GridPane hgap="5.0" vgap="5.0">
+                                       <children>
+                                          <CheckBox fx:id="chkEnableInvertPolarity" mnemonicParsing="false" onAction="#onAction" text="Enable Invert Polarity " GridPane.rowIndex="1" />
+                                          <CheckBox fx:id="chkEnableDoubleSample" mnemonicParsing="false" onAction="#onAction" text="Enable Double Sample " />
+                                          <Label text="Additional Sample Capacitor" GridPane.rowIndex="4" />
+                                          <Label text="Precharge" GridPane.rowIndex="5" />
+                                          <Label text="Acquisition" GridPane.rowIndex="7" />
+                                          <Label text="0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <Label text="≤" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                                          <Label text="0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                          <Label text="≤" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                          <Label text="≤" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                                          <Label text="≤" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                                          <Label text="127" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+                                          <Label text="127" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+                                          <TextField fx:id="txPrechargeCount" onAction="#onAction" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                                          <TextField fx:id="txAcquisitionCount" onAction="#onAction" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                                          <Label text="Precharge Time" GridPane.rowIndex="6" />
+                                          <Label fx:id="lbPrechargeTime" text="0 us" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                                          <Label text="Acquisition Time  " GridPane.rowIndex="8" />
+                                          <Label fx:id="lbAcquisitionTime" text="0 us" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+                                          <Label text="External Pre-Charge Connected to" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+                                          <ComboBox fx:id="cmbExternalPrecharge" onAction="#onAction" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                          <ComboBox fx:id="cmbInternalPrecharge" onAction="#onAction" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                          <Label text="Internal Pre-Charge Connected to" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+                                          <ComboBox fx:id="cmbAdditionalSampleCapacitor" onAction="#onAction" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints />
+                                          <ColumnConstraints hgrow="NEVER" />
+                                          <ColumnConstraints hgrow="NEVER" />
+                                          <ColumnConstraints />
+                                          <ColumnConstraints hgrow="NEVER" />
+                                          <ColumnConstraints hgrow="NEVER" />
+                                       </columnConstraints>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                       <rowConstraints>
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </content>
+                              </TitledPane>
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints />
+                           </columnConstraints>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <rowConstraints>
+                              <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                           </rowConstraints>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </GridPane>
+         </content>
+      </TitledPane>
+   </children>
+    
+</AnchorPane>

@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>TIMER 2</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css"></link>
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>Timer 2</h2>
+        <hr>
+        <section>
+            <h3 id="timer_clock" name="timer_clock">Timer Clock</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>These settings allow the user to select the clock source used by the TMR2 module.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>The timer clock settings set the clock parameters of the timer. You can use a clock pre-scaler and a post-scaler. </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>The pre-scaler can take values from 1:2 to 1:64. The post-scaler can take values from 1:1 to 1:16. </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>The timer clock settings are always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="timer_period" name="timer_period">Timer Period</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td> Summary:</td>
+                            <td>Sets the timer period of the timer.</td>
+                        </tr>
+                        <tr>
+                            <td> Description:</td>
+                            <td>Depending on the current selected setting, a minimum and a maximum period is displayed. Your period choice should be between the minimum and maximum values. If your choice is not withing range, you need the adjust your timer clock settings. Upon entering a period value, the period count will change accordingly. The period count is the period register. The calculated period shows the actual period that is the best achievable using the current clock settings.</td>
+                        </tr>
+                        <tr>
+                            <td> Additional Information:</td>
+                            <td>The calculated period will be automatically calculated as integer multiples of the timer step. If finer steps are required, the timer clock should be raised (and vice-versa). Please note that this will also impact the minimum and the maximum period.</td>
+                        </tr>
+                        <tr>
+                            <td> Availability:</td>
+                            <td>The timer period setting is always available.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="software_settings" name="software_settings">Timer Period</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td> Summary:</td>
+                            <td>The software settings configure the software settings of the peripheral driver.</td>
+                        </tr>
+                        <tr>
+                            <td> Description:</td>
+                            <td>The callback function rate allows the software driver to generate timings of several times the timer period. If enabled, you need to enter an integer number. The resulting time period ( timer period times the callback rate) is calcutaled and displayed.</td>
+                        </tr>
+                        <tr>
+                            <td> Availability:</td>
+                            <td>The timer period setting is always available.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>          
+    </body>
+</html>

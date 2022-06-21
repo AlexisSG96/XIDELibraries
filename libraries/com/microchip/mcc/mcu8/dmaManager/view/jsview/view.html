@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MCC View</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="../../../common/ui/webui/bridge.js"></script>
+        <script type="text/javascript" src="../../../common/ui/webui/library.js"></script>
+        <link rel="stylesheet" href="../../../common/ui/webui/style.css" type="text/css" />
+    </head>
+    <body>
+        <div id="divContainer">
+            <div class="divTable" data-collapse="false" >
+                <div class="divTableBar" id="divTableBar1">
+                    <span class="expanded" id="divTableBar1Icon"></span>
+                    <span class="titleBarContent">DMA Settings</span>
+                </div>
+                <div class="divTableBody" id="divTableBar1Body">
+                    <div class="uiDivisions" style="overflow: scroll;height:90% ">
+                        <div class="divTableBodyTop"></div>
+
+                        <div class="divTableRow" >
+                            <div class="tableView">
+                                <div class="divTableCell" >
+                                    <div  class="div-table" id="dmaTable" style="width: 230%;"  >
+                                        <div class="tr" style="min-height: 90%" >
+                                            <div class="tc tableCell" data-control="DMA Channels-Checkbox" id="DMA Channels" > DMA Channels</div>
+                                            <div class="tc tableCell" data-control="Src Module-Combobox" id="Src Module" > Src Module</div>
+                                            <div class="tc tableCell" style="width:140px;" data-control="Src Region-Combobox" id="Src Region" > Src Region</div>
+                                            <div class="tc tableCell" style="width:140px;" data-control="Src SFR-Combobox" id="Src SFR" > Src SFR</div>
+                                            <div class="tc tableCell" data-control="Src VarName-Textbox" id="Src VarName" > Src VarName</div>
+                                            <div class="tc tableCell" data-control="Src VarSize-Textbox" id="Src VarSize" > Src VarSize</div>
+                                            <div class="tc tableCell" data-control="Src Address-Textbox" id="Src Address" > Src Address</div>
+                                            <div class="tc tableCell" style="width:140px;" data-control="Src Mode-Combobox" id="Src Mode" > Src Mode</div>
+                                            <div class="tc tableCell" data-control="Src Message Size-Textbox" id="Src Message Size" > Src Message Size</div>
+                                            <div class="tc tableCell" data-control="Dst Module-Combobox" id="Dst Module" > Dst Module</div>
+                                            <div class="tc tableCell" style="width:140px;" data-control="Dst Region-Combobox" id="Dst Region" > Dst Region</div>
+                                            <div class="tc tableCell" style="width:140px;" data-control="Dst SFR-Combobox" id="Dst SFR" > Dst SFR</div>
+                                            <div class="tc tableCell" data-control="Dst VarName-Textbox" id="Dst VarName" > Dst VarName</div>
+                                            <div class="tc tableCell" data-control="Dst VarSize-Textbox" id="Dst VarSize" > Dst VarSize</div>
+                                            <div class="tc tableCell" style="width:140px;" data-control="Dst Mode-Combobox" id="Dst Mode" > Dst Mode</div>
+                                            <div class="tc tableCell" data-control="Dst Message Size-Textbox" id="Dst Message Size" > Dst Message Size</div>
+                                            <div class="tc tableCell" data-control="Start Trigger-Combobox" id="Start Trigger" > Start Trigger</div>
+                                            <div class="tc tableCell" data-control="Abort Trigger-Combobox" id="Abort Trigger" > Abort Trigger</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="divTableBodyBottom"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript" src="../../../common/ui/webui/uiControls.js"></script>
+                    <script language="javascript">
+                        function onInit() {
+                            jsmodule.setBridge(bridge);
+                            jsmodule.setLibrary(library);
+                            jsmodule.init();
+                        }
+                        window.onload = onInit;
+                    </script>
+                    </body>
+                    </html>

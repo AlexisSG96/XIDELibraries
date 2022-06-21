@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.interruptManager.InterruptViewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" text="Interrupts" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+            <GridPane fx:id="gpAll" hgap="5.0" vgap="5.0">
+                    <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                    </rowConstraints>
+                    <children>
+                  <TableView fx:id="tblIntManager" maxWidth="-Infinity" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.vgrow="NEVER">
+                    <columns>
+                      <TableColumn fx:id="colModuleName" maxWidth="1.7976931348623157E308" prefWidth="100.0" resizable="false" text="Module" />
+                      <TableColumn fx:id="colInterrupt" maxWidth="1.7976931348623157E308" resizable="false" text="Interrupt" />
+                        <TableColumn fx:id="colDescription" maxWidth="1.7976931348623157E308" prefWidth="200.0" resizable="false" text="Description" />
+                        <TableColumn fx:id="colVectorNumber" maxWidth="1.7976931348623157E308" prefWidth="99.0" resizable="false" text="Vector Number" />
+                        <TableColumn fx:id="colIntEnable" maxWidth="1.7976931348623157E308" prefWidth="67.0" resizable="false" text="Enable" />
+                        <TableColumn fx:id="colPriority" maxWidth="1.7976931348623157E308" prefWidth="90.0" resizable="false" text="High Priority" />
+                    </columns>
+                  </TableView>
+                  <CheckBox fx:id="chkMvcenEnable" mnemonicParsing="false" onAction="#onAction" text="Vectored Interrupt Enable" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                  <Label fx:id="enableInterruptLabel" text="Please remember to enable the Peripheral and Global Interrupts in your code!" GridPane.vgrow="NEVER">
+                            <graphic>
+                                <ImageView pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@warning.gif" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Label>
+                  <GridPane fx:id="gpLegacyIntManager" hgap="5.0" vgap="5.0" GridPane.rowIndex="5" GridPane.vgrow="NEVER">
+                                    <columnConstraints>
+                      <ColumnConstraints hgrow="NEVER" />
+                      <ColumnConstraints hgrow="NEVER" />
+                        <ColumnConstraints hgrow="NEVER" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints vgrow="NEVER" />
+                                        <RowConstraints vgrow="NEVER" />
+                                    </rowConstraints>
+                                    <children>
+                        <TitledPane fx:id="tpHighIntVector" animated="false" text="Interrupt Vector" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
+                          <content>
+                              <GridPane fx:id="gpHighInterruptVector" hgap="5.0" vgap="5.0">
+                                            <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                  <ColumnConstraints hgrow="SOMETIMES" />
+                                  <ColumnConstraints hgrow="SOMETIMES" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <GridPane hgap="5.0" vgap="5.0" GridPane.vgrow="NEVER">
+                                       <columnConstraints>
+                                          <ColumnConstraints maxWidth="-Infinity" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints vgrow="NEVER" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Button fx:id="btUpHigh" mnemonicParsing="false" onAction="#onHighUpButtonAction" GridPane.columnIndex="1" />
+                                          <Label text="Order" />
+                                          <Button fx:id="btDownHigh" mnemonicParsing="false" onAction="#onHighDownButtonAction" GridPane.columnIndex="2" />
+                                          <CheckBox fx:id="chkBoxPreemptiveHigh" mnemonicParsing="false" onAction="#onAction" text="Preemptive Interrupt Routine" GridPane.columnIndex="7" />
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                            </padding>
+                                        </GridPane>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                </GridPane>
+                            </content>
+                        </TitledPane>
+                        <TitledPane fx:id="tpLowIntVector" animated="false" text="Low Interrupt Vector" GridPane.columnIndex="2" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
+                            <content>
+                              <GridPane fx:id="gpLowInterruptVector" hgap="5.0" vgap="5.0">
+                                    <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                        
+                                    <GridPane hgap="5.0" vgap="5.0" GridPane.vgrow="NEVER">
+                                            <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints vgrow="NEVER" />
+                                            </rowConstraints>
+                                       <children>
+                                          <Label text="Order" />
+                                          <Button fx:id="btUpLow" mnemonicParsing="false" onAction="#onLowUpButtonAction" GridPane.columnIndex="1" />
+                                          <Button fx:id="btDownLow" mnemonicParsing="false" onAction="#onLowDownButtonAction" GridPane.columnIndex="2" />
+                                          <CheckBox fx:id="chkBoxPreemptiveLow" mnemonicParsing="false" onAction="#onAction" text="Preemptive Interrupt Routine" GridPane.columnIndex="7" />
+                                       </children>
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin>
+                                            <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                            </padding>
+                                        </GridPane>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                </GridPane>
+                            </content>
+                        </TitledPane>
+      
+                        <GridPane fx:id="gpRighLeftArrows" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" />
+                            </columnConstraints>
+                            <rowConstraints>
+                            <RowConstraints minHeight="150.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Button fx:id="btRight" mnemonicParsing="false" onAction="#onRightButtonAction" GridPane.rowIndex="1" />
+                                <Button fx:id="btLeft" mnemonicParsing="false" onAction="#onLeftButtonAction" GridPane.rowIndex="2" />
+                            </children>
+                        </GridPane>
+                        <CheckBox fx:id="chkUseHighLowPriority" mnemonicParsing="false" onAction="#onAction" text="Enable High/Low Interrupt Vector priority" />
+                     </children>
+                            <padding>
+                        <Insets bottom="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </GridPane>
+                  <TitledPane fx:id="tpIVT" expanded="false" maxWidth="-Infinity" text="Interrupt Vector Table Information" GridPane.rowIndex="2">
+                     <content>
+                        <GridPane fx:id="gpIVT" hgap="5.0" vgap="5.0" GridPane.rowIndex="2">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="NEVER" />
+                              <ColumnConstraints hgrow="NEVER" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                          </rowConstraints>
+                           <children>
+                              <TextField fx:id="txtIVTName" alignment="CENTER" GridPane.columnIndex="1" />
+                              <Label text="IVT Name" />
+                              <Label text="IVT Base Address" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <TextField fx:id="txtIVTAddress" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           </children>
+                           <padding>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </padding>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                    </children>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </padding>
+                </GridPane>
+            </content>
+        </TitledPane>
+    </children>
+</AnchorPane>

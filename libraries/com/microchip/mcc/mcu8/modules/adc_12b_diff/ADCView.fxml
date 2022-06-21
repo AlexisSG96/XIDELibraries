@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.adc_12b_diff.ADCViewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" layoutY="-2.0" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+            <ScrollPane prefViewportHeight="244.0" prefViewportWidth="390.0">
+               <content>
+                      <GridPane fx:id="baseGridPane" hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                              <ColumnConstraints />
+                        <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                          </rowConstraints>
+                          <children>
+                              <CheckBox fx:id="chkEnableADC" mnemonicParsing="false" onAction="#onAction" text="Enable ADC" />
+                        <TitledPane animated="false" collapsible="false" maxHeight="1.7976931348623157E308" text="ADC Clock" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
+                           <content>
+                              <GridPane fx:id="leftGrid" hgap="5.0" vgap="5.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                  <ColumnConstraints hgrow="SOMETIMES" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Clock Source" />
+                                    <Label text="1 TAD " GridPane.rowIndex="2" />
+                                    <ComboBox fx:id="cmbClockSource" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="3" />
+                                    <Label text="Sampling Frequency" GridPane.rowIndex="3" />
+                                    <Label fx:id="lbSamplingFreqValue" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                    <Label text="Conversion Time" GridPane.rowIndex="4" />
+                                    <Label fx:id="lbConvertionTime" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                    <Label fx:id="lbOneTadValue" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    <Label fx:id="AcqTimeLabel" text="Acquisition Time" GridPane.rowIndex="1" />
+                                    <ComboBox fx:id="acqTime" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </GridPane>
+                           </content>
+                        </TitledPane>
+                        <GridPane fx:id="secondGrid" hgap="5.0" vgap="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                          <columnConstraints>
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                            <RowConstraints vgrow="NEVER" />
+                            <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                          </rowConstraints>
+                           <children>
+                              <Label fx:id="ADCResModeLbl" text="ADC Result Mode" />
+                              <Label text="Result Alignment" GridPane.rowIndex="1" />
+                              <Label text="Auto Conversion Trigger" GridPane.rowIndex="2" />
+                              <Label text="Neg Diff Input Channel" GridPane.rowIndex="5" />
+                              <Label text="Positive Voltage Ref" GridPane.rowIndex="3" />
+                              <Label text="Negative Voltage Ref" GridPane.rowIndex="4" />
+                              <ComboBox fx:id="cmbResultAlignment" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="cmbAutoConversionTrigger" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="cmbNegDiffInputChannel" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <ComboBox fx:id="cmbPosVoltRef" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <ComboBox fx:id="cmbNegVoltRef" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <ComboBox fx:id="cmbResultMode" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                        <CheckBox fx:id="chkEnableADCInterrupt" mnemonicParsing="false" onAction="#onAction" text="Enable ADC Interrupt" GridPane.rowIndex="2" />
+                          </children>
+                          <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                          </padding>
+                      </GridPane>
+               </content>
+            </ScrollPane>
+            </content>
+        </TitledPane>
+    </children>
+    
+</AnchorPane>

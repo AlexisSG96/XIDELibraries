@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mikrobus.MIKROBASEViewer">
+   <children>
+      <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TabPane fx:id="parentPane" managed="true" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+              <tabs>
+                  <Tab text="Information">
+                     <content>
+                        <AnchorPane>
+                           <children>
+                              <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <GridPane alignment="CENTER" hgap="15.0" VBox.vgrow="ALWAYS">
+                                      <columnConstraints>
+                                        <ColumnConstraints halignment="CENTER" percentWidth="75.0" />
+                                        <ColumnConstraints percentWidth="50.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints />
+                                        <RowConstraints vgrow="SOMETIMES" />
+                                        <RowConstraints />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+                                             <font>
+                                                <Font name="Arial Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <TextArea fx:id="descriptionText" editable="false" focusTraversable="false" maxWidth="400.0" style="-fx-background-color: transparent; -fx-focus-color: transparent; -fx-text-box-border: transparent;" text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. &#10;&#10;Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. &#10;&#10;Fusce est. Vivamus a tellus. &#10;&#10;Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. &#10;&#10;Mauris et orci. Aenean nec lorem.&#10;&#10;Test&#10;" wrapText="true" GridPane.rowIndex="1" />
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Product Page" GridPane.rowIndex="2">
+                                             <font>
+                                                <Font name="Arial Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Hyperlink fx:id="productPageLink" text="http://www.mikroe.com/click/" GridPane.rowIndex="3" />
+                                          <ImageView fx:id="clickBoardImage" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowSpan="4" GridPane.valignment="CENTER">
+                                             <image>
+                                                <Image url="@mikroeLogo_large.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                       </padding>
+                                    </GridPane>
+                                  <AnchorPane fx:id="informationPane" VBox.vgrow="ALWAYS" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                <Tab fx:id="configurationTab" text="Configuration">
+                  <content>
+                    <AnchorPane>
+                           <children>
+                              <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <AnchorPane fx:id="clickPane">
+                                       <children>
+                                          <Label text="No configuration needed">
+                                             <padding>
+                                                <Insets bottom="15.0" left="15.0" top="15.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font></Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <AnchorPane VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <TitledPane text="Example" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <content>
+                                                <VBox spacing="15.0">
+                                                   <children>
+                                                      <CheckBox fx:id="generateExampleCheckbox" mnemonicParsing="false" onAction="#onAction" text="Generate Example" />
+                                                      <Label fx:id="exampleText" maxWidth="700.0" text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa." wrapText="true" />
+                                                   </children>
+                                                </VBox>
+                                             </content>
+                                          </TitledPane>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                <Tab fx:id="advancedSettingsTab" closable="false" text="Advanced Settings">
+                  <content>
+                        <StackPane>
+                           <children>
+                              <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <VBox fx:id="capabilitiesVbox" spacing="10.0">
+                                       <children>
+                                          <CheckBox fx:id="i2cCheckbox" mnemonicParsing="false" text="I2C" />
+                                          <CheckBox fx:id="spiCheckbox" mnemonicParsing="false" text="SPI" />
+                                          <CheckBox fx:id="uartCheckbox" mnemonicParsing="false" text="UART" />
+                                          <CheckBox fx:id="pwmCheckbox" mnemonicParsing="false" text="PWM" />
+                                          <CheckBox fx:id="tmrCheckbox" mnemonicParsing="false" text="TMR" />
+                                          <CheckBox fx:id="adcCheckbox" mnemonicParsing="false" text="AN" />
+                                          <CheckBox fx:id="intCheckbox" mnemonicParsing="false" onAction="#onAction" text="INT" />
+                                          <CheckBox fx:id="resetCheckbox" mnemonicParsing="false" onAction="#onAction" text="RESET" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                    <TitledPane fx:id="I2CPane" animated="false" managed="true" text="I2C" VBox.vgrow="ALWAYS" />
+                                    <TitledPane fx:id="SPIPane" animated="false" managed="true" text="SPI" />
+                                    <TitledPane fx:id="UARTPane" animated="false" managed="true" text="UART" />
+                                    <TitledPane fx:id="ADCPane" animated="false" managed="true" text="ADC" />
+                                    <TitledPane fx:id="PWMPane" animated="false" managed="true" text="PWM" />
+                                    <TitledPane fx:id="TMRPane" animated="false" managed="true" text="TMR" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </StackPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

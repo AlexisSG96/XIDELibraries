@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    <mapID target="mcu8_pwm16bit_controls" url="controls.html"/>
+    <mapID target="mcu8_pwm16bit_controls_pwmmode" url="controls.html#pwmmode"/>
+    <mapID target="mcu8_pwm16bit_controls_clocksource" url="controls.html#clocksource"/>
+    <mapID target="mcu8_pwm16bit_controls_clockprescaler" url="controls.html#clockprescaler"/>
+    <mapID target="mcu8_pwm16bit_controls_offsetmatchon" url="controls.html#offsetmatchon"/>
+    <mapID target="mcu8_pwm16bit_controls_offsetmode" url="controls.html#offsetmode"/>
+    <mapID target="mcu8_pwm16bit_controls_offsettriggersource" url="controls.html#offsettriggersource"/>
+    <mapID target="mcu8_pwm16bit_controls_period" url="controls.html#period"/>
+    <mapID target="mcu8_pwm16bit_controls_phase" url="controls.html#phase"/>
+    <mapID target="mcu8_pwm16bit_controls_offset" url="controls.html#offset"/>
+    <mapID target="mcu8_pwm16bit_controls_dutycycle" url="controls.html#dutycycle"/>
+    
+    <mapID target="mcu8_pwm16bit_wiki" url="http://microchip.wikidot.com/8bit:pwm" wintype="external"/>
+</map>

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.pwm_16bit.PWMViewer">
+    <children>
+        <TitledPane layoutY="-2.0" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <GridPane fx:id="mainGridPWM" hgap="5.0" vgap="5.0">
+                    <columnConstraints>
+                        <ColumnConstraints />
+                  <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                  <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                  <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                  <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                    </rowConstraints>
+                    <children>
+                        <CheckBox fx:id="enablePWM" mnemonicParsing="false" onAction="#onAction" text="Enable PWM" />
+                  <TitledPane animated="false" text="PWM" GridPane.rowIndex="2">
+                     <content>
+                        <GridPane hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                            <ColumnConstraints hgrow="SOMETIMES" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Output Polarity" />
+                              <Label text="Mode" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="cmbOutputPolarity" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" />
+                              <ComboBox fx:id="cmbPWMMode" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" text="Clock" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                     <content>
+                        <GridPane hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                            <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Clock Source" />
+                              <Label text="Prescalar" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="cmbClockSource" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" />
+                              <ComboBox fx:id="cmbClockPrescalar" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" text="PWM Offset" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                     <content>
+                        <GridPane fx:id="gpOffset" hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                            <ColumnConstraints hgrow="SOMETIMES" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label fx:id="lblMatchOn" text="Match On" />
+                              <Label fx:id="lblOffsetMode" text="Mode" GridPane.rowIndex="1" />
+                              <Label fx:id="lblOffsetTriggerSrc" text="Trigger Source" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="cmbOffsetMatcOn" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" />
+                              <ComboBox fx:id="cmbOffsetMode" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="cmbOffsetTriggerSource" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" text="PWM Reload" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                     <content>
+                        <GridPane fx:id="gpReload" hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                            <ColumnConstraints hgrow="SOMETIMES" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label fx:id="lblReloadTrigSrc" text="Trigger Source" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="cmbReloadTriggerSource" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="chkbxEnableLoadBufferOnTrigger" mnemonicParsing="false" onAction="#onAction" text="Enable Load Buffer on Trigger" GridPane.columnSpan="2" />
+                              <CheckBox fx:id="chkbxLoadBuffer" mnemonicParsing="false" onAction="#onAction" text="Load Buffer" GridPane.rowIndex="1" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" text="Period" GridPane.rowIndex="4">
+                     <content>
+                        <GridPane hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                            <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="NEVER" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                            <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Period" />
+                              <Label fx:id="lblMinPeriod" text="0 us" GridPane.columnIndex="1" />
+                              <Label text="≤" GridPane.columnIndex="2" />
+                              <Label text="≤" GridPane.columnIndex="4" />
+                              <Label fx:id="lblMaxPeriod" text="0 us" GridPane.columnIndex="5" />
+                              <Label text="Period Count:" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+                              <Label fx:id="lblPeriodCount" text="0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <TextField fx:id="txtPeriod" maxWidth="100.0" GridPane.columnIndex="3" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" text="Phase" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <content>
+                        <GridPane hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                              <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                              <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Phase" />
+                              <Label text="0 deg" GridPane.columnIndex="1" />
+                              <Label text="≤" GridPane.columnIndex="2" />
+                              <Label text="≤" GridPane.columnIndex="4" />
+                              <Label text="360 deg" GridPane.columnIndex="5" />
+                              <Label text="Phase count:" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+                              <Label fx:id="lblPhaseCount" text="0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <TextField fx:id="txtPhase" maxWidth="100.0" GridPane.columnIndex="3" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" text="Offset" GridPane.rowIndex="5">
+                     <content>
+                        <GridPane hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                              <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                              <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" />
+                              <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Offset" />
+                              <Label fx:id="lblMinOffset" text="0 us" GridPane.columnIndex="1" />
+                              <Label text="≤" GridPane.columnIndex="2" />
+                              <Label text="≤" GridPane.columnIndex="4" />
+                              <Label fx:id="lblMaxOffset" text="0 us" GridPane.columnIndex="5" />
+                              <Label text="Offset Count:" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+                              <Label fx:id="lblOffsetCount" text="0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <TextField fx:id="txtOffset" maxWidth="100.0" GridPane.columnIndex="3" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" text="DutyCycle" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <content>
+                        <GridPane hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Duty Cycle" />
+                              <Label text="\%" GridPane.columnIndex="2" />
+                              <Label text="Duty Cycle Count:" GridPane.rowIndex="1" />
+                              <Label fx:id="lblDutyCycleCount" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="txtDutyCycle" maxWidth="100.0" GridPane.columnIndex="1" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" text="Interrupt" GridPane.columnSpan="2" GridPane.rowIndex="6">
+                     <content>
+                        <GridPane hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label />
+                              <CheckBox fx:id="chkbxEnableAllInterrupt" mnemonicParsing="false" onAction="#onAction" text="Enable All Interrupt" />
+                              <CheckBox fx:id="enablePeriodInterrupt" mnemonicParsing="false" onAction="#onAction" text="Enable Period Interrupt" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="enablePhaseInterrupt" mnemonicParsing="false" onAction="#onAction" text="Enable Phase Interrupt" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="enableDutyCycleInterrupt" mnemonicParsing="false" onAction="#onAction" text="Enable Duty Cycle Interrupt" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="enableOffsetInterrupt" mnemonicParsing="false" onAction="#onAction" text="Enable Offset interrupt" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <CheckBox fx:id="enablePWMoutput" mnemonicParsing="false" onAction="#onAction" text="Enable PWM output pin" GridPane.rowIndex="1" />
+                    </children>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </padding>
+                </GridPane>
+            </content>
+        </TitledPane>
+    </children>
+    
+</AnchorPane>

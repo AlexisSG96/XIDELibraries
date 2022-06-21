@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mikrobus.DIGIPOT.DigiPotViewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" layoutY="-2.0" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <VBox prefHeight="177.0" prefWidth="392.0">
+                    <children>
+                  <GridPane maxWidth="340.0" prefHeight="40.0" prefWidth="340.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="256.0" minWidth="10.0" prefWidth="243.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.0" minWidth="10.0" prefWidth="97.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TextField fx:id="dpValueText" alignment="CENTER_RIGHT" maxWidth="90.0" prefHeight="25.0" prefWidth="90.0" text="5000" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label maxWidth="220.0" prefHeight="17.0" prefWidth="220.0" text="Desired Default Resistance Value (ohms):" textAlignment="RIGHT" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+                  <GridPane prefHeight="27.0" prefWidth="305.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="362.0" minWidth="10.0" prefWidth="338.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Slider fx:id="dpValueSlider" blockIncrement="0.0" majorTickUnit="257.0" max="10000.0" maxWidth="350.0" minorTickCount="0" prefHeight="14.0" prefWidth="200.0" showTickMarks="true" snapToTicks="true" value="5000.0" />
+                     </children>
+                  </GridPane>
+                  <GridPane maxWidth="340.0" prefHeight="30.0" prefWidth="340.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="256.0" minWidth="10.0" prefWidth="242.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="98.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label maxWidth="220.0" prefHeight="17.0" prefWidth="220.0" text="Actual Default Resistance Value (ohms):" textAlignment="RIGHT" />
+                        <TextField fx:id="dpActValueText" alignment="CENTER_RIGHT" editable="false" maxWidth="90.0" prefHeight="25.0" prefWidth="90.0" text="5000" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+                    </children>
+                </VBox>
+            </content>
+        </TitledPane>
+    </children>
+    
+</AnchorPane>

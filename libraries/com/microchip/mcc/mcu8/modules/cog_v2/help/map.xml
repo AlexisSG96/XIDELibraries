@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    <mapID target="mcu8_cog_controls"         url="controls.html"/>
+    <mapID target="mcu8_cog_hardware_settings"   url="controls.html#hardware_settings"/>    
+    <mapID target="mcu8_cog_events"           url="controls.html#events"/>
+    <mapID target="mcu8_cog_signal"           url="controls.html#signal"/> 
+    <mapID target="mcu8_cog_window"           url="controls.html#window"/>
+</map>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    <mapID target="mcu8_at_controls" url="controls.html"/>
+    <mapID target="mcu8_at_controls_resolution" url="controls.html#resolution"/>
+    <mapID target="mcu8_at_controls_missing_pulse" url="controls.html#missing_pulse"/>
+    <mapID target="mcu8_at_controls_set_point" url="controls.html#set_point"/>
+    <mapID target="mcu8_at_controls_period" url="controls.html#period"/>
+    <mapID target="mcu8_at_controls_capture_compare" url="controls.html#capture_compare"/>
+    <mapID target="mcu8_at_wiki" url="http://microchip.wikidot.com/8bit:at-op" wintype="external"/>
+
+</map>

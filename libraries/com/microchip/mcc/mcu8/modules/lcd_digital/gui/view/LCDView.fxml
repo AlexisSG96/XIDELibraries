@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.lcd_digital.gui.view.LCDViewer">
+    <children>
+        <GridPane hgap="5.0" vgap="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+            </rowConstraints>
+            <children>
+                <TitledPane alignment="TOP_LEFT" animated="false" collapsible="false" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" GridPane.vgrow="ALWAYS">
+                    <content>
+                        <GridPane fx:id="gpHardwareSettings" hgap="5.0" vgap="5.0">
+                            <columnConstraints>
+                                <ColumnConstraints />
+                              
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                                <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                                <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                                <RowConstraints vgrow="NEVER" />
+                                <RowConstraints />
+                                <RowConstraints />
+                            </rowConstraints>
+                            <children>
+                       
+                        
+                                <CheckBox fx:id="enableLCD" mnemonicParsing="false" onAction="#onAction" text="Enable LCD" />
+                                <TitledPane fx:id="genSettingsPane" animated="false" focusTraversable="false" maxHeight="-Infinity" text="General Settings" GridPane.rowIndex="2">
+                                    <content>
+                                        <GridPane fx:id="gpTimerClock" hgap="5.0" vgap="5.0" GridPane.rowIndex="1">
+                                            <columnConstraints>
+                                                <ColumnConstraints maxWidth="-Infinity" />
+                                                <ColumnConstraints maxWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="37.0" />
+                                                <ColumnConstraints maxWidth="156.0" minWidth="10.0" prefWidth="147.0" />
+                                                <ColumnConstraints maxWidth="116.0" minWidth="101.0" prefWidth="116.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                                                <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                                                <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                                                <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                                    <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                            </rowConstraints>
+                                            <children>
+                                                <ComboBox fx:id="cmbClockSource" maxWidth="1.7976931348623157E308" minWidth="100.0" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <ComboBox fx:id="cmbPrescaler" maxWidth="1.7976931348623157E308" minWidth="100.0" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Label maxWidth="1.7976931348623157E308" text="Clock Source" GridPane.rowIndex="1" />
+                                                <Label prefHeight="17.0" prefWidth="120.0" text="Prescaler Settings" GridPane.rowIndex="2" />
+                                                <CheckBox fx:id="enableInterrupt" mnemonicParsing="false" onAction="#onAction" text="Enable LCD Interrupt" GridPane.columnIndex="3" GridPane.columnSpan="2" />
+                                                <CheckBox fx:id="enableSleepMode" mnemonicParsing="false" onAction="#onAction" text="Disable Sleep Mode" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                                <Label text="Waveform type" />
+                                                <ComboBox fx:id="cmbWaveformType" layoutX="114.0" layoutY="45.0" maxWidth="1.7976931348623157E308" minWidth="100.0" onAction="#onAction" GridPane.columnIndex="1" />
+                                                <Label layoutX="15.0" layoutY="84.0" text="Multiplex Mode" GridPane.rowIndex="3" />
+                                                <ComboBox fx:id="cmbMultiplexMode" layoutX="114.0" layoutY="80.0" maxWidth="1.7976931348623157E308" minWidth="100.0" onAction="#onAction" prefHeight="25.0" prefWidth="139.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <Label layoutX="15.0" layoutY="79.0" text="Frame Frequency" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                <Label fx:id="lbFrameFreq" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                    <Label text="Available Pixels" GridPane.rowIndex="4" />
+                                    <Label fx:id="lbPixels" layoutX="478.0" layoutY="79.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                            </padding>
+                                        </GridPane>
+                                    </content>
+                                </TitledPane>
+                                <TitledPane fx:id="lcdDesignPane" animated="false" text="LCD Design" GridPane.rowIndex="3">
+                                    <content>
+                                        <SplitPane dividerPositions="0.5" maxWidth="1.7976931348623157E308" orientation="VERTICAL">
+                                            <items>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0">
+                                                    <children>
+                                                        <ToolBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <items>
+                                                                <SplitMenuButton fx:id="addSymbol" mnemonicParsing="false" onAction="#onAddSymbol" text="Add">
+                                                                    <items>
+                                                                        <MenuItem mnemonicParsing="false" onAction="#onAddSymbol" text="MCC Library" />
+                                                                        <MenuItem mnemonicParsing="false" onAction="#onAddExternal" text="External Image" />
+                                                      <Menu fx:id="lcdBoardMenu" mnemonicParsing="false" text="Microchip Supported LCD Glass" />
+                                                                    </items>
+                                                                </SplitMenuButton>
+                                                                <Button fx:id="lockBtn" mnemonicParsing="false" onAction="#onLock" prefHeight="25.0" prefWidth="25.0" />
+                                                                <Button fx:id="duplicateBtn" mnemonicParsing="false" onAction="#onDuplicate" prefHeight="25.0" prefWidth="25.0" />
+                                                                <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#onDelete" prefHeight="25.0" prefWidth="25.0" />
+                                                                <Button fx:id="resetBtn" mnemonicParsing="false" onAction="#onReset" prefHeight="25.0" prefWidth="25.0" />
+                                                <ColorPicker fx:id="backColorBtn" editable="true" onAction="#onColorChange" pickOnBounds="false" />
+                                                                <Pane HBox.hgrow="ALWAYS" />
+                                                                <SplitMenuButton mnemonicParsing="false" onAction="#onImportLCDDesign" text="Import LCD">
+                                                                    <items>
+                                                                        <MenuItem mnemonicParsing="false" onAction="#onImportLCDDesign" text="LCD Design" />
+                                                                    </items>
+                                                                </SplitMenuButton>
+                                                                <SplitMenuButton mnemonicParsing="false" onAction="#onExportLCDDesign" text="Export LCD">
+                                                                    <items>
+                                                                        <MenuItem mnemonicParsing="false" onAction="#onExportLCDDesign" text="LCD Design" />
+                                                                        <MenuItem mnemonicParsing="false" onAction="#onExportScreenshot" text="Screenshot (.png)" />
+                                                                        <SeparatorMenuItem mnemonicParsing="false" />
+                                                                        <MenuItem mnemonicParsing="false" onAction="#onPrintPanel" text="Printer" />
+                                                                    </items>
+                                                                </SplitMenuButton>
+                                                            </items>
+                                                        </ToolBar>
+                                                        <ScrollPane fx:id="lcdPanelScrollPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0">
+                                                            <content>
+                                                                <Pane fx:id="lcdPanel" prefHeight="500.0" prefWidth="1000.0" style="-fx-background-color: #FFFFA5;" />
+                                                            </content>
+                                                        </ScrollPane>
+                                                        <Label fx:id="lcdPanelText" contentDisplay="CENTER" style="-fx-background-color: transparent;" textFill="#9e9e9e" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0" />
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0">
+                                                    <children>
+                                                        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <children>
+                                                                <ToolBar fx:id="segComToolbar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                                                                    <items>
+                                                                        <Label text="Macro:" />
+                                                                        <TextField fx:id="userMacro" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="75.0" promptText="PREFIX" />
+                                                                        <Label fx:id="postMacro" graphicTextGap="0.0" text="_SYM" wrapText="true" />
+                                                                        <Pane style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+                                                      <Label fx:id="oldMacroLbl" disable="true" text="Old Macro:" />
+                                                      <TextField fx:id="oldMacro" disable="true" editable="false" prefWidth="45.0" promptText="XXXX" />
+                                                                        <Label text="SEG:" />
+                                                                        <ComboBox fx:id="segL" editable="true" />
+                                                                        <Label text="COM:" wrapText="true" />
+                                                                        <ComboBox fx:id="comL" editable="true" />
+                                                                    </items>
+                                                                </ToolBar>
+                                                                <ToolBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                                                                    <items>
+                                                                        <Label text="SEG/COM Table Mapping" />
+                                                                        <Pane style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+                                                                        <Button mnemonicParsing="false" onAction="#onSummary" text="MACRO Summary" />
+                                                                    </items>
+                                                                </ToolBar>
+                                                                <ScrollPane minHeight="-Infinity" pannable="true" prefHeight="200.0">
+                                                                    <content>
+                                                                        <GridPane fx:id="segcomGrid" alignment="CENTER" focusTraversable="true" gridLinesVisible="true" />
+                                                                    </content>
+                                                                </ScrollPane>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </AnchorPane>
+                                            </items>
+                                        </SplitPane>
+                                        
+                                    </content>
+                                </TitledPane>
+                                <TitledPane fx:id="internalRefPane" text="Internal Reference &amp; Contrast Control" GridPane.rowIndex="4">
+                                    <content>
+                                        <GridPane hgap="5.0" maxWidth="1.7976931348623157E308" vgap="5.0">
+                                            <children>
+                                                <ComboBox fx:id="cmbTimePowerA" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Label text="Reference ladder  A time power control" GridPane.rowIndex="1" />
+                                                <CheckBox fx:id="enableInternalReference" mnemonicParsing="false" onAction="#onAction" text="Enable internal reference Buffer Idle" GridPane.columnSpan="4" />
+                                                <Label text="Reference ladder B time power control" GridPane.rowIndex="2" />
+                                                <ComboBox fx:id="cmbTimePowerB" layoutX="114.0" layoutY="45.0" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Label text="Reference ladder time interval control" GridPane.rowIndex="3" />
+                                                <ComboBox fx:id="cmbTimeIntervalCustom" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <Label text="Contrast control resistor ladder&#10;" GridPane.rowIndex="4" />
+                                                <ComboBox fx:id="cmbContrast" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                            </children>
+                                            <columnConstraints>
+                                                <ColumnConstraints />
+                                                <ColumnConstraints />
+                                                <ColumnConstraints />
+                                                <ColumnConstraints />
+                                                <ColumnConstraints />
+                                            </columnConstraints>
+                                            <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                            </padding>
+                                            <rowConstraints>
+                                                <RowConstraints vgrow="NEVER" />
+                                                <RowConstraints vgrow="NEVER" />
+                                                <RowConstraints vgrow="NEVER" />
+                                                <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                                                <RowConstraints vgrow="NEVER" />
+                                            </rowConstraints>
+                                        </GridPane>
+                                    </content>
+                                </TitledPane>
+                                <TitledPane fx:id="voltageConPane" text="Voltage Control" GridPane.rowIndex="5">
+                                    <content>
+                                        <GridPane hgap="5.0" vgap="5.0">
+                                            <children>
+                                                <Label text="Bias" GridPane.rowIndex="3" />
+                                                <ComboBox fx:id="cmbBias" layoutX="114.0" layoutY="45.0" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <Label text="Source control&#10;" GridPane.rowIndex="4" />
+                                                <ComboBox fx:id="cmbVoltageSourceControl" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                <CheckBox fx:id="enableChargePump" mnemonicParsing="false" onAction="#onAction" text="Enable charge pump low power" />
+                                                <CheckBox fx:id="enable5VRange" mnemonicParsing="false" onAction="#onAction" text="Enable 5V range" GridPane.rowIndex="2" />
+                                                <CheckBox fx:id="disableChargePumpWatchdog" mnemonicParsing="false" onAction="#onAction" text="Disable charge pump discharge watchdog" GridPane.rowIndex="1" />
+                                            </children>
+                                            <columnConstraints>
+                                                <ColumnConstraints />
+                                                <ColumnConstraints />
+                                                <ColumnConstraints />
+                                                <ColumnConstraints />
+                                                <ColumnConstraints />
+                                            </columnConstraints>
+                                            <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                            </padding>
+                                            <rowConstraints>
+                                                <RowConstraints maxHeight="27.0" minHeight="22.0" prefHeight="23.0" vgrow="NEVER" />
+                                                <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="24.0" vgrow="NEVER" />
+                                                <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="23.0" vgrow="NEVER" />
+                                                <RowConstraints maxHeight="32.0" minHeight="24.0" prefHeight="28.0" vgrow="NEVER" />
+                                                <RowConstraints maxHeight="33.0" minHeight="26.0" prefHeight="29.0" vgrow="NEVER" />
+                                            </rowConstraints>
+                                        </GridPane>
+                                    </content>
+                                </TitledPane>
+                            </children>
+                            <padding>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </padding>
+                        </GridPane>
+                    </content>
+                </TitledPane>
+            </children>
+        </GridPane>
+    </children>
+    
+</AnchorPane>

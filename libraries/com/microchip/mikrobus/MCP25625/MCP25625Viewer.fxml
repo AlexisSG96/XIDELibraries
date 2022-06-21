@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mikrobus.MCP25625.MCP25625Viewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" layoutY="-2.0" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <VBox fillWidth="false" />
+                <GridPane hgap="5.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints />
+          <ColumnConstraints />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+        </rowConstraints>
+         <children>
+            <TitledPane animated="false" text="CAN ID Masks and Filters" GridPane.rowIndex="2">
+               <content>
+                  <GridPane hgap="5.0" vgap="5.0">
+                    <columnConstraints>
+                      <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints vgrow="NEVER" />
+                      <RowConstraints vgrow="NEVER" />
+                    </rowConstraints>
+                     <children>
+                        <GridPane hgap="5.0" vgap="5.0" GridPane.rowIndex="1">
+                          <columnConstraints>
+                            <ColumnConstraints />
+                              <ColumnConstraints />
+                            <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints vgrow="NEVER" />
+                            <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                          </rowConstraints>
+                           <children>
+                              <TextField fx:id="txtAddCanID" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="cmbAddCanMask" disable="true" maxWidth="1.7976931348623157E308" promptText="Acceptance Mask 0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="cmbAddCanFilter" maxWidth="1.7976931348623157E308" onAction="#onFilterChange" promptText="Filter 0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="cmbAddCanBuffer" disable="true" maxWidth="1.7976931348623157E308" promptText="RXB0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                              <Button fx:id="btnAddID" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addRow" text="Add" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Button fx:id="btnRemoveID" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#removeRow" text="Remove" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                        <TableView fx:id="canConfigTable" minHeight="-Infinity" prefHeight="307.0" prefWidth="494.0">
+                          <columns>
+                            <TableColumn fx:id="idColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="100.0" text="CAN ID" />
+                            <TableColumn id="maskColumn" fx:id="maskColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="177.0" text="CAN Mask" />
+                              <TableColumn id="filterColumn" fx:id="filterColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="107.0" text="CAN Filter" />
+                              <TableColumn id="bufferColumn" fx:id="bufferColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="108.0" text="CAN Buffer" />
+                          </columns>
+                        </TableView>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </GridPane>
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" text="CAN BUS Settings" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+               <content>
+                  <GridPane hgap="5.0" prefHeight="256.0" vgap="5.0">
+                    <columnConstraints>
+                        <ColumnConstraints maxWidth="110.0" minWidth="110.0" prefWidth="110.0" />
+                        <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                      <ColumnConstraints />
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                              <RowConstraints vgrow="NEVER" />
+                      <RowConstraints vgrow="NEVER" />
+                      <RowConstraints vgrow="NEVER" />
+                      <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                    </rowConstraints>
+                     <children>
+                        <Label contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="CAN BUS Speed" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+                        <Label maxWidth="1.7976931348623157E308" text="Time Quanta" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="cmbBaudrate" editable="true" maxWidth="1.7976931348623157E308" onAction="#onAction" prefHeight="25.0" prefWidth="104.0" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="cmbQuanta" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                        <Label maxWidth="1.7976931348623157E308" text="Recommended TQ's" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                        <Label maxWidth="1.7976931348623157E308" text="Sync Segment" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                        <Label maxWidth="1.7976931348623157E308" text="Propagation segment" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+                        <Label maxWidth="1.7976931348623157E308" text="Phase Segment 1" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+                        <Label maxWidth="1.7976931348623157E308" text="Phase Segment 2" GridPane.columnSpan="2" GridPane.rowIndex="7" />
+                        <ComboBox disable="true" maxWidth="1.7976931348623157E308" promptText="1" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                        <ComboBox fx:id="cmbPropSeg" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+                        <ComboBox fx:id="cmbSeg1" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+                        <ComboBox fx:id="cmbSeg2" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="7" />
+                        <Label maxWidth="1.7976931348623157E308" text="Sample Point" GridPane.columnSpan="2" GridPane.rowIndex="8" />
+                        <Label fx:id="lblSamplePoint" text="--" GridPane.columnIndex="6" GridPane.rowIndex="8" />
+                        <Label fx:id="lblRecTqs" GridPane.columnIndex="6" GridPane.columnSpan="2147483647" GridPane.rowIndex="3" />
+                              <Label contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="CAN Controller Fosc" />
+                              <ComboBox fx:id="cmbClockFreq" editable="true" maxWidth="1.7976931348623157E308" onAction="#onAction" prefHeight="25.0" prefWidth="18.0" GridPane.columnIndex="6" GridPane.columnSpan="2147483647" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </GridPane>
+               </content>
+            </TitledPane>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </GridPane>
+            </content>
+        </TitledPane>
+    </children>
+    
+</AnchorPane>

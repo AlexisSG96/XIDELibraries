@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>DMA</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>Direct Memory Access (DMA)</h2>
+        <hr>
+        <section>
+            <h3 id="configure" name="configure">DMA Module</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The Direct Memory Access (DMA) module is designed to service data transfers between different memory 
+                            regions directly without intervention from the CPU. By eliminating the need for CPU-intensive management 
+                            of handling interrupts intended for data transfers</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>The DMA Module can be easily enabled by configuring the following steps in order:
+                                <ul type="square">
+                                    <li><a href="#sourcememory">Source Address Memory</a></li>
+                                    <li><a href="#destinationmemory">Destination Address Memory</a></li>
+                                    <li><a href="#mode">Address Mode</a></li>
+                                    <li><a href="#messagecount">Message Size/Counters</a></li>
+                                    <li><a href="#start">Start Interrupt Source Selection</a></li>
+                                    <li><a href="#abort">Abort Interrupt Source Selection</a></li>
+                                    <li><a href="#enable">Enable DMA Module</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="sourcememory" name="sourcememory">Source Address Memory</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Specifies memory region DMA can access for copying of data</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>The DMA Module has read access to the below memory locations. 
+                                <ul type="square">
+                                    <li>Program Flash Memory (PFM)</li>
+                                    <li>Data EEPROM (Data EEPROM)</li>
+                                    <li>General Purpose Registers (GPR)</li>
+                                    <li>Special Function Registers (SFR)</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+         <section>
+            <h3 id="destinationmemory" name="destinationmemory">Destination Address Memory</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Specifies memory region DMA can access for writing of data</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>The DMA Module has write access to the below memory locations. 
+                                <ul type="square">
+                                    <li>General Purpose Registers (GPR)</li>
+                                    <li>Special Function Registers (SFR)</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="mode" name="mode">Address Mode</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Allows various data transfer modes by controlling increment or decrement of address pointer registers.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description:</td> 
+                            <td>Source and Destination address pointer registers are modified after each transaction based on the Address Mode selection bits.
+                                Following are different type of transfer modes possible
+                                <ul type="square">
+                                    <li><strong>N: 1</strong> This type of transfer is common when sending
+                                        predefined data packets (such as strings) through a
+                                        single interface point (such as communications
+                                        modules transmit registers).
+                                    </li>
+                                    <li><strong>N: N</strong> This type of transfer is useful for moving information out
+                                        of the Program Flash or Data EEPROM to SRAM for
+                                        manipulation by the CPU or other peripherals.
+                                    </li>
+                                    <li><strong>1: 1</strong> This type of transfer is common when bridging two
+                                        different modules data streams together
+                                        (communications bridge).
+                                    </li>
+                                    <li><strong>1: N</strong> This type of transfer is useful for moving information
+                                        from a single data source into a memory buffer
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="messagecount" name="messagecount">Message Size/Counters</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>A complete DMA transaction process consists of one or more messages. The size registers 
+                            determine how many transactions are in a message.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>When a DMA transfer is initiated the size registers are
+                                copied to corresponding counter registers that control
+                                the duration of the message. Both the source and 
+                                destination counters are simultaneously decremented by one after each
+                                transaction.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability:</td> 
+                            <td>Always available</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="start" name="start">Start Interrupt Source Selection</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The DMA can initiate data transactions by selecting Hardware Trigger</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>A Hardware trigger is an interrupt request from another module sent to the DMA with the purpose of triggering 
+                                DMA transaction.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="abort" name="abort">Abort Interrupt Source Selection</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The DMA can abort data transactions by selecting Hardware Trigger</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>A Hardware trigger is an interrupt request from another module sent to the DMA with the purpose of aborting 
+                                DMA transaction.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="enable" name="enable">Enable DMA Module</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Enable DMA Module initiates DMA Message Transfer</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>After enabling DMA Module, it waits for the Hardware or Software trigger to start 
+                                DMA message transfer</td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+    </body>
+</html>

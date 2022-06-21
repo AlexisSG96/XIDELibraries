@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" prefHeight="218.0" prefWidth="315.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mikrobus.gyro.GyroViewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" prefHeight="218.0" prefWidth="400.0" text="Jumper Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <HBox spacing="5.0">
+               <children>
+                  <TitledPane collapsible="false" text="I2C ADD">
+                     <content>
+                        <VBox fx:id="addressVBOX">
+                           <children>
+                              <RadioButton fx:id="add0RadioButton" mnemonicParsing="false" text="0">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="addrToggleGroup" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="add1RadioButton" mnemonicParsing="false" selected="true" text="1" toggleGroup="$addrToggleGroup">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </RadioButton>
+                           </children>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" top="5.0" />
+               </padding>
+            </HBox>
+         </content>
+      </TitledPane>
+    </children>
+
+</AnchorPane>

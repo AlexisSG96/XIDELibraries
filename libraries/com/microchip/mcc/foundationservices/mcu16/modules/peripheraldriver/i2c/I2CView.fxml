@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.foundationservices.mcu16.modules.peripheraldriver.i2c.I2CViewer">
+    <children>
+      <TitledPane animated="false" collapsible="false" text="Hardware Settings">
+         <content>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="NEVER" />
+               </rowConstraints>
+               <children>
+                  <TitledPane collapsible="false" contentDisplay="RIGHT" text="Mode Selection">
+                     <content>
+                          <GridPane fx:id="masterSlaveGrid" hgap="5.0" vgap="5.0">
+                              <columnConstraints>
+                                  <ColumnConstraints />
+                              </columnConstraints>
+                              <rowConstraints>
+                              <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                              </rowConstraints>
+                              <children>
+                                <GridPane fx:id="masterGridPane" hgap="5.0" vgap="5.0">
+                                  <columnConstraints>
+                                    <ColumnConstraints />
+                                  </columnConstraints>
+                                  <rowConstraints>
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                  </rowConstraints>
+                                   <padding>
+                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                   </padding>
+                                   <children>
+                                      <TitledPane animated="false" collapsible="false" text="I2C Clock" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.vgrow="NEVER">
+                                          <content>
+                                             <GridPane hgap="5.0" vgap="5.0">
+                                                <children>
+                                                   <Label text="Baud Rate  " GridPane.rowIndex="0" GridPane.vgrow="NEVER" />
+                                                <ComboBox fx:id="baudRate" editable="true" onAction="#onAction" GridPane.columnIndex="1" />
+      
+                                                      </children>
+                                                <columnConstraints>
+                                                   <ColumnConstraints />
+                                                   <ColumnConstraints />
+                                                </columnConstraints>
+                                                <padding>
+                                                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                </padding>
+                                                <rowConstraints>
+                                                   <RowConstraints />
+                                                </rowConstraints>
+                                             </GridPane>
+                                          </content>
+                                </TitledPane>
+                                    <GridPane GridPane.rowIndex="1">
+                                      <columnConstraints>
+                                        <ColumnConstraints />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints />
+                                      </rowConstraints>
+                                       <children>
+                                          <CheckBox fx:id="enableMasterInterrupt" mnemonicParsing="false" onAction="#onAction" selected="true" text="Enable Master  Interrupt" visible="false" />
+                                       </children>
+                                    </GridPane>
+                                   </children>
+                                </GridPane>
+                            <GridPane fx:id="slaveGridPane" hgap="5.0" vgap="5.0" GridPane.rowIndex="1">
+                              <columnConstraints>
+                                <ColumnConstraints />
+                                <ColumnConstraints />
+                              </columnConstraints>
+                              <rowConstraints>
+                                    <RowConstraints vgrow="NEVER" />
+                                <RowConstraints vgrow="NEVER" />
+                                <RowConstraints vgrow="NEVER" />
+                                  <RowConstraints vgrow="NEVER" />
+                              </rowConstraints>
+                               <padding>
+                                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                               </padding>
+                               <children>
+                                          <CheckBox fx:id="enableClockStretch" mnemonicParsing="false" onAction="#onAction" text="Clock Stretching" GridPane.rowIndex="1" />
+                                          <Label text="Slave Address" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.vgrow="NEVER" />
+                                          <ComboBox fx:id="slaveAddress" onAction="#onAction" promptText="10 Bit" GridPane.columnIndex="1" GridPane.rowIndex="2"> 
+                                         </ComboBox>
+                                        <TitledPane animated="false" collapsible="false" text="Slave Addressing" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="3" GridPane.vgrow="NEVER">
+      
+                                     <content>
+                                  <GridPane hgap="5.0" vgap="5.0">
+                                     <children>
+                                        <TextField fx:id="slaveAddressTextField" onAction="#onAction" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.vgrow="ALWAYS" />
+                                        <TextField fx:id="slaveMaskTextField" onAction="#onAction" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
+      
+                                              <Label text="Slave Address   0x0 ≤ " GridPane.rowIndex="0" GridPane.vgrow="NEVER" />
+                                        <Label fx:id="maxSlaveAddLimit" text="≤ 0x7F" GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.vgrow="NEVER" />
+                                        <Label text="Slave Mask       0x0 ≤" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                                        <Label fx:id="maxSlaveAddMaskLimit" text="≤ 0x7F" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+      
+                                           </children>
+                                     <columnConstraints>
+                                        <ColumnConstraints />
+                                        <ColumnConstraints />
+                                              <ColumnConstraints />
+                                     </columnConstraints>
+                                     <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                     </padding>
+                                     <rowConstraints>
+                                        <RowConstraints />
+                                        <RowConstraints />
+                                     </rowConstraints>
+                                  </GridPane>
+                               </content>
+                            </TitledPane>
+                               </children>
+                            </GridPane>
+                              </children>
+                              <padding>
+                                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </padding>
+                          </GridPane>
+                     </content>
+                     <graphic>
+                        <ComboBox fx:id="masterSlaveSelect" onAction="#onAction" prefWidth="150.0" />
+                     </graphic>
+                  </TitledPane>
+               </children>
+            </GridPane>
+         </content>
+      </TitledPane>
+    </children>
+    
+</AnchorPane>

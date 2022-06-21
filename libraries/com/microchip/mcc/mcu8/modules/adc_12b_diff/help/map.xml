@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    <mapID target="mcu8_adc_controls" url="controls.html"/>
+    <mapID target="mcu8_adc_controls_clocksource" url="controls.html#clocksource"/>
+    <mapID target="mcu8_adc_controls_selectedchannels" url="controls.html#selectedchannels"/>
+    <mapID target="mcu8_adc_wiki" url="http://microchip.wikidot.com/8bit:adc" wintype="external"/>
+    <mapID target="mcu8_adc_basics" url="http://microchip.wikidot.com/adc:adc-basics" wintype="external"/>
+    <mapID target="mcu8_adc_understanding" url="http://microchip.wikidot.com/adc:understanding-adc-specifications" wintype="external"/>    
+</map>

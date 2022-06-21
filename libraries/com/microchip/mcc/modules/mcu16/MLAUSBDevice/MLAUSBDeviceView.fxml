@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.modules.mcu16.MLAUSBDevice.MLAUSBDeviceViewer">
+   <children>
+      <TitledPane fx:id="idMLAUSBLabel" animated="false" collapsible="false" text="Microchip Lightweight USB Stack">
+        <content>
+            <VBox minHeight="0.0">
+               <children>
+                <AnchorPane>
+                     <children>
+                        <GridPane hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                        <RadioButton fx:id="rdbCDC" mnemonicParsing="false" onAction="#onAction" text="CDC">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="rdbDeviceClass" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="rdbVendor" mnemonicParsing="false" onAction="#onAction" text="Vendor" toggleGroup="$rdbDeviceClass" GridPane.columnIndex="1" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+                  <TitledPane animated="false" text="Device Settings">
+                    <content>
+                      <AnchorPane>
+                           <children>
+                              <GridPane hgap="5.0" layoutX="72.0" layoutY="45.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" />
+                                  <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                  <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="USB Tasks" GridPane.rowIndex="3" />
+                                    <RadioButton fx:id="rdbPolling" mnemonicParsing="false" onAction="#onAction" text="Polling" toggleGroup="$rdbInterruptMode" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="rdbInterruptMode" />
+                                       </toggleGroup></RadioButton>
+                                    <RadioButton fx:id="rdbInterrupt" mnemonicParsing="false" onAction="#onAction" text="Interrupt" toggleGroup="$rdbInterruptMode" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Label text="Endpoint Buffer Mode" GridPane.rowIndex="1" />
+                                    <ComboBox fx:id="cmbPpbMode" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                    <Label text="Endpoint 0 Size" />
+                                    <ComboBox fx:id="cmbEp0Size" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+                                    <CheckBox fx:id="chkPullUp" mnemonicParsing="false" onAction="#onAction" text="Enable Internal Pull Up Resistor" GridPane.columnSpan="3" GridPane.rowIndex="4" />
+                                    <Label text="Transceiver Option" GridPane.rowIndex="5" />
+                                    <Label fx:id="lblSpeedOption" text="Speed Option" GridPane.rowIndex="6" />
+                                    <RadioButton fx:id="rdbInternalTransceiver" mnemonicParsing="false" onAction="#onAction" text="Internal" toggleGroup="$rdbTransceiver" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                    <toggleGroup>
+                                          <ToggleGroup fx:id="rdbTransceiver" />
+                                       </toggleGroup></RadioButton>
+                                    <RadioButton fx:id="rdbExternalTransceiver" mnemonicParsing="false" onAction="#onAction" text="External" toggleGroup="$rdbTransceiver" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                    <RadioButton fx:id="rdbFullSpeed" mnemonicParsing="false" onAction="#onAction" text="Full" toggleGroup="$rdbSpeed" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                        <toggleGroup>
+                                          <ToggleGroup fx:id="rdbSpeed" />
+                                       </toggleGroup></RadioButton>
+                                    <RadioButton fx:id="rdbLowSpeed" mnemonicParsing="false" onAction="#onAction" text="Low" toggleGroup="$rdbSpeed" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                                    <CheckBox fx:id="chkEnableStatusTO" mnemonicParsing="false" onAction="#onAction" text="Enable Status Stage Timeouts" GridPane.columnSpan="2" GridPane.rowIndex="7" />
+                                    <TextField fx:id="tfStatusTO" onAction="#onAction" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                                    <CheckBox fx:id="chkEnableSuspend" mnemonicParsing="false" onAction="#onAction" text="Enable Suspend Event" GridPane.columnSpan="3" GridPane.rowIndex="9" />
+                                    <CheckBox fx:id="chkEnableWakeup" mnemonicParsing="false" onAction="#onAction" text="Enable Wake From Suspend Event" GridPane.columnSpan="3" GridPane.rowIndex="10" />
+                                    <CheckBox fx:id="chkEnableSOF" mnemonicParsing="false" onAction="#onAction" text="Enable Start Of Frame Event" GridPane.columnSpan="3" GridPane.rowIndex="11" />
+                                    <CheckBox fx:id="chkEnableTransferTerminated" mnemonicParsing="false" onAction="#onAction" text="Enable Transfer Terminated Event" GridPane.columnSpan="3" GridPane.rowIndex="12" />
+                                    <CheckBox fx:id="chkEnableError" mnemonicParsing="false" onAction="#onAction" text="Enable Error Event" GridPane.columnSpan="3" GridPane.rowIndex="13" />
+                                    <CheckBox fx:id="chkEnableNonstandardEP0Req" mnemonicParsing="false" onAction="#onAction" text="Enable Nonstandard Endpoint 0 Request Event" GridPane.columnSpan="3" GridPane.rowIndex="14" />
+                                    <CheckBox fx:id="chkEnableSetDescriptor" mnemonicParsing="false" onAction="#onAction" text="Enable Set Descriptor Event" GridPane.columnSpan="3" GridPane.rowIndex="15" />
+                                    <CheckBox fx:id="chkEnableTransferComplete" mnemonicParsing="false" onAction="#onAction" text="Enable Transfer Complete Event" GridPane.columnSpan="3" GridPane.rowIndex="17" />
+                                    <CheckBox fx:id="chkEnableSetConfiguration" mnemonicParsing="false" onAction="#onAction" text="Enable Set Configuration Event" GridPane.columnSpan="3" GridPane.rowIndex="16" />
+                                    <Label text="Event Handler Options" GridPane.columnSpan="3" GridPane.rowIndex="8" />
+                                    <Label text="Vendor ID" GridPane.rowIndex="19" />
+                                    <Label text="Product ID" GridPane.rowIndex="20" />
+                                    <TextField fx:id="tfDeviceVID" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="19" />
+                                    <TextField fx:id="tfDevicePID" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="20" />
+                                    <Label text="Manufacturer String" GridPane.rowIndex="22" />
+                                    <TextField fx:id="tfManufacturerString" onAction="#onAction" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="22" />
+                                    <Label text="Product String" GridPane.rowIndex="23" />
+                                    <Label text="Serial Number String" GridPane.rowIndex="24" />
+                                    <TextField fx:id="tfProductString" onAction="#onAction" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="23" />
+                                    <TextField fx:id="tfSerialNumberString" onAction="#onAction" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="24" />
+                                    <Label text="BCD USB Specification" GridPane.rowIndex="18" />
+                                    <Label text="BCD Device Release" GridPane.rowIndex="21" />
+                                    <TextField fx:id="tfBCDUSB" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="18" />
+                                    <TextField fx:id="tfBCDDevice" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="21" />
+                                    <CheckBox fx:id="chkAutoAttach" mnemonicParsing="false" onAction="#onAction" text="Enable USB Auto Attach" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </TitledPane>
+                  <TitledPane fx:id="cdcPane" animated="false" text="CDC Settings" />
+                  <TitledPane fx:id="vendorPane" animated="false" text="Vendor Class Settings" />
+               </children>
+            </VBox>
+        </content>
+      </TitledPane>
+   </children>
+</AnchorPane>

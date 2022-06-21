@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.cmp.CMPViewer">
+   <children>
+      <GridPane hgap="5.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+            <ColumnConstraints />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+        </rowConstraints>
+         <children>
+            <TitledPane animated="false" collapsible="false" text="Hardware Settings" GridPane.hgrow="ALWAYS">
+               <content>
+                  <GridPane fx:id="gpAll" hgap="5.0" vgap="5.0">
+                    <columnConstraints>
+                      <ColumnConstraints />
+                        <ColumnConstraints />
+                        <ColumnConstraints maxWidth="81.0" minWidth="81.0" prefWidth="81.0" />
+                      <ColumnConstraints />
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints vgrow="SOMETIMES" />
+                      <RowConstraints vgrow="SOMETIMES" />
+                      <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        
+                        
+                        <CheckBox fx:id="comparatorEnable" mnemonicParsing="false" onAction="#onAction" text="Enable Comparator" GridPane.columnSpan="2" />
+                        <CheckBox fx:id="synchronousModeEnable" mnemonicParsing="false" onAction="#onAction" text="Enable Synchronous Mode" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                        <CheckBox fx:id="comparatorHysteresisEnable" mnemonicParsing="false" onAction="#onAction" text="Enable Comparator Hysteresis" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                        <CheckBox fx:id="lowPowerModeEnable" mnemonicParsing="false" onAction="#onAction" text="Enable Low Power" GridPane.rowIndex="3" />
+                        <CheckBox fx:id="chkEnableOutputPin" mnemonicParsing="false" onAction="#onAction" text="Enable output Pin" GridPane.rowIndex="4" />
+                        <Label fx:id="positiveInputEnableLabel" text="Positive Input" GridPane.columnIndex="2" />
+                        <Label fx:id="negativeInputEnableLabel" text="Negative Input" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="positiveInputEnableChoice" maxWidth="1.7976931348623157E308" onAction="#onAction" prefHeight="25.0" prefWidth="97.0" GridPane.columnIndex="3" GridPane.columnSpan="2" />
+                        <ComboBox fx:id="negativeInputEnableChoice" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                        
+                        <CheckBox fx:id="chkZeroLatencyFilter" mnemonicParsing="false" onAction="#onAction" text="Enable Comparator Zero Latency Filter" GridPane.columnIndex="2" GridPane.columnSpan="5" GridPane.rowIndex="2" />
+                        <RadioButton fx:id="nonInvertedSelection" mnemonicParsing="false" onAction="#onAction" text="not inverted" GridPane.columnIndex="4" GridPane.columnSpan="2147483647" GridPane.rowIndex="3">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="outputPolarity" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="invertedSelection" mnemonicParsing="false" onAction="#onAction" text="inverted" toggleGroup="$outputPolarity" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <Label fx:id="outputPolaritySelectionLabel" text="Output Polarity" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <ComboBox fx:id="cmbRefSource" maxWidth="-Infinity" onAction="#onAction" GridPane.columnIndex="6" GridPane.vgrow="NEVER" />
+                        <Label fx:id="labelPosSelect" maxWidth="-Infinity" text="routed to:" GridPane.columnIndex="5" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </GridPane>
+               </content>
+            </TitledPane>
+            <GridPane fx:id="gpInterrupt" hgap="5.0" vgap="5.0" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+              </rowConstraints>
+               <children>
+                  <Label fx:id="interruptFlagSetSelectionLabel" text="Interrupt Flag Set On" GridPane.rowIndex="1" />
+                  <CheckBox fx:id="risingEdgeSelection" mnemonicParsing="false" onAction="#onAction" text="Rising Edge" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <CheckBox fx:id="fallingEdgeSelection" mnemonicParsing="false" onAction="#onAction" text="Falling Edge" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <CheckBox fx:id="comparatorInterruptEnable" mnemonicParsing="false" onAction="#onAction" text="Enable Comparator Interrupt" GridPane.columnSpan="3" />
+                  <CheckBox fx:id="comparatorInterruptEnable2" mnemonicParsing="false" onAction="#onAction" text="Enable Comparator Interrupt" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </GridPane>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </GridPane>
+   </children>
+</AnchorPane>

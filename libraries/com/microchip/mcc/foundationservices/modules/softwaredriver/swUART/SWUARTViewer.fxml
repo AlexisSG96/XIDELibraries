@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.foundationservices.modules.softwaredriver.swUART.SWUARTViewer">
+    <children>
+      <GridPane hgap="5.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints vgrow="NEVER" />
+          <RowConstraints vgrow="NEVER" />
+        </rowConstraints>
+         <children>
+            <TitledPane animated="false" prefHeight="81.0" prefWidth="476.0" text="Hardware Settings">
+               <content>
+                  <VBox fx:id="subModuleSelectionBox" />
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" text="Software Settings" GridPane.rowIndex="1">
+              <content>
+                <AnchorPane>
+                     <children>
+                        <GridPane hgap="5.0" layoutX="68.0" layoutY="28.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columnConstraints>
+                            <ColumnConstraints maxWidth="191.99999237060547" minWidth="100.00000762939453" prefWidth="117.0" />
+                              <ColumnConstraints maxWidth="191.99999237060547" minWidth="26.0" prefWidth="144.0" />
+                            <ColumnConstraints maxWidth="131.0" minWidth="117.0" prefWidth="117.0" />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                            <RowConstraints vgrow="NEVER" />
+                            <RowConstraints vgrow="NEVER" />
+                              <RowConstraints />
+                              <RowConstraints />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Baud Rate:" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="enableAutobaud" mnemonicParsing="false" onAction="#onAction" text="Enable Autobaud" GridPane.columnSpan="2147483647" GridPane.vgrow="NEVER" />
+                              <ComboBox fx:id="baudRate" editable="true" onAction="#calculatePeriod" prefHeight="25.0" prefWidth="91.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label prefHeight="17.0" prefWidth="136.0" text="Transmit Buffer Size:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="txBufferSize" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <Label text="Receive Buffer Size:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="rxBufferSize" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <Label text="Required Timer Period:" GridPane.rowIndex="3" />
+                              <Label fx:id="requiredPeriod" text="0 ms" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label text="Actual Baud Rate:" GridPane.rowIndex="2" />
+                              <Label fx:id="calculatedBaudRate" text="0 b/s" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="redirectStdio" mnemonicParsing="false" onAction="#onAction" prefHeight="17.0" prefWidth="186.0" text="Redirect STDIO to SWUART" GridPane.columnIndex="2" GridPane.columnSpan="4" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </TitledPane>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </GridPane>
+    </children>
+    
+</AnchorPane>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.systemManager.wwdt.WWDTViewer">
+   <children>
+      <GridPane fx:id="gpAll" hgap="5.0" layoutX="-10.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label maxWidth="1.7976931348623157E308" text="Watchdog Timer Enable" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cmbEnable" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TitledPane fx:id="tpClock" animated="false" collapsible="false" text="Clock" GridPane.columnSpan="2" GridPane.rowIndex="2">
+               <content>
+                  <GridPane hgap="5.0" vgap="5.0" GridPane.columnSpan="4" GridPane.rowIndex="1">
+                     <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                     </rowConstraints>
+                     <children>
+                         <Label maxWidth="1.7976931348623157E308" text="Clock Source" />
+                         <ComboBox fx:id="cmbClockSource" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" />
+                        <Label maxWidth="1.7976931348623157E308" text="Time-out Period" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="cmbWindowed" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        
+                        <ComboBox fx:id="cmbPrescaler" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        
+                        <Label maxWidth="1.7976931348623157E308" text="Window Open Time" GridPane.rowIndex="1" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </GridPane>
+               </content>
+            </TitledPane>
+            <Label fx:id="wdtTmrPeriod" text="Watchdog Timer Period" />
+            <Label fx:id="lblWwdtPeriod" text="Label" GridPane.columnIndex="1" />
+            
+         </children>
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+         </rowConstraints>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </GridPane>
+   </children>
+</AnchorPane>

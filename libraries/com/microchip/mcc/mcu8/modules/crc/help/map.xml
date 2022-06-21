@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    <mapID target="mcu8_crc_controls" url="controls.html"/>
+    <mapID target="mcu8_crc_controls_predefinedpolynomial" url="controls.html#predefinedpolynomial"/>
+    <mapID target="mcu8_crc_controls_polynomialwordwidth" url="controls.html#polynomialwordwidth"/>
+    <mapID target="mcu8_crc_controls_polynomial" url="controls.html#polynomial"/>
+    <mapID target="mcu8_crc_controls_seed" url="controls.html#seed"/>
+    <mapID target="mcu8_crc_controls_seedmethod" url="controls.html#seedmethod"/>
+    <mapID target="mcu8_crc_controls_datawordwidth" url="controls.html#datawordwidth"/>
+    <mapID target="mcu8_crc_controls_datasequence" url="controls.html#datasequence"/>
+    <mapID target="mcu8_crc_controls_finalxorvalue" url="controls.html#finalxorvalue"/>
+    <mapID target="mcu8_crc_controls_result" url="controls.html#result"/>
+    <mapID target="mcu8_crc_microchip" url="http://www.microchip.com/crc" wintype="external"/>
+</map>

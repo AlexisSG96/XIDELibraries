@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    <mapID target="mcu8_dsm_controls" url="controls.html"/>
+    <mapID target="mcu8_dsm_modulation_output" url="controls.html#modulation_output"/>
+    <mapID target="mcu8_dsm_modulation_source" url="controls.html#modulation_source"/> 
+    <mapID target="mcu8_dsm_high_carrier" url="controls.html#high_carrier"/>
+    <mapID target="mcu8_dsm_low_carrier" url="controls.html#low_carrier"/>
+</map>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE index PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Index Version 2.0//EN" "http://java.sun.com/products/javahelp/index_2_0.dtd">
+<index version="2.0">
+    <indexitem text="CAN Bus Settings" target="mcu8_can_bus_settings"/>
+    <indexitem text="General Settings" target="mcu8_can_general_settings"/>
+    <indexitem text="CAN Mode and CAN IDs" target="mcu8_can_mode"/>
+</index>

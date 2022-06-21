@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>LCD</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css"></link>
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>LCD</h2>
+        <hr>
+		<section>
+			<h3 id="overview" name="overview">LCD Design Panel</h3>
+			<div align="center">
+                <img src="overview.png" alt="Block Diagram" align="middle">
+            </div>
+			<p>The details of each of controls is given below:</p>
+			<p>
+                <ul>
+                    <li>
+						<a href="#addSymbolsFromLib" style="font-weight:bold;">Add Symbols from library:</a> 
+						Launches a dialog where user can select one or multiple symbols to be added into design panel.
+						When user clicks on symbol, a tick mark appears an indication that the symbol is selected.
+						Once selection is completed press &#39;done&#39; button. 
+						
+						<div align="center">
+							<img src="addlib.png" alt="Block Diagram" align="middle">
+						</div>
+						<br/><br/>
+					</li>
+					<li>
+						<a href="#addSymbolsFromExtImage" style="font-weight:bold;">Add External Image:</a> 
+						Launches a file selection dialog where user can select single image to be added into design panel.
+						The selected image automatically gets converted to single pixel symbol.
+						PNG image with transparent background can be converted properly to similar looking symbol. 
+						For other format it&#39;ll be a dark color pixel. <br/><br/>
+					</li>
+					<li>
+						<a href="#dragAndResize" style="font-weight:bold;">Drag and Resize:</a> 
+						Any symbol in the Design panel can be dragged to change its position or resized to scale it.
+						The scale behavior can be invoked by positioning the cursor to bottom-left corner. 
+						The resize behavior can be invoked by clicking directly over the symbol. <br/><br/>
+					</li>
+					<li>
+						<a href="#lock" style="font-weight:bold;">Lock:</a> 
+						&#39;Lock&#39; button inhibits the drag and resize behavior.
+						User is only allowed to click on the pixel and change MACRO and SEG, COM values. <br/><br/>
+					</li>
+					<li>
+						<a href="#duplicate" style="font-weight:bold;">Duplicate:</a> 
+						This feature is mainly for saving effort in re-designing symbols. Select a symbol and duplicate.
+						The duplicate symbol will look similar. 
+						User has to reconfigure SEG/COM and MACRO mapping for newly created symbol. <br/><br/>
+					</li>
+					<li>
+						<a href="#delete" style="font-weight:bold;">Delete:</a> 
+						Select a symbol and press delete. All the settings related to the particular symbol namely MACRO, SEG, 
+						COM will be removed. <br/><br/>
+					</li>
+					<li>
+						<a href="#resetDesign" style="font-weight:bold;">Reset Design:</a> 
+						Invoking this button removes all symbols and respective SEG/COM mapping from the design panel. 
+						Before importing new design it&#39;s good to reset once. 
+						Reset only affects LCD deign panel it doesn&#39;t affect other LCD settings like (General Settings...) <br/><br/>
+					</li>
+					<li>
+						<a href="#backgroundColor" style="font-weight:bold;">Background Color:</a> 
+						User can change the background color of the LCD panel. 
+						As the background color is of user convenience the color is not exported as part of LCD Design <br/><br/>
+					</li>
+					<li>
+						<a href="#importDesign" style="font-weight:bold;">Import LCD Design:</a> 
+						The LCD design file (.lcd) can be imported by using this option. 
+						<br/>Below are the salient points of design file
+						<ul>
+							<li>The file exported by one device can be imported by another device i.e. the same design file works across devices.</li>
+							<li>If the imported design SEG, COM values mismatch the capabilities of the current device appropriate notification will be shown under notification tab. User can reassign to valid SEG, COM values.</li>
+						</ul>
+						<br/><br/>
+					</li>
+					<li>
+						<a href="#exportDesign" style="font-weight:bold;">Export LCD Design:</a> 
+						LCD design can be exported in multiple ways. Below section covers them.
+						<ul>
+							<li><b>Design:</b> This option launches a file dialog. User can select his design file name. 
+							The exported file design file only stores LCD panel design related attributes (Symbol, position, scale, MACRO, SEG, and COM). 
+							It doesn&#39;t store other module specific LCD settings. </li>
+							<li><b>Screenshot:</b> This option exports the snapshot of the LCD design panel as (.png) image.</li>
+						</ul>
+						<br/><br/>
+					</li>
+				</ul>
+			<p>
+		</section>
+		<hr>
+		<section>
+			<h3 id="configureMacro" name="configureMacro">Configure Macro</h3>
+			<p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>How to configure MACRO</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>Every symbol is associated with a macro. All symbols should have unique macro, 
+							as this is the #define constant that is generated in the output code. 
+							The GUI editor maintains uniqueness by appending _SYMXX. 
+							Only alphabets are allowed as macro.</td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>
+								<div align="center">
+									<img src="macro.png" alt="Block Diagram" align="middle">
+								</div>
+								<br/><br/>
+								<div align="center">
+									<img src="macro_vs_h.png" alt="Block Diagram" align="middle">
+								</div>
+							</td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Only when a symbol or pixel is selected</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+		</section>
+		<section>
+			<h3 id="segComTable" name="segComTable">SEG/COM Table Mapping</h3>
+			<p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The SEG/COM table is a read only table which shows visual summary for the configured Pixels.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>It shows grouping of pixels with the symbol. If a pixel is clicked in the design panel corresponding Pixel is highlighted in the SEG/COM table.
+							If a pixel group is clicked (Seven Segment Symbol) all the pixels corresponding to the symbol is highlighted.</td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>
+								<br/>
+								<div align="center">
+									<img src="seg_com_table.png" alt="Block Diagram" align="middle">
+								</div>
+								<br/>
+							</td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+		</section>
+		<section>
+			<h3 id="backwardCompatibity" name="backwardCompatibity">Backward Compatibility</h3>
+			<p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The new LCD GUI maintains a backward compatibility with the old LCD projects.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td> When the project is opened evenly distributed pixels and seven segments are drawn. 
+								The old pixel name (read only) is displayed under &#39;Old Macro&#39; control. User can rename the new macro. 
+								To maintain backward compatibility with the old code, old macros are also generated as part of define.</td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>
+								<div align="center">
+									<img src="backward.png" alt="Block Diagram" align="middle">
+								</div>
+							</td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Only available for projects which saved using older MCC version.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+		</section>
+        <section>
+            <h3 id="general_settings" name="general_settings">General Settings</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>These settings allow the user to set the general settings of the LCD module.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>Select the multiplexing mode and the waveform type. According to the multiplex mode, the available commons and available pixels will be automatically calculated and displayed.</td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td></td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>The General Settings are always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>                      
+        <section>
+            <h3 id="bias_settings" name="bias_settings">Internal reference and contrast control</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td> Summary:</td>
+                            <td>This mode does not use external resistors, but rather internal resistor ladders that are configured to generate the bias voltage.</td>
+                        </tr>
+                        <tr>
+                            <td> Description:</td>
+                            <td>
+                                <p>The internal reference ladder actually consists of three separate ladders. Disabling the internal reference ladder disconnects all of the ladders, allowing external and internal boost pump voltages to be supplied.</p>
+                                <p>There are two reference ladders available. These are noted with A and B. A set of power settings are individually selectable for both of them. A reference ladder time is also available.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> Additional Information:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td> Availability:</td>
+                            <td>The Internal reference and contrast controls setting are always available.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>  
+        <section>
+            <h3 id="power_settings" name="power_settings">Voltage</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td> Summary:</td>
+                            <td>In this mode, the LCD charge pump is completely disabled. The LCD bias levels are tied to VDD and are generated using an external divider.</td>
+                        </tr>
+                        <tr>
+                            <td> Description:</td>
+                            <td> There are the bias options that control the boost pump voltage output. This setting depends on Enable 5V option. When the check box is enabled, the range of the boost pump output is 3.78V - 5.01V, otherwise, 2.80V-3.50V.</td>
+                        </tr>
+                        <tr>
+                            <td> Additional Information:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td> Availability:</td>
+                            <td>The Voltage settings are always available.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section> 
+		
+    </body>
+</html>

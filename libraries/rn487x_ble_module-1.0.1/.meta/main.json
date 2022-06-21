@@ -1,0 +1,50 @@
+{
+    "metaDataVersion": "1.0.0",
+    "category": "com.microchip.mcc3.library",
+    "content": {
+        "metaDataVersion": "1.0.0",
+        "name": "com.microchip.mcc.RN4870-1-BLE-Module",
+        "version": "1.0.1",
+        "file": "rn487x_ble_module-1.0.1.jar",
+        "displayName": "RN4870 | RN4871 BLE Module",
+        "coreVersion": "5.0.0",
+        "vendor": "Microchip Technology, Inc.",
+        "readme_url": "https://onlinedocs.microchip.com/pr/GUID-4D34C2D3-6492-483D-A780-C040881F51A7-en-US-3/index.html",
+        "summary": "<!DOCTYPE html><html><head><meta charset='UTF-8'/><title>RN4870 | RN4871 BLE Module MCC Library v1.0.1</title></head><body style=\"background-color:grey;\"><h2>Release Notes</h2></body></html>",
+        "category": [
+            "Software"
+        ],
+        "dependencies": [
+            {
+                "metaDataVersion": "1.0.0",
+                "category": "com.microchip.portal.contentRef",
+                "content": {
+                    "metaDataVersion": "1.0.0",
+                    "category": "com.microchip.mcc3.library",
+                    "name": "com.microchip.mcc.foundationservices.library.FoundationServicesLibrary",
+                    "version": "^0.2.2"
+                }
+            },
+            {
+                "metaDataVersion": "1.0.0",
+                "category": "com.microchip.portal.contentRef",
+                "content": {
+                    "metaDataVersion": "1.0.0",
+                    "category": "com.microchip.mcc3.library",
+                    "name": "com.microchip.mcc.mcu8.Mcu8PeripheralLibrary",
+                    "version": "^1.81.5"
+                }
+            },
+            {
+                "metaDataVersion": "1.0.0",
+                "category": "com.microchip.portal.contentRef",
+                "content": {
+                    "metaDataVersion": "1.0.0",
+                    "category": "com.microchip.mcc3.library",
+                    "name": "com.microchip.mcc.mcu8.Mcu8AVRPeripheralLibrary",
+                    "version": "^2.4.0"
+                }
+            }  
+        ]
+    }
+}

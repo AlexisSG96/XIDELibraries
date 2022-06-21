@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>ADC</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>Analog-to-Digital Converter (ADC)</h2>
+        <hr>
+        <section>
+            <h3 id="clocksource" name="clocksource">ADC Clock Source</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The ADC Clock Source dropdown box allows the user to configure the ADC sampling frequency and conversion timing. </td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>When altering the ADC Clock Source, the time to complete a one bit conversion (Tad) changes, therefore both the Sampling Frequency and Conversion Time are affected. 
+                                MCC will recalculate all three values each time there's a change in the Clock Source. 
+                                In the event that, after modifying the ADC Clock Source, the Tad value becomes smaller than a predefined minimum Tad value (typically 1us), 
+                                a notification will be added to the MCC Notifications tab, warning that you should lower the sampling frequency by selecting an ADC Clock Source with a smaller frequency.   
+                                The Clock Source options are primarily based on the System Clock (FOSC) and the internal RC oscillator.    
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>For some devices, the ADC Clock interface will include an additional drop-down, Acquisition Time. 
+                                This setting allows the user to select how many Tad's would the ADC require for data acquisition prior to the conversion process. It also has impact on the sampling frequency.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="customname" name="customname">Selected Channels Table</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Displays the fixed internal channels (i.e. Temperature Sensor, FVR, DAC) and the user-selected channels. </td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>When selecting an ADC channel pin (ANx) from the Pin Manager window, that pin is added to both the Selected Channels table in the ADC User Interface and the Pins table in the Pin Module User Interface.
+                                In the latter, for each ADC channel pin, you can define a custom pin name which will also be shown in the ADC Selected Channels table. 
+                                This custom name will serve as a reference in the generated ADC driver to help you configure and trigger a conversion for a specific channel. 
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Editing the ADC channel custom name is only available for external channels and only from the Pin Module User Interface.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>        
+    </body>
+</html>

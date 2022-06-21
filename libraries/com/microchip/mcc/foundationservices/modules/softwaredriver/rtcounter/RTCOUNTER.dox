@@ -1,0 +1,42 @@
+/**
+\defgroup doc_driver_rtc Real Time Counter
+\brief This file explains the basic use cases and implementation of the Real Time Counter
+
+
+\section doc_driver_rtc_basic_and_practice Real Time Counter Basics
+
+The Real Time Counter aims to provide an abstraction interface to Timer-type peripherals such as 
+the Timer0/1/2 peripherals and their derivatives. It abstracts the true size of the Timer 
+peripheral selected so that users can just specify the amount of time the abstracted timer will 
+run. RTCounter operates like a 32 bit timer, combining the Timer peripheral counters (8 or 16 bits)
+and an overflow counter stored in the remaining bits. RTCounter is different from the normal Timer 
+operation as instead of setting a period, RTCounter should always be set to maximum period of the 
+selected Timer Peripheral. The RTCounter is part of the MCC Foundations Services Library that aims 
+to further simplify the configuration of the different peripherals for the benefit of first-time 
+users and those with a limited MCU programming background.
+
+\section doc_driver_rtc_implementation Real Time Counter Implementation
+
+It is important to note The RTCounter Software Library uses structures and linked-list implementation to perform 
+functionalities such as creating, adding, and deleting timers. The term "timer" that we will be 
+referring to in this discussion is represented by a structure rtcountStruct whose members are shown below:
+
+typedef struct rtcountStruct {
+    rtcountcallback_ptr_t  callbackPtr;
+    void* payload;
+    struct rtcountStruct* volatile next;
+    uint32_t absoluteTime;
+} rtcountStruct_t;
+
+The member callbackPtr with data type rtcountcallback_ptr_t is a function pointer that points to a function that handles the event that would be triggered at the end of the timer period, henceforth referred to as the callback function. 
+
+The void pointer payload contains the data that the user would like to pass along to the callback function.
+
+The pointer next is a pointer to another timer structure that is the next in line to be run after this current timer expires.
+
+absoluteTime The structure member absoluteTime holds the time or more accurately, the number of ticks the timer would count before this timer expires. 
+
+
+*/
+
+

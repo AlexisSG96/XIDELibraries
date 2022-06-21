@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mikrobus.MCP73871.MCP73871Viewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" layoutY="-2.0" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <VBox>
+                    <children>
+                        <HBox>
+                            <children>
+                                <Label prefHeight="26.0" prefWidth="118.0" text="Set Charging Current: " />
+                                <ComboBox fx:id="ChargeBox" prefWidth="150.0" />
+                            </children>
+                            <padding>
+                                <Insets bottom="20.0" top="20.0" />
+                            </padding>    
+                        </HBox>
+                  <HBox>
+                     <children>
+                              <CheckBox fx:id="ChargeEN" mnemonicParsing="false" onAction="#onAction" prefHeight="17.0" prefWidth="139.0" text="Charge Enable" />
+                        <CheckBox fx:id="ENSafety" mnemonicParsing="false" onAction="#onAction" text="Enable Safety Timer" />
+                     </children>
+                  </HBox>
+                    </children>
+                </VBox>
+            </content>
+        </TitledPane>
+    </children>
+    
+</AnchorPane>

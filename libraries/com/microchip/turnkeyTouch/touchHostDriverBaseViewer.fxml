@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.turnkeyTouch.touchHostDriverBaseViewer">
+   <children>
+      <VBox>
+         <children>
+            <TabPane fx:id="parentPane" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Information">
+                     <content>
+                        <AnchorPane prefHeight="278.0" prefWidth="595.0">
+                           <children>
+                              <GridPane alignment="CENTER" prefHeight="247.0" prefWidth="615.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="416.0" minWidth="10.0" prefWidth="318.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="298.0" minWidth="10.0" prefWidth="297.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="86.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="199.0" minHeight="10.0" prefHeight="170.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="57.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="57.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description" textAlignment="CENTER" wrappingWidth="318.013671875">
+                                       <font>
+                                          <Font name="Arial Bold" size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <TextArea fx:id="descriptionText" prefWidth="400.0" text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem.Test" wrapText="true" GridPane.rowIndex="1" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Product Page" textAlignment="CENTER" wrappingWidth="313.2412109375" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="Arial Bold" size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <Hyperlink fx:id="productPageLink" text="http://www.microchip.com/design-centers/capacitive-touch-sensing/1d-touch" GridPane.rowIndex="3" />
+                                    <ImageView fx:id="prodcutImage" fitHeight="163.0" fitWidth="299.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <image>
+                                          <Image url="@Microchip_icon.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                <Tab fx:id="configurationTab" text="Configuration">
+                     <content>
+                        <AnchorPane>
+                           <children>
+                              <VBox prefHeight="267.0" prefWidth="567.0">
+                                 <children>
+                                    <AnchorPane fx:id="configurationPane" />
+                                    <AnchorPane>
+                                       <children>
+                                          <VBox layoutY="-3.0" spacing="10.0">
+                                             <children>
+                                                <CheckBox fx:id="generateExampleCheckbox" mnemonicParsing="false" onAction="#onAction" text="Generate Example">
+                                                   <VBox.margin>
+                                                      <Insets bottom="10.0" top="10.0" />
+                                                   </VBox.margin>
+                                                   <padding>
+                                                      <Insets bottom="10.0" />
+                                                   </padding>
+                                                </CheckBox>
+                                             </children>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane>
+                                       <children>
+                                          <StackPane layoutY="-1.0">
+                                             <children>
+                                                <VBox>
+                                                   <children>
+                                                      <VBox fx:id="capabilitiesVbox" spacing="10.0">
+                                                         <children>
+                                                            <CheckBox fx:id="i2cCheckbox" mnemonicParsing="false" text="I2C" />
+                                                            <CheckBox fx:id="spiCheckbox" mnemonicParsing="false" text="SPI" />
+                                                            <CheckBox fx:id="uartCheckbox" mnemonicParsing="false" text="UART" />
+                                                            <CheckBox fx:id="intCheckbox" mnemonicParsing="false" onAction="#onAction" text="INT" />
+                                                            <CheckBox fx:id="resetCheckbox" mnemonicParsing="false" onAction="#onAction" text="RESET" />
+                                                            <CheckBox fx:id="alertCheckbox" mnemonicParsing="false" onAction="#onAction" text="ALERT" />
+                                                            <CheckBox fx:id="wakeCheckbox" mnemonicParsing="false" onAction="#onAction" text="WAKE" />
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                         <padding>
+                                                            <Insets bottom="10.0" />
+                                                         </padding>
+                                                      </VBox>
+                                                      <TitledPane fx:id="I2CPane" animated="false" text="I2C">
+                                                        <content>
+                                                          <AnchorPane />
+                                                        </content>
+                                                      </TitledPane>
+                                                      <TitledPane fx:id="SPIPane" animated="false" text="SPI">
+                                                        <content>
+                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="613.0" />
+                                                        </content>
+                                                      </TitledPane>
+                                                      <TitledPane fx:id="UARTPane" animated="false" text="UART">
+                                                        <content>
+                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                        </content>
+                                                      </TitledPane>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </VBox>
+   </children>
+    
+</AnchorPane>

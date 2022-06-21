@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.mathacc.MATHACCViewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <GridPane hgap="5.0" vgap="5.0">
+                    <children>
+                        <CheckBox fx:id="chkEnableMathAcc" mnemonicParsing="false" onAction="#onAction" text="Enable Math Accelerator" GridPane.columnSpan="2" />
+                             <GridPane hgap="5.0" maxWidth="1.7976931348623157E308" vgap="5.0" GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints />
+                      <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints vgrow="NEVER" />
+                    </rowConstraints>
+                     <children>
+                                <Label text="Mode" />
+                                <ComboBox fx:id="cmbMathAccMode" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </GridPane>
+                        <TitledPane fx:id="tpAddMultiply" animated="false" collapsible="false" maxHeight="1.7976931348623157E308" text="Add/Multiply Mode" GridPane.rowIndex="2">
+                            <content>
+                                <GridPane fx:id="gpAddMull" hgap="5.0" vgap="5.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints />
+                                        <!--<ColumnConstraints />
+                                        <ColumnConstraints />
+                                        <ColumnConstraints />
+                                        <ColumnConstraints />
+                                        <ColumnConstraints />
+                                        <ColumnConstraints />-->
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints vgrow="NEVER" />
+                                        <RowConstraints vgrow="NEVER" />
+                                        <RowConstraints vgrow="NEVER" />
+                                       <!--<RowConstraints vgrow="NEVER" />
+                                        <RowConstraints vgrow="NEVER" />
+                                        <RowConstraints vgrow="NEVER" />
+                                        <RowConstraints vgrow="NEVER" />
+                                        <RowConstraints vgrow="NEVER" />-->
+                                    </rowConstraints>
+                                    <children>
+                              <GridPane hgap="5.0" vgap="5.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints />
+                                    <ColumnConstraints />
+                                    <ColumnConstraints />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                 </rowConstraints>
+                                 <children>
+                                              <ComboBox fx:id="cmbOperation" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" />
+                                              <ComboBox fx:id="cmbInputs" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                              <ComboBox fx:id="cmbOutput" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                              <Label text="Inputs" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+                                              <Label text="Operation" />
+                                              <Label text="Output" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </GridPane>
+                              <GridPane hgap="5.0" vgap="5.0" GridPane.rowIndex="1">
+                                 <columnConstraints>
+                                    <ColumnConstraints />
+                                    <ColumnConstraints />
+                                    <ColumnConstraints />
+                                    <ColumnConstraints />
+                                    <ColumnConstraints />
+                                    <ColumnConstraints />
+                                    <ColumnConstraints />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                 </rowConstraints>
+                                 <children>
+                                              <Label fx:id="lbALessthan2" text="≤" GridPane.columnIndex="4" />
+                                    <Label fx:id="lbHexA" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" minWidth="50.0" text="0x0000" textAlignment="RIGHT" GridPane.columnIndex="6" />
+                                              <TextField fx:id="tfC" alignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                              <Label fx:id="lbCLessthan2" text="≤" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                              <Label fx:id="lbMaxC" text="65535" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                                              <Label fx:id="lbB" text="B" GridPane.rowIndex="1" />
+                                              <Label fx:id="lbA" text="A" />
+                                              <Label fx:id="lbC" text="C" GridPane.rowIndex="2" />
+                                              <Label fx:id="lbCLessthan1" maxWidth="1.7976931348623157E308" text="≤" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                              <Label fx:id="lbALessthan1" maxWidth="1.7976931348623157E308" text="≤" GridPane.columnIndex="2" />
+                                              <TextField fx:id="tfB" alignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                              <Label fx:id="lbMaxB" text="65535" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                              <Label fx:id="lbBLessthan2" text="≤" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                              <Label fx:id="lbMaxA" text="65535" GridPane.columnIndex="5" />
+                                              <Label fx:id="lbBLessthan1" maxWidth="1.7976931348623157E308" text="≤" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <Label fx:id="lbHexB" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" minWidth="35.0" text="0x0000" textAlignment="RIGHT" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                                              <Label fx:id="lbMinA" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" minWidth="40.0" text="0" textAlignment="RIGHT" GridPane.columnIndex="1" />
+                                              <TextField fx:id="tfA" alignment="CENTER" GridPane.columnIndex="3" />
+                                              <Label fx:id="lbMinC" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="1" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                              <Label fx:id="lbMinB" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="0" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label fx:id="lbHexC" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" minWidth="50.0" text="0x0001" textAlignment="RIGHT" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                                    <GridPane hgap="5.0" maxWidth="1.7976931348623157E308" vgap="5.0" GridPane.columnSpan="7" GridPane.rowIndex="3">
+                                       <columnConstraints>
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints vgrow="NEVER" />
+                                       </rowConstraints>
+                                       <children>
+                                                    <Label fx:id="lbResult" maxWidth="1.7976931348623157E308" text="0" textAlignment="RIGHT" GridPane.columnIndex="1" />
+                                          <Label fx:id="lbHexResult" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="0x000000000" textAlignment="RIGHT" GridPane.columnIndex="2" />
+                                                    <Label text="Result = (A + B) * C  =" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </GridPane>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </GridPane>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                </GridPane>
+                            </content>
+                        </TitledPane>
+                  
+                        <TitledPane fx:id="tpPid" animated="false" collapsible="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="PID Controller Mode" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                            <content>
+                                <GridPane hgap="5.0" layoutY="4.0" vgap="5.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints />
+                                        <ColumnConstraints />
+                                        <ColumnConstraints maxWidth="67.0" minWidth="36.0" prefWidth="67.0" />
+                                        <ColumnConstraints maxWidth="144.0" minWidth="113.0" prefWidth="113.0" />
+                                        <ColumnConstraints />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints vgrow="NEVER" />
+                                        <RowConstraints vgrow="NEVER" />
+                                        <RowConstraints vgrow="NEVER" />
+                                        <RowConstraints vgrow="NEVER" />
+                                        <RowConstraints vgrow="NEVER" />
+                                        <RowConstraints vgrow="NEVER" />
+                                        <RowConstraints vgrow="NEVER" />
+                                        <RowConstraints vgrow="NEVER" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Sampling Time(T)" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                                        <Label maxWidth="1.7976931348623157E308" text="Scalar" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                                        <Label text="≤ 1000.0 s" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                                        <Label maxWidth="1.7976931348623157E308" text="Kp" />
+                                        <TextField fx:id="tfKp" alignment="CENTER" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" />
+                                        <Label text="≤ 65535.0" GridPane.columnIndex="4" />
+                                        <Label maxWidth="1.7976931348623157E308" text="Ki" GridPane.rowIndex="1" />
+                                        <TextField fx:id="tfKi" alignment="CENTER" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                        <Label text="≤ 65535.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                        <TextField fx:id="tfKd" alignment="CENTER" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                        <Label text="≤ 65535.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                        <Label maxWidth="1.7976931348623157E308" text="Kd" GridPane.rowIndex="2" />
+                                        <TextField fx:id="tfSamplingTime" alignment="CENTER" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                        <TextField fx:id="tfScalar" alignment="CENTER" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                        <Label maxWidth="1.7976931348623157E308" text="K1 [(Kp + (Ki * T) + (Kd / T)) * Scaler] =" GridPane.rowIndex="5" />
+                                        <Label fx:id="lbK1" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+                                        <Label text="K2 [(-Kp - (2 * Kd / T)) * Scalar]          =" GridPane.rowIndex="6" />
+                                        <Label fx:id="lbK2" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+                                        <Label text="K3 [(Kd / T) * Scalar]                           =" GridPane.rowIndex="7" />
+                                        <Label fx:id="lbK3" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="7" />
+                                        <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="0.0  ≤" GridPane.columnIndex="2" />
+                                        <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="0.0  ≤" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                        <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="0.0  ≤" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                        <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="0.0  ≤" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                        <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="0  ≤" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                        <Label text="≤ 1000" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                </GridPane>
+                            </content>
+                        </TitledPane>
+                        <CheckBox fx:id="chkEnablePidInterrupt" mnemonicParsing="false" onAction="#onAction" text="Enable Math Accelerator Interrupt" wrapText="true" GridPane.rowIndex="4" />
+               
+                    </children>
+                    <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </padding>
+                    <rowConstraints>
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                    </rowConstraints>
+                </GridPane>
+            </content>
+        </TitledPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>CVREF</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2> Comparator Voltage Reference (CVREF)</h2>
+        <hr>
+        <section>
+            <h3 id="level" name="level">CVREF Level</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td> The CVREF voltage reference has 2 ranges (high and low) with 16 or 32 voltage levels in each range. The range is controlled by the Range Selecion drop-down box.</td>    
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td> The CVREF Level has 16 or 32 levels (depending on the device), the selection of the desired level is done by clicking on the Up/Down arrown next to the CVREF level text box, or by entering the value directly in the box. Another method is to modify the CVR bits of the CVRCON register, from Register View. Modifying the CVREF Level also modifies the CVREF Output (see the output calculation equations below).</td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td> The CVREF Level option is always available. </td>    
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="calculator" name="calculator">CVREF Calculator</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td> Summary:</td>
+                            <td> The comparator reference supply voltage can come from either VDD and VSS, or the external VREF+ and VREF-. </td>    
+                        </tr>
+                        <tr>
+                            <td> Description:</td>
+                            <td> The voltage step is calculated by deviding the CVRsrc to the step size, which depends on the range (high or low). The Vref- and Vref+ boxes are available when selecting as a Voltage Source (Vref+)-(Vref-), on the device that have the Voltage Source dropdown box. </td>       
+                        </tr>
+                        <tr>
+                            <td> Availability:</td>
+                            <td> The Voltage Step Size label is always available. </td>    
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="outputval" name="outputval">CVREF Output Value</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td> Summary:</td>
+                            <td> The CVREF output voltage is determined by an equations depending on the Range Selecion (CVRR bit of CVRCON). </td>    
+                        </tr>
+                        <tr>
+                            <td> Description:</td>
+                            <td> When the range is modified from the Range Selecion drop-down box, the CVREF Output minimum and maximum values also modify. If the value does not meet the required interval, the CVREF Output will warn you about it by colouring the box red, in this case you will either have to change the output value, the range or the level. </td>                       
+                        </tr>
+                        <tr>
+                            <td> Availability:</td>
+                            <td> The CVREF Output Value is always available.</td>    
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <tbody>
+                        <td><img src="cvrefout.jpg" alt="CVREF OUTPUT VOLTAGE" style="width:432px;height:221px"></td>
+                    </tbody>
+                </table>
+            </p>
+        </section>        
+    </body>
+</html>

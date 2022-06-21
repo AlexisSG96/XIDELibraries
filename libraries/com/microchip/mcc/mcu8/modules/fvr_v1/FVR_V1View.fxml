@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="rootNode" maxHeight="-Infinity" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.fvr_v1.FVR_V1Viewer">
+   <children>
+      <TitledPane animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <GridPane fx:id="gpAll" hgap="5.0" vgap="5.0">
+               <children>
+                  
+                  
+                  <CheckBox fx:id="enableFVR" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onAction" text="Enable FVR" GridPane.vgrow="NEVER" />
+                  <ComboBox fx:id="comboFVR" maxWidth="-Infinity" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.vgrow="NEVER" />
+                  <Label fx:id="bufssLabel" maxWidth="-Infinity" text="Select a Buffer Source:" GridPane.rowIndex="2" GridPane.vgrow="NEVER" />
+                  <CheckBox fx:id="enableFVRBuffer" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onAction" text="Enable Buffer Output to Pin and Peripherals" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                  <CheckBox fx:id="enableFVROutput" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onAction" text="Enable Pin Output" GridPane.rowIndex="3" GridPane.vgrow="NEVER" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+               </rowConstraints>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </GridPane>
+         </content>
+      </TitledPane>
+   </children>
+</AnchorPane>

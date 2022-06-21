@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="rootNode" maxHeight="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.modules.mcu8.mTouchLibrary.sensor.SensorSettingsViewer">
+   <children>
+      <GridPane hgap="10.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="8.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="136.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="sensorSettingsLabel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Sensor Settings">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="sensorNameLabel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Name" GridPane.rowIndex="1" />
+            <TextField fx:id="sensorNameTextField" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" promptText="Please name the hardware sensor." text="Sensor1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="pinNameLabel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Pin" GridPane.rowIndex="2" />
+            <TextField fx:id="pinNamesTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" promptText="Please name the pins this sensor is connected to." GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Individual Pre-Charge Time" GridPane.columnSpan="2" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label text="Individual Acquisition Time" GridPane.columnSpan="2" GridPane.rowIndex="5">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label text="Individual Oversampling" GridPane.columnSpan="2" GridPane.rowIndex="9">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="sensorPreChargeTimeTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="sensorAcquisitionTimeTextField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <CheckBox fx:id="sensorIndividualOversamplingEnabledCheckBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleSensorIndividualOversamplingEnabledCheckBoxAction" text="Enable" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="9" />
+            <Label text="Oversample" GridPane.rowIndex="10" />
+            <TextField fx:id="sensorIndividualOversampleTextField" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <CheckBox fx:id="sensorIndividualPreChargeTimeEnabledCheckBox" mnemonicParsing="false" onAction="#handleSensorIndividualPreChargeTimeEnabledCheckBoxAction" text="Enable" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <CheckBox fx:id="sensorIndividualAcquisitionTimeEnabledCheckBox" mnemonicParsing="false" onAction="#handleSensorIndividualAcquisitionTimeEnabledCheckBoxAction" text="Enable" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+            <Label text="Pre-Charge Time" GridPane.rowIndex="4" />
+            <Label text="Acquisition Time" GridPane.rowIndex="6" />
+            <Label text="Individual Additional Capacitance" GridPane.rowIndex="7">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label text="Additional Capacitance" GridPane.rowIndex="8" />
+            <CheckBox fx:id="sensorIndividualAdditionalCapEnabledCheckBox" mnemonicParsing="false" onAction="#handleSensorIndividualAdditionalCapCheckBoxAction" text="Enable" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
+            <ComboBox fx:id="sensorIndividualAdditionalCapComboBox" prefHeight="27.0" prefWidth="165.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
+            <Label fx:id="sensorIndividualLowPowerMeasurementEnabledLabel" text="Scan on Low Power Mode" GridPane.rowIndex="11">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <CheckBox fx:id="sensorIndividualLowPowerMeasurementEnabledCheckBox" mnemonicParsing="false" onAction="#handleSensorIndividualLowPowerMeasurementEnabledCheckBoxAction" text="Enable" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="11" />
+            <Button fx:id="sensorDeleteButton" mnemonicParsing="false" onAction="#handleSensorDeleteButtonAction" text="Delete Sensor" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

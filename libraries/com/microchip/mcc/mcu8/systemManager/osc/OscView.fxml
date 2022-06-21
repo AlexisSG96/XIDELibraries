@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.systemManager.osc.OscViewer">
+   <children>
+      <GridPane fx:id="gpAll" hgap="5.0" layoutX="-10.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label maxWidth="-Infinity" text="Current System clock" GridPane.vgrow="NEVER" />
+            <Label fx:id="lbInternalClock" maxWidth="-Infinity" text="Internal Clock" GridPane.rowIndex="5" GridPane.vgrow="NEVER" />
+            <GridPane hgap="5.0" vgap="5.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.vgrow="NEVER">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="lbPllString" GridPane.columnIndex="1" />
+                  <Label fx:id="lbCurrentClock" />
+                  <Label fx:id="lbcurrentCpuDiv" GridPane.columnIndex="2" />
+               </children>
+            </GridPane>
+            <ComboBox fx:id="cmbOscillatorSelect" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+            <ComboBox fx:id="cmbSystemClockSelect" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.vgrow="SOMETIMES" />
+            <Label fx:id="lbSystemClockSelect" maxWidth="-Infinity" text="System Clock Select" GridPane.rowIndex="2" GridPane.vgrow="SOMETIMES" />
+            
+                              <HBox fx:id="hbPllHint" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.rowIndex="5">
+               <children>
+                  <ImageView fitHeight="19.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@multiply_icon.png" />
+                     </image>
+                  </ImageView>
+                  <Label maxWidth="1.7976931348623157E308" text=" →PLL Capable Frequency" />
+               </children>
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </HBox>
+            <ComboBox fx:id="cmbInternalClock" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.vgrow="NEVER">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </ComboBox>
+            
+            <Label maxWidth="-Infinity" text="Oscillator Select" GridPane.rowIndex="1" GridPane.vgrow="SOMETIMES" />
+            <Label fx:id="lbExternalClock" text="External Clock" GridPane.rowIndex="6" GridPane.vgrow="SOMETIMES" />
+            <TextField fx:id="tfExternalClock" alignment="CENTER" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.vgrow="SOMETIMES">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin></TextField>
+	    <CheckBox fx:id="chkPllEnabled" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onAction" text="PLL Enabled" GridPane.rowIndex="7" GridPane.vgrow="SOMETIMES">
+               <GridPane.margin>
+                  <Insets bottom="2.0" top="2.0" />
+               </GridPane.margin></CheckBox>
+            <CheckBox fx:id="chkSoftwarePllEnabled" mnemonicParsing="false" onAction="#onAction" text="Software PLL Enabled" GridPane.columnIndex="1" GridPane.rowIndex="7" GridPane.vgrow="SOMETIMES">
+               <GridPane.margin>
+                  <Insets bottom="2.0" top="2.0" />
+               </GridPane.margin></CheckBox>
+            <Label fx:id="lbCpuDiv" text="Clock Divider" GridPane.rowIndex="11" GridPane.vgrow="SOMETIMES" />
+            <Label fx:id="lbPllMultiplier" text="Pll Multiplier" GridPane.rowIndex="10" GridPane.vgrow="SOMETIMES" />
+            <Label fx:id="lbFextosc" text="External Clock Select" GridPane.rowIndex="4" GridPane.vgrow="SOMETIMES" />
+            <ComboBox fx:id="cmbFextoscSelect" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" GridPane.vgrow="SOMETIMES">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin></ComboBox>
+            <ComboBox fx:id="cmbConfigPllMultiplier" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="10" GridPane.vgrow="SOMETIMES" />
+            <Label fx:id="lbl48mhz" text="LS48Mhz" GridPane.rowIndex="12" GridPane.vgrow="SOMETIMES" />
+            <ComboBox fx:id="cmbLs48mhz" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="12" GridPane.vgrow="SOMETIMES" />
+            <ComboBox fx:id="cmbNoscOscillatorSelect" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.vgrow="SOMETIMES" />
+            <Label fx:id="lblConfigPllSel" text="PLL Block Select" GridPane.rowIndex="8" GridPane.vgrow="SOMETIMES" />
+            <ComboBox fx:id="cmbConfigPllSel" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="8" GridPane.vgrow="SOMETIMES" />
+            <Label fx:id="lblConfigPllPrescaler" text="PLL Prescaler" GridPane.rowIndex="9" GridPane.vgrow="SOMETIMES" />
+            <ComboBox fx:id="cmbConfigPllPrescaler" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="9" GridPane.vgrow="SOMETIMES" />
+            <Label fx:id="lbPoscSelect" layoutX="15.0" layoutY="101.0" text="Primary Oscillator Select" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cmbPoscSelect" layoutX="149.0" layoutY="97.0" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+            
+         </children>
+         <columnConstraints>
+            <ColumnConstraints maxWidth="-Infinity" />
+            <ColumnConstraints maxWidth="-Infinity" />
+            <ColumnConstraints maxWidth="-Infinity" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+         </rowConstraints>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </GridPane>
+   </children>
+
+</AnchorPane>

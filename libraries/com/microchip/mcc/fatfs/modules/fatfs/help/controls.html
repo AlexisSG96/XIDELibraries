@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title >FatFS</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>FatFS</h2>
+        <hr>
+        <section>
+            <h3 id="fatfs_homepage" name="fatfs_homepage">FatFS Home Page</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+							<td>FatFS is a generic FAT file system developed outside of Microchip Technology Inc. For more information regarding FatFs including module 
+							settings documentation, FatFs application notes, and file system API documentation please visit the FatFs Home page:</td>
+						</tr>
+						<tr>
+                                                    <td><a href="http://elm-chan.org/fsw/ff/00index_e.html" target="_blank">http://elm-chan.org/fsw/ff/00index_e.html</a></td>
+						</tr>
+						<tr>
+                                                    <td><br>Or click the FatFS Home Page link in the External Links reference of this help file.<br><br>This document will focus on this modules controls for configuring the FatFs library and not on the FatFs library itself.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="demo" name="demo"><a href="config_demo.html">Demo Configuration</a></h3>
+            <p>
+                Configures the demo/example code generation.
+            </p>
+        </section>
+        <section>
+            <h3 id="function" name="function"><a href="config_function.html">Function/Optimization Configuration</a></h3>
+            <p>
+                Allows the user to select which features of the FatFs library to include allowing the user to remove unused features to reduce code footprint.  This section also allows user to configure how some of the functions operate.
+            </p>
+        </section>
+        <section>
+            <h3 id="locale" name="locale"><a href="config_locale.html">Locale and Namespace Configuration</a></h3>
+            <p>
+                Configures the buffer sizes for the library, thus impacting the RAM footprint.  The section also contains information about the formatting of the strings used to reference files/folders on the drive.
+            </p>
+        </section>
+        <section>
+            <h3 id="drive" name="drive"><a href="config_drives.html">Drive/Volume Configuration</a></h3>
+            <p>
+                Configures what types of drives are supported, how they are supported, and creates a linkage between the FatFs library and the physical layer driver that implements the communication to that drive.
+            </p>
+        </section>
+        <section>
+            <h3 id="system" name="system"><a href="config_system.html">System Configuration</a></h3>
+            <p>
+                This section configures the system parameters of the library such as time stamping, RTOS support features, etc.
+            </p>
+        </section>
+    </body>
+</html>

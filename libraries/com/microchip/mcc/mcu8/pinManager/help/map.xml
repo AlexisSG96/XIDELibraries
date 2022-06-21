@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    <mapID target="mcu8_pin_controls" url="pin.html"/>
+    <mapID target="mcu8_pin_selection_window" url="pin.html#selection_window"/>
+    <mapID target="mcu8_pin_functions_window" url="pin.html#functions_window"/>    
+    <mapID target="mcu8_pin_package_view" url="pin.html#package_view"/>     
+    <mapID target="mcu8_pin_wiki" url="http://microchip.wikidot.com/gpiointroduction" wintype="external"/>
+    <mapID target="mcu8_pin_setup_basics" url="http://microchip.wikidot.com/xpress:gpiointroduction" wintype="external"/>
+</map>

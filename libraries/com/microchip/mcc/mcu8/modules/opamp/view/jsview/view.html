@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MCC View</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="../../../../common/ui/webui/bridge.js"></script>
+        <script type="text/javascript" src="../../../../common/ui/webui/library.js"></script>
+        <link rel="stylesheet" href="../../../../common/ui/webui/style.css" type="text/css" />
+    </head>
+    <body>
+        <div id="divContainer">
+                        <div class="divTable" data-collapse="false" >
+                <div class="divTableBar" id="divTableBar1">
+					<span class="expanded" id="divTableBar1Icon"></span>
+                    <span class="titleBarContent">Hardware Settings</span>
+                </div>
+                <div class="divTableBody" id="divTableBar1Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable OpAmp:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="isEnableOpamp">
+                            <label for="isEnableOpamp"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Charge Pump:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="isChargePump">
+                            <label for="isChargePump"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Op Amp Configuration:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="opAmpConfig"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel"></div>
+                        </div>                       
+                        <div class="divTableCell">
+                            <img id="imageDisplayed" src="" alt="">
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel"></div>                          
+                        </div>
+                        <div class="divTableCell">
+                            <a id="mindiLink" href='javascript:void(0);' onclick='jsmodule.handleLink(this);'>Mindi&trade; Schematic</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="divTable" data-collapse="false" >
+                <div class="divTableBar" id="divTableBar2">
+					<span class="expanded" id="divTableBar2Icon"></span>
+                    <span class="titleBarContent">Channel Selection</span>
+                </div>
+                <div class="divTableBody" id="divTableBar2Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Positive Channel:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="posChannel"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Positive Source Selection:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="posSrc"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Negative Channel:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="negChannel"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Negative Source Selection:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="negSrc"></select>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+            <div class="divTable" data-collapse="true" >
+                <div class="divTableBar" id="divTableBar3">
+					<span class="collapsed" id="divTableBar3Icon"></span>
+                    <span class="titleBarContent">Programmable Gain and Feedback Selection</span>
+                </div>
+                <div class="divTableBody" id="divTableBar3Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Internal Resistor Ladder Selection:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="resistorsSelection"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Gain (1+ R2/R1):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="nonInvGainCalc" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Gain [(R2/R1 + 1)(Vref/Vin) - (R2/R1)]:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="invGainCalc" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Feedback Mode Selection:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="feedbackMode"></select>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+            <div class="divTable" data-collapse="true" >
+                <div class="divTableBar" id="divTableBar4">
+					<span class="collapsed" id="divTableBar4Icon"></span>
+                    <span class="titleBarContent">Override Selection</span>
+                </div>
+                <div class="divTableBody" id="divTableBar4Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Override Mode:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="overrideMode"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Software Override Control:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="softwareOverrideMode"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Hardware Override Source Selection:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="hardwareOverrideSource"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Override Control High Configuration:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="hardwareOverrideControlHigh"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Override Control Low Configuration:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="hardwareOverrideControlLow"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Invert Source Polarity:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="isInvPolarity">
+                            <label for="isInvPolarity"></label>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="../../../../common/ui/webui/uiControls.js"></script>
+        <script language="javascript">
+            function onInit() {
+                jsmodule.setBridge(bridge);
+                jsmodule.setLibrary(library);
+                jsmodule.init();
+            }
+            window.onload = onInit;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mikrobus.DIGIPOT5.DIGIPOT5Viewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" layoutY="-2.0" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <VBox>
+               <children>
+                  <HBox>
+                     <children>
+                        <GridPane>
+                           <children>
+                              <ComboBox fx:id="comboSettings" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <Label text="Format:  " GridPane.rowIndex="6" />
+                              <TextField fx:id="resistanceText0" text="5000" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets right="3.0" />
+                                 </GridPane.margin></TextField>
+                              <TextField fx:id="resistanceText1" text="5000" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets right="3.0" />
+                                 </GridPane.margin></TextField>
+                              <TextField fx:id="resistanceText2" text="5000" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets right="3.0" />
+                                 </GridPane.margin></TextField>
+                              <TextField fx:id="resistanceText3" text="5000" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                 <GridPane.margin>
+                                    <Insets right="3.0" />
+                                 </GridPane.margin></TextField>
+                              <Label text="Channel 0" GridPane.rowIndex="1" />
+                              <Label text="Channel 1" GridPane.rowIndex="2" />
+                              <Label text="Channel 2" GridPane.rowIndex="3" />
+                              <Label text="Channel 3" GridPane.rowIndex="4" />
+                              <Label text="Resistance (Ω)" GridPane.columnIndex="2" />
+                              <Slider fx:id="resistanceSlider0" max="10000.0" min="75.0" value="5000.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding></Slider>
+                              <Slider fx:id="resistanceSlider1" max="10000.0" min="75.0" value="5000.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </Slider>
+                              <Slider fx:id="resistanceSlider2" max="10000.0" min="75.0" value="5000.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </Slider>
+                              <Slider fx:id="resistanceSlider3" max="10000.0" min="75.0" value="5000.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </Slider>
+                              <CheckBox fx:id="saveCheckBox0" mnemonicParsing="false" onAction="#onAction" selected="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <Label text="Save" GridPane.columnIndex="3" />
+                              <CheckBox fx:id="saveCheckBox1" mnemonicParsing="false" onAction="#onAction" selected="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="saveCheckBox2" mnemonicParsing="false" onAction="#onAction" selected="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <CheckBox fx:id="saveCheckBox3" mnemonicParsing="false" onAction="#onAction" selected="true" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+        </TitledPane>
+    </children>
+    
+</AnchorPane>

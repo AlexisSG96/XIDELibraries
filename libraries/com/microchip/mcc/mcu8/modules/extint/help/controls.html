@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>EXTINT</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>External Interrupts (EXTINT)</h2>
+        <hr>
+        <section>
+            <h3 id="intpriority" name="intpriority">Interrupt Priority</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td>
+                            <td> The external interrupt table shows the interrupt bits available, accessible from the pin map. </td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td> By default the INT0 bit has highest priority assigned, on the devices that allow multiple external pins. The edge detect can be changed from the Register view to either Falling or Rising Edge, for each external interrupt pin. </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td> 
+                            <td> On the PIC16 families there is only one external interrupt pin found under the name of INT. </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td> The external interrupt table is always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+    </body>
+</html>

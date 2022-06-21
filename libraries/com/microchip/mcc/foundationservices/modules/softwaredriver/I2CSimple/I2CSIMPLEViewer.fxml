@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.foundationservices.modules.softwaredriver.I2CSimple.I2CSIMPLEViewer">
+    <children>
+      <GridPane>
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" />
+          <ColumnConstraints hgrow="SOMETIMES" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints vgrow="SOMETIMES" />
+          <RowConstraints vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+              <TitledPane animated="false" collapsible="false" text="Hardware Settings" GridPane.columnSpan="2">
+                  <content>
+                      <VBox fx:id="subModuleSelectionBox" />
+                  </content>
+              </TitledPane>
+            <TitledPane animated="false" text="Use Case Examples" GridPane.columnSpan="2" GridPane.rowIndex="1">
+               <content>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" />
+                      <ColumnConstraints hgrow="SOMETIMES" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <ComboBox fx:id="useCaseComboBoxSettings" GridPane.columnIndex="1" />
+                        <Label text="Select use case example to generate " />
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
+         </children>
+      </GridPane>
+    </children>
+    
+</AnchorPane>

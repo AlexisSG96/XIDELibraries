@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    <mapID target="mcu8_mathacc_controls" url="controls.html"/>
+    <mapID target="mcu8_mathacc_controls_mode" url="controls.html#mode"/>
+    <mapID target="mcu8_mathacc_controls_operation" url="controls.html#operation"/>
+    <mapID target="mcu8_mathacc_controls_inputs" url="controls.html#inputs"/>
+    <mapID target="mcu8_mathacc_controls_parama" url="controls.html#parama"/>
+    <mapID target="mcu8_mathacc_controls_paramb" url="controls.html#paramb"/>
+    <mapID target="mcu8_mathacc_controls_paramc" url="controls.html#paramc"/>
+    <mapID target="mcu8_mathacc_controls_paramkp" url="controls.html#paramkp"/>
+    <mapID target="mcu8_mathacc_controls_paramki" url="controls.html#paramki"/>
+    <mapID target="mcu8_mathacc_controls_paramkd" url="controls.html#paramkd"/>
+    <mapID target="mcu8_mathacc_microchip" url="http://www.microchip.com/mathacc" wintype="external"/>
+</map>

@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>CLC</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>CLC Module</h2>
+        <hr>
+        <section>
+            <h3 id="hardware_settings" name="hardware_settings">Hardware Settings</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Sets the various hardware settings of the CLC module</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>The hardware settings allow the user to enable or disable a set of hardware related settings of the CLC module. Options include an general CLC enable/disable, rising and falling interrupts, and a geneal CLC output.</td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td></td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>The Hardware Settings is always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="mode" name="mode">Mode</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td> Summary:</td>
+                            <td>Sets the specific logic mode of operation.</td>
+                        </tr>
+                        <tr>
+                            <td> Description:</td>
+                            <td>The mode setting allow the user to choose the exact functionality that is required. The selected logic type is graphically displayed. At any time a set of four user-assignable input are available. The user can route them to various signal sources. The exact signal source selectable may depend on the current selected microcontroller. The Configurable Logic Cell (CLC) provides programmable logic that operates outside the speed limitations of software execution. The logic cell takes up to 16 input signals and through the use of configurable gates reduces the 16 inputs to four logic lines that drive one of eight selectable single-output logic functions. The CLC peripheral has four sections that need to be setup before it can be used. This involves setting up 8 registers in your software program. Once these registers are setup, the CLC will run independent of software control until the registers are changed via software.</td>
+                        </tr>
+                        <tr>
+                            <td>Additional Information:</td>
+                            <td>
+                            <p>Possible configurations include:</p>
+                            <p>Combinatorial Logic"</p>
+                            <p>AND</p>
+                            <p>NAND</p>
+                            <p>AND-OR</p>
+                            <p>AND-OR-INVERT</p>
+                            <p>OR-XOR</p>
+                            <p>OR-XNOR</p>
+  
+                            <p>Latches:</p>
+                            <p>S-R</p>
+                            <p>Clocked D with Set and Reset</p>
+                            <p>TransparentDwithSetandReset</p>
+                            <p>Clocked J-K with Reset</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> Availability:</td>
+                            <td>The Mode Settings is always available.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+    </body>
+</html>

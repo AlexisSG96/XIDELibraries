@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE index PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Index Version 2.0//EN" "http://java.sun.com/products/javahelp/index_2_0.dtd">
+<index version="2.0">
+    <indexitem text="PWM Mode" target="mcu8_pwm16bit_controls_pwmmode"/>
+    <indexitem text="Clock Source" target="mcu8_pwm16bit_controls_clocksource"/>
+    <indexitem text="Prescaler" target="mcu8_pwm16bit_controls_clockprescaler"/>
+    <indexitem text="Offset Match" target="mcu8_pwm16bit_controls_mcu8_pwm16bit_controls_offsetmatchon"/>
+    <indexitem text="Offset Mode" target="mcu8_pwm16bit_controls_clockprescaler"/>
+    <indexitem text="Offset Trigger Source" target="mcu8_pwm16bit_controls_offsettriggersource"/>
+    <indexitem text="Period" target="mcu8_pwm16bit_controls_period"/>
+    <indexitem text="Phase" target="mcu8_pwm16bit_controls_phase"/>
+    <indexitem text="Offset" target="mcu8_pwm16bit_controls_offset"/>    
+    <indexitem text="Duty Cycle" target="mcu8_pwm16bit_controls_dutycycle"/> 
+</index>

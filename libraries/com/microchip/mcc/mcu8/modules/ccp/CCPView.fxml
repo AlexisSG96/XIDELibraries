@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" maxHeight="1.7976931348623157E308" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.ccp.CCPViewer">
+   <children>
+      <TitledPane animated="false" collapsible="false" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <GridPane fx:id="gridMaster" hgap="5.0" vgap="5.0">
+              <columnConstraints>
+                <ColumnConstraints />
+                  <ColumnConstraints />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+              </rowConstraints>
+               <children>
+                  <CheckBox fx:id="enableInterrupt" mnemonicParsing="false" onAction="#onAction" text="Enable CCP Interrupt" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                  <TitledPane animated="false" collapsible="false" GridPane.rowIndex="1">
+                     <graphic>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints />
+                              <ColumnConstraints />
+                            <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints vgrow="NEVER" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="CCP Mode " />
+                              <ComboBox fx:id="ccpMode" onAction="#onAction" GridPane.columnIndex="2" />
+                           </children>
+                        </GridPane>
+                     </graphic>
+                     <content>
+                        <GridPane fx:id="gridMain" maxWidth="1.7976931348623157E308">
+                          <columnConstraints>
+                            <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints vgrow="NEVER" />
+                          </rowConstraints>
+                           <children>
+                              <GridPane fx:id="gridCapture" hgap="5.0" maxWidth="1.7976931348623157E308" vgap="5.0">
+                                <columnConstraints>
+                                  <ColumnConstraints />
+                                  <ColumnConstraints />
+                                    <ColumnConstraints />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints vgrow="NEVER" />
+                                  <RowConstraints vgrow="NEVER" />
+                                  <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Select Timer" />
+                                    <Label text="Input Signal" GridPane.rowIndex="1" />
+                                    <Label text="Capture Mode" GridPane.rowIndex="2" />
+                                    <ComboBox fx:id="captureAssignedTimerDisplay" onAction="#onAction" GridPane.columnIndex="1" />
+                                    <ComboBox fx:id="captureInputSignal" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <ComboBox fx:id="captureMode" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Label maxWidth="-Infinity" text="Please refer to the assigned timer for captured values." GridPane.columnIndex="2" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </GridPane>
+                              <GridPane fx:id="gridCompare" hgap="5.0" maxWidth="1.7976931348623157E308" vgap="5.0">
+                                <columnConstraints>
+                                  <ColumnConstraints />
+                                  <ColumnConstraints />
+                                    <ColumnConstraints />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                  <RowConstraints vgrow="NEVER" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Select Timer" />
+                                    <ComboBox fx:id="compareAssignedTimerDisplay" onAction="#onAction" GridPane.columnIndex="1" />
+                                    <Label text="Compare Mode" GridPane.rowIndex="1" />
+                                    <ComboBox fx:id="compareMode" maxWidth="-Infinity" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label text="Please refer to the assigned timer to adjust the Compare trip point." GridPane.columnIndex="2" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </GridPane>
+                              <GridPane fx:id="gridPWM" hgap="5.0" maxWidth="1.7976931348623157E308" vgap="5.0">
+                                <columnConstraints>
+                                  <ColumnConstraints />
+                                  <ColumnConstraints />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints vgrow="NEVER" />
+                                  <RowConstraints vgrow="NEVER" />
+                                  <RowConstraints vgrow="NEVER" />
+                                </rowConstraints>
+                                 <children>
+                                    <TitledPane animated="false" collapsible="false" text="Duty Cycle" GridPane.rowIndex="1">
+                                       <content>
+                                          <GridPane alignment="CENTER_LEFT" hgap="5.0" vgap="5.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints />
+                                              <ColumnConstraints />
+                                                <ColumnConstraints />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints vgrow="NEVER" />
+                                              <RowConstraints vgrow="NEVER" />
+                                              <RowConstraints vgrow="NEVER" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label text="Duty Cycle" />
+                                                <TextField fx:id="pwmDuCy" onAction="#onAction" prefWidth="100.0" GridPane.columnIndex="1" />
+                                                <Label text="\%" GridPane.columnIndex="2" />
+                                                <Label text="CCPR Value" GridPane.rowIndex="1" />
+                                                <Label fx:id="pwmCCPR" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Label maxWidth="-Infinity" text="CCPR Alignment" GridPane.rowIndex="2" />
+                                                <ComboBox fx:id="pwmDuCyAlign" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </content>
+                                    </TitledPane>
+                                    <GridPane hgap="5.0" vgap="5.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints />
+                                        <ColumnConstraints />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints />
+                                      </rowConstraints>
+                                       <children>
+                                          <ComboBox fx:id="pwmAssignedTimerDisplay" onAction="#onAction" GridPane.columnIndex="1" />
+                                          <Label text="Select Timer" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </GridPane>
+                                    <TitledPane alignment="TOP_LEFT" animated="false" collapsible="false" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" text="PWM Parameters" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <content>
+                                          <GridPane alignment="CENTER_LEFT" hgap="5.0" vgap="5.0">
+                                             <children>
+                                                <Label text="PWM Period " />
+                                                <Label text="PWM Frequency" GridPane.rowIndex="1" />
+                                                <Label fx:id="pwmFrequency" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Label text="PWM Resolution" GridPane.rowIndex="2" />
+                                                <Label fx:id="pwmPeriod" GridPane.columnIndex="1" />
+                                                <Label fx:id="pwmResolution" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                             </children>
+                                             <columnConstraints>
+                                                <ColumnConstraints />
+                                                <ColumnConstraints />
+                                             </columnConstraints>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                             <rowConstraints>
+                                                <RowConstraints fillHeight="false" />
+                                                <RowConstraints fillHeight="false" />
+                                                <RowConstraints fillHeight="false" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                       </content>
+                                    </TitledPane>
+                                    <Label text="Please refer to the assigned timer to adjust the PWM frequency." GridPane.columnIndex="1" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </GridPane>
+                           </children>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <GridPane hgap="5.0" vgap="5.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="NEVER" />
+                      <ColumnConstraints hgrow="NEVER" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints vgrow="NEVER" />
+                    </rowConstraints>
+                     <children>
+                        <CheckBox fx:id="enableCCP" mnemonicParsing="false" onAction="#onAction" text="Enable CCP" />
+                        <CheckBox fx:id="enableCCPOutput" mnemonicParsing="false" onAction="#onAction" text="Enable CCP Pin Output" GridPane.columnIndex="1" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </GridPane>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </GridPane>
+         </content>
+      </TitledPane>
+   </children>
+    
+</AnchorPane>

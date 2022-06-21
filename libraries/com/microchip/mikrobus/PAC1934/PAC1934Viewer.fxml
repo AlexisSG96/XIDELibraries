@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mikrobus.PAC1934.PAC1934Viewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" layoutY="-2.0" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <VBox>
+                    <children>
+                  <HBox>
+                     <children>
+                              <CheckBox fx:id="RSTEN" mnemonicParsing="false" onAction="#onAction" prefHeight="17.0" prefWidth="139.0" text="PAC1934 Enable" />
+                     </children>
+                  </HBox>
+                    </children>
+                </VBox>
+            </content>
+        </TitledPane>
+    </children>
+    
+</AnchorPane>

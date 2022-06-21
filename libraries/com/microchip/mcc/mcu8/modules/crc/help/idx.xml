@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE index PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Index Version 2.0//EN" "http://java.sun.com/products/javahelp/index_2_0.dtd">
+<index version="2.0">
+    <indexitem text="Predefined Polynomial" target="mcu8_crc_controls_predefinedpolynomial"/>
+    <indexitem text="Polynomial Word Width" target="mcu8_crc_controls_polynomialwordwidth"/>
+    <indexitem text="Polynomial" target="mcu8_crc_controls_polynomial"/>
+    <indexitem text="Seed" target="mcu8_crc_controls_seed"/>
+    <indexitem text="Seed Method" target="mcu8_crc_controls_seedmethod"/>
+    <indexitem text="Data Word Width (bits)" target="mcu8_crc_controls_datawordwidth"/>    
+    <indexitem text="Data Sequence" target="mcu8_crc_controls_datasequence"/>    
+    <indexitem text="Final XOR Value" target="mcu8_crc_controls_finalxorvalue"/>    
+    <indexitem text="Result" target="mcu8_crc_controls_result"/>        
+</index>

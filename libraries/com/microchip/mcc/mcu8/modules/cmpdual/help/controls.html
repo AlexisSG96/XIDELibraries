@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>CMP</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>Dual Comparator</h2>
+        <hr>
+        <section>
+            <p>
+				The dual comparator module contains two comparators that can be configured in one of the 8 modes. The analog inputs to the comparators can be selected from multiple analog inputs multiplexed with GPIO pins RF1 to RF6 as well as on-chip comparator reference voltage.
+				The digital outputs are available at the output pins and/or can be read from the control registers depending on the mode the comparators are configured in. <br/>
+				<h3>The modes that the comparators can be configured in are listed below :</h3>
+				<ul>
+					<li>
+						<b><u>Comparator Outputs Disabled</u></b><br/>
+						The outputs of both the comparators are disabled in this mode. The outputs are neither available on the pins nor through the control register output bits.<br/><br/>
+						<img src="dualCmp_000.jpg" alt="CMP dual mode = 000"/><br/><br/>
+					</li>
+					<li>
+						<b><u>One independent comparator with output</u></b><br/>
+						First comparator functions normally with for which the negative and positive inputs can be given through the C1IN- and C1IN+ pins and the output is available on C1OUT pin.
+						The inputs of the other comparator are grounded.<br/><br/>
+						<img src="dualCmp_001.jpg" alt="CMP dual mode = 001"/><br/><br/><br/>
+					</li>
+					<li>
+						<b><u>Two independent comparators</u></b><br/>
+						The comparators function independently and their respective outputs can be read through the bits present in the control register.<br/><br/>
+						<img src="dualCmp_010.jpg" alt="CMP dual mode = 010"><br/><br/>
+					</li>
+					<li>
+						<b><u>Two independent comparators with outputs</u></b><br/>
+						The comparators function independently and their respective outputs can be read through the bits present in the control register and they are also available on the output pins C1OUT and C2OUT.<br/><br/>
+						<img src="dualCmp_011.jpg" alt="CMP dual mode = 011"><br/><br/><br/>
+					</li>
+					<li>
+						<b><u>Two common reference comparators</u></b><br/>
+						The positive inputs of both the comparators are connected. The comparators' outputs can be read through the bits present in the control register.<br/><br/>
+						<img src="dualCmp_100.jpg" alt="CMP dual mode = 100"><br/><br/>
+					</li>
+					<li>
+						<b><u>Two common reference comparators with outputs</u></b><br/>
+						The positive inputs of both the comparators are connected. The outputs are available in the registers bits as well as on C1OUT and C2OUT pins.<br/><br/>
+						<img src="dualCmp_101.jpg" alt="CMP dual mode = 101"><br/><br/><br/>
+					</li>
+					<li> 
+						<b><u>Four inputs multiplexed to 2 comparators</u></b><br/>
+						The positive inputs are tied together and come from CVREF module. The negative inputs to the comparators are multiplexed between CxIN- and CxIN+ pins and it can be configured through the comparator input combo box provided in the UI.<br/><br/>
+						<img src="dualCmp_110.jpg" alt="CMP dual mode = 110"><br/><br/>
+					</li>
+					<li> 
+						<b><u>Comparators off</u></b><br/>
+						Both the comparators are off.<br/><br/>
+						<img src="dualCmp_111.jpg" alt="CMP dual mode = 111"><br/>
+					</li>
+				</ul>
+			</p>
+        </section>           
+    </body>
+</html>

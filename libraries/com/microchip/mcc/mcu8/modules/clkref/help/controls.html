@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>CLKREF</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>Reference Clock</h2>
+        <hr>
+        <section>
+            <h3 id="dutycycle" name="dutycycle">Duty Cycle</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Selects the duty cycle amount for the output signal of the CLKREF module.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>This drop-down allows you to select between different predefined duty cycle percentages of the Reference Clock output signal.
+                                The selectable options can be seen as fractions of the CLKREF input signal (typically the System Clock).
+                            </td>
+                        </tr>                   
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="clockdivider" name="clockdivider">Clock Divider</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Input Signal postscaler.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>This drop-down allows you to scale down the base clock signal using predefined scaling factors.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>There are a couple of corner cases, where the Clock Divider might not work exactly as you intend it to. 
+                                If you do not specify a scaling factor (Clock Divider = Baseclock), the duty cycle of the CLKREF output signal will match the one of the input signal, unless the Duty Cycle drop-down is set to 0%.
+                                Another special situation is the of Clock Divider = Baseclock/2 - in this case, if the Duty cycle is set to either 25% or 75% the accuracy of the actual duty cycle will depend on the accuracy of the clock source duty cycle.
+                                </td>
+                        </tr>                      
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>                      
+    </body>
+</html>

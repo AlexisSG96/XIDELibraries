@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    <mapID target="mcu8_lcd_controls"         url="controls.html"/>
+    <mapID target="mcu8_lcd_overview"         url="controls.html#overview"/>
+    <mapID target="mcu8_lcd_configure_macro"  url="controls.html#configureMacro"/>
+    <mapID target="mcu8_lcd_seg_com_table"  url="controls.html#segComTable"/>
+    <mapID target="mcu8_lcd_backwardCompatibity"  url="controls.html#backwardCompatibity"/>
+    <mapID target="mcu8_lcd_general_settings" url="controls.html#general_settings"/>    
+    <mapID target="mcu8_lcd_bias_settings"    url="controls.html#bias_settings"/> 
+    <mapID target="mcu8_lcd_power_settings"   url="controls.html#power_settings"/>
+</map>

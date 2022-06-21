@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE index PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Index Version 2.0//EN" "http://java.sun.com/products/javahelp/index_2_0.dtd">
+<index version="2.0">
+    <indexitem text="Controls"            target="mcu8_cog_controls"/>
+    <indexitem text="Hardware Settings"   target="mcu8_cog_hardware_settings"/>
+    <indexitem text="Events"              target="mcu8_cog_events"/>
+    <indexitem text="Output Pin Config"   target="mcu8_cog_output_pin"/>
+    <indexitem text="Auto Shut Down"      target="mcu8_cog_shut_down"/> 
+</index>

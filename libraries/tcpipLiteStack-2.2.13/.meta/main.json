@@ -1,0 +1,41 @@
+{
+    "metaDataVersion": "1.0.0",
+    "category": "com.microchip.mcc3.library",
+    "content": {
+        "metaDataVersion": "1.0.0",
+        "name": "com.microchip.mcc.TCPIPLite.TCPIPLite",
+        "version": "2.2.13",
+        "file": "tcpipLiteStack-2.2.13.jar",
+        "displayName": "TCP/IP Lite Stack",
+        "coreVersion": "5.0.0",
+        "vendor": "Microchip Technology, Inc.",
+        "readme_url": "http://ww1.microchip.com/downloads/en/DeviceDoc/MPLABCodeConfigurator-TCPIPLite-Library-Release-Notes-v2.2.13.pdf",
+        "summary": "<!DOCTYPE html><html><head><meta charset='UTF-8'/><title>TCPIPLite</title></head><body style=\"background-color:grey;\"><h2>Release Notes for TCPIPLite Library</h2></body></html>",
+    "category": [
+            "Software"
+        ],
+        "dependencies": [
+            {
+                "metaDataVersion": "1.0.0",
+                "category": "com.microchip.portal.contentRef",
+                "content": {
+                    "metaDataVersion": "1.0.0",
+                    "category": "com.microchip.mcc3.library",
+                    "name": "com.microchip.mcc.foundationservices.library.FoundationServicesLibrary",
+                    "version": "^0.2.2"
+                }
+            },
+		
+            {
+                "metaDataVersion": "1.0.0",
+                "category": "com.microchip.portal.contentRef",
+                "content": {
+                    "metaDataVersion": "1.0.0",
+                    "category": "com.microchip.mcc3.library",
+                    "name": "com.microchip.mcc.mcu8.Mcu8PeripheralLibrary",
+                    "version": "^1.81.5"
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<fx:root fx:id="rootNode" type="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+      <GridPane>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <ComboBox fx:id="posVoltRef" maxWidth="1.7976931348623157E308" />
+            <ComboBox fx:id="negVoltRef" maxWidth="1.7976931348623157E308" GridPane.rowIndex="1" />
+            <ComboBox fx:id="voltRef" maxWidth="1.7976931348623157E308" GridPane.rowIndex="2" />
+            <Label fx:id="posVrefLabel" text="Positive Voltage Ref" GridPane.rowIndex="3" />
+            <Label fx:id="negVrefLabel" text="Negative Voltage Ref" GridPane.rowIndex="4" />
+            <Label fx:id="vrefLabel" text="Voltage Reference" GridPane.rowIndex="5" />
+         </children>
+      </GridPane>
+    </children>
+    
+</fx:root>

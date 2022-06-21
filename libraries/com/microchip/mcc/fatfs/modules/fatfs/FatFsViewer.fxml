@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.fatfs.modules.fatfs.FatFsViewController">
+    <stylesheets>
+        <URL value="@/com/microchip/mcc/fatfs/stylesheet.css" />
+    </stylesheets>    
+    <children>
+      <TabPane tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Information">
+            <content>
+              <AnchorPane>
+                     <children>
+                        <GridPane AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <TextFlow fx:id="IntroFlow" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="0.0" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Configuration">
+            <content>
+              <AnchorPane>
+                     <children>
+                        <VBox maxHeight="1.7976931348623157E308" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <children>
+                              <CheckBox fx:id="generateDemo" mnemonicParsing="false" onAction="#onActionGenerateDemo" selected="true" text="Generate example/demo files">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <TitledPane fx:id="SectionPhysicalDriver" animated="false" maxHeight="1.7976931348623157E308" text="Physical Driver Selection" VBox.vgrow="ALWAYS">
+                                <content>
+                                  <AnchorPane maxHeight="1.7976931348623157E308">
+                                       <children>
+                                          <GridPane hgap="5.0" maxHeight="1.7976931348623157E308" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" />
+                                              <ColumnConstraints hgrow="SOMETIMES" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints vgrow="ALWAYS" />
+                                                <RowConstraints vgrow="ALWAYS" />
+                                                <RowConstraints vgrow="ALWAYS" />
+                                              <RowConstraints vgrow="ALWAYS" />
+                                              <RowConstraints vgrow="ALWAYS" />
+                                            </rowConstraints>
+                                             <children>
+                                                <HBox GridPane.columnSpan="2147483647" GridPane.rowIndex="3">
+                                                   <children>
+                                                      <ComboBox fx:id="driverSelect" onAction="#onActionDriverSelected" prefWidth="200.0" promptText="Select Driver">
+                                                         <tooltip>
+                                                            <Tooltip fx:id="driverSelectToolTip" text="Select a physical layer firmware driver." />
+                                                         </tooltip></ComboBox>
+                                                      <Button fx:id="addRow" mnemonicParsing="false" onAction="#onActionAddRow" text="+ Insert Driver">
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" />
+                                                         </HBox.margin></Button>
+                                                   </children>
+                                                </HBox>
+                                                <TableView fx:id="driveTable" editable="true" minHeight="175.0" prefHeight="175.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="4">
+                                                  <columns>
+                                                    <TableColumn fx:id="driveNumberColumn" prefWidth="75.0" sortable="false" text="Number" />
+                                                    <TableColumn fx:id="driveLabelColumn" prefWidth="75.0" sortable="false" text="Label" />
+                                                      <TableColumn fx:id="driveDriverColumn" editable="false" prefWidth="175.0" sortable="false" text="Driver" />
+                                                      <TableColumn fx:id="driveRemoveColumn" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="60.0" sortable="false" text="Remove" />
+                                                  </columns>
+                                                </TableView>
+                                                <TextFlow fx:id="SectionPhysicalDriverDescription" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" GridPane.columnSpan="2147483647" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                                <Separator GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
+                                                <Label fx:id="lblDriverSelect" text="Select a physical layer driver:" GridPane.columnSpan="2147483647" GridPane.rowIndex="2" />
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </TitledPane>
+                              <TitledPane fx:id="SectionFunctions" text="Feature Selection and Optimizations">
+                                 <content>
+                                    <AnchorPane>
+                                       <children>
+                                          <GridPane hgap="5.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <CheckBox fx:id="ff_use_mkfs" mnemonicParsing="false" onAction="#onActionMKFS" text="Enable formatting functions (f_mkfs)" GridPane.columnSpan="2147483647" GridPane.rowIndex="7" />
+                                                <CheckBox fx:id="ff_use_fastseek" mnemonicParsing="false" onAction="#onActionFastSeek" text="Enable fast seek functionality" GridPane.columnSpan="2147483647" GridPane.rowIndex="8" />
+                                                <CheckBox fx:id="ff_use_expand" mnemonicParsing="false" onAction="#onActionUseExpand" text="Enable file inflation functionality (f_expand)" GridPane.columnSpan="2147483647" GridPane.rowIndex="15" />
+                                                <CheckBox fx:id="ff_use_chmod" mnemonicParsing="false" onAction="#onActionUseChmod" text="Enable metadata control functions (f_chmod and f_utime)" GridPane.columnSpan="2147483647" GridPane.rowIndex="12" />
+                                                <CheckBox fx:id="ff_use_label" mnemonicParsing="false" onAction="#onActionUseLabel" text="Enable volume label functions (f_getlabel and f_setlabel)" GridPane.columnSpan="2147483647" GridPane.rowIndex="13" />
+                                                <CheckBox fx:id="ff_use_forward" mnemonicParsing="false" onAction="#onActionUseForward" text="Enable automatic data stream forwarding functions (f_forward)" GridPane.columnSpan="2147483647" GridPane.rowIndex="14" />
+                                                <CheckBox fx:id="ff_use_find" mnemonicParsing="false" onAction="#onActionFind" text="Enable find/search functions (f_find)" GridPane.columnSpan="2147483647" GridPane.rowIndex="6" />
+                                                <CheckBox fx:id="ff_fs_exfat" mnemonicParsing="false" onAction="#onActionExFAT" text="Enable exFAT support" GridPane.columnSpan="2147483647" GridPane.rowIndex="9" />
+                                                <Separator GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
+                                                <TextFlow fx:id="SectionFunctionOptimizationsDescription" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" GridPane.columnSpan="2147483647" GridPane.valignment="CENTER" />
+                                                <CheckBox fx:id="box_allow_writes" mnemonicParsing="false" onAction="#onActionReadOnly" text="Enable functions that write to the drive (f_write, f_mkdir, f_rename, etc.)" GridPane.columnSpan="2147483647" GridPane.rowIndex="3" />
+                                                <CheckBox fx:id="ff_fs_rpath_enable" mnemonicParsing="false" onAction="#onActionRelativePath" text="Enable relative path support (f_chdir and f_chdrive)" GridPane.columnSpan="2147483647" GridPane.rowIndex="4" />
+                                                <CheckBox fx:id="ff_fs_rpath_getcwd" mnemonicParsing="false" onAction="#onActionRelativePath" text="Enable get working directory support (f_getcwd)" GridPane.columnSpan="2147483647" GridPane.rowIndex="5">
+                                                   <GridPane.margin>
+                                                      <Insets left="20.0" />
+                                                   </GridPane.margin>
+                                                </CheckBox>
+                                                <CheckBox fx:id="ff_multi_partition" mnemonicParsing="false" onAction="#onActionMultiPartition" text="Enable multi partition support" GridPane.columnSpan="2147483647" GridPane.rowIndex="10" />
+                                                <CheckBox fx:id="ff_use_trim" mnemonicParsing="false" onAction="#onActionUseTrim" text="Enable ATA-TRIM support" GridPane.columnSpan="2147483647" GridPane.rowIndex="11" />
+                                                <CheckBox fx:id="trust_free_cluster" mnemonicParsing="false" onAction="#onActionTrustFreeClusterCount" text="Force full scan for drive size (slower but always accurate)" GridPane.columnSpan="2147483647" GridPane.rowIndex="16" />
+                                                <CheckBox fx:id="trust_last_allocated" mnemonicParsing="false" onAction="#onActionTrustLastAllocated" text="Force scan for next free cluster (slower but always accurate)" GridPane.columnSpan="2147483647" GridPane.rowIndex="17" />
+                                                <CheckBox fx:id="ff_fs_lock_enable" mnemonicParsing="false" onAction="#onActionLock" text="Enable file locking protection" GridPane.rowIndex="18" />
+                                                <GridPane GridPane.columnSpan="2147483647" GridPane.rowIndex="19">
+                                                  <columnConstraints>
+                                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <Label fx:id="lbl_ff_fs_lock" text="Maximum concurrently open files/folders (1-65535)">
+                                                         <GridPane.margin>
+                                                            <Insets left="20.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <TextField fx:id="ff_fs_lock" maxWidth="100.0" onAction="#onActionLock" GridPane.columnIndex="1">
+                                                         <tooltip>
+                                                            <Tooltip text="Number of files/subdirectories that can be open simultaneously in the file lock system (0=disable file lock system)" />
+                                                         </tooltip>
+                                                      </TextField>
+                                                   </children>
+                                                </GridPane>
+                                                <GridPane GridPane.columnSpan="2147483647" GridPane.rowIndex="2">
+                                                  <columnConstraints>
+                                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints vgrow="SOMETIMES" />
+                                                    <RowConstraints vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <Label fx:id="lbl_ff_fs_minimize" text="Function optimization" />
+                                                      <ComboBox fx:id="ff_fs_minimize" onAction="#onActionMinimize" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" />
+                                                      <Label fx:id="lbl_ff_use_strfunc" text="String function optimization" GridPane.rowIndex="1" />
+                                                      <ComboBox fx:id="ff_use_strfunc" onAction="#onActionStringFunctions" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
+                                                   </children>
+                                                </GridPane>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </TitledPane>
+                              <TitledPane fx:id="SectionLFN" animated="false">
+                                <content>
+                                  <AnchorPane>
+                                       <children>
+                                          <GridPane hgap="5.0" layoutX="41.0" layoutY="14.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" />
+                                              <ColumnConstraints hgrow="SOMETIMES" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                              <RowConstraints vgrow="SOMETIMES" />
+                                              <RowConstraints vgrow="SOMETIMES" />
+                                              <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label fx:id="lbl_ff_use_lfn" text="Long file name (LFN) mode" GridPane.rowIndex="2" />
+                                                <ComboBox fx:id="ff_use_lfn" onAction="#onActionLongFileNameMode" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Label fx:id="lbl_ff_max_lfn" text="LFN max buffer (12-255)" GridPane.rowIndex="3" />
+                                                <TextField fx:id="ff_max_lfn" maxWidth="100.0" onAction="#onActionMaxLongFileName" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <Label fx:id="lbl_ff_lfn_buf" text="Primary file name buffer size (12-765) " GridPane.rowIndex="4" />
+                                                <TextField fx:id="ff_lfn_buf" maxWidth="100.0" onAction="#onActionLongFileNameBufferLength" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                <Label fx:id="lbl_ff_sfn_buf" text="Alternative file name buffer size (12-34)" GridPane.rowIndex="5" />
+                                                <TextField fx:id="ff_sfn_buf" maxWidth="100.0" onAction="#onActionShortFileNameBufferLength" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                <Label fx:id="lbl_ff_lfn_unicode" text="LFN Unicode encoding" GridPane.rowIndex="6" />
+                                                <ComboBox fx:id="ff_lfn_unicode" onAction="#onActionUnicode" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                                <Label fx:id="lbl_ff_strf_encode" text="String function Unicode encoding" GridPane.rowIndex="7">
+                                                   <GridPane.margin>
+                                                      <Insets left="20.0" />
+                                                   </GridPane.margin></Label>
+                                                <ComboBox fx:id="ff_strf_encode" onAction="#onActionStringFunctionEncoding" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                                <Separator prefWidth="200.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
+                                                <TextFlow fx:id="SectionLFNDescription" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2147483647" />
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                                 <graphic>
+                                    <CheckBox fx:id="enable_long_file_names" mnemonicParsing="false" onAction="#onActionLongFileNameMode" text="Long File Name Support (LFN)" />
+                                 </graphic>
+                              </TitledPane>
+                              <TitledPane fx:id="SectionLocale" animated="false" text="Locale, Namespace, and Buffering">
+                                <content>
+                                  <AnchorPane>
+                                       <children>
+                                          <GridPane hgap="5.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" />
+                                              <ColumnConstraints hgrow="SOMETIMES" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                              <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                                <RowConstraints vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label fx:id="lbl_ff_code_page" text="Language code page" GridPane.rowIndex="2" />
+                                                <ComboBox fx:id="ff_code_page" onAction="#onActionCodePage" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Separator GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
+                                                <TextFlow fx:id="SectionLocaleNamespaceDescription" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" GridPane.columnSpan="2147483647" GridPane.valignment="CENTER" />
+                                                <TitledPane fx:id="RadioTitledPaneFileDataBuffering" animated="false" collapsible="false" text="File Data Buffering" GridPane.columnSpan="2147483647" GridPane.rowIndex="6">
+                                                  <content>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0">
+                                                         <children>
+                                                            <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                            <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                              <columnConstraints>
+                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                              </columnConstraints>
+                                                              <rowConstraints>
+                                                                <RowConstraints vgrow="SOMETIMES" />
+                                                                <RowConstraints vgrow="SOMETIMES" />
+                                                              </rowConstraints>
+                                                               <children>
+                                                                  <RadioButton fx:id="data_buffer_individual" mnemonicParsing="false" onAction="#onActionTinyMode" text="Every file has own data buffer (higher RAM footprint, better performance)">
+                                                                     <toggleGroup>
+                                                                        <ToggleGroup fx:id="data_buffer_select_group" />
+                                                                     </toggleGroup>
+                                                                     <GridPane.margin>
+                                                                        <Insets bottom="5.0" />
+                                                                     </GridPane.margin>
+                                                                  </RadioButton>
+                                                                  <RadioButton fx:id="data_buffer_shared" mnemonicParsing="false" onAction="#onActionTinyMode" text="All files share one data buffer (lower RAM footprint, worse performance)" toggleGroup="$data_buffer_select_group" GridPane.rowIndex="1" />
+                                                               </children>
+                                                            </GridPane>
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </content>
+                                                </TitledPane>
+                                                <Label fx:id="lbl_ff_str_volume_id" text="String volume ID style" GridPane.rowIndex="3" />
+                                                <ComboBox fx:id="ff_str_volume_id" onAction="#onActionVolumeIdStyle" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <ComboBox fx:id="ff_min_ss" onAction="#onActionMinimumSectorSize" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                <ComboBox fx:id="ff_max_ss" onAction="#onActionMaximumSectorSize" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                <Label fx:id="lbl_ff_min_ss" text="Min sector size" GridPane.rowIndex="4" />
+                                                <Label fx:id="lbl_ff_max_ss" text="Max sector size" GridPane.rowIndex="5" />
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </TitledPane>
+                              <TitledPane fx:id="SectionSystemSettings" animated="false" text="Operating System Integration">
+                                <content>
+                                  <AnchorPane>
+                                       <children>
+                                          <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <GridPane hgap="5.0" vgap="5.0">
+                                                  <columnConstraints>
+                                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                      <RowConstraints vgrow="SOMETIMES" />
+                                                      <RowConstraints vgrow="SOMETIMES" />
+                                                      <RowConstraints vgrow="SOMETIMES" />
+                                                      <RowConstraints vgrow="SOMETIMES" />
+                                                      <RowConstraints vgrow="SOMETIMES" />
+                                                      <RowConstraints vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <CheckBox fx:id="ff_fs_reentrant" mnemonicParsing="false" onAction="#onActionReentrant" text="Allow file operation funtions to be re-entrant" GridPane.columnSpan="2147483647" GridPane.rowIndex="3">
+                                                         <GridPane.margin>
+                                                            <Insets top="5.0" />
+                                                         </GridPane.margin></CheckBox>
+                                                      <Label fx:id="lbl_ff_fs_timeout" text="Timeout (1-65535)" GridPane.rowIndex="4">
+                                                         <GridPane.margin>
+                                                            <Insets left="20.0" />
+                                                         </GridPane.margin></Label>
+                                                      <Label fx:id="lbl_ff_sync_t" text="O/S synchronization/semaphore object type" GridPane.rowIndex="5">
+                                                         <GridPane.margin>
+                                                            <Insets left="20.0" />
+                                                         </GridPane.margin></Label>
+                                                      <TextField fx:id="ff_fs_timeout" maxWidth="100.0" onAction="#onActionTimeout" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                      <TextField fx:id="ff_sync_t" onAction="#onActionSyncType" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                      <TextFlow fx:id="SectionOSDescription" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0" GridPane.columnSpan="2147483647" GridPane.valignment="CENTER" />
+                                                      <GridPane gridLinesVisible="true" GridPane.columnSpan="2147483647" GridPane.rowIndex="2">
+                                                        <columnConstraints>
+                                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        </columnConstraints>
+                                                        <rowConstraints>
+                                                          <RowConstraints vgrow="SOMETIMES" />
+                                                        </rowConstraints>
+                                                      </GridPane>
+                                                      <TitledPane fx:id="TimestampTitledPane" animated="false" collapsible="false" text="Select Source of File Timestamps" GridPane.columnSpan="2147483647" GridPane.rowIndex="2">
+                                                        <content>
+                                                          <AnchorPane minHeight="0.0" minWidth="0.0">
+                                                               <children>
+                                                                  <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                     <children>
+                                                                        <GridPane>
+                                                                          <columnConstraints>
+                                                                            <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0" />
+                                                                            <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0" />
+                                                                          </columnConstraints>
+                                                                          <rowConstraints>
+                                                                            <RowConstraints vgrow="SOMETIMES" />
+                                                                            <RowConstraints vgrow="SOMETIMES" />
+                                                                          </rowConstraints>
+                                                                           <children>
+                                                                              <RadioButton fx:id="fixedTimeStamp" mnemonicParsing="false" onAction="#onActionRTC" text="Use fixed timestamp" GridPane.rowIndex="1">
+                                                                                 <toggleGroup>
+                                                                                    <ToggleGroup fx:id="ff_fs_nortc" />
+                                                                                 </toggleGroup>
+                                                                                 <GridPane.margin>
+                                                                                    <Insets />
+                                                                                 </GridPane.margin>
+                                                                              </RadioButton>
+                                                                              <RadioButton fx:id="enableRTC" mnemonicParsing="false" onAction="#onActionRTC" text="Timestamps via user generated get_fattime() function" toggleGroup="$ff_fs_nortc" GridPane.columnSpan="2147483647">
+                                                                                 <GridPane.margin>
+                                                                                    <Insets bottom="5.0" />
+                                                                                 </GridPane.margin>
+                                                                              </RadioButton>
+                                                                              <DatePicker fx:id="fixedDate" onAction="#onActionFixedDate" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                                                 <GridPane.margin>
+                                                                                    <Insets />
+                                                                                 </GridPane.margin>
+                                                                              </DatePicker>
+                                                                           </children>
+                                                                        </GridPane>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </AnchorPane>
+                                                        </content>
+                                                         <GridPane.margin>
+                                                            <Insets />
+                                                         </GridPane.margin>
+                                                      </TitledPane>
+                                                      <Separator prefWidth="200.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
+                                                   </children>
+                                                </GridPane>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </TitledPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+    </children>
+    
+</AnchorPane>

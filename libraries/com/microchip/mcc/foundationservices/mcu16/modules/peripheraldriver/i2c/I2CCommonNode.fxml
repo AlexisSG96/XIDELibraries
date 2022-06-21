@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<fx:root id="rootNode" fx:id="rootNode" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+        <GridPane vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints vgrow="NEVER" />
+          </rowConstraints>
+           <children>
+              <CheckBox fx:id="enableI2C" mnemonicParsing="false" text="Enable I2C" />
+           </children>
+         <padding>
+            <Insets top="5.0" />
+         </padding>
+        </GridPane>
+   </children>
+</fx:root>

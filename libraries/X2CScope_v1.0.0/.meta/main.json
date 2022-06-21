@@ -1,0 +1,30 @@
+{
+    "metaDataVersion": "1.0.0",
+    "category": "com.microchip.mcc3.library",
+    "content": {
+        "metaDataVersion": "1.0.0",
+        "file": "X2CScope-1.0.0.jar",
+        "name": "com.microchip.mcc.x2cscope.X2CScopeLibrary",
+        "displayName": "X2C Scope",
+        "version": "1.0.0",
+        "vendor": "Microchip Technology, Inc.",
+        "category": [
+            "Software"
+        ],
+        "coreVersion": "5.0.2",
+        "dependencies": [
+            {
+                "category": "com.microchip.portal.contentRef",
+                "content": {
+                    "category": "com.microchip.mcc3.library",
+                    "metaDataVersion": "1.0.0",
+                    "name": "com.microchip.mcc.mcu16.Mcu16PeripheralLibrary",
+                    "version": "^1.169.0"
+                },
+                "metaDataVersion": "1.0.0"
+            }
+        ],
+        "summary": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <title>MCC X2CScope Library</title>\n    </head>\n    <body style=\"background-color:#E4E4E4;\">\n        <h2>MCC X2CScope Library Summary</h2>\n        <p>\n            X2CScope is a lightweight firmware based debugging tool, and it is running on the target MCU parallel to the application. \n            It is a runtime online debugging tool that works in RUN and DEBUGGING mode. X2CScope is for generic use in any application and perfectly fits motor control applications.\n        </p>\n        <p>\n            The Scope plug-in features a Variable Monitor which continuously reads variable(s) from the target and displays the data as numeric value(s).\n            The plug-in also contains an oscilloscope-like GUI including features like channel- & trigger configuration for up to 2 channels and an offset- & gain set-up for each channel.\n        </p>\n        <h3>More Information</h3>\n        <p>\n            Refer to the release notes above for the list of supported devices and a more in-depth description.\n        </p>\n    </body>\n</html>",
+        "readme_url": "http://ww1.microchip.com/downloads/en/DeviceDoc/release_notes_x2c_scope_v1_0_0.pdf"
+    }
+}

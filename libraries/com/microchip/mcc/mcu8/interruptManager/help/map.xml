@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    <mapID target="mcu8_interrupt_controls" url="controls.html"/>
+    <mapID target="mcu8_interrupt_controls_order" url="controls.html#order"/>
+    <mapID target="mcu8_interrupt_controls_preemptive" url="controls.html#preemptive"/>
+    <mapID target="mcu8_interrupt_controls_usehighlow" url="controls.html#usehighlow"/>
+    <mapID target="mcu8_interrupt_controls_priority" url="controls.html#priority"/>
+    
+    <mapID target="mcu8_interrupt_wiki" url="http://microchip.wikidot.com/8bit:emr-interrupts" wintype="external"/>
+    <mapID target="mcu8_interrupt_wiki_process" url="http://microchip.wikidot.com/mcu1102:interrupts" wintype="external"/>
+    <mapID target="mcu8_interrupt_wiki_ioc" url="http://microchip.wikidot.com/projects:mcu1101-project-9" wintype="external"/>
+</map>

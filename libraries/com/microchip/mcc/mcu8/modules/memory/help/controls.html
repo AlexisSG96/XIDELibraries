@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>Memory</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>Memory</h2>
+        <hr>
+        <section>
+            <h3 id="dataee" name="dataee">Memory DataEE Routines</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td>
+                            <td> Data EEPROM is a non-volatile memory, which stores the information even after the power is turn off.</ </td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td> By default Flash Routines are always included because some enhanced mid-range PIC devices lack the data EEPROM found on other devices, thus the Flash Memory is available as a non-volatile memory. </td>                            
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td> The Add DataEE Routines checkbox is available only for device which have EEPROM. PIC16F1XXX device family lacks EEPROM </td>                            
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+    </body>
+</html>

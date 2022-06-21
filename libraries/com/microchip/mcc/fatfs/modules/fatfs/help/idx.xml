@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE index PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Index Version 2.0//EN" "http://java.sun.com/products/javahelp/index_2_0.dtd">
+<index version="2.0">
+    
+    <indexitem text="FatFs Home Page" target="fatfs_homepage"/>
+    
+    <!-- FatFs Config options -->
+    <indexitem text="FatFs Configuration Settings">
+        <indexitem text="FF_FS_READONLY" target="fatfs_FF_FS_READONLY"/>
+        <indexitem text="FF_FS_MINIMIZE" target="fatfs_FF_FS_MINIMIZE"/>
+        <indexitem text="FF_USE_STRFUNC" target="fatfs_FF_USE_STRFUNC"/>
+        <indexitem text="FF_USE_FIND" target="fatfs_FF_USE_FIND"/>
+        <indexitem text="FF_USE_MKFS" target="fatfs_FF_USE_MKFS"/>
+        <indexitem text="FF_USE_FASTSEEK" target="fatfs_FF_USE_FASTSEEK"/>
+        <indexitem text="FF_USE_EXPAND" target="fatfs_FF_USE_EXPAND"/>
+        <indexitem text="FF_USE_CHMOD" target="fatfs_FF_USE_CHMOD"/>
+        <indexitem text="FF_USE_LABEL" target="fatfs_FF_USE_LABEL"/>
+        <indexitem text="FF_USE_FORWARD" target="fatfs_FF_USE_FORWARD"/>
+        <indexitem text="FF_CODE_PAGE" target="fatfs_FF_CODE_PAGE"/>
+        <indexitem text="FF_USE_LFN" target="fatfs_FF_USE_LFN"/>
+        <indexitem text="FF_MAX_LFN" target="fatfs_FF_MAX_LFN"/>
+        <indexitem text="FF_LFN_UNICODE" target="fatfs_FF_LFN_UNICODE"/>
+        <indexitem text="FF_LFN_BUF" target="fatfs_FF_LFN_BUF"/>
+        <indexitem text="FF_SFN_BUF" target="fatfs_FF_SFN_BUF"/>
+        <indexitem text="FF_STRF_ENCODE" target="fatfs_FF_STRF_ENCODE"/>
+        <indexitem text="FF_FS_RPATH" target="fatfs_FF_FS_RPATH"/>
+        <indexitem text="FF_VOLUMES" target="fatfs_FF_VOLUMES"/>
+        <indexitem text="FF_STR_VOLUME_ID" target="fatfs_FF_STR_VOLUME_ID"/>
+        <indexitem text="FF_VOLUME_STRS" target="fatfs_FF_VOLUME_STRS"/>
+        <indexitem text="FF_MULTI_PARTITION" target="fatfs_FF_MULTI_PARTITION"/>
+        <indexitem text="FF_MIN_SS" target="fatfs_FF_MIN_SS"/>
+        <indexitem text="FF_MAX_SS" target="fatfs_FF_MAX_SS"/>
+        <indexitem text="FF_USE_TRIM" target="fatfs_FF_USE_TRIM"/>
+        <indexitem text="FF_FS_NOFSINFO" target="fatfs_FF_FS_NOFSINFO"/>
+        <indexitem text="FF_FS_TINY" target="fatfs_FF_FS_TINY"/>
+        <indexitem text="FF_FS_EXFAT" target="fatfs_FF_FS_EXFAT"/>
+        <indexitem text="FF_FS_NORTC" target="fatfs_FF_FS_NORTC"/>
+        <indexitem text="FF_NORTC_MON" target="fatfs_FF_NORTC_MON"/>
+        <indexitem text="FF_NORTC_MDAY" target="fatfs_FF_NORTC_MDAY"/>
+        <indexitem text="FF_NORTC_YEAR" target="fatfs_FF_NORTC_YEAR"/>
+        <indexitem text="FF_FS_LOCK" target="fatfs_FF_FS_LOCK"/>
+        <indexitem text="FF_FS_REENTRANT" target="fatfs_FF_FS_REENTRANT"/>
+        <indexitem text="FF_FS_TIMEOUT" target="fatfs_FF_FS_TIMEOUT"/>
+        <indexitem text="FF_SYNC_t" target="fatfs_FF_SYNC_t"/>
+    </indexitem>
+    
+</index>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MCC View</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="../../../../common/ui/webui/bridge.js"></script>
+        <script type="text/javascript" src="../../../../common/ui/webui/library.js"></script>
+        <link rel="stylesheet" href="../../../../common/ui/webui/style.css" type="text/css" />
+    </head>
+    <body>
+        <div id="divContainer">
+                        <div class="divTable" data-collapse="false" >
+                <div class="divTableBar" id="divTableBar1">
+					<span class="expanded" id="divTableBar1Icon"></span>
+                    <span class="titleBarContent">Timer Settings</span>
+                </div>
+                <div class="divTableBody" id="divTableBar1Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Timer:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="isEnableTimer">
+                            <label for="isEnableTimer"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Chaining(TU16A+TU16B):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="isEnableTimerChaining">
+                            <label for="isEnableTimerChaining"></label>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+            <div class="divTable" data-collapse="false" >
+                <div class="divTableBar" id="divTableBar2">
+					<span class="expanded" id="divTableBar2Icon"></span>
+                    <span class="titleBarContent">Clock Settings</span>
+                </div>
+                <div class="divTableBody" id="divTableBar2Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Clock Source Selection:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="clockSourceSelection"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">External Clock Frequency(Hz):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="externalClockFreq_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="externalClockFreq" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="externalClockFreq_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Clock Frequency(Hz):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="inputClockFrequency_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="inputClockFrequency" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="inputClockFrequency_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Prescaler:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="prescalerValue_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="prescalerValue" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="prescalerValue_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Clock Polarity:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="clockPolarity"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Synchronization:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="isEnableSynchronization">
+                            <label for="isEnableSynchronization"></label>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+            <div class="divTable" data-collapse="false" >
+                <div class="divTableBar" id="divTableBar3">
+					<span class="expanded" id="divTableBar3Icon"></span>
+                    <span class="titleBarContent">Period Settings</span>
+                </div>
+                <div class="divTableBody" id="divTableBar3Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Timer Period:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input class="minRange" id="timerPeriod_MIN" readonly>
+                            <span>&nbsp;&le;</span>
+                            <input id="timerPeriod" onkeyup="jsmodule.handleTimeField(this);">
+                            <span>&nbsp;&le;</span>
+                            <input class="maxRange" id="timerPeriod_MAX" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Period Count:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="periodCount_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="periodCount" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="periodCount_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Calculated Period:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="calClockPeriod" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+            <div class="divTable" data-collapse="true" >
+                <div class="divTableBar" id="divTableBar4">
+					<span class="collapsed" id="divTableBar4Icon"></span>
+                    <span class="titleBarContent">Operating Mode Settings</span>
+                </div>
+                <div class="divTableBody" id="divTableBar4Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Start Condition:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="startCondition"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Stop Condition:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="stopCondition"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Reset Condition:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="resetCondition"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Ext. Reset Source Selector:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="extResetSourceSelector"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">ERS Polarity:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="ersPolarity"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable One-Shot:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableOneShot">
+                            <label for="enableOneShot"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Limit Mode:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableLimitMode">
+                            <label for="enableLimitMode"></label>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+            <div class="divTable" data-collapse="true" >
+                <div class="divTableBar" id="divTableBar5">
+					<span class="collapsed" id="divTableBar5Icon"></span>
+                    <span class="titleBarContent">Output Settings</span>
+                </div>
+                <div class="divTableBody" id="divTableBar5Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Output Mode:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="outputMode"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Output Polarity:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="outputPolarity"></select>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+            <div class="divTable" data-collapse="false" >
+                <div class="divTableBar" id="divTableBar6">
+					<span class="expanded" id="divTableBar6Icon"></span>
+                    <span class="titleBarContent">Interrupt Settings</span>
+                </div>
+                <div class="divTableBody" id="divTableBar6Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Timer Interrupt:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" disabled="disabled" onclick='jsmodule.handleCheck(this);' id="enableUTmrInterrupt">
+                            <label for="enableUTmrInterrupt"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable PR Match Interrupt:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enablePrMatchInterrupt">
+                            <label for="enablePrMatchInterrupt"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Zero Interrupt:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableZeroInterrupt">
+                            <label for="enableZeroInterrupt"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Capture Interrupt:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableCaptureInterrupt">
+                            <label for="enableCaptureInterrupt"></label>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="../../../../common/ui/webui/uiControls.js"></script>
+        <script language="javascript">
+            function onInit() {
+                jsmodule.setBridge(bridge);
+                jsmodule.setLibrary(library);
+                jsmodule.init();
+            }
+            window.onload = onInit;
+        </script>
+    </body>
+</html>

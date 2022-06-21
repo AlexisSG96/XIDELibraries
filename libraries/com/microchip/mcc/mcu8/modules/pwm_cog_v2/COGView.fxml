@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.pwm_cog_v2.COGViewer">
+    <children>
+      <GridPane hgap="5.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <columnConstraints>
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+         </rowConstraints>
+         <children>
+              <TitledPane animated="false" collapsible="false" layoutY="-2.0" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <content>
+                      <GridPane fx:id="gp" hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                              <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                          </rowConstraints>
+                          <children>
+                              <CheckBox fx:id="chkEnableCOG" mnemonicParsing="false" onAction="#onAction" text="Enable COG" />
+                        <GridPane hgap="5.0" vgap="5.0" GridPane.rowIndex="1">
+                          <columnConstraints>
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints vgrow="NEVER" />
+                            <RowConstraints vgrow="NEVER" />
+                          </rowConstraints>
+                           <children>
+                              <ComboBox fx:id="cmbCogMode" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" />
+                              <Label text="Clock Source" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="cmbCogClkSrc" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label text="Mode" />
+                              <Label text="Max Cumulative Uncertanity" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <Label fx:id="lbuncertainity" text="50us" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                        <TitledPane animated="false" text="Ouput Pin Configuration" GridPane.rowIndex="4">
+                           <content>
+                              <GridPane hgap="5.0" vgap="5.0">
+                                <columnConstraints>
+                                  <ColumnConstraints />
+                                  <ColumnConstraints />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                  <RowConstraints vgrow="NEVER" />
+                                  <RowConstraints vgrow="NEVER" />
+                                </rowConstraints>
+                                 <children>
+                                    <TitledPane fx:id="tpCOGAPin" animated="false" collapsible="false" text="COGA Pin">
+                                       <content>
+                                          <GridPane hgap="5.0" vgap="5.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints />
+                                              <ColumnConstraints />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints vgrow="NEVER" />
+                                              <RowConstraints vgrow="NEVER" />
+                                              <RowConstraints vgrow="NEVER" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label text="Polarity" />
+                                                <Label text="Output Data" GridPane.rowIndex="2" />
+                                                <Label text="Steering" GridPane.rowIndex="1" />
+                                                <ComboBox fx:id="cmbCOGAPol" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" />
+                                                <ComboBox fx:id="cmbCOGAStr" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <ComboBox fx:id="cmbCOGAData" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </content>
+                                    </TitledPane>
+                                    <TitledPane fx:id="tpCOGBPin" animated="false" collapsible="false" text="COGB Pin" GridPane.columnIndex="1">
+                                       <content>
+                                          <GridPane hgap="5.0" vgap="5.0">
+                                             <children>
+                                                <Label text="Polarity" />
+                                                <Label text="Output Data" GridPane.rowIndex="2" />
+                                                <Label text="Steering" GridPane.rowIndex="1" />
+                                                <ComboBox fx:id="cmbCOGBPol" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" />
+                                                <ComboBox fx:id="cmbCOGBStr" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <ComboBox fx:id="cmbCOGBData" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                             </children>
+                                             <columnConstraints>
+                                                <ColumnConstraints />
+                                                <ColumnConstraints />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints vgrow="NEVER" />
+                                                <RowConstraints vgrow="NEVER" />
+                                                <RowConstraints vgrow="NEVER" />
+                                             </rowConstraints>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </content>
+                                    </TitledPane>
+                                    <TitledPane fx:id="tpCOGCPin" animated="false" collapsible="false" text="COGC Pin" GridPane.rowIndex="1">
+                                       <content>
+                                          <GridPane hgap="5.0" vgap="5.0">
+                                             <children>
+                                                <Label text="Polarity" />
+                                                <Label text="Output Data" GridPane.rowIndex="2" />
+                                                <Label text="Steering" GridPane.rowIndex="1" />
+                                                <ComboBox fx:id="cmbCOGCPol" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" />
+                                                <ComboBox fx:id="cmbCOGCStr" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <ComboBox fx:id="cmbCOGCData" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                             </children>
+                                             <columnConstraints>
+                                                <ColumnConstraints />
+                                                <ColumnConstraints />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints vgrow="NEVER" />
+                                                <RowConstraints vgrow="NEVER" />
+                                                <RowConstraints vgrow="NEVER" />
+                                             </rowConstraints>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </content>
+                                    </TitledPane>
+                                    <TitledPane fx:id="tpCOGDPin" animated="false" collapsible="false" text="COGD Pin" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <content>
+                                          <GridPane hgap="5.0" vgap="5.0">
+                                             <children>
+                                                <Label text="Polarity" />
+                                                <Label text="Output Data" GridPane.rowIndex="2" />
+                                                <Label text="Steering" GridPane.rowIndex="1" />
+                                                <ComboBox fx:id="cmbCOGDPol" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" />
+                                                <ComboBox fx:id="cmbCOGDStr" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <ComboBox fx:id="cmbCOGDData" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                             </children>
+                                             <columnConstraints>
+                                                <ColumnConstraints />
+                                                <ColumnConstraints />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints vgrow="NEVER" />
+                                                <RowConstraints vgrow="NEVER" />
+                                                <RowConstraints vgrow="NEVER" />
+                                             </rowConstraints>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </content>
+                                    </TitledPane>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </GridPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" text="Rising Event" GridPane.rowIndex="5">
+                           <content>
+                              <GridPane fx:id="gp2" hgap="5.0" maxHeight="-Infinity" vgap="5.0">
+                                 <children>
+                                    <Label text="Dead-band Timing Source" />
+                                    <Label text="Dead-band Delay" GridPane.rowIndex="1" />
+                                    <Label text="BlankingDelay" GridPane.rowIndex="2" />
+                                    <GridPane hgap="5.0" vgap="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label fx:id="lbMinRisingDeadBand" text="0" />
+                                          <Label fx:id="lbALessthan11" maxWidth="1.7976931348623157E308" text="≤" GridPane.columnIndex="1" />
+                                          <TextField fx:id="tfRisingDeadBand" alignment="CENTER" onAction="#onAction" GridPane.columnIndex="2" />
+                                          <Label fx:id="lbALessthan111" maxWidth="1.7976931348623157E308" text="≤" GridPane.columnIndex="3" />
+                                          <Label fx:id="lbMaxRisingDeadBand" text="63" GridPane.columnIndex="4" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                       </columnConstraints>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                       <rowConstraints>
+                                          <RowConstraints vgrow="NEVER" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                    <Label text="Phase Delay " GridPane.rowIndex="3" />
+                                    <GridPane hgap="5.0" vgap="5.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <children>
+                                          <Label fx:id="lbMinRisingPhase" text="0" />
+                                          <Label fx:id="lbALessthan11111" maxWidth="1.7976931348623157E308" text="≤" GridPane.columnIndex="1" />
+                                          <TextField fx:id="tfRisingPhase" alignment="CENTER" onAction="#onAction" GridPane.columnIndex="2" />
+                                          <Label fx:id="lbALessthan111211" maxWidth="1.7976931348623157E308" text="≤" GridPane.columnIndex="3" />
+                                          <Label fx:id="lbMaxRisingPhase" text="63" GridPane.columnIndex="4" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                       </columnConstraints>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                       <rowConstraints>
+                                          <RowConstraints vgrow="NEVER" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                    <CheckBox fx:id="chkrisingInputSrc0" mnemonicParsing="false" onAction="#onAction" text="Pin Selected in COGxPPS" GridPane.rowIndex="5" />
+                                    <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" textAlignment="CENTER" GridPane.rowIndex="4" />
+                                    <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" text="        Source Input Mode       " textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <CheckBox fx:id="chkrisingInputSrc1" mnemonicParsing="false" onAction="#onAction" text="CMP1 Output" GridPane.rowIndex="6" />
+                                    <CheckBox fx:id="chkrisingInputSrc2" mnemonicParsing="false" onAction="#onAction" text="CMP2 Output" GridPane.rowIndex="7" />
+                                    <CheckBox fx:id="chkrisingInputSrc5" mnemonicParsing="false" onAction="#onAction" text="CCP1 Output" GridPane.rowIndex="10" />
+                                    <CheckBox fx:id="chkrisingInputSrc6" mnemonicParsing="false" onAction="#onAction" text="CCP2 Output" GridPane.rowIndex="11" />
+                                    <CheckBox fx:id="chkrisingInputSrc7" mnemonicParsing="false" onAction="#onAction" text="PWM3 Output" GridPane.rowIndex="12" />
+                                    <ComboBox fx:id="cmbDeadBandRiseTmSrc" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" />
+                                    <GridPane hgap="5.0" vgap="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label fx:id="lbMinRisingBlanking" contentDisplay="CENTER" text="0" />
+                                          <Label fx:id="lbALessthan111" maxWidth="1.7976931348623157E308" text="≤" GridPane.columnIndex="1" />
+                                          <TextField fx:id="tfRisingBlanking" alignment="CENTER" onAction="#onAction" GridPane.columnIndex="2" />
+                                          <Label fx:id="lbALessthan1111" maxWidth="1.7976931348623157E308" text="≤" GridPane.columnIndex="3" />
+                                          <Label fx:id="lbMaxRisingBlanking" text="63" GridPane.columnIndex="4" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                       </columnConstraints>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                       <rowConstraints>
+                                          <RowConstraints vgrow="NEVER" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                    <ComboBox fx:id="cmbrisingSrcInputMode0" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <ComboBox fx:id="cmbrisingSrcInputMode1" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <ComboBox fx:id="cmbrisingSrcInputMode2" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                    <ComboBox fx:id="cmbrisingSrcInputMode5" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                    <ComboBox fx:id="cmbrisingSrcInputMode6" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                                    <ComboBox fx:id="cmbrisingSrcInputMode7" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                                    <Label text="       Input Source       " GridPane.rowIndex="4">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <CheckBox fx:id="chkrisingInputSrc11" mnemonicParsing="false" onAction="#onAction" text="CLC1 Output" GridPane.rowIndex="16" />
+                                    <CheckBox fx:id="chkrisingInputSrc14" mnemonicParsing="false" onAction="#onAction" text="DSM1 output" GridPane.rowIndex="19" />
+                                    <CheckBox fx:id="chkrisingInputSrc3" mnemonicParsing="false" onAction="#onAction" text="CMP3 Output" GridPane.rowIndex="8" />
+                                    <CheckBox fx:id="chkrisingInputSrc4" mnemonicParsing="false" onAction="#onAction" text="CMP4 Output" GridPane.rowIndex="9" />
+                                    <CheckBox fx:id="chkrisingInputSrc8" mnemonicParsing="false" onAction="#onAction" text="PWM4 Output" GridPane.rowIndex="13" />
+                                    <CheckBox fx:id="chkrisingInputSrc9" mnemonicParsing="false" onAction="#onAction" text="PWM5 Output" GridPane.rowIndex="14" />
+                                    <CheckBox fx:id="chkrisingInputSrc10" mnemonicParsing="false" onAction="#onAction" text="PWM6 Output" GridPane.rowIndex="15" />
+                                    <CheckBox fx:id="chkrisingInputSrc12" mnemonicParsing="false" onAction="#onAction" text="CLC2 Output" GridPane.rowIndex="17" />
+                                    <CheckBox fx:id="chkrisingInputSrc13" mnemonicParsing="false" onAction="#onAction" text="CLC3 Output" GridPane.rowIndex="18" />
+                                    <CheckBox fx:id="chkrisingInputSrc15" mnemonicParsing="false" onAction="#onAction" text="DSM2 output" GridPane.rowIndex="20" />
+                                    <ComboBox fx:id="cmbrisingSrcInputMode3" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                    <ComboBox fx:id="cmbrisingSrcInputMode4" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                    <ComboBox fx:id="cmbrisingSrcInputMode8" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                                    <ComboBox fx:id="cmbrisingSrcInputMode9" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                                    <ComboBox fx:id="cmbrisingSrcInputMode10" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+                                    <ComboBox fx:id="cmbrisingSrcInputMode11" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+                                    <ComboBox fx:id="cmbrisingSrcInputMode12" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="17" />
+                                    <ComboBox fx:id="cmbrisingSrcInputMode13" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="18" />
+                                    <ComboBox fx:id="cmbrisingSrcInputMode14" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="19" />
+                                    <ComboBox fx:id="cmbrisingSrcInputMode15" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="20" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints />
+                                    <ColumnConstraints />
+                                    <ColumnConstraints />
+                                    <ColumnConstraints />
+                                 </columnConstraints>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                                 <rowConstraints>
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" text="Falling Event" GridPane.rowIndex="6">
+                           <content>
+                              <GridPane fx:id="gp3" hgap="5.0" maxHeight="-Infinity" vgap="5.0">
+                                 <children>
+                                    <Label text="Dead-band Timing Source" />
+                                    <Label text="Dead-band Delay" GridPane.rowIndex="1" />
+                                    <Label text="Blanking Delay" GridPane.rowIndex="2" />
+                                    <GridPane hgap="5.0" vgap="5.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label fx:id="lbMinFallingDeadBand" text="0" />
+                                          <Label fx:id="lbALessthan11" maxWidth="1.7976931348623157E308" text="≤" GridPane.columnIndex="1" />
+                                          <TextField fx:id="tfFallingDeadBand" alignment="CENTER" onAction="#onAction" GridPane.columnIndex="2" />
+                                          <Label fx:id="lbALessthan11" maxWidth="1.7976931348623157E308" text="≤" GridPane.columnIndex="3" />
+                                          <Label fx:id="lbMaxFallingDeadBand" text="63" GridPane.columnIndex="4" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints vgrow="NEVER" />
+                                       </rowConstraints>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </GridPane>
+                                    <Label text="Phase Delay " GridPane.rowIndex="3" />
+                                    <GridPane hgap="5.0" vgap="5.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                       <children>
+                                          <Label fx:id="lbMinFallingPhase" text="0" />
+                                          <Label fx:id="lbALessthan1111" maxWidth="1.7976931348623157E308" text="≤" GridPane.columnIndex="1" />
+                                          <TextField fx:id="tfFallingPhase" alignment="CENTER" onAction="#onAction" GridPane.columnIndex="2" />
+                                          <Label fx:id="lbALessthan11121" maxWidth="1.7976931348623157E308" text="≤" GridPane.columnIndex="3" />
+                                          <Label fx:id="lbMaxFallingPhase" text="63" GridPane.columnIndex="4" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints vgrow="NEVER" />
+                                       </rowConstraints>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </GridPane>
+                                    <CheckBox fx:id="chkfallingInputSrc0" mnemonicParsing="false" onAction="#onAction" text="Pin Selected in COGxPPS" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+                                    <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" textAlignment="CENTER" GridPane.rowIndex="4" />
+                                    <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" text="        Source Input Mode       " textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <CheckBox fx:id="chkfallingInputSrc1" mnemonicParsing="false" onAction="#onAction" text="CMP1 Output" GridPane.rowIndex="6" />
+                                    <CheckBox fx:id="chkfallingInputSrc2" mnemonicParsing="false" onAction="#onAction" text="CMP2 Output" GridPane.rowIndex="7" />
+                                    <CheckBox fx:id="chkfallingInputSrc5" mnemonicParsing="false" onAction="#onAction" text="CCP1 Output" GridPane.rowIndex="10" />
+                                    <CheckBox fx:id="chkfallingInputSrc6" mnemonicParsing="false" onAction="#onAction" text="CCP2 Output" GridPane.rowIndex="11" />
+                                    <CheckBox fx:id="chkfallingInputSrc7" mnemonicParsing="false" onAction="#onAction" text="PWM3 Output" GridPane.rowIndex="12" />
+                                    <ComboBox fx:id="cmbDeadBandFallTmSrc" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="2" />
+                                    <GridPane hgap="5.0" vgap="5.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label fx:id="lbMinFallingBlanking" text="0" />
+                                          <Label fx:id="lbALessthan111" maxWidth="1.7976931348623157E308" text="≤" GridPane.columnIndex="1" />
+                                          <TextField fx:id="tfFallingBlanking" alignment="CENTER" onAction="#onAction" GridPane.columnIndex="2" />
+                                          <Label fx:id="lbALessthan111" maxWidth="1.7976931348623157E308" text="≤" GridPane.columnIndex="3" />
+                                          <Label fx:id="lbMaxFallingBlanking" text="63" GridPane.columnIndex="4" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints vgrow="NEVER" />
+                                       </rowConstraints>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </GridPane>
+                                    <ComboBox fx:id="cmbfallingSrcInputMode0" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                    <ComboBox fx:id="cmbfallingSrcInputMode1" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                                    <ComboBox fx:id="cmbfallingSrcInputMode2" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                                    <ComboBox fx:id="cmbfallingSrcInputMode5" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                                    <ComboBox fx:id="cmbfallingSrcInputMode6" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+                                    <ComboBox fx:id="cmbfallingSrcInputMode7" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="2" GridPane.rowIndex="12" />
+                                    <Label text="       Input Source       " GridPane.rowIndex="4">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <CheckBox fx:id="chkfallingInputSrc11" mnemonicParsing="false" onAction="#onAction" text="CLC1 Output" GridPane.rowIndex="16" />
+                                    <CheckBox fx:id="chkfallingInputSrc14" mnemonicParsing="false" onAction="#onAction" text="DSM1 output" GridPane.rowIndex="19" />
+                                    <CheckBox fx:id="chkfallingInputSrc3" mnemonicParsing="false" onAction="#onAction" text="CMP3 Output" GridPane.rowIndex="8" />
+                                    <CheckBox fx:id="chkfallingInputSrc4" mnemonicParsing="false" onAction="#onAction" text="CMP4 Output" GridPane.rowIndex="9" />
+                                    <CheckBox fx:id="chkfallingInputSrc8" mnemonicParsing="false" onAction="#onAction" text="PWM4 Output" GridPane.rowIndex="13" />
+                                    <CheckBox fx:id="chkfallingInputSrc9" mnemonicParsing="false" onAction="#onAction" text="PWM5 Output" GridPane.rowIndex="14" />
+                                    <CheckBox fx:id="chkfallingInputSrc10" mnemonicParsing="false" onAction="#onAction" text="PWM6 Output" GridPane.rowIndex="15" />
+                                    <CheckBox fx:id="chkfallingInputSrc12" mnemonicParsing="false" onAction="#onAction" text="CLC2 Output" GridPane.rowIndex="17" />
+                                    <CheckBox fx:id="chkfallingInputSrc13" mnemonicParsing="false" onAction="#onAction" text="CLC3 Output" GridPane.rowIndex="18" />
+                                    <CheckBox fx:id="chkfallingInputSrc15" mnemonicParsing="false" onAction="#onAction" text="DSM2 output" GridPane.rowIndex="20" />
+                                    <ComboBox fx:id="cmbfallingSrcInputMode3" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                                    <ComboBox fx:id="cmbfallingSrcInputMode4" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                                    <ComboBox fx:id="cmbfallingSrcInputMode8" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="2" GridPane.rowIndex="13" />
+                                    <ComboBox fx:id="cmbfallingSrcInputMode9" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="2" GridPane.rowIndex="14" />
+                                    <ComboBox fx:id="cmbfallingSrcInputMode10" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="2" GridPane.rowIndex="15" />
+                                    <ComboBox fx:id="cmbfallingSrcInputMode11" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="2" GridPane.rowIndex="16" />
+                                    <ComboBox fx:id="cmbfallingSrcInputMode12" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="2" GridPane.rowIndex="17" />
+                                    <ComboBox fx:id="cmbfallingSrcInputMode13" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="2" GridPane.rowIndex="18" />
+                                    <ComboBox fx:id="cmbfallingSrcInputMode14" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="2" GridPane.rowIndex="19" />
+                                    <ComboBox fx:id="cmbfallingSrcInputMode15" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="2" GridPane.rowIndex="20" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints />
+                                    <ColumnConstraints />
+                                    <ColumnConstraints />
+                                    <ColumnConstraints />
+                                    <ColumnConstraints />
+                                 </columnConstraints>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                                 <rowConstraints>
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" text="Auto Shutdown" GridPane.rowIndex="7">
+                           <content>
+                              <GridPane hgap="5.0" vgap="5.0">
+                                <columnConstraints>
+                                  <ColumnConstraints />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints vgrow="NEVER" />
+                                  <RowConstraints vgrow="NEVER" />
+                                  <RowConstraints vgrow="NEVER" />
+                                  <RowConstraints vgrow="NEVER" />
+                                </rowConstraints>
+                                 <children>
+                                    <CheckBox fx:id="chkAutoRestart" mnemonicParsing="false" onAction="#onAction" text="Enable Auto Restart" GridPane.rowIndex="1" />
+                                    <TitledPane animated="false" collapsible="false" maxHeight="-Infinity" text="AutoShutdown Resource" GridPane.rowIndex="3">
+                                       <content>
+                                          <GridPane fx:id="gpashd" hgap="5.0" vgap="5.0">
+                                             <children>
+                                                <CheckBox fx:id="chkASSrcCOGPSS" mnemonicParsing="false" onAction="#onAction" text="COGxPPS" />
+                                                <CheckBox fx:id="chkASSrcCMP1" mnemonicParsing="false" onAction="#onAction" text="CMP1 Output" GridPane.rowIndex="1" />
+                                                <CheckBox fx:id="chkASSrcCMP2" mnemonicParsing="false" onAction="#onAction" text="CMP2 Output" GridPane.rowIndex="2" />
+                                                <CheckBox fx:id="chkASSrcCLC2" mnemonicParsing="false" onAction="#onAction" text="CLC2 Ouptut" GridPane.rowIndex="5" />
+                                                <CheckBox fx:id="chkASSrcCMP3" mnemonicParsing="false" onAction="#onAction" text="CMP3 Output" GridPane.rowIndex="3" />
+                                                <CheckBox fx:id="chkASSrcCMP4" mnemonicParsing="false" onAction="#onAction" text="CMP4 Output" GridPane.rowIndex="4" />
+                                                <CheckBox fx:id="chkASSrcTMR2" mnemonicParsing="false" onAction="#onAction" text="TMR2 Output" GridPane.rowIndex="6" />
+                                                <CheckBox fx:id="chkASSrcTMR4" mnemonicParsing="false" onAction="#onAction" text="TMR4 Output" GridPane.rowIndex="7" />
+                                             </children>
+                                             <columnConstraints>
+                                                <ColumnConstraints />
+                                                <ColumnConstraints />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints vgrow="NEVER" />
+                                                <RowConstraints vgrow="NEVER" />
+                                                <RowConstraints vgrow="NEVER" />
+                                                <RowConstraints vgrow="NEVER" />
+                                                <RowConstraints vgrow="NEVER" />
+                                                <RowConstraints vgrow="NEVER" />
+                                                <RowConstraints vgrow="NEVER" />
+                                                <RowConstraints vgrow="NEVER" />
+                                             </rowConstraints>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </content>
+                                    </TitledPane>
+                                    <TitledPane fx:id="tpASOverrideLevel" animated="false" collapsible="false" maxHeight="-Infinity" text="AutoShutdown Override Level" GridPane.rowIndex="2">
+                                       <content>
+                                          <GridPane hgap="5.0" vgap="5.0">
+                                             <children>
+                                                <ComboBox fx:id="cmbACOverrideLevel" onAction="#onAction" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <ComboBox fx:id="cmbBDOverrideLevel" onAction="#onAction" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Label text="COGxB and COGxD" GridPane.rowIndex="2" />
+                                                <Label text="COGxA and COGxC" GridPane.rowIndex="1" />
+                                             </children>
+                                             <columnConstraints>
+                                                <ColumnConstraints />
+                                                <ColumnConstraints />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints vgrow="NEVER" />
+                                                <RowConstraints vgrow="NEVER" />
+                                                <RowConstraints vgrow="NEVER" />
+                                             </rowConstraints>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </content>
+                                    </TitledPane>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </GridPane>
+                           </content>
+                        </TitledPane>
+                        <CheckBox fx:id="cogInterruptEnable" mnemonicParsing="false" onAction="#onAction" text="Enable COG Interrupt" GridPane.rowIndex="2" />
+                          </children>
+                          <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                          </padding>
+                      </GridPane>
+                  </content>
+              </TitledPane>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </GridPane>
+    </children>
+    
+</AnchorPane>

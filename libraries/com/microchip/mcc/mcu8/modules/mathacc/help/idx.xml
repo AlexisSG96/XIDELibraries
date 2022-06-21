@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE index PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Index Version 2.0//EN" "http://java.sun.com/products/javahelp/index_2_0.dtd">
+<index version="2.0">
+    <indexitem text="Mode" target="mcu8_mathacc_controls_mode"/>
+    <indexitem text="Operation" target="mcu8_mathacc_controls_operation"/>
+    <indexitem text="Inputs" target="mcu8_mathacc_controls_inputs"/>
+    <indexitem text="Parameter A" target="mcu8_mathacc_controls_parama"/>
+    <indexitem text="Parameter B" target="mcu8_mathacc_controls_paramb"/>
+    <indexitem text="Parameter C" target="mcu8_mathacc_controls_paramc"/>    
+    <indexitem text="Parameter Kp" target="mcu8_mathacc_controls_paramkp"/>
+    <indexitem text="Parameter Ki" target="mcu8_mathacc_controls_paramki"/>
+    <indexitem text="Parameter Kd" target="mcu8_mathacc_controls_paramkd"/>
+</index>

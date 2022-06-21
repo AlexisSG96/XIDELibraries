@@ -1,0 +1,15 @@
+{"groupName": "CAN",
+	"packageInfo": [
+                {
+		"classNames": ["com.microchip.mcc.softwareabstraction.modules.canfd.CANFD"],                          
+		"features": ["FEATURE_CLOCK",
+                            "FEATURE_NOMINAL_BIT_RATE",
+                            "FEATURE_DATA_BIT_RATE",
+                            "FEATURE_FIFO",
+                            "FEATURE_FILTER_OBJECT",
+                            "FEATURE_INTERRUPT_SETTINGS",
+                            "FEATURE_CRC_SETTINGS"
+                                ]
+                } 
+	]
+}

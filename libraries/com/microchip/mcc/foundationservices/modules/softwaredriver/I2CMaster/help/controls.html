@@ -1,0 +1,508 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>I2C Master</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>I2C Master</h2>
+        <hr>
+        <section>
+            <h3 id="revisionHistory" name="revisionHistory">Revision history</h3>
+            <p>
+                <ul type="disc">
+                    <li>v 0.0.0.1 Initial Commit</li>
+                </ul>
+                
+                The I2C Master driver provides I2C master functionality, that is:
+                <ul type="disc">
+                    <li>Addressing a slave on the I2C bus and writing a byte or block of bytes to it</li>
+                    <li>Addressing a slave on the I2C bus and reading a byte or block of bytes from it</li>
+                    <li>Chaining bus operations using repeated start</li>
+                    <li>Handling bus contention/arbitration</li>
+                    <li>Handling bus errors</li>
+                </ul>
+
+                The I2C Master driver can operate in two modes:
+                <ul type="disc">
+                    <li>Polled mode</li>
+                    <li>Interrupt-driven mode</li>
+                </ul>
+            </p>
+        </section>
+        <section>
+            <h3 id="driverConfiguration" name="driverConfiguration">Driver Configuration</h3>
+            <p>
+            The I2C Master driver is configured using MCC Foundation Services. MCC allows the user to select 
+            clock frequency and possibly other parameters,depending on the underlying hardware. If several I2C
+            hardware instances are available on the device, the user can select which I2C instance the driver 
+            shall use.
+            </p>
+        </section>
+        <section>
+            <h3 id="functionalDescription" name="functionalDescription">Functional Description</h3>
+            <p>
+            The I2C Master driver is basically a finite state machine (FSM). This state machine combines current
+            state with I2C bus status received from the underlying hardware module to generate the next state of the
+            FSM and any output to the application or the underlying hardware.
+            </p>
+        </section>
+        <section>
+            <h4 id="callbackFunctions" name="callbackFunctions">Callback Functions</h4>
+            <p>
+            The I2C Master driver allows the application to provide callback functions for the following events:
+            <ul type="disc">
+                    <li>Data Complete: All specified data has been transmitted or received.</li>
+                    <li>Write Collision: Several I2C masters attempted to access the bus at the same time as us, and we lost the arbitration.</li>
+                    <li>Address NACK: We tried to address a slave, but did not receive any ACK.</li>
+                    <li>Data NACK: We tried to write a data byte to a slave, but received a NACK.</li>
+                    <li>Timeout: We tried to perform an operation on the bus, but did not receive any response within the expected time.</li>
+            </ul>
+
+            Default callback functions are provided by the driver, doing nothing but sending Stop for all these events,
+            except for the Timeout event, where the default callback handler resets the bus.
+            The I2C Master API provides functions to hook up user-defined callback functions along with parameters
+            to these functions as callbacks to these events. These callbacks are expected to return a data of type
+            i2c_operations_t, which instructs the I2C Master FSM of the next operation to perform. The possible next
+            operations are:
+            <ul type="disc">
+                    <li>Send Stop</li>
+                    <li>Send Repeated Start followed by SLA+R</li>
+                    <li>Send Repeated Start followed by SLA+W</li>
+                    <li>Continue the current operation, typically send the next byte in a transmission</li>
+                    <li>Reset the link, resetting the I2C bus, the I2C Master FSM, and the underlying hardware. This is typically only done in response to an unrecoverable error.</li>
+            </ul>
+
+            Note that calling the i2c_open() function initializes all callback functions to the defaults
+            specified in the previous section. This means that if the application wants to hookup user-defined
+            callbacks, this must be done after calling i2c_open().
+            When transmitting data, a Data NACK can be received as a response to the last byte to be transmitted. In
+            this case, the "Data NACK" event and the "Data Complete" event happens simultaneously. In this case,
+            only the "Data NACK"-callback handler will be called, and NOT the "Data Complete"-callback.
+            </p>
+        </section>
+		<section>
+            <h4 id="performingATransfer" name="performingATransfer">Performing a transfer</h4>
+            <p>
+            To perform an I2C transfer, do the following steps:
+				<ul type="disc">
+                    <li>Call i2c_open(SLA) with the slave address SLA as parameter. If the I2C Master
+						interface is used by other threads, use while (!I2C_0_open(SLA)); to wait until it is free.</li>
+					<li>Hookup any callback handlers, such as the Data Complete callback handler.</li>
+					<li>Specify the buffer containing data to be transmitted or where read data should be placed using
+						i2c_set_buffer(buffer, size); The parameter buffer is a pointer to a buffer, size is
+						the expected bytes to receive or transmit. When this number of bytes have been received or
+						transmitted, the Data Complete callback handler is called.</li>
+					<li>Start the operation by calling i2c_masterOperation(bool read); wwere the
+						parameter specifies whether to read or write to the bus.</li>
+					<li>Wait for the operations to complete and then close the bus using: while (I2C_BUSY ==
+						i2c_close());</li>
+				</ul>
+            </p>
+        </section>
+		<section>
+            <h4 id="combiningTransfers" name="combiningTransfers">Combining transfers</h4>
+            <p>
+            The I2C Master driver allows the user to combine transfers. As an example, a bus write can be followed
+			by a Repeated Start and a bus read and then a Stop. This is done in the following way:
+			<ul type="disc">
+                    <li>Use the I2C Master API functions to set up a Write to the bus. Set up the address to write to, the
+						number of bytes to write, and the data to write.</li>
+					<li>Use the I2C Master API functions to set up a Data Complete callback called CB1. When the write
+						operation has completed, CB1 will be called. This callback will set up the following Read operation
+						(slave address, number of bytes to read), and return as next operation "Send Repeated Start
+						followed by SLA+R". This callback should also hookup a new callback CB2, specifying the actions
+						to take when the Read has completed. In this example, CB2 will do nothing other than instructing
+						the FSM to send Stop.</li>
+					<li>Start the first Write operation. When it has completed, the Data Complete callback CB1 is called,
+						setting up and performing the subsequent Read. When the Read has completed, the second
+						callback CB2 is called, instructing the FSM to send Stop.</li>
+            </ul>
+            </p>
+        </section>
+		<section>
+            <h3 id="hardwareDependencies" name="hardwareDependencies">Hardware dependencies</h3>
+            <p>
+            The I2C Master driver usually uses some sort of hardware that implements I2C functionality, even though
+			it is possible to implement a software I2C implemented by bit-banging I/O pins.
+            </p>
+			<p>
+			Different MCUs have I2C hardware with different names and functionalities, such as TWI, I2C, USI etc. In
+			MCC, the user selects a device and adds the I2C Master driver. A device may have several possible
+			hardware resources available for the driver, such as I2C1(MSSP1), I2C2(MSSP2) etc. In this case the user must select
+			which one to use.
+			</p>
+			<p>
+			The configuration options in MCC displays options that are dependent on the hardware used to
+			implement the I2C driver. For example, an option may allow changing the baud rate used to drive the
+			underlying I2C hardware.
+			</p>
+        </section>
+		<section>
+            <h3 id="softwareDependencies" name="softwareDependencies">Software dependencies</h3>
+            <p>
+            The interrupt-driven configurations use the interrupt functionality of the underlying I2C hardware. Make
+			sure that global interrupts are enabled (using INTERRUPT_GlobalInterruptEnable()) and that the Interrupt Controller, if present, is
+			configured so that any interrupts are serviced correctly.
+            </p>
+		</section>
+		<section>
+            <h3 id="functions" name="functions">Functions</h3>
+            <h4>i2c_open</h4>									<!-- i2c_open-->
+			<p>
+			Open the I2C for communication.<br><br>
+			<b>i2c_error_t i2c_open(i2c_address_t address)</b>
+			</p>
+               <table class="content_table">
+                   <tbody>
+                       <tr> 
+                           <td><b>Parameters:</b></td> 
+                       </tr>
+                       <tr> 
+                           <td>Address: </td> 
+                           <td>Type: i2c_address_t</td>
+                       </tr>
+                       <tr> 
+                           <td></td>
+                           <td>The slave address to use in the transfer</td>
+                       </tr>
+				</tbody>
+			</table>
+			<br>
+			<table class="content_table">
+				<tbody>
+					<tr> 
+						<td><b>Returns: </b></td> 
+						<td>Type: i2c_error_t</td>
+					</tr>
+					<tr>
+						<td>Initialisation status</td>
+					</tr>
+					<tr>
+						<td>I2C_NOERR</td>
+						<td>The I2C open was successful</td>
+					</tr>
+					<tr>
+						<td>I2C_BUSY</td>
+						<td>The I2C open failed because the interface is busy</td>
+					</tr>
+					<tr>
+						<td>I2C_FAIL</td>
+						<td>The I2C open failed with an error</td>
+					</tr>						
+				</tbody>
+			</table>
+			<br><br>
+			<h4>i2c_close</h4>									<!-- i2c_close-->
+			<p>
+			close the I2C communication.<br><br>
+			<b>i2c_error_t i2c_close(i2c_address_t address)</b>
+			</p>
+			<table class="content_table">
+				<tbody>
+					<tr> 
+						<td><b>Returns: </b></td> 
+						<td>Type: i2c_error_t</td>
+					</tr>
+					<tr>
+						<td>Status of close operation</td>
+					</tr>
+					<tr>
+						<td>I2C_NOERR</td>
+						<td>The I2C open was successful</td>
+					</tr>
+					<tr>
+						<td>I2C_BUSY</td>
+						<td>The I2C open failed because the interface is busy</td>
+					</tr>
+					<tr>
+						<td>I2C_FAIL</td>
+						<td>The I2C open failed with an error</td>
+					</tr>						
+				</tbody>
+			</table>
+			<br><br>
+			<h4>i2c_masterOperation</h4>								<!-- i2c_masterOperation-->
+			<p>
+			Start an operation on an opened I2C interface.<br><br>
+			<b>i2c_error_t i2c_masterOperation(bool read)</b>
+			</p>
+            <table class="content_table">
+                <tbody>
+                       <tr> 
+                           <td><b>Parameters:</b></td> 
+                       </tr>
+                       <tr> 
+                           <td>read </td> 
+                           <td>Type: bool</td>
+                       </tr>
+                       <tr> 
+                           <td></td>
+                           <td>Set to true for read, false for write</td>
+                       </tr>
+				</tbody>
+			</table>
+			<br>
+			<table class="content_table">
+				<tbody>
+					<tr> 
+						<td><b>Returns: </b></td> 
+						<td>Type: i2c_error_t</td>
+					</tr>
+					<tr>
+						<td>Status of operation</td>
+					</tr>
+					<tr>
+						<td>I2C_NOERR</td>
+						<td>The I2C open was successful</td>
+					</tr>
+					<tr>
+						<td>I2C_BUSY</td>
+						<td>The I2C open failed because the interface is busy</td>
+					</tr>
+					<tr>
+						<td>I2C_FAIL</td>
+						<td>The I2C open failed with an error</td>
+					</tr>						
+				</tbody>
+			</table>
+			<br><br>
+			<h4>i2c_masterWrite</h4>									<!-- i2c_masterWrite-->
+			<p>
+			Identical to i2c_master_operation(false).<br><br>
+			<b>i2c_error_t i2c_masterWrite(void)</b>
+			</p>
+			<table class="content_table">
+				<tbody>
+					<tr> 
+						<td><b>Returns: </b></td> 
+						<td>Type: i2c_error_t</td>
+					</tr>
+				</tbody>
+			</table>
+			<br><br>
+			<h4>i2c_masterRead</h4>									<!-- i2c_masterRead-->
+			<p>
+			Identical to i2c_master_operation(true).<br><br>
+			<b>i2c_error_t i2c_masterRead(void)</b>
+			</p>
+			<table class="content_table">
+				<tbody>
+					<tr> 
+						<td><b>Returns: </b></td> 
+						<td>Type: i2c_error_t</td>
+					</tr>
+				</tbody>
+			</table>
+			<br><br>
+			<h4>i2c_setTimeOut</h4>								<!-- i2c_setTimeOut-->
+			<p>
+			Start an operation on an opened I2C interface.<br><br>
+			<b>void i2c_setTimeOut(uint8_t to)</b>
+			</p>
+               <table class="content_table">
+                   <tbody>
+                       <tr> 
+                           <td><b>Parameters:</b></td> 
+                       </tr>
+                       <tr> 
+                           <td>to </td> 
+                           <td>Type: uint8_t</td>
+                       </tr>
+                       <tr> 
+                           <td></td>
+                           <td>Timeout in ticks</td>
+                       </tr>
+				</tbody>
+			</table>
+			<br><br>
+			<h4>i2c_setBuffer</h4>								<!-- i2c_setBuffer-->
+			<p>
+			Sets up the data buffer to use, and number of bytes to transfer.<br><br>
+			<b>void i2c_setBuffer(void *buffer, size_t bufferSize)</b>
+			</p>
+            <table class="content_table">
+               <tbody>
+                   <tr> 
+                       <td><b>Parameters:</b></td> 
+                   </tr>
+                   <tr> 
+                       <td>buffer </td> 
+                       <td>Type: void*</td>
+                   </tr>
+                   <tr> 
+                       <td></td>
+                       <td>Pointer to data buffer to use for read or write data</td>
+                   </tr>
+					<tr> 
+                       <td>bufferSize </td> 
+                       <td>Type: size_t</td>
+                   </tr>
+                   <tr> 
+                       <td></td>
+                       <td>Number of bytes to read or write from slave</td>
+                   </tr>
+				</tbody>
+			</table>
+			<br><br>
+			<h4>i2c_setDataCompleteCallback</h4>								<!-- i2c_setDataCompleteCallback-->
+			<p>
+			Set callback to be called when all specifed data has been transferred.<br><br>
+			<b>void i2c_setDataCompleteCallback(i2c_callback cb, void *p)</b>
+			</p>
+            <table class="content_table">
+               <tbody>
+                   <tr> 
+                       <td><b>Parameters:</b></td> 
+                   </tr>
+                   <tr> 
+                       <td>cb </td> 
+                       <td>Type: i2c_callback</td>
+                   </tr>
+                   <tr> 
+                       <td></td>
+                       <td>Pointer to callback function</td>
+                   </tr>
+					<tr> 
+                       <td>p </td> 
+                       <td>Type: void*</td>
+                   </tr>
+                   <tr> 
+                       <td></td>
+                       <td>Pointer to the callback function's parameters</td>
+                   </tr>
+				</tbody>
+			</table>
+			<br><br>
+			<h4>i2c_setWriteCollisionCallback</h4>								<!-- i2c_setWriteCollisionCallback-->
+			<p>
+			Set callback to be called when there has been a bus collision and arbitration is lost.<br><br>
+			<b>void i2c_setWriteCollisionCallback(i2c_callback cb, void *p)</b>
+			</p>
+            <table class="content_table">
+               <tbody>
+                   <tr> 
+                       <td><b>Parameters:</b></td> 
+                   </tr>
+                   <tr> 
+                       <td>cb </td> 
+                       <td>Type: i2c_callback</td>
+                   </tr>
+                   <tr> 
+                       <td></td>
+                       <td>Pointer to callback function</td>
+                   </tr>
+					<tr> 
+                       <td>p </td> 
+                       <td>Type: void*</td>
+                   </tr>
+                   <tr> 
+                       <td></td>
+                       <td>Pointer to the callback function's parameters</td>
+                   </tr>
+				</tbody>
+			</table>
+			<br><br>
+			<h4>i2c_setAddressNACKCallback</h4>								<!-- i2c_setAddressNACKCallback-->
+			<p>
+			Set callback to be called when the transmitted address is NACK'ed.<br><br>
+			<b>void i2c_setAddressNACKCallback(i2c_callback cb, void *p)</b>
+			</p>
+            <table class="content_table">
+               <tbody>
+                   <tr> 
+                       <td><b>Parameters:</b></td> 
+                   </tr>
+                   <tr> 
+                       <td>cb </td> 
+                       <td>Type: i2c_callback</td>
+                   </tr>
+                   <tr> 
+                       <td></td>
+                       <td>Pointer to callback function</td>
+                   </tr>
+					<tr> 
+                       <td>p </td> 
+                       <td>Type: void*</td>
+                   </tr>
+                   <tr> 
+                       <td></td>
+                       <td>Pointer to the callback function's parameters</td>
+                   </tr>
+				</tbody>
+			</table>
+			<br><br>
+			<h4>i2c_setDataNACKCallback</h4>								<!-- i2c_setDataNACKCallback-->
+			<p>
+			Set callback to be called when the transmitted data is NACK'ed.<br><br>
+			<b>void i2c_setDataNACKCallback(i2c_callback cb, void *p)</b>
+			</p>
+            <table class="content_table">
+               <tbody>
+                   <tr> 
+                       <td><b>Parameters:</b></td> 
+                   </tr>
+                   <tr> 
+                       <td>cb </td> 
+                       <td>Type: i2c_callback</td>
+                   </tr>
+                   <tr> 
+                       <td></td>
+                       <td>Pointer to callback function</td>
+                   </tr>
+					<tr> 
+                       <td>p </td> 
+                       <td>Type: void*</td>
+                   </tr>
+                   <tr> 
+                       <td></td>
+                       <td>Pointer to the callback function's parameters</td>
+                   </tr>
+				</tbody>
+			</table>
+			<br><br>
+			<h4>i2c_setTimeOutCallback</h4>								<!-- i2c_setTimeOutCallback-->
+			<p>
+			Set callback to be called when the bus times out.<br><br>
+			<b>void i2c_setTimeOutCallback(i2c_callback cb, void *p)</b>
+			</p>
+            <table class="content_table">
+               <tbody>
+                   <tr> 
+                       <td><b>Parameters:</b></td> 
+                   </tr>
+                   <tr> 
+                       <td>cb </td> 
+                       <td>Type: i2c_callback</td>
+                   </tr>
+                   <tr> 
+                       <td></td>
+                       <td>Pointer to callback function</td>
+                   </tr>
+					<tr> 
+                       <td>p </td> 
+                       <td>Type: void*</td>
+                   </tr>
+                   <tr> 
+                       <td></td>
+                       <td>Pointer to the callback function's parameters</td>
+                   </tr>
+				</tbody>
+			</table>
+		</section>
+    </body>
+</html>

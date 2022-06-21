@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.nco.NCOViewer">
+   <children>
+      <TitledPane alignment="TOP_LEFT" collapsible="false" layoutX="-297.0" layoutY="-241.0" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <GridPane fx:id="gp" hgap="5.0" vgap="5.0">
+              <columnConstraints>
+                <ColumnConstraints />
+                  <ColumnConstraints />
+                <ColumnConstraints />
+                  <ColumnConstraints />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+              </rowConstraints>
+               <children>
+                  <TitledPane animated="false" collapsible="false" text="Clock Settings" GridPane.columnSpan="3" GridPane.rowIndex="4">
+                     <content>
+                        <GridPane hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Clock Source" />
+                              <ComboBox fx:id="ClkSource" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="2" />
+                              <Label text="NCO Output Frequency" GridPane.rowIndex="2" />
+                              <Label text="0≤" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="outFreq" alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <Label GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                              <Label text="≤" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <Label fx:id="ncoOutRange" text="499.92 kHz" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                              <Label fx:id="clcclk" text="CLC Output" GridPane.rowIndex="1" />
+                              <TextField fx:id="clcFreq" alignment="CENTER" onAction="#onAction" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <Label fx:id="initclc" text="0≤" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="lessThan" text="≤" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <Label fx:id="clcend" text="64 MHz" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                              <GridPane hgap="5.0" vgap="5.0" GridPane.columnSpan="3" GridPane.rowIndex="5">
+                                 <columnConstraints>
+                                    <ColumnConstraints />
+                                    <ColumnConstraints />
+                                    <ColumnConstraints />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints vgrow="NEVER" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label fx:id="oflowFreq" text="0.0 Hz" GridPane.columnIndex="1" />
+                                    <Label text="Accumulator Overflow Frequency  = " />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </GridPane>
+                              <Label alignment="TOP_LEFT" contentDisplay="RIGHT" text="Actual NCO Ouput Frequency" GridPane.rowIndex="3" />
+                              <GridPane hgap="5.0" vgap="5.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                 <columnConstraints>
+                                    <ColumnConstraints />
+                                    <ColumnConstraints />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints vgrow="NEVER" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label fx:id="ToffLabel" text="0 ns" GridPane.columnIndex="1" />
+                                    <Label text="Toff=">
+                                       <GridPane.margin>
+                                          <Insets />
+                                       </GridPane.margin>
+                                    </Label>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </GridPane>
+                              <GridPane hgap="5.0" vgap="5.0" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+                                 <columnConstraints>
+                                    <ColumnConstraints />
+                                    <ColumnConstraints />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints vgrow="NEVER" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label text="Ton=">
+                                       <GridPane.margin>
+                                          <Insets />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="TonLabel" text="0 ns" GridPane.columnIndex="1">
+                                       <GridPane.margin>
+                                          <Insets />
+                                       </GridPane.margin>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </GridPane>
+                              <Label fx:id="CalculationAlert" text="Label" GridPane.columnSpan="2147483647" GridPane.rowIndex="4" />
+                              <Label fx:id="actualOutFreq" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </content>
+                     <GridPane.margin>
+                        <Insets bottom="5.0" />
+                     </GridPane.margin>
+                  </TitledPane>
+                  <ComboBox fx:id="PwmClkSource" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </ComboBox>
+                  <ComboBox fx:id="outPol" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="3" />
+                  <ComboBox fx:id="NcoMode" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="1" />
+                  <Label fx:id="pwmclk" text="Pulse Width Select" GridPane.rowIndex="2" />
+                  <Label text="NCO mode" GridPane.rowIndex="1" />
+                  <Label text="Output polarity" GridPane.rowIndex="3" />
+                  <CheckBox fx:id="pinOutput" mnemonicParsing="false" onAction="#onAction" text="Enable Pin Output" GridPane.columnIndex="2" />
+                  <CheckBox fx:id="enableNCO" mnemonicParsing="false" onAction="#onAction" text="Enable NCO" />
+                  <GridPane GridPane.rowIndex="5">
+                    <columnConstraints>
+                      <ColumnConstraints />
+                      <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints vgrow="NEVER" />
+                    </rowConstraints>
+                     <children>
+                        <CheckBox fx:id="ncoInterrupt" mnemonicParsing="false" onAction="#onAction" text="Enable NCO Interrupt" GridPane.columnSpan="2" />
+                     </children>
+                  </GridPane>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </GridPane>
+         </content>
+      </TitledPane>
+   </children>
+    
+</AnchorPane>

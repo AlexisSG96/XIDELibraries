@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>MSSP</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>Master Synchronous Serial Port</h2>
+        <hr>
+        <section>
+            <h3 id="mode" name="mode">Mode</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Selects the serial protocol and its function within the application.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>The MSSP module multiplexes the same hardware interface for two serial communication protocols : the Serial Parallel Interface (SPI) and the Inter-Integrated Circuit (I2C).
+                                Using the MSSP Mode drop-down you can select between the two protocols and also the operation method within the application (Master or Slave).
+                                Depending on the Mode selection, the MSSP graphical interface is populated with the appropriate settings and the Pin Manager window will show only the corresponding MSSP pin functions.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>The mode selection will determine the name of the generated MSSP source code files.</td>
+                        </tr>                         
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="i2cmasterbrg" name="i2cmasterbrg">I2C Master - Baud Rate Generator Value</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Defines the I2C Clock Frequency</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>This is an 8-bit value you can use to set the frequency of the I2C communication. 
+                                The frequency is calculated using the I2C_period = (I2C_Baudrate_Value + 1) / Fosc equation, displayed the I2C Clock section and refreshed each time there's an update on the Baud Rate Generator value.                           
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>You can use either a decimal or a hexadecimal input format. Using a value that's out of the specified range will trigger a warning message in the Notifications tab.
+                                Using non-integer or non-numeric characters will invalidate the input box content which will blink red until the input is valid again.
+                            </td>
+                        </tr>                      
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Conditioned by the MSSP mode selection (only available in I2C Master mode). </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>        
+        <section>
+            <h3 id="i2cslaveportmode" name="i2cslaveportmode">I2C Slave - Serial Port Mode</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Selects between several I2C Slave communication modes.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>The I2C Slave mode of the MSSP module can be configured to communicate in several ways, depending on the slave address bitsize and the usage of interrupts.
+                                Although supported by the hardware, some of the options may not be available in the MCC interface of the MSSP module. These options are not currently supported in MCC.                                
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>The ranges of the Slave Address and Slave Mask inputs are adjusted automatically based on the Serial Port Mode selection.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Conditioned by the MSSP mode selection (only available in I2C Slave mode). </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>  
+        <section>
+            <h3 id="i2cslaveaddress" name="i2cslaveaddress">I2C Slave - Address</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The address of the microcontroller used as slave device</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>In the I2C communication, the Master node is required to know the address of the Slave node in order to communicate with it.
+                                Depending on the addressing mode selected in the Serial Port Mode drop-down, the slave address range can be changed.                                
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>You can use either a decimal or a hexadecimal input format. Using a value that's out of the specified range will trigger a warning message in the Notifications tab.
+                                Using non-integer or non-numeric characters will invalidate the input box content which will blink red until the input is valid again.
+                            </td>
+                        </tr> 
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Conditioned by the MSSP mode selection (only available in I2C Slave mode). </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>    
+        <section>
+            <h3 id="i2cslavemask" name="i2cslavemask">I2C Slave - Mask</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Address Mask for the Shift Register.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>The Transmit/Receive Shift Register is by definition not readable or writable. Therefore, in order to have access to it during an address comparison, a secondary mask register is used.    
+                                On a bit level, during the address comparison process, each bit from the address received in the Shift Register (accessed through the Address Mask) is compared to the Address Register.
+                                
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>You can use either a decimal or a hexadecimal input format. Using a value that's out of the specified range will trigger a warning message in the Notifications tab.
+                                Using non-integer or non-numeric characters will invalidate the input box content which will blink red until the input is valid again.
+                            </td>
+                        </tr> 
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Conditioned by the MSSP mode selection (only available in I2C Slave mode). </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>      
+        <section>
+            <h3 id="spimode" name="spimode">SPI Mode</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>SPI signal characteristics</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>Based on several signal characteristics, such as signal Clock Polarity or the Clock Edge, a certain SPI Mode is selected in the MSSP configuration registers.
+                                The actual SPI Mode value is also displayed in the Easy Setup tab.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Conditioned by the MSSP mode selection (only available in SPI Master or SPI Slave modes). </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>   
+        <section>
+            <h3 id="spimasterclocksource" name="spimasterclocksource">SPI Master - Clock Source</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Clock Signal for the SPI.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>You can select between several clock sources, including some of their variations.
+                                One particular option is the divider option which makes use of the SSPADD register. Enabling this option will also enable the Clock Divider input box, so you can specify the Divider value.
+                                For each update on the Clock Source, the SPI Clock label is updated with the calculated SPI Frequency.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>If you select a clock source which is based on a certain peripheral signal (i.e. TMR2), a warning will be thrown in the Notifications tab letting you know that you need to enable and configure that peripheral.
+                            </td>
+                        </tr> 
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Conditioned by the MSSP mode selection (only available in SPI Master mode). </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>         
+        <section>
+            <h3 id="spimasterclockdivider" name="spimasterclockdivider">SPI Master - Clock Divider</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Division factor for one of the SPI Clock Sources.</td>
+                        </tr> 
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>This is an 8-bit value you can use with the SSPADD Clock Source option of the SPI Master. Typically, the formula is:  clock = Fosc / (4 * (SSPADD+1)).
+                                For each update on the Clock Divider, the SPI Clock label is updated with the calculated SPI Frequency.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>You can use either a decimal or a hexadecimal input format. Using a value that's out of the specified range will trigger a warning message in the Notifications tab.
+                                Using non-integer or non-numeric characters will invalidate the input box content which will blink red until the input is valid again.
+                            </td>
+                        </tr> 
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Conditioned by the MSSP mode selection (only available in SPI Master mode). </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>        
+    </body>
+</html>

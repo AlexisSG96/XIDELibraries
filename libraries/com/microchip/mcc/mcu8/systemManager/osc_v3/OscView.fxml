@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.systemManager.osc_v3.OscViewer">
+   <children>
+      <GridPane fx:id="gpAll" hgap="5.0" layoutX="-10.0" maxWidth="-Infinity" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label maxWidth="-Infinity" text="Current System clock" />
+            <GridPane GridPane.columnIndex="1" GridPane.columnSpan="2">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="lbPllString" GridPane.columnIndex="1" />
+                  <Label fx:id="lbCurrentClock" />
+                  <Label fx:id="lbcurrentCpuDiv" GridPane.columnIndex="2" />
+               </children>
+            </GridPane>
+            <ComboBox fx:id="cmbOscillatorSelect" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cmbSystemClockSelect" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="lbSystemClockSelect" maxWidth="-Infinity" text="System Clock Select" GridPane.rowIndex="3" />
+            
+            <Label maxWidth="-Infinity" fx:id="lbOscillatorSelect" text="Oscillator Select(FOSC1:FOSC0)" GridPane.rowIndex="2" />
+            <Label fx:id="lbExternalClock" maxWidth="-Infinity" text="External Clock" GridPane.rowIndex="4" />
+            <TextField fx:id="tfExternalClock" alignment="CENTER" maxWidth="-Infinity" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <CheckBox fx:id="chkSoftwarePllEnabled" mnemonicParsing="false" onAction="#onAction" text="Software PLL Enabled" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+            <Label fx:id="fosc2Label" text="Primary Oscillator Select" GridPane.rowIndex="1" />
+            <ComboBox fx:id="fosc2Select" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+            <Label fx:id="lblPLLprescaler" text="PLL prescaler" GridPane.rowIndex="7" />
+            <ComboBox fx:id="cmbPllPrescaler" onAction="#onAction" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <CheckBox fx:id="postscalerEnable" mnemonicParsing="false" onAction="#onAction" text="PLL postscaler Enable" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+            <Label fx:id="lblPLLpostscaler" text="PLL Postscaler" GridPane.rowIndex="8" />
+            <ComboBox fx:id="cmbPllPostscaler" onAction="#onAction" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            
+         </children>
+         <columnConstraints>
+            <ColumnConstraints maxWidth="-Infinity" />
+            <ColumnConstraints maxWidth="-Infinity" />
+            <ColumnConstraints maxWidth="-Infinity" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+         </rowConstraints>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </GridPane>
+   </children>
+
+</AnchorPane>

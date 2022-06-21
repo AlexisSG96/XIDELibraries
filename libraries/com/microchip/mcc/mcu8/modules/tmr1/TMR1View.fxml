@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.tmr1.TMR1Viewer">
+    <children>
+      <GridPane fx:id="gpAll" hgap="5.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+            <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+         </rowConstraints>
+         <children>
+              <TitledPane alignment="TOP_LEFT" animated="false" collapsible="false" maxWidth="1.7976931348623157E308" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <content>
+                      <GridPane fx:id="gpHardwareSettings" hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                              <ColumnConstraints maxWidth="-Infinity" />
+                              <ColumnConstraints maxWidth="-Infinity" />
+                              
+                                                  </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                        <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                              <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                        <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                        <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                        <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                        <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                          </rowConstraints>
+                          <children>
+                              <CheckBox fx:id="chkEnableTMR1" mnemonicParsing="false" onAction="#onAction" text="Enable Timer" />
+                        <TitledPane animated="false" collapsible="false" focusTraversable="false" maxHeight="1.7976931348623157E308" text="Timer Clock" GridPane.rowIndex="2">
+                           <content>
+                              <GridPane fx:id="gpTimerClock" hgap="5.0" vgap="5.0" GridPane.rowIndex="1">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="-Infinity" minHeight="10.0" vgrow="NEVER" />
+                                    <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                                    <RowConstraints maxHeight="-Infinity" minHeight="10.0" vgrow="NEVER" />
+                                    <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                                    <RowConstraints maxHeight="-Infinity" minHeight="10.0" vgrow="NEVER" />
+                                    <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                                    <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                                 </rowConstraints>
+                                 <children>
+                                          <ComboBox fx:id="cmbClockSource" maxWidth="1.7976931348623157E308" minWidth="100.0" onAction="#onAction" GridPane.columnIndex="1" />
+                                          <TextField fx:id="tfExternalFrequency" alignment="CENTER" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <ComboBox fx:id="cmbPrescaler" maxWidth="1.7976931348623157E308" minWidth="100.0" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label maxWidth="1.7976931348623157E308" text="Clock Source" />
+                                          <Label text="Prescaler" GridPane.rowIndex="2" />
+                                          <Label fx:id="lbExternalFrequency" text="External Frequency" GridPane.rowIndex="1" />
+                                          <CheckBox fx:id="chkEnableSync" mnemonicParsing="false" onAction="#onAction" text="Enable Synchronization" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                                          <CheckBox fx:id="chkEnableOscillatorCircuit" mnemonicParsing="false" onAction="#onAction" text="Enable Oscillator Circuit" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+                                    <CheckBox fx:id="chkEnableSosc" layoutX="15.0" layoutY="122.0" mnemonicParsing="false" onAction="#onAction" text="Enable Oscillator Circuit" GridPane.rowIndex="6" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </GridPane>
+                           </content>
+                        </TitledPane>
+                        <GridPane fx:id="gpTimePeriodEnableGate" hgap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vgap="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints valignment="TOP" vgrow="NEVER" />
+                              <RowConstraints valignment="TOP" vgrow="NEVER" />
+                           </rowConstraints>
+                           <children>
+                                    
+                                                                                    <TitledPane animated="false" collapsible="false" text="Timer Period">
+                                 <content>
+                                    <GridPane fx:id="gpPeriod" hgap="5.0" vgap="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                                          <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                                          <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                                          <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                                       </rowConstraints>
+                                       <children>
+                                                <Label fx:id="lbTimerPeriodMax" minWidth="70.0" onDragDetected="#onAction" GridPane.columnIndex="5" />
+                                                <Label text="≤" GridPane.columnIndex="4" />
+                                                <Label text="≤" GridPane.columnIndex="2" />
+                                          
+                                                                                                      <TextField fx:id="tfTimerPeriod" alignment="CENTER" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" />
+                                                <Label text="Timer Period" />
+                                                <Label fx:id="lbTimerPeriodMin" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" minWidth="60.0" onDragDetected="#onAction" GridPane.columnIndex="1" />
+                                          <Label text="Calculated Period" GridPane.rowIndex="2" />
+                                          <Label fx:id="lbActualTimerPeriod" alignment="CENTER" maxWidth="1.7976931348623157E308" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                          <Label text="Period count" GridPane.rowIndex="1" />
+                                          <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="0x0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                          <Label text="≤" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                          <Label text="≤" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                          <Label text="0xFFFF" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                          <TextField fx:id="tfPeriodCount" alignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                          <CheckBox fx:id="chkEnable16bitRd" mnemonicParsing="false" onAction="#onAction" text="Enable 16-bit read" GridPane.rowIndex="3" />
+                                         <!-- <Label fx:id="lbActualPeriodCaliculationAlert" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="1" />-->
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </GridPane>
+                                 </content>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </TitledPane>
+                              <TitledPane fx:id="tpGate" animated="false" collapsible="false" GridPane.rowIndex="1">
+                                        <graphic>
+                                            <CheckBox fx:id="chkEnableGate" mnemonicParsing="false" onAction="#onAction" text="Enable Gate" />
+                                        </graphic>
+                                        <content>
+                                            <GridPane fx:id="gpGate" hgap="5.0" maxWidth="1.7976931348623157E308" vgap="5.0">
+                                                <columnConstraints>
+                                                    <ColumnConstraints hgrow="NEVER" />
+                                          <ColumnConstraints hgrow="NEVER" />
+                                          <ColumnConstraints hgrow="NEVER" />
+                                                    <ColumnConstraints hgrow="NEVER" />
+                                                    <ColumnConstraints hgrow="NEVER" />
+                                                    <ColumnConstraints />
+                                                </columnConstraints>
+                                                <rowConstraints>
+                                                    <RowConstraints vgrow="NEVER" />
+                                                    <RowConstraints vgrow="NEVER" />
+                                                </rowConstraints>
+                                                <children>
+                                                    <CheckBox fx:id="chkEnableGateToggle" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAction" text="Enable Gate Toggle" />
+                                                    <ComboBox fx:id="cmbGateSignalSource" maxWidth="1.7976931348623157E308" minWidth="120.0" onAction="#onAction" GridPane.columnIndex="4" GridPane.columnSpan="2" />
+                                                    <CheckBox fx:id="chkEnableGateSinglePulse" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAction" text="Enable Gate Single-Pulse mode" wrapText="true" GridPane.rowIndex="1" />
+                                                    <Label maxWidth="1.7976931348623157E308" text="Gate Signal Source" GridPane.columnIndex="3" />
+                                                    <Label maxWidth="1.7976931348623157E308" text="Gate Polarity" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                    <ComboBox fx:id="cmbGatePolarity" maxWidth="1.7976931348623157E308" minWidth="120.0" onAction="#onAction" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                                </children>
+                                                <padding>
+                                                    <Insets bottom="5.0" left="6.0" right="5.0" top="5.0" />
+                                                </padding>
+                                            </GridPane>
+                                        </content>
+            
+                                                                                          </TitledPane>
+                           </children>
+                        </GridPane>
+                              <CheckBox fx:id="chkEnableTimerInterrupt" mnemonicParsing="false" onAction="#onAction" text="Enable Timer Interrupt" GridPane.rowIndex="4" />
+                              <CheckBox fx:id="chkEnableTimerGateInterrupt" mnemonicParsing="false" onAction="#onAction" text="Enable Timer Gate Interrupt" GridPane.rowIndex="5" />
+                          </children>
+                          <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                          </padding>
+                      </GridPane>
+                  </content>
+              </TitledPane>
+            <TitledPane animated="false" collapsible="false" maxWidth="1.7976931348623157E308" text="Software Settings" GridPane.rowIndex="1">
+               <content>
+                  <GridPane hgap="5.0" vgap="5.0" GridPane.columnSpan="3" GridPane.rowIndex="1">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                              <TextField fx:id="tfCallbackFuncRate" alignment="CENTER" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" />
+                        
+                                                                                                <Label fx:id="lbCallBackFunctionRate" maxWidth="1.7976931348623157E308" text="Callback Function Rate" />
+                              <Label fx:id="lbCallbackFuncRateValue" minWidth="50.0" onDragDetected="#onAction" text="0.0 ns" GridPane.columnIndex="3" />
+                              <Label fx:id="lbXTimePeriod" maxWidth="1.7976931348623157E308" text="x Time Period =" GridPane.columnIndex="2" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </GridPane>
+               </content>
+            </TitledPane>
+         </children>
+      </GridPane>
+    </children>
+    
+</AnchorPane>

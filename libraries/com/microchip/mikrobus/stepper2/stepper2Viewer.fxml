@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Expression package is undefined on line 10, column 118 in Templates/Microchip/SoftwareViewer.fxml..stepper2Viewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" layoutY="-2.0" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <VBox>
+                    <children>
+                        <HBox>
+                            <padding>
+                                <Insets bottom="20.0" top="20.0" />
+                            </padding>    
+                        </HBox>
+                    </children>
+                </VBox>
+            </content>
+        </TitledPane>
+    </children>
+    
+</AnchorPane>

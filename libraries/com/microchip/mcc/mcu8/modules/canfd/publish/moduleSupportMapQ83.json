@@ -1,0 +1,20 @@
+[
+    {
+        "macroName": "can_fd_upb_8bit",
+        "versions": ["v2"],
+        "hwModuleJSonData" : {  
+                            "groupName": "CAN",
+                            "name": "",
+                            "library": "",
+                            "instance": "",
+                            "displayCategory": "Peripherals::CAN",
+                            "features": ["FEATURE_CLOCK",
+                                         "FEATURE_NOMINAL_BIT_RATE",
+                                         "FEATURE_FIFO",
+                                         "FEATURE_FILTER_OBJECT",
+                                         "FEATURE_INTERRUPT_SETTINGS",
+                                         "FEATURE_CRC_SETTINGS"
+                                ]
+                }
+    }
+]

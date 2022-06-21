@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>MATHACC</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>Math Accelerator with Proportional-Integral-derivative (PID) Module</h2>
+        <hr>
+        <section>
+            <h3 id="mode" name="mode">Mode</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Selects between Math and PID functions.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>The MATHACC module can operate in two modes: Add/Multiply or PID. Selecting one mode disables the control section for the other.                            
+                            </td>
+                        </tr>                     
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="operation" name="operation">Operation</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Selects an Add/Multiply combination.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>The Add/Multiply mode can be used in several ways, depending on the mathematical function that needs to be performed.
+                                This mode makes use of 3 parameters (A, B, C) you can define for your application.
+                                Referring to the Result = (A + B) * C equation, the Operation drop-down allows you to:
+                                <p> 1. Add and Multiply - use the equation as above </p>
+                                <p> 2. Add only, where C = 1  </p>
+                                <p> 3. Multiply only, where A = 0 </p>
+                                The Result of the Operation is displayed underneath the A, B and C parameters.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>All Operation changes trigger a recalculation of the Result value. </td>
+                        </tr>                      
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Conditioned by the Mode selection (disabled in PID mode). </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>        
+        <section>
+            <h3 id="inputs" name="inputs">Inputs</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Defines the A, B and C parameters as signed or unsigned integers.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>Changing this drop-down modifies the input range of the A, B and C parameters. 
+                                If the Inputs are unsigned, the range is [0..65535], if they are signed (2's complement), the range is [-32768, 32767].
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Conditioned by the Mode selection (disabled in PID mode). </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>  
+        <section>
+            <h3 id="parama" name="parama">Parameter A</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Parameter A in the Result = (A + B) * C equation</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>This is an integer parameter you need to define when using Add and Multiply or Only Add operations. Its value is 0 and cannot be modified in Only Multiply mode.
+                                Each update on this parameter will recalculate the Result value displayed.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Selecting an input out of the specified range will trigger a warning in the Notifications tab.
+                                If the input contains non-integers or non-numeric characters the input box becomes invalid and it will blink in red until the input becomes valid again. 
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Conditioned by the Mode selection (disabled in PID mode) and the Operation (disabled in Only Multiply operation). </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>    
+        <section>
+            <h3 id="paramb" name="paramb">Parameter B</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Parameter B in the Result = (A + B) * C equation</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>This is an integer parameter you need to define for all Add/Multiply operations. 
+                                Each update on this parameter will recalculate the Result value displayed.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Selecting an input out of the specified range will trigger a warning in the Notifications tab.
+                                If the input contains non-integers or non-numeric characters the input box becomes invalid and it will blink in red until the input becomes valid again. 
+                                
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Conditioned by the Mode selection (disabled in PID mode). </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>   
+        <section>
+            <h3 id="paramc" name="paramc">Parameter C</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Parameter C in the Result = (A + B) * C equation</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>This is an integer parameter you need to define when using Add and Multiply or Only Multiply operations. Its value is 1 and cannot be modified in Only Add mode.
+                                Each update on this parameter will recalculate the Result value displayed.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Selecting an input out of the specified range will trigger a warning in the Notifications tab.
+                                If the input contains non-integers or non-numeric characters the input box becomes invalid and it will blink in red until the input becomes valid again. 
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Conditioned by the Mode selection (disabled in PID mode) and the Operation (disabled in Only Add operation). </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>           
+        <section>
+            <h3 id="paramkp" name="paramkp">Parameter Kp</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Defines the Proportional component of the PID Controller</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>The PID Controller equation can be expressed as: u(t) = Kp * e(t) + Ki * ∫e(t)dt + Kd * (de(t)/dt), where e(t) = error (difference between the Set Point and the actual Output).
+                                Kp determines the Proportional/current error and can be defined in the user interface as a float number between 0 and 65535.
+                                This parameter, together with Ki and Kd, is converted into other 3 16-bit parameters (K1, K2 and K3) that can be written to directly as registers.
+                                The MATHACC graphical interface abstractizes the K1, K2, K3 calculation, so that you are required to provide only Kp, Ki and Kd parameters.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Selecting an input out of the specified range or containing non-numeric characters will be considered invalid and the input box will blink in red until the input becomes valid again. 
+                            </td>
+                        </tr>                        
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Conditioned by the Mode selection (disabled in Add/Multiply mode). </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>   
+        <section>
+            <h3 id="paramki" name="paramki">Parameter Ki</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Defines the Integral component of the PID Controller</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>The PID Controller equation can be expressed as: u(t) = Kp * e(t) + Ki * ∫e(t)dt + Kd * (de(t)/dt), where e(t) = error (difference betwen the Set Point and the actual Output).
+                                Ki determines the sum of all previous errors and can be defined in the user interface as a float number between 0 and 65535.
+                                This parameter, together with Kp and Kd, is converted into other 3 16-bit parameters (K1, K2 and K3) that can be written to directly as registers.
+                                The MATHACC graphical interface abstractizes the K1, K2, K3 calculation, so that you are required to provide only Kp, Ki and Kd parameters.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Selecting an input out of the specified range or containing non-numeric characters will be considered invalid and the input box will blink in red until the input becomes valid again. 
+                            </td>
+                        </tr>                        
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Conditioned by the Mode selection (disabled in Add/Multiply mode). </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section> 
+        <section>
+            <h3 id="paramkd" name="paramkd">Parameter Kd</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Defines the Derivative component of the PID Controller</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>The PID Controller equation can be expressed as: u(t) = Kp * e(t) + Ki * ∫e(t)dt + Kd * (de(t)/dt), where e(t) = error (difference betwen the Set Point and the actual Output).
+                                Kd determines the last error (current vs. previous output) and can be defined in the user interface as a float number between 0 and 65535.
+                                This parameter, together with Kp and Ki, is converted into other 3 16-bit parameters (K1, K2 and K3) that can be written to directly as registers.
+                                The MATHACC graphical interface abstractizes the K1, K2, K3 calculation, so that you are required to provide only Kp, Ki and Kd parameters.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Selecting an input out of the specified range or containing non-numeric characters will be considered invalid and the input box will blink in red until the input becomes valid again. 
+                            </td>
+                        </tr>                        
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Conditioned by the Mode selection (disabled in Add/Multiply mode). </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>              
+    </body>
+</html>

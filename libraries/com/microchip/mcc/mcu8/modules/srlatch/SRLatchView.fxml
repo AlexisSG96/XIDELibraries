@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.srlatch.SRLatchViewer">
+  <children>
+    <TitledPane alignment="TOP_LEFT" animated="false" collapsible="false" maxWidth="-Infinity" text="Hardware Settings">
+      <content>
+        <GridPane fx:id="srLatchGridPane" hgap="5.0" maxWidth="-Infinity" vgap="5.0">
+          <columnConstraints>
+            <ColumnConstraints maxWidth="-Infinity" />
+            <ColumnConstraints maxWidth="-Infinity" />
+            <ColumnConstraints maxWidth="-Infinity" />
+            <ColumnConstraints maxWidth="-Infinity" />
+            <ColumnConstraints maxWidth="-Infinity" />
+            <ColumnConstraints maxWidth="-Infinity" />
+            <ColumnConstraints maxWidth="-Infinity" />
+            <ColumnConstraints maxWidth="-Infinity" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+            <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+            <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+            <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+            <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+            <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+          </rowConstraints>
+          <children>
+            <CheckBox fx:id="chkNegQOutputEnable" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onAction" text="Enable Ǭ Output" GridPane.columnIndex="7" />
+            <CheckBox fx:id="chkPulseResetInputEnable" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onAction" text="Pulse Reset Input" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+            <CheckBox fx:id="chkResetClockEnable" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onAction" text="Enable Reset Clock" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+            <CheckBox fx:id="chkPeripheralResetEnable" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onAction" text="Enable Peripheral Reset" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+            <CheckBox fx:id="chkCmp1ResetEnable" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onAction" text="Enable CMP 1 Reset" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+            <CheckBox fx:id="chkCmp2ResetEnable" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onAction" text="Enable CMP 2 Reset" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+            <CheckBox fx:id="chkQOutputEnable" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onAction" text="Enable Ǫ Output" GridPane.columnIndex="4" />
+            <CheckBox fx:id="chkPulseSetInputEnable" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onAction" text="Pulse Set Input" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <CheckBox fx:id="chkSetClockEnable" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onAction" text="Enable Set Clock" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <CheckBox fx:id="chkPeripheralSetEnable" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onAction" text="Enable Peripheral Set" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <CheckBox fx:id="chkCmp1SetEnable" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onAction" text="Enable CMP 1 Set" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <CheckBox fx:id="chkCmp2SetEnable" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onAction" text="Enable CMP 2 Set" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <CheckBox fx:id="chkModuleEnable" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onAction" text="Enable SR Latch" GridPane.columnSpan="2" />
+            <Label maxWidth="-Infinity" text="Prescaler:" GridPane.rowIndex="1" />
+            <Label maxWidth="-Infinity" text="Clock:" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cmbPrescalerSelect" maxWidth="-Infinity" onAction="#onAction" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+            <Label fx:id="lbClockFreqDisplay" maxWidth="-Infinity" text="freq" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+          </children>
+          <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+          </padding>
+        </GridPane>
+      </content>
+    </TitledPane>
+  </children>
+</AnchorPane>

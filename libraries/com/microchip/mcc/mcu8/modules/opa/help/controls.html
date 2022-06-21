@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>OPA</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>Operational Amplifier (OPA)</h2>
+        <hr>
+        <section>
+            <h3 id="unitygain" name="unitygain">Unity Gain Configuration</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td> Summary:</td>
+                            <td> The Unity Gain Configuration checkbox selects the Unity Gain buffer, also known as voltage follower. In this case the op amp is configured so that it does not amplify or attenuate the input signal.  </td>    
+                        </tr>
+                        <tr>
+                            <td> Description:</td>
+                            <td> The Unity Gain is a non-inverting amplifier with the output directly connected to the inverting input. This setup releases the inverting input pin as a general purpose input/output pin.</td>  
+                            <img src="unitygain.jpg" alt="OPA Unity Gain" style="width:628px;height:158px" >             
+                        </tr>
+                        <tr>
+                            <td> Additional Information</td>
+                            <td> The Channel Select allows as output source the following modules : PRG, DAC or FVR, depending on the device. Once a module output is selected, a hint to configure the selected module is generated in the Notifications tab.  </td>
+                        </tr>
+                        <tr>
+                            <td> Availability:</td>
+                            <td> The Unity Gain Configuration checkbox is not available for the PIC16(L)F178X devices. The Channel select is always available. </td>    
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+                <section>
+            <h3 id="override" name="override">OPA Output Override mode</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td> Summary:</td>
+                            <td> Several PIC devices feature an output override mode in which the output pulses from other modules (e.g. CCP,PWM,ZCD,CLC,COG,Compartor) can be used to provide switching control over the OPA output. </td>                        
+                        </tr>
+                        <tr>
+                            <td> Description:</td>
+                            <td> There are two modes selection for the output override : Forced Tri-State and Forced Unity Gain. The Source dropdown box and the Inverted Source Polarity checkbox are available once a mode is selected. </td>    
+                        </tr>
+                        <tr>
+                            <td> Availability:</td>
+                            <td> The OPA Override mode is available for the following devices : PIC16(L)F176X and PIC16(L)F177X.  </td>    
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+    </body>
+</html>

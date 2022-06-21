@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mikrobus.GPS.GPSNano.GPSNanoViewer">
+  <children>
+      <TitledPane animated="false" collapsible="false" text="Select GPS Supported NEMA Sentences" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+          <VBox prefHeight="-1.0" prefWidth="-1.0">
+            <children>
+              <GridPane hgap="10.0" vgap="10.0">
+                <children>
+                  <CheckBox id="NEMA_GPGGA" fx:id="gpggaEnable" mnemonicParsing="false" text="GPGGA" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.rowIndex="0" />
+                  <CheckBox id="NEMA_GPGSA" fx:id="gpgsaEnable" mnemonicParsing="false" text="GPGSA" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.rowIndex="1" />
+                  <CheckBox id="NEMA_GPGSV" fx:id="gpgsvEnable" mnemonicParsing="false" text="GPGSV" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.rowIndex="2" />
+                  <CheckBox id="NEMA_GPRMC" fx:id="gprmcEnable" mnemonicParsing="false" text="GPRMC" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
+                  <Label text="Fix data" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                  <Label text="Overall satellite reception data" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label text="Detailed satellite data" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label text="Minimum recommended data" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                </children>
+                <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="-1.0" prefWidth="-1.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="-1.0" prefWidth="-1.0" />
+                </columnConstraints>
+                <rowConstraints>
+                  <RowConstraints minHeight="-1.0" prefHeight="-1.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="-1.0" prefHeight="-1.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="-1.0" prefHeight="-1.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="-1.0" prefHeight="-1.0" vgrow="SOMETIMES" />
+                </rowConstraints>
+              </GridPane>
+            </children>
+          </VBox>
+         </content>
+      </TitledPane>
+  </children>
+</AnchorPane>

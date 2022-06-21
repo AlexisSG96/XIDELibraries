@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.foundationservices.modules.softwaredriver.rtcounter.RTCOUNTERViewer">
+    <children>
+      <VBox>
+         <children>
+              <TitledPane animated="false" collapsible="false" text="Hardware Settings">
+                  <content>
+                      <VBox spacing="5.0">
+                          <children>
+                              <HBox>
+                                  <children>
+                                      <Label prefHeight="25.0" text="Select Timer: " />
+                                      <ComboBox fx:id="timerSelection" />
+                                  </children>
+                              </HBox>
+                          </children>
+                      </VBox>
+                  </content>
+              </TitledPane>
+            <TitledPane animated="false" collapsible="false" text="Use Case Examples">
+               <content>
+                  <HBox>
+                     <children>
+                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="253.0" text="Select use case example to generate:">
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding></Label>
+                        <ComboBox fx:id="usecaseComboSettings" />
+                     </children>
+                  </HBox>
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" collapsible="false" text="Use Case Description">
+               <content>
+                  <HBox>
+                     <children>
+                        <Label fx:id="usecaseDescText" />
+                     </children>
+                  </HBox>
+               </content>
+            </TitledPane>
+         </children>
+      </VBox>
+    </children>
+    
+</AnchorPane>

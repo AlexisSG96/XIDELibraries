@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.dac10bit.DAC10BITViewer">
+    <children>
+      <GridPane hgap="5.0" layoutX="14.0" layoutY="14.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints vgrow="NEVER" />
+          <RowConstraints vgrow="NEVER" />
+        </rowConstraints>
+         <children>
+              <TitledPane animated="false" collapsible="false" text="Hardware Settings">
+               <content>
+                      <GridPane fx:id="gridPane1" hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                              <ColumnConstraints />
+                        <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                          </rowConstraints>
+                          <children>
+                              <CheckBox fx:id="enableDAC10BIT" mnemonicParsing="false" onAction="#onAction" text="Enable DAC" />
+                        <ComboBox fx:id="refFormat" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="DAC Ref Format:" textAlignment="RIGHT" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="positiveSelect" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="negativeSelect" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label text="Positive source:" GridPane.rowIndex="2" />
+                        <Label fx:id="nselect" text="Negative source:" GridPane.rowIndex="3" />
+                        <CheckBox fx:id="enableDACOUT1" mnemonicParsing="false" onAction="#onAction" text="Enable DACOUT1" GridPane.rowIndex="4" />
+                        <CheckBox fx:id="enableDACOUT2" mnemonicParsing="false" onAction="#onAction" text="Enable DACOUT2" GridPane.rowIndex="5" />                   
+                        <CheckBox fx:id="enableDACOUT" mnemonicParsing="false" onAction="#onAction" text="Enable DACOUT" GridPane.rowIndex="6" />
+                         </children>
+                          <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                          </padding>
+                      </GridPane>
+               </content>
+              </TitledPane>
+            <TitledPane animated="false" collapsible="false" text="Software Settings" GridPane.rowIndex="1">
+               <content>
+                  <GridPane fx:id="gridPane2" hgap="5.0" vgap="5.0">
+                    <columnConstraints>
+                      <ColumnConstraints />
+                      <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                    </rowConstraints>
+                     <children>
+                        <TextField fx:id="tfVdd" onAction="#onAction" GridPane.columnIndex="1" />
+                        <Label text="Vdd">
+                        </Label>
+                        <Label fx:id="vrefn" text="Vref-" GridPane.rowIndex="2" />
+                        <Label fx:id="tfRequiredRef" text="Required ref:" GridPane.rowIndex="3" />
+                        <Label fx:id="tfActualRef" text="DAC out value:" GridPane.rowIndex="4" />
+                        <TextField fx:id="tfVrefPlus" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="tfVrefMinus" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="tfReqRef" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label text="Vref+" GridPane.rowIndex="1" />
+                        <Label fx:id="lblActualRef" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </GridPane>
+               </content>
+            </TitledPane>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </GridPane>
+    </children>
+    
+</AnchorPane>

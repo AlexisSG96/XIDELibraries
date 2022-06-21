@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE toc PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 2.0//EN" "http://java.sun.com/products/javahelp/toc_2_0.dtd">
+<!-- quickinfo: <tocitem text=(text to be displayed) target=(refers to map.xml)/> -->
+<toc version="1.0" lang="en" dir="ltr">
+    <!--- mandatory tag to display under same parent "peripherals"; for libraries use "libraries"-->
+    <tocitem text="Peripherals" target="peripherals" >
+        <tocitem text="CMP" target="mcu8_cmp">
+            <tocitem text="User Interface" target=""  >
+                <tocitem text="Controls" target="mcu8_cmp_controls" />
+            </tocitem>
+            <tocitem text="External Links" target=""  >
+                <tocitem text="Wiki" target="mcu8_cmp_wiki"  />
+                <tocitem text="CMP Basics" target="mcu8_cmp_basics"  />
+                <tocitem text="CMP and FVR" target="mcu8_cmp_cmpfvr"  />
+            </tocitem>
+        </tocitem>    
+    </tocitem>    
+</toc>

@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>I2C SIMPLE MASTER</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        <h2>I2C Simple Master</h2>
+        <hr>
+        <section>
+            <h3 id="revisionHistory" name="revisionHistory">Revision history</h3>
+            <p>
+                <ul type="disc">
+                    <li>v 0.0.0.1 Initial Commit</li>
+                </ul>
+            </p>
+        </section>
+        <section>
+            <h3 id="driverDesc" name="driverDesc">Driver description</h3>
+            <p>
+                The I2C Simple driver operates in Master mode. This is a 
+                blocking asynchronous code. The APIs in this driver can be 
+                used for simple I2C read and write operations.
+            </p>
+            <p>
+                The I2C Simple driver is configured using MCC. 
+                If several I2C hardware instances are available on the device, 
+                the user can select which I2C instance the driver shall use.
+            </p>
+            <p>
+                The I2C Simple is a Master only configuration. When I2C Simple 
+                is loaded, it also loads the corresponding instance of the I2C 
+                peripheral under Project resources>Peripherals Tab. The user can
+                set options dependent on the hardware used to implement the I2C 
+                Simple driver here. For example, an option may allow changing 
+                the baud rate used to drive the underlying I2C hardware.
+            </p>
+            <br/><br/>
+            The **I2C Simple** driver provides the following functionality:
+            <br/>
+            <ul type="disc">
+                <li>Read 1 byte of data from a register location</li>
+                <li>Read 2 byte of data from a register location</li>
+                <li>Read N bytes of data from a register location</li>
+                <li>Read N bytes of data</li>
+                <li>Write 1 byte of data to a register location</li>
+                <li>Write 2 byte of data to a register location</li>
+                <li>Write N bytes of data</li>
+            </ul>
+            </p>
+        </section>
+        <section>
+            <h3 id="hardwareDependencies" name="hardwareDependencies">Hardware dependencies</h3>
+            <p>
+                The I2C Simple driver usually uses some sort of hardware that 
+                implements I2C functionality.Different MCUs have I2C hardware 
+                with different names and functionalities, such as MSSP, I2C, TWI
+                etc. In MCC, the user selects a device and adds the I2C Simple 
+                driver. A device may have several possible hardware resources 
+                available for the driver, such as MSSP1, MSSP2 etc. In this case
+                the user must select which one to use.
+            </p>
+        </section>
+        <section>
+            <h3 id="functions" name="functions">Functions</h3>
+            <h4>i2c_read1ByteRegister</h4>									<!-- i2c_read1ByteRegister-->
+            <p>
+		Function to read 1 byte of data from a register location<br><br>
+		<b>uint8_t i2c_read1ByteRegister(i2c_address_t address, uint8_t reg)</b>
+            </p>
+            <table class="content_table">
+                <tbody>
+                    <tr> 
+                        <td><b>Parameters:</b></td> 
+                    </tr>
+                    <tr> 
+                        <td>address: </td> 
+                        <td>Type: i2c_address_t</td>
+                    </tr>
+                    <tr> 
+                        <td></td>
+                        <td>The slave address</td>
+                    </tr>
+					<tr> 
+                        <td>reg: </td> 
+                        <td>Type: uint8_t</td>
+                    </tr>
+                    <tr> 
+                        <td></td>
+                        <td>The register address of data to read</td>
+                    </tr>
+		</tbody>
+            </table>
+            <br>
+            <table class="content_table">
+		<tbody>
+                    <tr> 
+			<td><b>Returns: </b></td> 
+			<td>Type: uint8_t</td>
+                    </tr>
+			<tr>
+			<td>The received data</td>
+                    </tr>
+		</tbody>
+            </table>
+            <br><br>
+            <h4>i2c_read2ByteRegister</h4>									<!-- i2c_read2ByteRegister-->
+            <p>
+                Function to read 2 bytes of data from a register location<br><br>
+		<b>uint16_t i2c_read2ByteRegister(i2c_address_t address, uint8_t reg)</b>
+            </p>
+            <table class="content_table">
+                <tbody>
+                    <tr> 
+                        <td><b>Parameters:</b></td> 
+                    </tr>
+                    <tr> 
+                        <td>address: </td> 
+                        <td>Type: i2c_address_t</td>
+                    </tr>
+                    <tr> 
+                        <td></td>
+                        <td>The slave address</td>
+                    </tr>
+					<tr> 
+                        <td>reg: </td> 
+                        <td>Type: uint8_t</td>
+                    </tr>
+                    <tr> 
+                        <td></td>
+                        <td>The register address of data to read</td>
+                    </tr>
+		</tbody>
+            </table>
+            <br>
+            <table class="content_table">
+                <tbody>
+                    <tr> 
+                        <td><b>Returns: </b></td> 
+			<td>Type: uint16_t</td>
+                    </tr>
+                    <tr>
+			<td>The received data</td>
+                    </tr>
+		</tbody>
+            </table>
+            <br><br>
+            <h4>i2c_write1ByteRegister</h4>									<!-- i2c_write1ByteRegister-->
+            <p>
+            	Function to write 1 byte of data to a register location<br><br>
+		<b>void i2c_write1ByteRegister(i2c_address_t address, uint8_t reg, uint8_t data)</b>
+            </p>
+            <table class="content_table">
+                <tbody>
+                    <tr> 
+                        <td><b>Parameters:</b></td> 
+                    </tr>
+                    <tr> 
+                        <td>address: </td> 
+                        <td>Type: i2c_address_t</td>
+                    </tr>
+                    <tr> 
+                        <td></td>
+                        <td>The slave address</td>
+                    </tr>
+                    <tr> 
+                        <td>reg: </td> 
+                        <td>Type: uint8_t</td>
+                    </tr>
+                    <tr> 
+                        <td></td>
+                        <td>The register address to be written</td>
+                    </tr>
+                    <tr> 
+                        <td>data: </td> 
+                        <td>Type: uint8_t</td>
+                    </tr>
+                    <tr> 
+                        <td></td>
+                        <td>The data to be written</td>
+                    </tr>
+		</tbody>
+            </table>
+            <br><br>
+            <h4>i2c_write2ByteRegister</h4>									<!-- i2c_write2ByteRegister-->
+            <p>
+            	Function to write 2 bytes of data from a register location<br><br>
+		<b>void i2c_write2ByteRegister(i2c_address_t address, uint8_t reg, uint16_t data)</b>
+            </p>
+            <table class="content_table">
+                <tbody>
+                    <tr> 
+                        <td><b>Parameters:</b></td> 
+                    </tr>
+                    <tr> 
+                        <td>address: </td> 
+                        <td>Type: i2c_address_t</td>
+                    </tr>
+                    <tr> 
+                        <td></td>
+                        <td>The slave address</td>
+                    </tr>
+                    <tr> 
+                        <td>reg: </td> 
+                        <td>Type: uint8_t</td>
+                    </tr>
+                    <tr> 
+                        <td></td>
+                        <td>The register address to be written</td>
+                    </tr>
+                    <tr> 
+                        <td>data: </td> 
+                        <td>Type: uint16_t</td>
+                    </tr>
+                    <tr> 
+                        <td></td>
+                        <td>The data to be written</td>
+                    </tr>
+		</tbody>
+            </table>
+            <br><br>
+            <h4>i2c_writeNBytes</h4>									<!-- i2c_writeNBytes-->
+            <p>
+		Function to write N bytes of data<br><br>
+		<b>void i2c_writeNBytes(i2c_address_t address, void* data, size_t len)</b>
+            </p>
+            <table class="content_table">
+                <tbody>
+                    <tr> 
+                        <td><b>Parameters:</b></td> 
+                    </tr>
+                    <tr> 
+                        <td>address: </td> 
+                        <td>Type: i2c_address_t</td>
+                    </tr>
+                    <tr> 
+                        <td></td>
+                        <td>The slave address</td>
+                    </tr>
+                    <tr> 
+                        <td>data: </td> 
+                        <td>Type: void*</td>
+                    </tr>
+                    <tr> 
+                        <td></td>
+                        <td>Pointer to the array of data</td>
+                    </tr>
+                    <tr> 
+                        <td>len: </td> 
+                        <td>Type: size_t</td>
+                    </tr>
+                    <tr> 
+                        <td></td>
+                        <td>The number of data to be written(N)</td>
+                    </tr>
+		</tbody>
+            </table>
+            <br><br>
+            <h4>i2c_readDataBlock</h4>									<!-- i2c_readDataBlock-->
+            <p>
+		Function to read N bytes of data from a register location<br><br>
+		<b>void i2c_readDataBlock(i2c_address_t address, uint8_t reg, void *data, size_t len)</b>
+            </p>
+            <table class="content_table">
+                <tbody>
+                    <tr> 
+                        <td><b>Parameters:</b></td> 
+                    </tr>
+                    <tr> 
+                        <td>address: </td> 
+                        <td>Type: i2c_address_t</td>
+                    </tr>
+                    <tr> 
+                        <td></td>
+                        <td>The slave address</td>
+                    </tr>
+                    <tr> 
+                        <td>reg: </td> 
+                        <td>Type: uint8_t</td>
+                    </tr>
+                    <tr> 
+                        <td></td>
+                        <td>The register address of data to read</td>
+                    </tr>
+                    <tr> 
+                        <td>data: </td> 
+                        <td>Type: void*</td>
+                    </tr>
+                    <tr> 
+                        <td></td>
+                        <td>Pointer to the array where the data is going to stored after reading</td>
+                    </tr>
+                    <tr> 
+                        <td>len: </td> 
+                        <td>Type: size_t</td>
+                    </tr>
+                    <tr> 
+                        <td></td>
+                        <td>The number of data to be read(N)</td>
+                    </tr>
+		</tbody>
+            </table>
+            <br><br>
+            <h4>i2c_readNBytes</h4>									<!-- i2c_readNBytes-->
+            <p>
+		Function to read N bytes of data<br><br>
+		<b>void i2c_readNBytes(i2c_address_t address, void *data, size_t len)</b>
+            </p>
+            <table class="content_table">
+                <tbody>
+                    <tr> 
+                        <td><b>Parameters:</b></td> 
+                    </tr>
+                    <tr> 
+                        <td>address: </td> 
+                        <td>Type: i2c_address_t</td>
+                    </tr>
+                    <tr> 
+                        <td></td>
+                        <td>The slave address</td>
+                    </tr>
+                    <tr> 
+                        <td>data: </td> 
+                        <td>Type: void*</td>
+                    </tr>
+                    <tr> 
+                        <td></td>
+                        <td>Pointer to the array where the data is going to stored after reading</td>
+                    </tr>
+                    <tr> 
+                        <td>len: </td> 
+                        <td>Type: size_t</td>
+                    </tr>
+                    <tr> 
+                        <td></td>
+                        <td>The number of data to be read(N)</td>
+                    </tr>
+		</tbody>
+            </table>
+	</section>
+    </body>
+</html>

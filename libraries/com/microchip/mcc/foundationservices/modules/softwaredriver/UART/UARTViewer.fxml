@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.foundationservices.modules.softwaredriver.UART.UARTViewer">
+    <children>
+      <GridPane AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+              <TitledPane animated="false" collapsible="false" text="Hardware Settings">
+                  <content>
+                      <VBox>
+                          <children>
+                        <TableView fx:id="uartConfigurationTable" editable="true">
+                           <columns>
+                              <TableColumn fx:id="nameColumn" prefWidth="90.0" text="Name" />
+                              <TableColumn fx:id="speedColumn" prefWidth="90.0" text="Baud Rate" />
+                              <TableColumn fx:id="calculatedSpeedColumn" editable="false" prefWidth="90.0" text="Actual Baud Rate" />
+                              <TableColumn fx:id="uartColumn" prefWidth="100.0" text="UART" />
+                           </columns>
+                        </TableView>
+                        <HBox>
+                           <children>
+                              <Button fx:id="addButton" mnemonicParsing="false" onAction="#addRow" text="+" />
+                              <Button fx:id="removeButton" mnemonicParsing="false" onAction="#removeRow" text="-" />
+                           </children>
+                        </HBox>
+                          </children>
+                      </VBox>
+                  </content>
+              </TitledPane>
+            <TitledPane fx:id="examplePane" animated="false" collapsible="false" text="Use Case Examples" GridPane.rowIndex="1">
+               <content>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Select use case example to generate:" />
+                        <ComboBox fx:id="usecaseComboSettings" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
+         </children>
+      </GridPane>
+    </children>
+    
+</AnchorPane>

@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>Delay Driver</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>Delay Driver</h2>
+        <hr>
+        <section>
+            <h3 id="revisionHistory" name="revisionHistory">Revision history</h3>
+            <p>
+                <ul type="disc">
+                    <li>v 0.0.0.1 Initial Commit</li>
+                </ul>
+            </p>    
+            <h3 id="driverDesc" name="driverDesc">Foundation Services driver description</h3>
+            <p>
+               
+The MPLAB XC8 and XC16 compilers have built-in delay functions or macros for when users need to tell the MCU to wait for a certain amount of time.
+For these delay functions, time is measured in microseconds or milliseconds, and for PIC32 devices, in timer ticks as well. Format for invoking the macros
+will vary from device to device but this delay driver can help abstract these format differences. 
+            </p>
+        </section>
+        <section>
+            <h3 id="driverUse" name="driverUse">How to use the delay driver</h3>
+            <p>
+To use the delay drivers, just include the delay.h file wherever you intend to use the delay function and call the DELAY_milliseconds(time) or DELAY_microseconds(time) function where
+<i>time</i> is the number of milliseconds or microseconds to delay.
+            </p>
+            <p>Examples:
+                <br>
+                    DELAY_milliseconds(100);
+                <br>
+                    DELAY_microseconds(60);
+            </p>
+        </section>
+    </body>
+</html>

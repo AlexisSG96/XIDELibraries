@@ -1,0 +1,225 @@
+html,body{
+    margin:5px;
+    font-size: 12px;
+    font-family: sans-serif;
+    padding:0
+}
+
+.divTable{
+    background-color: white;
+    border: 1px solid #666666;
+    border-top: none;
+    padding-bottom:0px;
+    width: 100%;
+    display: table;
+    margin-bottom: 7px;
+}
+
+.divTableBar{
+    background-image: url("images/titlepane.png");
+    border: 1px solid #666666;
+    background-repeat: repeat;
+    display: table-caption;
+    cursor:pointer;
+}
+
+.titleBarContent{
+    vertical-align: middle;
+    pointer-events: none;
+}
+
+.expanded {
+    background-image: url("images/pane_expanded.png");
+    background-position: 0% center;
+    background-repeat: no-repeat;
+    display:inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+
+.collapsed {
+    background-image: url("images/pane_collapsed.png");
+    background-position: 0% center;
+    background-repeat: no-repeat;
+    display:inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+
+.divTableBody {
+    display: table-row-group;
+}
+
+.divTableRow {
+    display: table-row;
+}
+
+.divTableCell:first-of-type {
+    width: 240px;
+}
+
+.divTableCell {
+    display: table-cell;
+    width: 00px;
+    height:24px;
+    padding: 3px;
+    padding-left: 7px;
+    vertical-align: middle;
+}
+
+.divTableBodyBottom, .divTableBodyTop{
+    width: 100%;
+    height: 10px;
+}
+
+.cellLabel{
+    font-size: 13px;
+    line-height:24px;
+    vertical-align: middle;
+}
+
+input[type="checkbox"]{
+    display: none;
+}
+
+input[type=checkbox] + label
+{
+    background-image:url("images/uncheck.png");
+    height: 18px;
+    width: 18px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+}
+input[type=checkbox]:checked + label
+{
+    background: url("images/check.png");
+    height: 18px;
+    width: 18px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+}
+
+input[type="text"]{
+    width: 88%;
+    margin-right: 10px;
+    overflow: hidden;
+    display:table-cell;
+    text-overflow: ellipsis;
+}
+
+input[type="number"]{
+    width: 120px;
+}
+
+.cellCombobox {
+    -webkit-appearance: button;
+    -webkit-border-radius: 2px;
+    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    -webkit-user-select: none;
+    background-image: url("images/select_arrow.png");
+    background-position: 100% center;
+    background-repeat: no-repeat;
+    border: 1px solid #666666;
+    color: #000000;
+    background-color: #F9F9F9;
+    font-size: inherit;
+    overflow: hidden;
+    padding: 5px 25px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 90%;
+    height:28px;
+}
+
+select:disabled{
+    opacity: 0.5;
+}
+
+.errormatch{
+    border: 1px solid red;
+    background: #FFCDD2;
+}
+
+input[type="text"]:read-only {
+    border: 0 none;
+    pointer-events: none;
+}
+.minRange,.maxRange {
+    border: 0 none;
+    pointer-events: none;
+    width: 60px;
+    font-size: 11px;
+    font-family: sans-serif;
+}
+.div-table {
+    display: table;
+    width: 100%;
+}
+.tr {display: table-row-group;}
+.table-rowData {
+    display:table-cell;
+    border: 1px solid #666666;
+    text-align: left;
+    height:24px;
+    vertical-align: middle;
+    padding-left: 3px;
+}
+.tc {
+    display:table-cell;
+    vertical-align:top;
+    border: 1px solid #666666;
+}
+.tableCell {
+    background-image: url("images/titlepane.png");
+    font-weight: bold;
+    text-align: left; 
+    padding: 3px;
+    border: 1px solid #666666;
+    color: black;
+}
+
+.staticTable{
+    border: 1px solid #666666;
+    border-collapse: collapse;
+}
+
+.staticTableHeader{
+    border-collapse: separate;
+    border-spacing: 1px;
+    background-image: url("images/titlepane.png");
+    color: black;
+    padding: 3px;
+    border: 1px solid #666666;
+}
+
+.staticTableDivider{
+    border: 1px solid #666666;
+    border-collapse: separate;
+    border-spacing: 1px;
+}
+
+.staticTableCheckbox {
+    text-align: center;
+}
+
+.label-hover + .label-hover-text {
+    display: none;
+    background-color: #c4e2ff;
+    position: absolute;
+    z-index: 1;
+}
+
+.label-hover:hover + .label-hover-text {
+    display: inline-block;
+}
+
+div.tableView {
+    background-color: white;
+    width: 230%;
+    min-height:100px ;
+    overflow: hidden;
+}

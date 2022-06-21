@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>INTERRUPT</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>Interrupt Module</h2>
+        <hr>
+        <section>
+            <h3 id="order" name="order">Interrupt Order</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Reorders the selected interrupt source within the same interrupt vector.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>Use the Up and Down arrows to reorder the calls to the module specific interrupt handler.
+                                Inside the main INTERRUPT_InterruptManager() Interrupt Service Routine (ISR) you will find the call tree of ISRs corresponding to the selected interrupts.
+                                This functionality is not the same and cannot be used as a substitute to hardware interrupt prioritising. 
+                                It is just a very basic way of determining which ISR should execute ahead of another one, provided conditions for both interrupts have been met at a point in time.
+                            </td>
+                        </tr>                       
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Not available if no interrupt has been added to the interrupt vector.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+         <section>
+            <h3 id="preemptive" name="preemptive">Preemptive Interrupt Routine</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Defines the way that module interrupt handlers are called from the main interrupt vector service routine.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>If selected, the main ISR will check every interrupt flag and execute the corresponding interrupt handler sequentially.
+                                In unchecked, the main ISR execution will stop after the the first true interrupt condition found and the corresponding interrupt handler is called.
+                                This is translated in the INTERRUPT_InterruptManager() ISR as sequential if() statements vs. one if-else statement. 
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>This setting refers to all interrupt vectors at the same time.
+                            </td>
+                        </tr>                         
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+         <section>
+            <h3 id="usehighlow" name="usehighlow">Use High/Low Interrupt Vector Priority</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Chooses between using one interrupt vector (Legacy mode) or multiple interrupt vectors on selected devices.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>If selected, this checkbox will display the high and low interrupt vectors side by side. If unchecked, all selected interrupts will go to one interrupt vector.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>When selected, you can use the Left and Right arrows between the two interrupt tables to move an interrupt from one vector to another.
+                            </td>
+                        </tr>                         
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Typically not available on PIC10/12/16 devices.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>        
+         <section>
+            <h3 id="priority" name="priority">Interrupt Vector Priority</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Move an interrupt from one interrupt vector to another.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>Select one interrupt source from one interrupt vector table and use the Left and Right arrow-buttons.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>If an interrupt vector is empty the arrow-button that would move its interrupts to the other vector is disabled.
+                            </td>
+                        </tr>                         
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Typically not available on PIC10/12/16 devices. Use High/Low Interrupt Vector Priority checkbox must be selected.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>        
+    </body>
+</html>

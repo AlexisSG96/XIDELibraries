@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mikrobus.ACCEL3.ACCEL3Viewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" layoutY="-2.0" text="Jumper Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox spacing="5.0">
+                     <children>
+                        <TitledPane animated="false" collapsible="false" layoutX="20.0" layoutY="20.0" text="Address">
+                           <content>
+                              <VBox spacing="15.0">
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" selected="true" text="0">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="addrToggleGroup" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" selected="true" text="1" toggleGroup="$addrToggleGroup" />
+                                 </children>
+                              </VBox>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" collapsible="false" layoutX="196.0" layoutY="20.0" text="Interrupt">
+                           <content>
+                              <VBox spacing="15.0">
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" selected="true" text="INT1">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="intToggleGroup" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" selected="true" text="INT2" toggleGroup="$intToggleGroup" />
+                                 </children>
+                              </VBox>
+                           </content>
+                        </TitledPane>
+                     </children>
+                  </HBox>
+                  <Label text="Please make sure your on-board resistor settings match these values" textAlignment="CENTER">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </content>
+        </TitledPane>
+    </children>
+    
+</AnchorPane>

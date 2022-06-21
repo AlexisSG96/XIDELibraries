@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.clkref.CLKREFViewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" layoutY="-2.0" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <GridPane fx:id="clkRefGridPane" hgap="5.0" vgap="5.0">
+                    <columnConstraints>
+                        <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                    </rowConstraints>
+                    <children>
+                        <CheckBox fx:id="enableCLKREF" mnemonicParsing="false" onAction="#onAction" text="Enable Ref Clk Module" />
+                  <CheckBox fx:id="chkEnableClkRefOutput" mnemonicParsing="false" onAction="#onAction" text="Enable Ref Clk Output" GridPane.rowIndex="1" />
+                  <CheckBox fx:id="chkEnableSlewRateLimit" mnemonicParsing="false" onAction="#onAction" text="Enable Slew Rate Control Limit" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                  <Label text="Duty Cycle" GridPane.columnIndex="3" />
+                  <Label text="Clock Divider" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="cmbDutyCycle" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="4" />
+                  <ComboBox fx:id="cmbClockDivider" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="clockSelection" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                  <Label fx:id="clkSelectionLabel" text="Clock Selection" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                    </children>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </padding>
+                </GridPane>
+            </content>
+        </TitledPane>
+    </children>
+    
+</AnchorPane>

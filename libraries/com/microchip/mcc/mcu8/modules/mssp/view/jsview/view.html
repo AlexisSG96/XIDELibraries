@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MCC View</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="../../../../common/ui/webui/bridge.js"></script>
+        <script type="text/javascript" src="../../../../common/ui/webui/library.js"></script>
+        <link rel="stylesheet" href="../../../../common/ui/webui/style.css" type="text/css" />
+    </head>
+    <body>
+        <div id="divContainer">
+                        <div class="divTable" data-collapse="false" >
+                <div class="divTableBar" id="divTableBar1">
+					<span class="expanded" id="divTableBar1Icon"></span>
+                    <span class="titleBarContent">Software Settings</span>
+                </div>
+                <div class="divTableBody" id="divTableBar1Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">API Prefix:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="componentName" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Interrupt Driven:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="isInterruptDriven">
+                            <label for="isInterruptDriven"></label>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+            <div class="divTable" data-collapse="false" >
+                <div class="divTableBar" id="divTableBar2">
+					<span class="expanded" id="divTableBar2Icon"></span>
+                    <span class="titleBarContent">Hardware Settings</span>
+                </div>
+                <div class="divTableBody" id="divTableBar2Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Serial Protocol:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="serialProtocolType"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Mode:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="i2cMode"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Mode:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="spiMode"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">I2C Clock Frequency(Hz):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="i2cClockFreq_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="i2cClockFreq" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="i2cClockFreq_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Actual Clock Frequency(Hz):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="ActI2cClkSpeed" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Slave Address:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="i2cSlaveAddr_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="i2cSlaveAddr" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="i2cSlaveAddr_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Mask Address:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="i2cMaskAddr_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="i2cMaskAddr" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="i2cMaskAddr_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">SPI Mode:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="spiComMode"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Input Data Sampled At:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="inputDataSampled"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Clock Source Selection:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="clockSourceSelection"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">SPI Clock Frequency(Hz):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="spiClockFreq_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="spiClockFreq" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="spiClockFreq_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Actual Clock Frequency(Hz):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="ActSpiClkSpeed" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Slave Select:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableSlaveSelect">
+                            <label for="enableSlaveSelect"></label>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+            <div class="divTable" data-collapse="true" id="advancedSettings">
+                <div class="divTableBar" id="divTableBar3">
+					<span class="collapsed" id="divTableBar3Icon"></span>
+                    <span class="titleBarContent">Advanced Settings</span>
+                </div>
+                <div class="divTableBody" id="divTableBar3Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">SM Bus Input Enable:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="smBusInputEnable">
+                            <label for="smBusInputEnable"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Slew Rate Control:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="slewRateControl"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">SDA Hold Time:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="sdaholdTime"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Clock Stretch Enable:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="clockStretchEnable">
+                            <label for="clockStretchEnable"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">General Call Enable:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="generalCallEnable">
+                            <label for="generalCallEnable"></label>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+            <div class="divTable" data-collapse="true" >
+                <div class="divTableBar" id="divTableBar4">
+					<span class="collapsed" id="divTableBar4Icon"></span>
+                    <span class="titleBarContent">Interrupt Settings</span>
+                </div>
+                <div class="divTableBody" id="divTableBar4Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable I2C Interrupt:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableI2cInterrupt">
+                            <label for="enableI2cInterrupt"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable SPI Interrupt:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableSpiInterrupt">
+                            <label for="enableSpiInterrupt"></label>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="../../../../common/ui/webui/uiControls.js"></script>
+        <script language="javascript">
+            function onInit() {
+                jsmodule.setBridge(bridge);
+                jsmodule.setLibrary(library);
+                jsmodule.init();
+            }
+            window.onload = onInit;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.hlvd.HLVDViewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" layoutY="-2.0" maxWidth="-Infinity" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <GridPane fx:id="gpHLVD" hgap="5.0" vgap="5.0">
+                    <columnConstraints>
+                        <ColumnConstraints maxWidth="-Infinity" />
+                  <ColumnConstraints maxWidth="-Infinity" />
+                  <ColumnConstraints maxWidth="-Infinity" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                    </rowConstraints>
+                    <children>
+                        <CheckBox fx:id="enable" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onAction" text="Enable HLVD" GridPane.vgrow="NEVER" />
+                  <ComboBox fx:id="comboHLVDL" maxWidth="-Infinity" onAction="#onAction" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                  <ComboBox fx:id="comboVDIR" maxWidth="-Infinity" onAction="#onAction" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.vgrow="NEVER" />
+                  <Label maxWidth="-Infinity" text="Trip Points" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                  <Label fx:id="lbVoltChnageDir" maxWidth="-Infinity" text="Voltage Change Direction" GridPane.rowIndex="2" GridPane.vgrow="NEVER" />
+                  <CheckBox fx:id="enableInterrupt" alignment="TOP_LEFT" graphicTextGap="0.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onAction" text="Enable HLVD Interrupt" GridPane.rowIndex="4" GridPane.vgrow="NEVER" />
+                  <CheckBox fx:id="positiveIntEnable" mnemonicParsing="false" onAction="#onAction" text="Enable Positive going Interrupt" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                  <CheckBox fx:id="negativeIntEnable" mnemonicParsing="false" onAction="#onAction" text="Enable Negative going Interrupt" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                    </children>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </padding>
+                </GridPane>
+            </content>
+        </TitledPane>
+    </children>
+    
+</AnchorPane>

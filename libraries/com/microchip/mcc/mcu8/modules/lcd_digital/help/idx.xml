@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE index PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Index Version 2.0//EN" "http://java.sun.com/products/javahelp/index_2_0.dtd">
+<index version="2.0">
+    <indexitem text="LCD Design Panel"  target="mcu8_lcd_overview"/>
+    <indexitem text="Configure Macro"  target="mcu8_lcd_configure_macro"/>
+    <indexitem text="SEG/COM Table"  target="mcu8_lcd_seg_com_table"/>
+    <indexitem text="Backward Compatibility"  target="mcu8_lcd_backwardCompatibity"/>
+    <indexitem text="General Settings"  target="mcu8_lcd_general_settings"/>
+    <indexitem text="Internal reference"     target="mcu8_lcd_bias_settings"/>
+    <indexitem text="Voltage"    target="mcu8_lcd_power_settings"/>  
+</index>

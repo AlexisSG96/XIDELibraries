@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE toc PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 2.0//EN" "http://java.sun.com/products/javahelp/toc_2_0.dtd">
+<!-- quickinfo: <tocitem text=(text to be displayed) target=(refers to map.xml)/> -->
+<toc version="1.0" lang="en" dir="ltr">
+    <!--- mandatory tag to display under same parent "peripherals"; for libraries use "libraries"-->
+    <tocitem text="Libraries" target="libraries" >
+        <tocitem text="FatFs" target="fatfs_link">
+            <tocitem text="User Interface" target="fatfs_link">
+                <tocitem text="Demo Features" target="fatfs_config_demo"/>
+                <tocitem text="Physical Driver Selection" target="fatfs_config_driver_table"/>
+                <tocitem text="Functionality Optimizations" target="fatfs_config_function"/>
+                <tocitem text="Locale, Namespaces, and Buffering" target="fatfs_config_locale"/>               
+                <tocitem text="System Configurations" target="fatfs_config_system"/>
+            </tocitem>
+            <tocitem text="External Links">
+                <tocitem text="FatFs Home Page" target="fatfs_homepage"  />              
+            </tocitem>
+        </tocitem>    
+    </tocitem>    
+</toc>

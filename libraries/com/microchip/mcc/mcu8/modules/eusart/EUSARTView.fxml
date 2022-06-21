@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.eusart.EUSARTViewer">
+    <children>
+      <GridPane fx:id="rootGridPane" hgap="5.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <columnConstraints>
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+         </rowConstraints>
+         <children>
+              <TitledPane collapsible="false" text="Hardware Settings" AnchorPane.bottomAnchor="53.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" GridPane.hgrow="ALWAYS">
+                  <content>
+                  <TitledPane collapsible="false" contentDisplay="RIGHT" text="Mode">
+                     <content>
+                            <GridPane fx:id="masterGridPane" hgap="5.0" vgap="5.0">
+                                <columnConstraints>
+                                    <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                                </rowConstraints>
+                                <children>
+                                    <CheckBox fx:id="enableEUSART" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAction" text="Enable EUSART" />
+                              <CheckBox fx:id="enableTransmit" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAction" text="Enable Transmit" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="transmitBits" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                              <Label text="Transmission Bits:" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <Label text="Reception Bits:" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="receiveBits" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="clockPolarity" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                              <Label fx:id="polarityLblId" text="Clock Polarity:" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <CheckBox fx:id="enableContinousReceive" mnemonicParsing="false" onAction="#onAction" text="Enable Continuous Receive" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                              <Label text="Baud Rate:" GridPane.columnIndex="3" />
+                              <ComboBox fx:id="baudRateComboBox" editable="true" maxWidth="1.7976931348623157E308" GridPane.columnIndex="4" />
+                              <Label fx:id="baudErrorLabel" text="Error: y.yyy" GridPane.columnIndex="5" />
+                                </children>
+                                <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                </padding>
+                            </GridPane>
+                     </content>
+                     <graphic>
+                        <ComboBox fx:id="selectAsyncSync" onAction="#onAction" />
+                     </graphic>
+                  </TitledPane>
+                  </content>
+              </TitledPane>
+            <TitledPane animated="false" text="Software Settings" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2">
+              <content>
+                <AnchorPane>
+                     <children>
+                        <GridPane hgap="5.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columnConstraints>
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                            <RowConstraints vgrow="NEVER" />
+                            <RowConstraints vgrow="NEVER" />
+                          </rowConstraints>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <children>
+                              <Label text="Software Transmit Buffer Size" GridPane.rowIndex="2" />
+                              <Label text="Software Receive Buffer Size" GridPane.rowIndex="3" />
+                              <CheckBox fx:id="useStdio" mnemonicParsing="false" onAction="#onAction" text="Redirect STDIO to USART" />
+                              <ComboBox fx:id="txBufferComboBox" onAction="#onAction" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="rxBufferComboBox" onAction="#onAction" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </TitledPane>
+            <CheckBox fx:id="enableInterrupts" mnemonicParsing="false" onAction="#onAction" text="Enable EUSART Interrupts" GridPane.rowIndex="1" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </GridPane>
+    </children>
+    
+</AnchorPane>

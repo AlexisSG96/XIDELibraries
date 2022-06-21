@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MCC View</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="../../../../common/ui/webui/bridge.js"></script>
+        <script type="text/javascript" src="../../../../common/ui/webui/library.js"></script>
+        <link rel="stylesheet" href="../../../../common/ui/webui/style.css" type="text/css" />
+    </head>
+    <body>
+        <div id="divContainer">
+            <div class="divTable" data-collapse="false">
+                <div class="divTableBar" id="divTableBar1">
+                    <span class="expanded" id="divTableBar1Icon"></span>
+                    <span class="titleBarContent">Hardware Settings</span>
+                </div>
+                <div class="divTableBody" id="divTableBar1Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable PWM</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="isPWMEnabled">
+                            <label for="isPWMEnabled"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Clock Selection</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="clockSelection"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Clock Frequency(Hz)</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="extClockFreq_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="extClockFreq" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="extClockFreq_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Clock Prescaler</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="prescalerSelection_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="prescalerSelection" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="prescalerSelection_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">PWM Clock(Hz)</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="CLK_PWM" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+            <div class="divTable" data-collapse="false">
+                <div class="divTableBar" id="divTableBar2">
+                    <span class="expanded" id="divTableBar2Icon"></span>
+                    <span class="titleBarContent">Slice 1 Output Settings</span>
+                </div>
+                <div class="divTableBody" id="divTableBar2Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Mode</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="s1pwmMode"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Requested Frequency</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input class="minRange" id="s1pwmFreq_MIN" readonly>
+                            <span>&nbsp;&le;</span>
+                            <input id="s1pwmFreq" onkeyup="jsmodule.handleFreqField(this);">
+                            <span>&nbsp;&le;</span>
+                            <input class="maxRange" id="s1pwmFreq_MAX" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Actual Frequency</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="s1pwmActualFreq" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Output1 Duty Cycle (%)</div>
+                        </div>
+                            <div class="divTableCell">
+                                <input id="s1out1dc" onkeyup="jsmodule.handlePercentField(this);">
+                            </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Output1 Actual Duty Cycle (%)</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="s1out1Actualdc" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Output1 Pulse/Toggle Start</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input class="minRange" id="s1out1PulseStart_MIN" readonly>
+                            <span>&nbsp;&le;</span>
+                            <input id="s1out1PulseStart" onkeyup="jsmodule.handleTimeField(this);">
+                            <span>&nbsp;&le;</span>
+                            <input class="maxRange" id="s1out1PulseStart_MAX" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Output1 Actual Start Time</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="s1out1ActualPulseStart" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Invert Output1 Polarity</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="s1out1Polarity">
+                            <label for="s1out1Polarity"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Output1 Interrupt Enable</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="s1out1InterruptEnable">
+                            <label for="s1out1InterruptEnable"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Output2 Duty Cycle (%)</div>
+                        </div>
+                        <div class="divTableCell">
+                        <input id="s1out2dc" onkeyup="jsmodule.handlePercentField(this);">
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Output2 Actual Duty Cycle (%)</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="s1out2Actualdc" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Output2 Pulse/Toggle Start</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input class="minRange" id="s1out2PulseStart_MIN" readonly>
+                            <span>&nbsp;&le;</span>
+                            <input id="s1out2PulseStart" onkeyup="jsmodule.handleTimeField(this);">
+                            <span>&nbsp;&le;</span>
+                            <input class="maxRange" id="s1out2PulseStart_MAX" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Output2 Actual Start Time</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="s1out2ActualPulseStart" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Invert Output2 Polarity</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="s1out2Polarity">
+                            <label for="s1out2Polarity"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Output2 Interrupt Enable</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="s1out2InterruptEnable">
+                            <label for="s1out2InterruptEnable"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">PWM Resolution (Bits)</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="pwmResolution" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+			<div class="divTable" data-collapse="true">
+                <div class="divTableBar" id="divTableBar3">
+					<span class="collapsed" id="divTableBar3Icon"></span>
+                    <span class="titleBarContent">Interrupt Settings</span>
+                </div>
+                <div class="divTableBody" id="divTableBar3Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Interrupt Enable</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="pwmInterruptEnable">
+                            <label for="pwmInterruptEnable"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Period Interrupt Enable</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="periodInterruptEnable">
+                            <label for="periodInterruptEnable"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Period Interrupt Postscaler</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="postscalerSelection_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="postscalerSelection" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="postscalerSelection_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="../../../../common/ui/webui/uiControls.js"></script>
+        <script language="javascript">
+            function onInit() {
+                jsmodule.setBridge(bridge);
+                jsmodule.setLibrary(library);
+                jsmodule.init();
+            }
+            window.onload = onInit;
+        </script>
+    </body>
+</html>

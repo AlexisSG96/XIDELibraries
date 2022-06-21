@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    <mapID target="mcu8_can_controls" url="can.html"/>
+    <mapID target="mcu8_can_bus_settings" url="can.html#bus_settings"/>
+    <mapID target="mcu8_can_general_settings" url="can.html#general_settings"/>    
+    <mapID target="mcu8_can_mode" url="can.html#mode"/>    
+</map>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    <mapID target="mcu8_dac_controls" url="controls.html"/>
+    <mapID target="mcu8_dac_controls_reqref" url="controls.html#reqref"/>
+    <mapID target="mcu8_dac_controls_outputval" url="controls.html#outputval"/>
+    <mapID target="mcu8_dac_wiki" url="http://microchip.wikidot.com/8bit:dac" wintype="external"/>
+    <mapID target="mcu8_dac_stepbystep" url="http://microchip.wikidot.com/projects:mcu1101-project-11" wintype="external"/>
+</map>

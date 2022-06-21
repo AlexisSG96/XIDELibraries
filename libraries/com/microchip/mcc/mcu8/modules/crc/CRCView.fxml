@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.layout.*?>
+<?import com.microchip.mcc.core.javafx.*?>
+<?import com.microchip.mcc.mcu8.modules.crc.*?>
+
+<AnchorPane id="rootNode" fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.crc.CRCViewer">
+   <children>
+      <TitledPane animated="false" collapsible="false" text="Hardware Settings">
+         <content>
+            <GridPane hgap="5.0" vgap="5.0">
+              <columnConstraints>
+                <ColumnConstraints />
+                <ColumnConstraints />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints vgrow="NEVER" />
+                <RowConstraints vgrow="NEVER" />
+                <RowConstraints vgrow="NEVER" />
+                <RowConstraints vgrow="NEVER" />
+              <RowConstraints vgrow="NEVER" />
+              </rowConstraints>
+               <children>
+                  <TitledPane animated="false" collapsible="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" text="CRC Calculation" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                     <content>
+                        <GridPane hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                              <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints vgrow="NEVER" />
+                            <RowConstraints vgrow="NEVER" />
+                            <RowConstraints vgrow="NEVER" />
+                            <RowConstraints vgrow="NEVER" />
+                            <RowConstraints vgrow="NEVER" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Data Sequence" />
+                              <TextField fx:id="dataSequence" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+                              <CheckBox fx:id="chkReverseCRC" mnemonicParsing="false" onAction="#onAction" text="Reverse CRC value (Before Final XOR)" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+                              <Label text="Final XOR Value" GridPane.rowIndex="2" />
+                              <Label text="Result" GridPane.rowIndex="3" />
+                              <TextField GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" fx:id="xorValue" />
+                              <TextField fx:id="result" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Button fx:id="btnCalculate" mnemonicParsing="false" onAction="#onCalculateAction" text="Calculate" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" collapsible="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" text="Polynomial" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+                     <content>
+                        <GridPane hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints vgrow="NEVER" />
+                            <RowConstraints vgrow="NEVER" />
+                            <RowConstraints vgrow="NEVER" />
+                            <RowConstraints vgrow="NEVER" />
+                            <RowConstraints vgrow="NEVER" />
+                            <RowConstraints vgrow="NEVER" />
+                            <RowConstraints vgrow="NEVER" />
+                          </rowConstraints>
+                           <children>
+                              <CheckBox fx:id="chkUsePredefPoly" mnemonicParsing="false" onAction="#onAction" text="Use Pre-defined Polynomial" GridPane.columnSpan="2" />
+                              <Label text="Pre-defined Polynomial" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="cmbPredefPoly" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="lblWordWidth" text="Polynomial Word Width (bits)" GridPane.rowIndex="2" />
+
+                              <Label text="Polynomial Word Width (bits)" GridPane.rowIndex="2" />
+                              <Spinner fx:id="polyWordWidth" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label text="Polynomial" GridPane.rowIndex="3" />
+                              <TextField fx:id="polynomialValue" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="seedValue" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label text="Seed" GridPane.rowIndex="4" />
+                              <Label text="Seed Shift Direction" GridPane.rowIndex="6" />
+                              <ComboBox fx:id="cmbSeedShiftDir" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <ComboBox fx:id="cmbSeedMethod" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Label text="Seed Method" GridPane.rowIndex="5" />
+<!--
+                              <GridPane hgap="5.0" vgap="5.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                            <columnConstraints>
+                                              <ColumnConstraints  />
+                                                <ColumnConstraints  />
+                                              <ColumnConstraints  />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints vgrow="NEVER" />
+                                            </rowConstraints>
+                                             <children>
+                                                <RadioButton fx:id="rbtnDirect"  mnemonicParsing="false" selected="true" text="Direct">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="grpSeedMethod" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="rbtnIndirect"  mnemonicParsing="false" text="Indirect" toggleGroup="$grpSeedMethod" GridPane.columnIndex="2" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </GridPane>
+            -->
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </content>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </TitledPane>
+                  <CheckBox fx:id="chkCrcInterruptEnable" mnemonicParsing="false" onAction="#onAction" text="Enable CRC Interrupt" GridPane.rowIndex="3" />
+                  <CheckBox fx:id="chkScannerInterruptEnable" mnemonicParsing="false" onAction="#onAction" text="Enable Scanner Interrupt" GridPane.rowIndex="4" />
+                  <GridPane hgap="5.0" vgap="5.0" GridPane.rowIndex="2">
+                    <columnConstraints>
+                      <ColumnConstraints />
+                      <ColumnConstraints />
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints vgrow="NEVER" />
+                      <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Augmentation Mode" />
+                        <ComboBox fx:id="cmbAugModeSelect" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" />
+                        <Label text="Data Shift Direction" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="cmbDataShiftDir" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="Data Word Width (bits)" GridPane.rowIndex="2" />
+                        <Spinner fx:id="dataWordWidth" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </GridPane>
+                  <TitledPane animated="false" collapsible="false" text="Scanner" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <content>
+                        <GridPane fx:id="scanGp" hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints vgrow="NEVER" />
+                            <RowConstraints />
+                            <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints vgrow="NEVER" />
+                          </rowConstraints>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <children>
+                              <CheckBox fx:id="chkScannerEnable" mnemonicParsing="false" onAction="#onAction" text="Enable Scanner" />
+                              <CheckBox fx:id="chkIntManagementEnable" mnemonicParsing="false" onAction="#onAction" text="Enable Interrupt Management" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                              <Label fx:id="lblMemoryAccessMode" text="Memory Access Mode" GridPane.rowIndex="2" />
+                              <Label fx:id="lblDataTriggerInput" text="Data Trigger Input" GridPane.rowIndex="5" />
+                              <ComboBox fx:id="cmbMemoryAccessMode" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="cmbDataTriggerInput" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <ComboBox fx:id="cmbBurstMode" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <ComboBox fx:id="cmbMemoryRegionSelect" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label fx:id="lblBurstMode" text="Memory access request" GridPane.rowIndex="3" />
+                              <Label fx:id="lblMemoryRegionSelect" text="Memory Region for Scan" GridPane.rowIndex="4" />
+                           </children>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <CheckBox fx:id="chkCrcEnable" mnemonicParsing="false" onAction="#onAction" text="Enable CRC" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </GridPane>
+         </content>
+      </TitledPane>
+   </children>
+</AnchorPane>

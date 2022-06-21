@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>RTCC</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>Real Time Clock/Calendar (RTCC)</h2>
+        <hr>
+        <section>
+            <h3 id="clksource" name="clksource">RTCC Clock Source</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td> Summary:</td>
+                            <td> The RTCC clock source can be changed from the System Module, Register View tab in the CONFIG3L register, if available. It cannot be edited in the RTCC module viewer. </td>    
+                        </tr>
+                        <tr>
+                            <td> Description:</td>
+                            <td> The RTCC module is intended to be clocked by an external Real-Time Clock (RTC) crystal oscillating at 32.768 kHz, but an internal oscillator can be used. </td>    
+                        </tr>
+                        <tr>
+                            <td> Availability:</td>
+                            <td> The RTCC clock source is always available. </td>    
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+                <section>
+            <h3 id="output" name="output">RTCC Output </h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td> Summary:</td>
+                            <td> The RTCC Output allows the selction of the Alarm Pulse, Seconds Clock or Source Clock on the RTCC pin.</td>                           
+                        </tr>
+                        <tr>
+                            <td> Description:</td>
+                            <td> The RTCC Output drop down box can be edited when selecting the Enable RTCC Output checkbox. </td>    
+                        </tr>
+                        <tr>
+                            <td> Availability:</td>
+                            <td> Always available.</td>    
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="alarm" name="alarm">Alarm Enable</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td> Summary:</td>
+                            <td> The setting of the alarm is done by entering the desired information in the corresponding boxes in the Alarm panel. </td>                           
+                        </tr>
+                        <tr>
+                            <td> Description:</td>
+                            <td> By enabling the Alarm Enable checkbox the information about the alarm time, frequency, count and repeat can be modified. Clicking the clock symbol on the right of the Alarm Time pops up a calendar which allows the selection of a year, a month, a day, or by sliding the controls on the bottom, even the hour and the minute. The selection is recorded only after clicking on the check mark on the top right of the pop-up.    </td>    
+                        </tr>
+                        <tr>
+                            <td> Additional Information:</td>
+                            <td> The Intial Time it is set following the same steps as for the Alarm Time setting. </td>    
+                        </tr>                        <tr>
+                            <td> Availability:</td>
+                            <td> Always available.</td>    
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+    </body>
+</html>

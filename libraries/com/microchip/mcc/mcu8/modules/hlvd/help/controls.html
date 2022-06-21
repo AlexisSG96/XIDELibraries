@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>HLVD</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>High Low Voltage Detect (HLVD)</h2>
+        <hr>
+        <section>
+            <h3 id="trippoints" name="trippoints"> Trip Points </h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td>
+                            <td> The Trip Points drop-down box allows for the selection of 16 values, including an external source, on the HLVDIN pin.  </td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td> The trip point voltage is the voltage level at which the device detects a high or low-voltage event. </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td> The Trip Points drop-down box is always available </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="tirvst" name="tirvst">TIRVST detect interval limitation</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td> Summary:</td>
+                            <td> The IRVST bit is a read-only bit which indicates when the circuit is stable. The module can only generate an interrupt after the circuit is stable and IRVST bit is set. </td>
+                        </tr>
+                        <tr>
+                            <td> Description:</td>
+                            <td> The HLVD interrupt flag is not enabled until the start-up time, TIRVST has expired and a stable refrence voltage is reached. Hence, brief excursions beyond the set point may not be detected during this start-up interval. </td>
+                        </tr>
+                        <tr>
+                            <td> Availability:</td>
+                            <td> The bit is always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+    </body>
+</html>

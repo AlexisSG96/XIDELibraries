@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    <mapID target="mcu8_eccp_controls" url="controls.html"/>
+    <mapID target="mcu8_eccp_controls_mode" url="controls.html#mode"/>
+    <mapID target="mcu8_eccp_controls_timerselection" url="controls.html#timerselection"/>
+    <mapID target="mcu8_eccp_controls_dutycycle" url="controls.html#dutycycle"/>
+    <mapID target="mcu8_eccp_controls_pwmdelaycounts" url="controls.html#pwmdelaycounts"/>
+    <mapID target="mcu8_eccp_controls_epwmmode" url="controls.html#epwmmode"/>
+    <mapID target="mcu8_eccp_controls_epwmsteering" url="controls.html#epwmsteering"/>
+    <mapID target="mcu8_eccp_controls_autoshutdown" url="controls.html#autoshutdown"/>
+    <mapID target="mcu8_eccp_wiki" url="http://microchip.wikidot.com/8bit:ccp" wintype="external"/>
+</map>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.tempSensorLibrary.modules.mcp9808_module.MCP9808_MODULEViewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" layoutX="13.0" layoutY="28.0" text="MCP9808 Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <VBox spacing="10.0">
+                    <children>
+                        <HBox>
+                            <children>
+                                <Label text="MSSP" />
+                                <ComboBox fx:id="cmbMSSP">
+                           <HBox.margin>
+                              <Insets left="77.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding></ComboBox>
+                            </children>
+                        </HBox>
+                  <HBox>
+                     <children>
+                        <Label text="I2C Address (7bit)" />
+                        <ComboBox fx:id="cmbI2cAddr">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="15.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </ComboBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <ScrollPane fitToWidth="true" prefHeight="387.0">
+                    <content>
+                      <AnchorPane>
+                           <children>
+                              <TabPane tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <tabs>
+                                  <Tab text="Configuration">
+                                    <content>
+                                      <AnchorPane>
+                                             <children>
+                                                <ComboBox fx:id="cmbHysteresis" layoutX="73.0" layoutY="10.0" AnchorPane.leftAnchor="85.0">
+                                                   <padding>
+                                                      <Insets left="50.0" />
+                                                   </padding>
+                                                </ComboBox>
+                                                <Label layoutX="6.0" layoutY="14.0" text="Hysteresis" AnchorPane.leftAnchor="15.0" />
+                                                <Label layoutX="5.0" layoutY="52.0" text="Resolution" AnchorPane.leftAnchor="15.0" />
+                                                <ComboBox fx:id="cmbResolution" layoutX="75.0" layoutY="48.0" AnchorPane.leftAnchor="85.0">
+                                                   <padding>
+                                                      <Insets left="50.0" />
+                                                   </padding>
+                                                </ComboBox>
+                                                <CheckBox fx:id="ckShutdownMode" layoutX="5.0" layoutY="95.0" mnemonicParsing="false" onAction="#onAction_ckShutdownMode" text="Shutdown Mode" AnchorPane.leftAnchor="15.0" />
+                                                <CheckBox fx:id="ckInterruptClear" layoutX="5.0" layoutY="121.0" mnemonicParsing="false" onAction="#onAction_ckInterruptClear" text="Interrupt Clear" AnchorPane.leftAnchor="15.0" />
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                  <Tab text="Alerts">
+                                    <content>
+                                      <AnchorPane>
+                                             <children>
+                                                <CheckBox fx:id="ckCriticalLock" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onAction_ckCriticalLock" text="Critical Lock" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0" />
+                                                <CheckBox fx:id="ckWindowLock" layoutX="13.0" layoutY="40.0" mnemonicParsing="false" onAction="#onAction_ckWindowLock" text="Window Lock" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="128.0" AnchorPane.topAnchor="40.0" />
+                                                <Separator layoutX="15.0" layoutY="48.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="70.0" />
+                                                <CheckBox fx:id="ckAlertControl" layoutX="14.0" layoutY="60.0" mnemonicParsing="false" onAction="#onAction_ckAlertControl" text="Alert Control" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="90.0" />
+                                                <CheckBox fx:id="ckAlertSelect" layoutX="21.0" layoutY="86.0" mnemonicParsing="false" onAction="#onAction_ckAlertSelect" prefHeight="17.0" prefWidth="98.0" text="Alert Select" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="116.0" />
+                                                <Label layoutX="16.0" layoutY="147.0" text="Alert Polarity" AnchorPane.leftAnchor="15.0" />
+                                                <ComboBox fx:id="cmbAlertPolarity" layoutX="99.0" layoutY="113.0" prefHeight="25.0" prefWidth="122.0" AnchorPane.leftAnchor="95.0" AnchorPane.topAnchor="143.0" />
+                                                <ComboBox fx:id="cmbAlertMode" layoutX="96.0" layoutY="145.0" prefHeight="25.0" prefWidth="122.0" AnchorPane.leftAnchor="95.0" AnchorPane.topAnchor="175.0" />
+                                                <Label layoutX="17.0" layoutY="179.0" prefHeight="17.0" prefWidth="65.0" text="Alert Mode" AnchorPane.leftAnchor="15.0" />
+                                                <Label layoutX="14.0" layoutY="224.0" prefHeight="17.0" prefWidth="68.0" text="Upper Limit:" AnchorPane.leftAnchor="15.0" />
+                                                <Label layoutX="16.0" layoutY="264.0" text="Lower Limit:" AnchorPane.leftAnchor="15.0" />
+                                                <Label layoutX="17.0" layoutY="304.0" text="Critical Limit:" AnchorPane.leftAnchor="15.0" />
+                                                <TextField fx:id="txtUpperLimit" layoutX="85.0" layoutY="207.0" onKeyTyped="#onKeyTyped_txtUpperLimit" prefHeight="25.0" prefWidth="95.0" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="220.0" />
+                                                <TextField fx:id="txtLowerLimit" layoutX="85.0" layoutY="243.0" onKeyTyped="#onKeyTyped_txtLowerLimit" prefHeight="25.0" prefWidth="95.0" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="260.0" />
+                                                <TextField fx:id="txtCriticalLimit" layoutX="85.0" layoutY="282.0" onKeyTyped="#onKeyTyped_txtCriticalLimit" prefHeight="25.0" prefWidth="95.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="300.0" />
+                                                <Separator layoutX="15.0" layoutY="169.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="210.0" />
+                                                <Label layoutX="185.0" layoutY="224.0" text="C" AnchorPane.leftAnchor="190.0" AnchorPane.topAnchor="224.0" />
+                                                <Label layoutX="185.0" layoutY="264.0" text="C" AnchorPane.leftAnchor="190.0" AnchorPane.topAnchor="264.0" />
+                                                <Label layoutX="185.0" layoutY="304.0" text="C" AnchorPane.leftAnchor="190.0" />
+                                                <Label fx:id="lblUpperLimitErr" style="-fx-text-fill: RED;" text="" textFill="#bc1313" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="224.0" />
+                                                <Label fx:id="lblLowerLimitErr" style="-fx-text-fill: RED;" text="" textFill="#bc1313" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="264.0" />
+                                                <Label fx:id="lblCriticalLimitErr" style="-fx-text-fill: RED;" text="" textFill="#bc1313" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="304.0" />
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                </tabs>
+                              </TabPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+                    </children>
+                </VBox>
+            </content>
+        </TitledPane>
+    </children>
+    
+</AnchorPane>

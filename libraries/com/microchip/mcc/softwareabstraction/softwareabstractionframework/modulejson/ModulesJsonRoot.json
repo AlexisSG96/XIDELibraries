@@ -1,0 +1,5 @@
+[
+  "com/microchip/mcc/softwareabstraction/modules/lcd/LCDJsonData.json",
+  "com/microchip/mcc/softwareabstraction/modules/canfd/CANFDJsonData.json",
+  "com/microchip/mcc/softwareabstraction/modules/can/CANJsonData.json"
+]

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mikrobus.InformationPaneViewer">
+   <children>
+      <HBox alignment="CENTER" spacing="15.0">
+         <children>
+            <VBox spacing="15.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="300.0">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="GPS3 click™ carries Quectel’s L80, a high-sensitivity ultra slim GPS module with a patch antenna. With it, you can add GPS functionality to your design without the need for an external antenna (although the click™ board has a connector for one should you require it)." wrappingWidth="300.0">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="An onboard red  LED will blink to indicate successful satellite acquisition. GPS3 click™ communicates with the target board through mikroBUS ™ UART (RX, TX) and RST lines. The board is designed to use a 3.3V power supply." wrappingWidth="300.0">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Text>
+                  
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Product Page" wrappingWidth="300.0">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <TextField editable="false" text="http://www.mikroe.com/click/gps3">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </VBox>
+            <ImageView fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gps_board.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

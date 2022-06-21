@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.pac193xLibrary.modules.pac1934_module.PAC1934_MODULEViewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" layoutX="21.0" layoutY="-3.0" text="PAC1934 Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <VBox>
+                    <children>
+                        <HBox>
+                            <children>
+                                <Label fx:id="lblMSSP" text="Bus" />
+                                <ComboBox fx:id="cmbMSSP" prefHeight="25.0" prefWidth="141.0" promptText="MSSP1">
+                           <HBox.margin>
+                              <Insets left="77.0" />
+                           </HBox.margin></ComboBox>
+                            </children>
+                            <padding>
+                                <Insets bottom="20.0" top="5.0" />
+                            </padding>    
+                        </HBox>
+                        <HBox layoutX="22.0" layoutY="43.0">
+                            <children>
+                                <Label fx:id="lblI2cAddr" text="I2C Address (7bit)" />
+                                <ComboBox fx:id="cmbI2cAddr" prefHeight="25.0" prefWidth="142.0">
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin></ComboBox>
+                            </children>
+                            <padding>
+                                <Insets top="5.0" />
+                            </padding>
+                        </HBox>
+                  <ScrollPane prefHeight="499.0">
+                    <content>
+                      <AnchorPane>
+                           <children>
+                              <TabPane layoutX="-21.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-10.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="0.0">
+                                <tabs>
+                                  <Tab text="CTRL Register">
+                                       <content>
+                                          <AnchorPane>
+                                             <children>
+                                                <VBox layoutX="-6.0">
+                                                   <children>
+                                                      <HBox>
+                                                         <children>
+                                                            <Label fx:id="lblSampleRate" text="Rate (samples/s)">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="5.0" left="20.0" top="20.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <ComboBox fx:id="cmbSampleRate" prefHeight="25.0" prefWidth="99.0">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="5.0" left="38.0" top="18.0" />
+                                                               </HBox.margin>
+                                                            </ComboBox>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox>
+                                                         <children>
+                                                            <CheckBox fx:id="ckOneShot" mnemonicParsing="false" onAction="#onAction_ckOneShot" text="One Shot">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="5.0" left="20.0" top="20.0" />
+                                                               </HBox.margin>
+                                                            </CheckBox>
+                                                            <Label fx:id="lblEnergyTimestamp" text="Energy Timestamp">
+                                                               <HBox.margin>
+                                                                  <Insets left="50.0" top="20.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <TextField fx:id="txtEnergyTimestamp" onKeyTyped="#onKeyTyped_txtEnergyTimestamp">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" top="18.0" />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                            <Label fx:id="lblUs" text="us">
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" right="5.0" top="20.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <Label fx:id="lblErrEnergyTimestamp" prefHeight="17.0" style="-fx-text-fill: RED;" textFill="#bc1313">
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" top="20.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <CheckBox fx:id="ckSleepMode" mnemonicParsing="false" onAction="#onAction_ckSleepMode" text="Sleep Mode">
+                                                         <VBox.margin>
+                                                            <Insets left="20.0" top="15.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TitledPane animated="false" text="Alert">
+                                                        <content>
+                                                          <AnchorPane>
+                                                               <children>
+                                                                  <VBox layoutX="7.0">
+                                                                     <children>
+                                                                        <CheckBox fx:id="ckAlertPin" mnemonicParsing="false" onAction="#onAction_ckAlertPin" text="Alert Pin">
+                                                                           <VBox.margin>
+                                                                              <Insets left="5.0" top="20.0" />
+                                                                           </VBox.margin>
+                                                                        </CheckBox>
+                                                                        <CheckBox fx:id="ckAlertCC" mnemonicParsing="false" onAction="#onAction_ckAlertCC" text="Alert CC">
+                                                                           <VBox.margin>
+                                                                              <Insets left="5.0" top="10.0" />
+                                                                           </VBox.margin>
+                                                                        </CheckBox>
+                                                                        <CheckBox fx:id="ckOverflowAlert" mnemonicParsing="false" onAction="#onAction_ckOverflowAlert" text="Overflow Alert">
+                                                                           <VBox.margin>
+                                                                              <Insets left="5.0" top="10.0" />
+                                                                           </VBox.margin>
+                                                                        </CheckBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </AnchorPane>
+                                                        </content>
+                                                         <VBox.margin>
+                                                            <Insets left="20.0" right="5.0" top="20.0" />
+                                                         </VBox.margin>
+                                                      </TitledPane>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                  <Tab text="Channel State">
+                                       <content>
+                                          <AnchorPane>
+                                             <children>
+                                                <VBox layoutX="8.0" layoutY="6.0">
+                                                   <children>
+                                                      <HBox>
+                                                         <children>
+                                                            <Label fx:id="lblCH1" text="CH1">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="5.0" left="5.0" top="20.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <CheckBox fx:id="ckOnCh1" mnemonicParsing="false" onAction="#onAction_ckOnCh1" text="ON">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="5.0" left="25.0" top="20.0" />
+                                                               </HBox.margin>
+                                                            </CheckBox>
+                                                            <ComboBox fx:id="cmbStateCh1" prefHeight="25.0" prefWidth="130.0">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="5.0" left="25.0" top="18.0" />
+                                                               </HBox.margin>
+                                                            </ComboBox>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox>
+                                                         <children>
+                                                            <Label fx:id="lblCH2" text="CH2">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="5.0" left="5.0" top="20.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <CheckBox fx:id="ckOnCh2" mnemonicParsing="false" onAction="#onAction_ckOnCh2" text="ON">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="5.0" left="25.0" top="20.0" />
+                                                               </HBox.margin>
+                                                            </CheckBox>
+                                                            <ComboBox fx:id="cmbStateCh2" prefHeight="25.0" prefWidth="130.0">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="5.0" left="25.0" top="18.0" />
+                                                               </HBox.margin>
+                                                            </ComboBox>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox>
+                                                         <children>
+                                                            <Label fx:id="lblCH3" text="CH3">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="5.0" left="5.0" top="20.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <CheckBox fx:id="ckOnCh3" mnemonicParsing="false" onAction="#onAction_ckOnCh3" text="ON">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="5.0" left="25.0" top="20.0" />
+                                                               </HBox.margin>
+                                                            </CheckBox>
+                                                            <ComboBox fx:id="cmbStateCh3" prefWidth="130.0">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="5.0" left="25.0" top="18.0" />
+                                                               </HBox.margin>
+                                                            </ComboBox>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox>
+                                                         <children>
+                                                            <Label fx:id="lblCH4" text="CH4">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="5.0" left="5.0" top="20.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <CheckBox fx:id="ckOnCh4" mnemonicParsing="false" onAction="#onAction_ckOnCh4" text="ON">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="5.0" left="25.0" top="20.0" />
+                                                               </HBox.margin>
+                                                            </CheckBox>
+                                                            <ComboBox fx:id="cmbStateCh4" prefWidth="130.0">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="5.0" left="25.0" top="18.0" />
+                                                               </HBox.margin>
+                                                            </ComboBox>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab text="SLOW Register">
+                                      <content>
+                                        <AnchorPane>
+                                             <children>
+                                                <VBox layoutY="7.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <TitledPane animated="false" text="Slow Pin">
+                                                        <content>
+                                                          <AnchorPane prefHeight="153.0" prefWidth="240.0">
+                                                               <children>
+                                                                  <VBox layoutY="-10.0" />
+                                                                  <HBox layoutX="14.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="14.0">
+                                                                     <children>
+                                                                        <Label fx:id="lblRisingEdge" text="Rising Edge">
+                                                                           <HBox.margin>
+                                                                              <Insets top="10.0" />
+                                                                           </HBox.margin>
+                                                                        </Label>
+                                                                        <ComboBox fx:id="cmbRisingEdge" prefWidth="180.0">
+                                                                           <HBox.margin>
+                                                                              <Insets left="22.0" top="8.0" />
+                                                                           </HBox.margin>
+                                                                        </ComboBox>
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox layoutX="6.0" layoutY="107.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="30.0">
+                                                                     <children>
+                                                                        <Label fx:id="lblFallingEdge" text="Falling Edge">
+                                                                           <HBox.margin>
+                                                                              <Insets top="20.0" />
+                                                                           </HBox.margin>
+                                                                        </Label>
+                                                                        <ComboBox fx:id="cmbFallingEdge" prefWidth="180.0">
+                                                                           <HBox.margin>
+                                                                              <Insets left="20.0" top="18.0" />
+                                                                           </HBox.margin>
+                                                                        </ComboBox>
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                            </AnchorPane>
+                                                        </content>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" right="85.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </TitledPane>
+                                                      <CheckBox fx:id="ckPowerOnReset" mnemonicParsing="false" onAction="#onAction_ckPowerOnReset" text="Power On Reset">
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" top="20.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </Tab>
+                                    <Tab text="Settings">
+                                      <content>
+                                        <AnchorPane>
+                                             <children>
+                                                <VBox layoutX="14.0" layoutY="14.0">
+                                                   <children>
+                                                      <TitledPane animated="false" text="SMBus">
+                                                        <content>
+                                                          <AnchorPane>
+                                                               <children>
+                                                                  <VBox layoutX="14.0" layoutY="-13.0">
+                                                                     <children>
+                                                                        <CheckBox fx:id="ckSmbusTimeout" mnemonicParsing="false" onAction="#onAction_ckSmbusTimeout" text="SMBus Timeout">
+                                                                           <VBox.margin>
+                                                                              <Insets top="20.0" />
+                                                                           </VBox.margin>
+                                                                        </CheckBox>
+                                                                        <CheckBox fx:id="ckSmbusByteCount" mnemonicParsing="false" onAction="#onAction_ckSmbusByteCount" text="SMBus Byte Count">
+                                                                           <VBox.margin>
+                                                                              <Insets top="10.0" />
+                                                                           </VBox.margin>
+                                                                        </CheckBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </AnchorPane>
+                                                        </content>
+                                                         <VBox.margin>
+                                                            <Insets />
+                                                         </VBox.margin>
+                                                      </TitledPane>
+                                                      <CheckBox fx:id="ckNoSkip" mnemonicParsing="false" onAction="#onAction_ckNoSkip" text="No Skip">
+                                                         <VBox.margin>
+                                                            <Insets top="15.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <HBox>
+                                                         <children>
+                                                            <Label fx:id="lblRefreshType" text="Refresh Type">
+                                                               <HBox.margin>
+                                                                  <Insets top="20.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <ComboBox fx:id="cmbRefreshType" prefWidth="125.0">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" top="18.0" />
+                                                               </HBox.margin>
+                                                               <tooltip>
+                                                                  <Tooltip text="Select which refresh type will activate the initial configured PAC settings" />
+                                                               </tooltip>
+                                                            </ComboBox>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                                <TitledPane animated="false" layoutY="186.0" text="Sense Resistor Values" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="200.0">
+                                                  <content>
+                                                    <AnchorPane>
+                                                         <children>
+                                                            <VBox layoutX="8.0" layoutY="7.0" prefHeight="200.0" prefWidth="670.0" AnchorPane.rightAnchor="40.0">
+                                                               <children>
+                                                                  <HBox>
+                                                                     <children>
+                                                                        <Label text="CH1">
+                                                                           <HBox.margin>
+                                                                              <Insets left="10.0" top="10.0" />
+                                                                           </HBox.margin>
+                                                                        </Label>
+                                                                        <TextField fx:id="txtRsenseCh1" onKeyTyped="#onKeyTyped_txtRsenseCh1">
+                                                                           <HBox.margin>
+                                                                              <Insets left="10.0" right="10.0" top="8.0" />
+                                                                           </HBox.margin>
+                                                                        </TextField>
+                                                                        <Label text="uOhms">
+                                                                           <HBox.margin>
+                                                                              <Insets top="10.0" />
+                                                                           </HBox.margin>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrRsenseCh1" prefHeight="17.0" style="-fx-text-fill: RED;" text="The value must be between 0 and 4264967295 micro Ohms (32-bit unsigned integer value)" textFill="#bc1313" wrapText="true">
+                                                                           <HBox.margin>
+                                                                              <Insets left="10.0" top="10.0" />
+                                                                           </HBox.margin>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox>
+                                                                     <VBox.margin>
+                                                                        <Insets />
+                                                                     </VBox.margin>
+                                                                     <children>
+                                                                        <Label text="CH2">
+                                                                           <HBox.margin>
+                                                                              <Insets left="10.0" top="15.0" />
+                                                                           </HBox.margin>
+                                                                        </Label>
+                                                                        <TextField fx:id="txtRsenseCh2" onKeyTyped="#onKeyTyped_txtRsenseCh2">
+                                                                           <HBox.margin>
+                                                                              <Insets left="10.0" top="13.0" />
+                                                                           </HBox.margin>
+                                                                        </TextField>
+                                                                        <Label text="uOhms">
+                                                                           <HBox.margin>
+                                                                              <Insets left="10.0" top="15.0" />
+                                                                           </HBox.margin>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrRsenseCh2" prefHeight="17.0" style="-fx-text-fill: RED;" textFill="#bc1313">
+                                                                           <HBox.margin>
+                                                                              <Insets left="10.0" top="10.0" />
+                                                                           </HBox.margin>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox>
+                                                                     <children>
+                                                                        <Label text="CH3">
+                                                                           <HBox.margin>
+                                                                              <Insets left="10.0" top="15.0" />
+                                                                           </HBox.margin>
+                                                                        </Label>
+                                                                        <TextField fx:id="txtRsenseCh3" onKeyTyped="#onKeyTyped_txtRsenseCh3">
+                                                                           <HBox.margin>
+                                                                              <Insets left="10.0" top="13.0" />
+                                                                           </HBox.margin>
+                                                                        </TextField>
+                                                                        <Label text="uOhms">
+                                                                           <HBox.margin>
+                                                                              <Insets left="10.0" top="15.0" />
+                                                                           </HBox.margin>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrRsenseCh3" prefHeight="17.0" style="-fx-text-fill: RED;" textFill="#bc1313">
+                                                                           <HBox.margin>
+                                                                              <Insets left="10.0" top="10.0" />
+                                                                           </HBox.margin>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox>
+                                                                     <children>
+                                                                        <Label text="CH4">
+                                                                           <HBox.margin>
+                                                                              <Insets left="10.0" top="15.0" />
+                                                                           </HBox.margin>
+                                                                        </Label>
+                                                                        <TextField fx:id="txtRsenseCh4">
+                                                                           <HBox.margin>
+                                                                              <Insets left="10.0" top="13.0" />
+                                                                           </HBox.margin>
+                                                                        </TextField>
+                                                                        <Label text="uOhms">
+                                                                           <HBox.margin>
+                                                                              <Insets left="10.0" top="15.0" />
+                                                                           </HBox.margin>
+                                                                        </Label>
+                                                                        <Label fx:id="lblErrRsenseCh4" prefHeight="17.0" style="-fx-text-fill: RED;" textFill="#bc1313">
+                                                                           <HBox.margin>
+                                                                              <Insets left="10.0" top="10.0" />
+                                                                           </HBox.margin>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </content>
+                                                </TitledPane>
+                                             </children></AnchorPane>
+                                      </content>
+                                    </Tab>
+                                </tabs>
+                              </TabPane>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </AnchorPane>
+                    </content>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </ScrollPane>
+                    </children>
+                </VBox>
+            </content>
+        </TitledPane>
+    </children>
+</AnchorPane>

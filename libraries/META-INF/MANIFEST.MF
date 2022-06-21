@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.10.4
+Created-By: 1.8.0_202-b08 (Oracle Corporation)
+MCC-Name: FatFs Library
+MCC-Class: com.microchip.mcc.fatfs.FatFsLibrary
+MCC-Version: 1.1.0
+MCC-Revision: 0
+MCC-CoreVersion: 5.0.0
+MCC-Date: 2020-08-17 05:01:08 MST
+MCC-Category: Software
+MCC-Vendor: Microchip Technology, Inc.
+

@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>CANFD</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>CAN with Flexible Data-Rate</h2>
+        <hr>
+		<section>
+            <h3 id="clockSetting" name="clockSetting">Clock Settings</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+							<img src="Images/canSystemClock.png" alt="Block Diagram" align="middle"> <br/>
+							<img src="Images/clockSetting.png" alt="Block Diagram" align="middle"> 
+                            <td><br/>The Clock Frequency(FCAN) is to be configured in System Module as part of CAN-FD Clock Generator Block.<br/>
+                                     Based on the desired Clock Source and the Requested FCAN frequency, MCC will configure registers automatically <br/>
+									 to achieve the Requested FCAN frequency. The Achievable FCAN frequency is calculated based on the formula :<br/>
+									                        FCAN = Selected Clock Source Frequency / Prescaler <br/>
+									 The Achievable	FCAN frequency is the closest frequency to Requested FCAN frequency	that can be attained based on<br/>
+                                     the selected Clock Source and 	the available Prescaler options supported by the device.								 
+							</td>
+                        </tr> 
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="nominalbitrate" name="nominalbitrate">Nominal Bit Rate Settings</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+							<img src="Images/nominalBitRateCanfd.png" alt="Block Diagram" align="middle">
+                            <td><br/>1) The combination of Clock Frequency(FCAN) and selected Nominal Bit Rate(NBR) is used to calculate a list of valid Time Quanta's.<br/>
+                                   The formula applied is :Time Quanta = FCAN/(NBR*(1+BRP))   { Only integral values of Time Quanta and BRP(Baud Rate Prescaler are valid)}<br/>
+                                2) By default , MCC will configure the maximum Time Quanta which in turn corresponds to minimum BRP value as is recommended for 
+                                   CAN FD module.<br/>
+                                3) Based on the set Time Quanta , a list of valid Sample Points are obtained.<br/>
+                                4) The combination of Time Quanta and Sample Point is used to determine the Time Segment values.Along with this ,MCC also 
+                                   configures a valid SJW value in the background based on the above parameters.</td>
+                        </tr> 
+                    </tbody>
+                </table>
+            </p>
+        </section>
+		<section>
+            <h3 id="databitrate" name="databitrate">Data Bit Rate Settings</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+							<img src="Images/dataBitRate.png" alt="Block Diagram" align="middle">
+                            <td><br/>1) Enable the check box to start configuring the Data Bit Rate.<br/>  
+                                2) The Data Bit Rate configurations are done similar to Nominal Bit Rate.<br/>
+                                3) MCC configures the Transmitter Delay Compensation Mode to Auto and sets the Transmitter Delay Compensation Offset(TDCO) bit .<br/>
+                                   TDCO = 1 + Time Segment1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+		<section>
+            <h3 id="fifosettings" name="fifosettings">FIFO Settings</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+					    <img src="Images/fifoSettings.png" alt="Block Diagram" align="middle">
+                    </tbody>
+                </table>
+            </p>
+        </section>
+		 <section>
+            <h3 id="filterobject" name="filterobject">Filter Object Settings</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+					    <img src="Images/filterSettings.png" alt="Block Diagram" align="middle">                       
+                    </tbody>
+                </table>
+            </p>
+        </section>
+		<section>
+            <h3 id="pinsettings" name="pinsettings">Pin Settings</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+					    <tr> 
+                            <td>Summary:</td> 
+                            <td>Please ensure that the CAN Bus pins are always configured ,inability to do so may result in code being stuck in transition from Configuration Mode to other operating modes.</td>
+                        </tr>                 
+                    </tbody>
+                </table>
+            </p>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mikrobus.heartrate.HeartrateViewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" layoutY="-2.0" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <VBox fillWidth="false">
+                    <children>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints vgrow="SOMETIMES" />
+                      <RowConstraints vgrow="SOMETIMES" />
+                      <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="25.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                                <Label fx:id="modeText" text="Mode:" />
+                        <Label fx:id="srText" text="Sample Rate:" GridPane.rowIndex="1" />
+                        <Label fx:id="pwText" text="Pulse Width:  " GridPane.rowIndex="2" />
+                                <ComboBox fx:id="modeSelect" prefWidth="170.0" GridPane.columnIndex="1" />
+                        <ComboBox fx:id="srSelect" prefWidth="170.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="pwSelect" prefWidth="170.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="irText" text="IR LED Current:  " GridPane.rowIndex="3" />
+                        <ComboBox fx:id="irSelect" prefWidth="170.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="redText" text="RED LED Current:  " GridPane.rowIndex="4" />
+                        <ComboBox fx:id="redSelect" prefWidth="170.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <CheckBox fx:id="hiresSelect" mnemonicParsing="false" onAction="#onAction" text="Enable SPO2 Hi-Res" GridPane.rowIndex="5" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </GridPane>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="127.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <CheckBox fx:id="hrEnabled" mnemonicParsing="false" onAction="#onAction" text="Heart Rate Ready" GridPane.rowIndex="2" />
+                        <CheckBox fx:id="spo2Enabled" mnemonicParsing="false" onAction="#onAction" text="SPO2 Ready" GridPane.rowIndex="3" />
+                        <CheckBox fx:id="tempEnabled" mnemonicParsing="false" onAction="#onAction" text="Temperature Ready" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <CheckBox fx:id="fifoEnabled" mnemonicParsing="false" onAction="#onAction" text="FIFO Buffer Almost Full" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="irText1" text="Interrupts:  " GridPane.rowIndex="1" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </GridPane>
+                    </children>
+                </VBox>
+            </content>
+        </TitledPane>
+    </children>
+    
+</AnchorPane>

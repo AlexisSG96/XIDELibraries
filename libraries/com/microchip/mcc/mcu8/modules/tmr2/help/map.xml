@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    <mapID target="mcu8_tmr2_controls" url="controls.html"/>
+    <mapID target="mcu8_tmr2_controls_baudrate" url="controls.html#baudrate"/>
+    <mapID target="mcu8_tmr2_wiki" url="http://microchip.wikidot.com/8bit:timer2" wintype="external"/>
+    <mapID target="mcu8_tmr2_introduction_to_the_timer2_module_in_mplab_xpress" url="http://microchipdeveloper.com/xpress:introduction-to-the-timer2-4-6-module-in-mplab-xpress" wintype="external"/>
+</map>

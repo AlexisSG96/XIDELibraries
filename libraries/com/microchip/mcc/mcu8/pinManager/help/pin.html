@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>Pin Module</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>Pin Module</h2>
+        <hr>
+        <section>
+            <h3 id="selection_window" name="selection_window">Pin Selection Window</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The Pin Selection Window allows the user to select a certain pin for a specific peripheral. </td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>This window has a table with all the pins and all the current loaded peripherals. A pin can be assigned to a specific peripheral by "locking" it. When a pin is locked to a function, it is connected to the selected peripheral and has the selected function. If a pin is locked to a new peripheral but aready has a selected function, the pin is disconnected from the old peripheral and reassigned to the new peripheral.</td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>A pin can be either an input or an output. Some peripherals only have input or output lines, depeding on the function to be linked to a pin.</td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>The Pin Selection Window is always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="functions_window" name="functions_window">Additional pin functions window</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td>Summary:</td>
+                            <td>This window allows you to set additional pin functions</td>
+                        </tr>
+                        <tr>
+                            <td>Description:</td>
+                            <td>Once a pin is assigned to a peripheral, a new row in the functions window table shows up. Here you can set additional pin settings such as Custom pin name, analog or digital function, input or output, weak pull-up, open drain, and interrupt on change settings. </td>
+                        </tr>
+                        <tr>
+                            <td> Additional Information:</td>
+                            <td>The pin functions such as analog/digital and input/output actually control the value of the ANSEL and TRIS register. The same for the weak pull-up functions (WPU register) and open drain.</td>
+                        </tr>
+                        <tr>
+                            <td> Availability:</td>
+                            <td>The Pin Functions Window is always available.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="package_view" name="package_view">Package View</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td>Summary:</td>
+                            <td>The package view shows current processor package selected along with the pin functions.</td>
+                        </tr>
+                        <tr>
+                            <td>Description:</td>
+                            <td>The package view provides a quick overview of the microcontroller capsule that is currently used in the project. </td>
+                        </tr>
+                        <tr>
+                            <td> Additional Information:</td>
+                            <td>The package view provides a quick overview of the microcontroller capsule that is currently used in the project. The graphical representation of the package is shown as viewed from top. All the pins are visible along with their names and their currrent selected functions.</td>
+                        </tr>
+                        <tr>
+                            <td> Availability:</td>
+                            <td>The Package View Window is always available.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>            
+    </body>
+</html>

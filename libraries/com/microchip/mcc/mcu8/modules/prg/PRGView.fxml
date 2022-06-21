@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.prg.PRGViewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" text="Hardware Settings">
+         <content>
+            <TitledPane animated="false" collapsible="false">
+               <graphic>
+                  <GridPane hgap="5.0" vgap="5.0">
+                    <columnConstraints>
+                      <ColumnConstraints />
+                      <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints vgrow="NEVER" />
+                    </rowConstraints>
+                     <children>
+                        <ComboBox fx:id="generatorMode" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" />
+                        <Label maxWidth="-Infinity" text="Ramp Generator Mode" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </GridPane>
+               </graphic>
+               <content>
+                  <GridPane fx:id="prgMainGrid" hgap="5.0" vgap="5.0">
+                    <columnConstraints>
+                      <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                    </rowConstraints>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <children>
+                        <GridPane fx:id="mainOptions" hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints vgrow="NEVER" />
+                            <RowConstraints vgrow="NEVER" />
+                            <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                          </rowConstraints>
+                           <children>
+                              <CheckBox fx:id="enablePRG" mnemonicParsing="false" onAction="#onAction" text="Enable PRG" />
+                              <CheckBox fx:id="enableOneShot" mnemonicParsing="false" onAction="#onAction" text="Enable one shot" GridPane.columnIndex="1" />
+                              <Label text="Voltage input source " GridPane.rowIndex="1" />
+                              <Label text="Slope rate" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="voltageInput" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="slopeRate" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="enableLowRange" mnemonicParsing="false" onAction="#onAction" text="Enable Low Range" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                        <TitledPane fx:id="risingPane" animated="false" collapsible="false" text="Ramp rising timing source" GridPane.rowIndex="2">
+                           <content>
+                              <GridPane hgap="5.0" vgap="5.0">
+                                <columnConstraints>
+                                  <ColumnConstraints />
+                                  <ColumnConstraints />
+                                    <ColumnConstraints />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints vgrow="NEVER" />
+                                  <RowConstraints vgrow="NEVER" />
+                                  <RowConstraints vgrow="NEVER" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Timing source" />
+                                    <Label text="Input sensitivity" GridPane.rowIndex="1" />
+                                    <Label text="Rising event polarity" GridPane.rowIndex="2" />
+                                    <ComboBox fx:id="risingInputSensitivity" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <ComboBox fx:id="risingTiming" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" />
+                                    <ComboBox fx:id="risingPolarity" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </GridPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane fx:id="fallingPane" animated="false" collapsible="false" layoutX="15.0" layoutY="123.0" text="Ramp falling timing source" GridPane.rowIndex="4">
+                           <content>
+                              <GridPane hgap="5.0" vgap="5.0">
+                                 <children>
+                                    <Label text="Timing source" />
+                                    <Label text="Input sensitivity" GridPane.rowIndex="1" />
+                                    <Label text="Falling event polarity" GridPane.rowIndex="2" />
+                                    <ComboBox fx:id="fallingInputSensitivity" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <ComboBox fx:id="fallingTiming" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" />
+                                    <ComboBox fx:id="fallingPolarity" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints />
+                                    <ColumnConstraints />
+                                    <ColumnConstraints />
+                                 </columnConstraints>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                                 <rowConstraints>
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </content>
+                        </TitledPane>
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
+         </content>
+        </TitledPane>
+    </children>
+    
+</AnchorPane>

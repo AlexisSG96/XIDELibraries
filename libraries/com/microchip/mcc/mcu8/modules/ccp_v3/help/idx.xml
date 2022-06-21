@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE index PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Index Version 2.0//EN" "http://java.sun.com/products/javahelp/index_2_0.dtd">
+<index version="2.0">
+    <indexitem text="CCP Mode" target="mcu8_ccp_controls_mode"/>
+    <indexitem text="Timer Selection" target="mcu8_ccp_controls_timerselection"/>
+    <indexitem text="PWM Duty Cycle" target="mcu8_ccp_controls_dutycycle"/>
+</index>

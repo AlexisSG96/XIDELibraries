@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE index PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Index Version 2.0//EN" "http://java.sun.com/products/javahelp/index_2_0.dtd">
+<index version="2.0">
+    <indexitem text="MSSP Mode" target="mcu8_mssp_controls_mode"/>
+    <indexitem text="I2C Master - Baud Rate Generator Value" target="mcu8_mssp_controls_i2cmasterbrg"/>
+    <indexitem text="I2C Slave - Serial Port Mode" target="mcu8_mssp_controls_i2cslaveportmode"/>
+    <indexitem text="I2C Slave - Address" target="mcu8_mssp_controls_i2cslaveaddress"/>
+    <indexitem text="I2C Slave - Mask" target="mcu8_mssp_controls_i2cslavemask"/>
+    <indexitem text="SPI Mode" target="mcu8_mssp_controls_spimode"/>
+    <indexitem text="SPI Master - Clock Source" target="mcu8_mssp_controls_spimasterclocksource"/>
+    <indexitem text="SPI Master - Clock Divider" target="mcu8_mssp_controls_spimasterclockdivider"/>
+</index>

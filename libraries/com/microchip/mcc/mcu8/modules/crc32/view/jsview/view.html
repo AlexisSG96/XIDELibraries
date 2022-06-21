@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MCC View</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="../../../../common/ui/webui/bridge.js"></script>
+        <script type="text/javascript" src="../../../../common/ui/webui/library.js"></script>
+        <link rel="stylesheet" href="../../../../common/ui/webui/style.css" type="text/css" />
+    </head>
+    <body>
+        <div id="divContainer">
+                        <div class="divTable" data-collapse="false" >
+                <div class="divTableBar" id="divTableBar1">
+					<span class="expanded" id="divTableBar1Icon"></span>
+                    <span class="titleBarContent">CRC Settings</span>
+                </div>
+                <div class="divTableBody" id="divTableBar1Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable CRC:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableCrc">
+                            <label for="enableCrc"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Use Pre-defined Polynomial:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="usePreDefPolynomial">
+                            <label for="usePreDefPolynomial"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Pre-defined Polynomial:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="preDefinedPolynomialSelection"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Polynomial Word Width(bits):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="polynomialWordWidth_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="polynomialWordWidth" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="polynomialWordWidth_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Polynomial(hex):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="polynomial" onkeyup="jsmodule.handleTextBox(this);">
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Seed(hex):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="seed" onkeyup="jsmodule.handleTextBox(this);">
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Seed Method:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="seedMethod"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Augmented Method:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="augmentedMethod"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Shift Direction:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="shiftDirection"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Data Word Width(bits):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="dataWordWidth_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="dataWordWidth" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="dataWordWidth_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+            <div class="divTable" data-collapse="false" >
+                <div class="divTableBar" id="divTableBar2">
+					<span class="expanded" id="divTableBar2Icon"></span>
+                    <span class="titleBarContent">CRC Calculator</span>
+                </div>
+                <div class="divTableBody" id="divTableBar2Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Data Sequence(hex):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="dataSequence" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Reverse CRC Value(Before final XOR):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="isReverseCrcValue">
+                            <label for="isReverseCrcValue"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Final XOR Value(hex):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="finalXorValue" onkeyup="jsmodule.handleTextBox(this);">
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Result(hex):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="calculatedResult" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+            <div class="divTable" data-collapse="true" >
+                <div class="divTableBar" id="divTableBar3">
+					<span class="collapsed" id="divTableBar3Icon"></span>
+                    <span class="titleBarContent">Scanner Settings</span>
+                </div>
+                <div class="divTableBody" id="divTableBar3Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Scanner:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableScanner">
+                            <label for="enableScanner"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Scanner Memory Region:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="scannerMemoryRegion"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Scanner Memory Mode:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="scannerMemoryMode"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Scanner Trigger:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableScannerTrigger">
+                            <label for="enableScannerTrigger"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Scanner Trigger Input:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="ScannerTriggerInput"></select>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+            <div class="divTable" data-collapse="false" >
+                <div class="divTableBar" id="divTableBar4">
+					<span class="expanded" id="divTableBar4Icon"></span>
+                    <span class="titleBarContent">Interrupt Settings</span>
+                </div>
+                <div class="divTableBody" id="divTableBar4Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable CRC Interrupt:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableCrcInterrupt">
+                            <label for="enableCrcInterrupt"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Scanner Interrupt:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableScannerInterrupt">
+                            <label for="enableScannerInterrupt"></label>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="../../../../common/ui/webui/uiControls.js"></script>
+        <script language="javascript">
+            function onInit() {
+                jsmodule.setBridge(bridge);
+                jsmodule.setLibrary(library);
+                jsmodule.init();
+            }
+            window.onload = onInit;
+        </script>
+    </body>
+</html>

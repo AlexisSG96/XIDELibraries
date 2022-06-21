@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="rootNode" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.modules.mcu8.mTouchLibrary.gui.MainSplitpaneViewer">
+   <children>
+      <TabPane fx:id="mainTabPane" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="Information">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="291.0" prefWidth="641.0">
+                     <children>
+                        <GridPane alignment="CENTER" layoutY="25.0" prefHeight="224.0" prefWidth="644.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description" textAlignment="CENTER" wrappingWidth="318.013671875">
+                                 <font>
+                                    <Font name="Arial Bold" size="14.0" />
+                                 </font>
+                              </Text>
+                              <TextArea fx:id="descriptionText" prefHeight="163.0" prefWidth="386.0" text="The mTouch® Capacitive Sensing Library Module for MPLAB® X Code Configurator allows for quick and easy C code generation of Microchip’s Capacitive touch button, proximity sensor, slider and wheel solutions.&#10;" wrapText="true" GridPane.rowIndex="1" />
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Library User's Guide" textAlignment="CENTER" wrappingWidth="313.2412109375" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Arial Bold" size="14.0" />
+                                 </font>
+                              </Text>
+                              <Hyperlink fx:id="productPageLink" onAction="#handleMCCmTouchPageHyperlinkAction" text="http://microchipdeveloper.com/touch:mcc-start-page" GridPane.rowIndex="3" />
+                              <ImageView fx:id="prodcutImage" fitHeight="87.0" fitWidth="277.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <image>
+                                    <Image url="@1D_touch.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="416.0" minWidth="10.0" prefWidth="318.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="298.0" minWidth="10.0" prefWidth="297.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="86.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="199.0" minHeight="10.0" prefHeight="124.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="85.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="93.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </GridPane>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab text="Sensor/Button/Proximity/Slider/Surface">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0">
+                     <children>
+                        <HBox>
+                           <children>
+                              <AnchorPane fx:id="leftPane">
+                                 <children>
+                                    <com.microchip.mcc.modules.mcu8.mTouchLibrary.gui.ObservantTreeView fx:id="tree" layoutX="42.0" layoutY="54.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" showRoot="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="rightPane" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Advanced Filtering">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                           <children>
+                              <Label prefHeight="52.0" prefWidth="492.0" text="The automatic frequency adaptation(AFA) feature continuously tracks the amount of noise that is on each sensor and chooses a new scan frequency intelligently to avoid noise frequency and its harmonics. " wrapText="true" />
+                              <CheckBox fx:id="afaCheckBox" disable="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleAFACheckBoxAction" text="Enable AFA" />
+                              <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" spacing="10.0">
+                                 <children>
+                                    <Label fx:id="afaTimerLabel" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" text="AFA Filter Timer:" />
+                                    <ComboBox fx:id="afaComboBox" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" onAction="#handleAFAComboBoxAction" promptText="Select Which Timer To Use" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Low Power">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <CheckBox fx:id="lowPowerMeasurementEnableCheckBox" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleLowPowerMeasurementEnableCheckBoxAction" text="Enable Low Power Measurement" />
+                        <Label fx:id="lowPowerSettings_Label" layoutX="17.0" layoutY="39.0" prefHeight="27.0" prefWidth="322.0" text="Low Power Measurement Mode Settings">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <HBox fx:id="lowPower_HBox" layoutX="35.0" layoutY="66.0" />
+                        <GridPane hgap="10.0" layoutX="11.0" layoutY="65.0" prefHeight="215.0" prefWidth="385.0" vgap="10.0">
+                           <children>
+			      <Label fx:id="lowPowerMeasurementPeriodLabel" text="Low-power Measurement Period" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="lowPowerMeasurementPeriodComboBox" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleLowPowerMeasurementPeriodComboBoxAction" promptText="No Period Selected" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                              <Label fx:id="lowPowerDetectThresholdLabel" text="Low-power Detect Threshold" GridPane.rowIndex="2" />
+                              <TextField fx:id="lowPowerDetectThresholdTextField" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="109.0" text="100" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                              <Label fx:id="touchInactivityTimeoutLabel" text="Touch Inactivity Timeout (ms)" GridPane.rowIndex="3" />
+                              <TextField fx:id="touchInactivityTimeoutTextField" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="158.0" text="5000" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+							  <Label fx:id="lowPowerBaselineUpdatePeriodLabel" prefHeight="19.0" prefWidth="190.0" text="Baseline Update Period (ms)" GridPane.rowIndex="4" />
+                              <TextField fx:id="lowPowerBaselineUpdatePeriodTextField" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="158.0" text="5000" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="214.0" minWidth="136.0" prefWidth="233.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="152.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="33.0" minHeight="-Infinity" prefHeight="28.0" vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                        <Label fx:id="lowPowerSensorSelectNotificationLabel" layoutX="11.0" layoutY="300.0" prefHeight="42.0" prefWidth="378.0" text="Select from SensorSettings page the sensors to be scanned in low-power mode." textFill="0000A0" visible="false" wrapText="true" GridPane.columnSpan="2" GridPane.rowIndex="11">
+                        <font>
+                           <Font name="System Bold" size="12.0" />
+                        </font>
+                        </Label>
+                        <Label fx:id="lowPowerNotApplicableLabel" alignment="TOP_LEFT" layoutX="324.0" layoutY="7.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="71.0" prefWidth="278.0" text="Note: Low power configuration not applicable to PIC12 – will be added in future update" visible="false" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Debug">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                           <children>
+                              <GridPane>
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="524.0" minWidth="10.0" prefWidth="524.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.0" minWidth="10.0" prefWidth="87.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <CheckBox fx:id="dataDebug_CheckBox" mnemonicParsing="false" onAction="#handleDataDebugCheckBoxAction" prefHeight="31.0" prefWidth="147.0" text="Enable Debug" />
+                                    <Label fx:id="debugMethod_Label" text="Debug Method" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox fx:id="debugMethod_HBox" GridPane.rowIndex="3">
+                                       <children>
+                                          <RadioButton fx:id="debug_DataVisualizer_RadioButton" mnemonicParsing="false" onAction="#handleDataVisualizerRadioButtonAction" selected="true" text="Data Visualizer">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="radioGroup2" />
+                                             </toggleGroup>
+                                          </RadioButton>
+                                          <RadioButton fx:id="debug_SurfaceUtility_RadioButton" disable="true" mnemonicParsing="false" onAction="#handleSurfaceUtilityRadioButtonAction" text="2D Surface Utility" toggleGroup="$radioGroup2">
+                                             <HBox.margin>
+                                                <Insets left="30.0" />
+                                             </HBox.margin>
+                                          </RadioButton>
+                                       </children>
+                                    </HBox>
+                                    <Label fx:id="debugToolDescriptionLabel" text="The Data streamer allows touch sensor debug information to be relayed on the USART interface to Data Visualizer software tool. The debug setting should be enabled for initial sensor tuning and can be disabled later to avoid using USART and additionally save code memory." wrapText="true" GridPane.rowIndex="4">
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <HBox prefHeight="43.0" prefWidth="314.0" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="97.0" text="USART Module">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </Label>
+                                          <ComboBox fx:id="USARTComboBox" onAction="#handleUSARTComboBoxAction">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </ComboBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </GridPane>
+                              <GridPane hgap="10.0" vgap="10.0">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="50.0" prefWidth="50.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="50.0" prefWidth="50.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="50.0" prefWidth="50.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Button fx:id="DVButton" mnemonicParsing="false" onAction="#handleButtonAction" text="Data Visualizer" GridPane.columnIndex="1" />
+                                    <Button fx:id="surfaceButton" mnemonicParsing="false" onAction="#handleSurfaceButtonAction" text="2D Surface Utility" GridPane.columnIndex="2" />
+                                    <Label fx:id="downlaodLinkLabel" text="Download:" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding>
+                              </GridPane>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="hostInterfaceTab" text="Host Interface">
+              <content>
+                <AnchorPane fx:id="hostInterfacePane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="633.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <GridPane fx:id="hostInterfaceGridview" alignment="CENTER_RIGHT" prefHeight="56.0" prefWidth="724.0" vgap="10.0">
+                                      <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.0" minWidth="10.0" prefWidth="170.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="-Infinity" prefWidth="164.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="375.0" minWidth="10.0" prefWidth="287.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+                                          <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="20.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="20.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="14.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="40.0" minHeight="20.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="Interface Type" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </GridPane.margin></Label>
+                                          <Label text="Memory Map" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </GridPane.margin></Label>
+                                          <TextField fx:id="hostInterfaceDeviceAddressTextField" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                          </TextField>
+                                          <TextField fx:id="hostInterfaceAddressMaskTextField" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                          </TextField>
+                                          <Label fx:id="hostInterfaceDeviceAddressLabel" text="Device Address(7-bit)" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label fx:id="hostInterfaceAddressMaskLabel" text="Address Mask" GridPane.rowIndex="3">
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <CheckBox fx:id="hostInterfaceEnableCheckbox" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#handleHostInterfaceEnableCheckboxAction" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                          </CheckBox>
+                                          <Label text="The address can be changed in the MSSP/I2C Module." wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="2" GridPane.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding></Label>
+                                          <Label text="MSSP/I2C module" GridPane.rowIndex="4">
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <ComboBox fx:id="I2CComboBox" onAction="#handleI2ComboBoxAction" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <Label text="Enable I2C interface to the Host" GridPane.rowIndex="1" />
+                                          <Button fx:id="hostInterfaceAddRowButton" mnemonicParsing="false" onAction="#handleHostInterfaceAddNewRowAction" text="Add New Parameter" GridPane.rowIndex="8" />
+                                          <Button fx:id="hostInterfacedeleteSelectedButton" mnemonicParsing="false" onAction="#handleHostInterfaceDeleteSelectedAction" text="Delete Selected Parameter" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                          <Label text="The address and parameter field are editable." GridPane.columnIndex="2" GridPane.rowIndex="8">
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label text="Poll / Interrupt" GridPane.rowIndex="5" />
+                                          <ComboBox fx:id="pollInterruptComboBox" disable="true" onAction="#handlePollInterruptComboBoxAction" prefWidth="150.0" promptText="Polling" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <Label fx:id="pollInterruptPinLabel" text="No Pin selected in PinManager" visible="false" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label text="Interrupt pulse width (uS)" GridPane.rowIndex="6" />
+                                          <TextField fx:id="hostInterfaceInterruptPulseWidthTextField" text="10" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" top="10.0" />
+                                       </padding>
+                                    </GridPane>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="35.0" prefWidth="622.0" spacing="10.0">
+                                 <padding>
+                                    <Insets left="10.0" top="5.0" />
+                                 </padding>
+                                 <opaqueInsets>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </opaqueInsets>
+                              </HBox>
+                              <TableView fx:id="hostInterfaceTable" prefHeight="234.0" prefWidth="622.0">
+                                 <padding>
+                                    <Insets left="10.0" right="10.0" />
+                                 </padding>
+                                 <opaqueInsets>
+                                    <Insets top="10.0" />
+                                 </opaqueInsets></TableView>
+                              <Label text="The save and load parameters configuration will be supported in future version.">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </VBox>                    
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.slope_comp.SCOMPViewer">
+    <children>
+      <GridPane hgap="5.0" vgap="5.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+              <TitledPane collapsible="false" layoutY="-2.0" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <content>
+                      <GridPane hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                              <ColumnConstraints />
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints maxHeight="-Infinity" />
+                          </rowConstraints>
+                          <children>
+                              <CheckBox fx:id="enableSCOMP" mnemonicParsing="false" onAction="#onAction" text="Enable Slope Compensator" GridPane.columnSpan="2" />
+                        <CheckBox fx:id="enableMinResetPulse" mnemonicParsing="false" onAction="#onAction" text="Enable Minimum Reset Pulse" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                        <Label text="Timing select" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                        <Label text="Input select" GridPane.rowIndex="3" />
+                        <Label text="Input polarity bit" GridPane.rowIndex="4" />
+                        <Label text="Range" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+                        <Label text="Slope value" GridPane.rowIndex="6" />
+                        <ComboBox fx:id="timingSelect" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="inputSelect" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <ComboBox fx:id="polarityBit" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <ComboBox fx:id="range" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label fx:id="minValue" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                        <ComboBox fx:id="slopeValue" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label fx:id="currentSetting" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <Label text="Current Setting" GridPane.rowIndex="7" />
+                          </children>
+                          <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                          </padding>
+                      </GridPane>
+                  </content>
+              </TitledPane>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </GridPane>
+    </children>
+    
+</AnchorPane>

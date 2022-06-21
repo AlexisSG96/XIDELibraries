@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE toc PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 2.0//EN" "http://java.sun.com/products/javahelp/toc_2_0.dtd">
+<!-- quickinfo: <tocitem text=(text to be displayed) target=(refers to map.xml)/> -->
+<toc version="1.0" lang="en" dir="ltr">
+    <!--- mandatory tag to display under same parent "peripherals"; for libraries use "libraries"-->
+    <tocitem text="Peripherals" target="peripherals" >
+        <tocitem text="HLT" target="mcu8_dsm">
+            <tocitem text="User Interface" target=""  >
+                <tocitem text="Controls" target="mcu8_hlt_controls" />
+                <tocitem text="Clock Source" target="mcu8_hlt_clock_source" />                
+                <tocitem text="Timer Period" target="mcu8_hlt_timer_period" />                  
+                <tocitem text="Signal Input" target="mcu8_hlt_signal_input" />                  
+                <tocitem text="Software Settings" target="mcu8_hlt_software_settings" />   
+            </tocitem>
+            <tocitem text="External Links" target=""  >
+                <tocitem  text="Hardware Limit Timer(HLT)" target="mcu8_hlt_limit_timer" />
+            </tocitem>
+        </tocitem>    
+    </tocitem>    
+</toc>

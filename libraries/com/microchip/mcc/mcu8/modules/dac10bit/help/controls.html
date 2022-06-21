@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>DAC</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>Digital to Analog Convertor (DAC)</h2>
+        <hr>
+        <section>
+            <h3 id="reqref" name="reqref">Required Reference</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td> Summary:</td>
+                            <td> The value in the Required Reference text field is used to compute the voltage per each DAC step. </td>    
+                        </tr>
+                        <tr>
+                            <td> Description:</td>
+                            <td> The Required Reference cannot be lower than negative reference or higher than the selected VDD. Entering a incorrect value will cause a warning in the Notifications tab  .The Vref+ and Vref- text boxes are available for the user to input a value only when the VREF+ and VREF- are selected as a Positive/Negative Reference from the coresponding dropdown boxes. Changing the Vref+ and Vref- values also changes the DAC out value, acorrding to the equations below. </td>    
+                        </tr>
+                        <tr>
+                            <td> Availability:</td>
+                            <td> The Required Reference text field is always available. </td>    
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="outputval" name="outputval">DAC Output Value</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td> Summary:</td>
+                            <td> The DAC output voltage is determined by the equations above.</td>   
+                            <img src="dacoutput.jpg" alt="DAC OUTPUT VOLTAGE" style="width:570px;height:387px" >                          
+                        </tr>
+                        <tr>
+                            <td> Description:</td>
+                            <td> The DAC has several voltage level ranges which are set from the DACR bits of the DACCON1 register, in register view.</td>    
+                        </tr>
+                        <tr>
+                            <td> Availability:</td>
+                            <td> The DAC Output value is always available. </td>    
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+    </body>
+</html>

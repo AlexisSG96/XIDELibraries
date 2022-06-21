@@ -1,0 +1,7 @@
+com.microchip.mcc.foundationservices.mcu16.modules.peripheraldriver.i2c.I2C
+com.microchip.mcc.foundationservices.mcu16.modules.peripheraldriver.adc.ADC
+com.microchip.mcc.foundationservices.mcu16.modules.peripheraldriver.spi_upb.SPI
+com.microchip.mcc.foundationservices.mcu16.modules.peripheraldriver.spi.SPI
+com.microchip.mcc.foundationservices.mcu16.modules.peripheraldriver.spi_pb.SPI
+com.microchip.mcc.foundationservices.mcu16.modules.peripheraldriver.uart.UART
+com.microchip.mcc.foundationservices.mcu16.modules.peripheraldriver.uart_irda_upb.UART

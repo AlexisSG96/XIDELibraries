@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.modules.mcu8.mTouchLibrary.button.ButtonCollectionViewer">
+   <children>
+      <VBox fx:id="button_Vbox" layoutX="14.0" layoutY="14.0" spacing="20.0" AnchorPane.bottomAnchor="148.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="createNewButtonPushButton" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleCreateNewButtonPushButtonAction" text="Create New Button" />
+            <GridPane fx:id="button_create_GridPane">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="127.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.0" minWidth="10.0" prefWidth="71.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="178.0" minWidth="10.0" prefWidth="153.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label fx:id="button_number_Label" text="Number of Button" />
+                  <TextField fx:id="button_number_Textfield" prefHeight="27.0" prefWidth="158.0" text="1" GridPane.columnIndex="2" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <children>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button fx:id="button_add_Button" mnemonicParsing="false" onAction="#handleButtonAddAction" prefHeight="27.0" prefWidth="61.0" text="Add" />
+                              <Button fx:id="button_cancel_Button" mnemonicParsing="false" onAction="#handleButtonCancelAction" text="Cancel" GridPane.columnIndex="1" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+            <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Common Button Settings">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0">
+               <children>
+                  <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Interface Method">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="button_IM_Callback_RadioButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButton_IM_Callback_RadioButtonAction" selected="true" text="Callback function notifies application">
+                      <toggleGroup>
+                          <ToggleGroup fx:id="radioGroup2" />
+                      </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="button_IM_Polling_RadioButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButton_IM_Polling_RadioButtonAction" text="Application will poll button status" toggleGroup="$radioGroup2" />
+               </children>
+            </VBox>
+            <GridPane hgap="10.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" vgap="10.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="146.0" minWidth="135.0" prefWidth="145.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="228.0" minWidth="-Infinity" prefWidth="222.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Press Timeout" GridPane.columnSpan="2147483647">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <CheckBox fx:id="button_PT_Enabled_CheckBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButton_PT_Enabled_CheckBoxAction" selected="true" text="Enable" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+                  <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Time Unit" GridPane.rowIndex="1" />
+                  <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Counts" GridPane.rowIndex="2" />
+                  <!--<Label fx:id="buttonCalculatedMaximumPressTimeLabel" layoutX="14.0" layoutY="259.0" text="Calculated Maximum Press Time: Unknown" GridPane.columnSpan="2147483647" GridPane.rowIndex="3" />-->
+                  <ComboBox fx:id="button_PT_TimeUnit_ComboBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleButton_PT_TimeUnit_ComboBoxAction" prefHeight="27.0" prefWidth="216.0" promptText="Select a time unit" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                      <contextMenu>
+                          <ContextMenu>
+                              <items>
+                                  <MenuItem mnemonicParsing="false" text="Test 1" /> 
+                              </items>
+                          </ContextMenu>
+                      </contextMenu>
+                  </ComboBox>
+                  <TextField fx:id="button_PT_Counts_TextField" text="100" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+            <GridPane hgap="10.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" vgap="10.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="135.0" prefWidth="145.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="227.0" minWidth="-Infinity" prefWidth="222.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Negative Capacitance Recovery" GridPane.columnSpan="2147483647">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <CheckBox fx:id="button_NCR_Enabled_CheckBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButton_NCR_Enabled_CheckBoxAction" text="Enable" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+                  <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Consecutive Decodes" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="button_NCR_ConsecutiveDecodes_ComboBox" onAction="#handleButton_NCR_ConsecutiveDecodes_ComboBoxAction" promptText="Select amount of decodes" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <GridPane hgap="10.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" vgap="10.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="135.0" prefWidth="145.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="227.0" minWidth="-Infinity" prefWidth="222.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Baseline Filtering" GridPane.columnSpan="2147483647">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Gain" GridPane.rowIndex="1" />
+                  <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Update" GridPane.rowIndex="2" />
+                  <ComboBox fx:id="button_BF_Gain_ComboBox" onAction="#handleButton_BF_Gain_ComboBoxAction" promptText="Select amount of gain" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                  <TextField fx:id="button_BF_Update_TextField" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+            <GridPane hgap="10.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" vgap="10.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="146.0" minWidth="135.0" prefWidth="146.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="227.0" minWidth="-Infinity" prefWidth="221.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Reading Filtering" GridPane.columnSpan="2147483647">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label text="Level" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="button_R_Gain_ComboBox" onAction="#handleButton_R_Gain_ComboBoxAction" promptText="Select amount of gain" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <GridPane hgap="10.0" vgap="10.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="210.0" minWidth="10.0" prefWidth="204.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="163.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="15.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Debounce">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="30.0" prefWidth="203.0" text="Count (0=disabled, 3=min value)" wrapText="true" GridPane.rowIndex="1" />
+                  <TextField fx:id="button_DebCnt_Textfield" promptText="0= disable,3 = min Value" text="0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <GridPane hgap="10.0" vgap="10.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="226.0" minWidth="10.0" prefWidth="154.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="213.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Suspend / Disable Modes">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
+                  <CheckBox fx:id="button_Suspend_Enabled_CheckBox" mnemonicParsing="false" onAction="#handleButton_Suspend_Enabled_CheckBoxAction" text="Enable" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+                  <Label fx:id="button_reburst_Label" text="Reburst Mode" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="button_group_hysteresis_enable_Label" text="Group Hysteresis Level" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="button_group_hysteresis_ComboBox" onAction="#handlebutton_group_hysteresis_ComboBoxAction" promptText="Level" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                  <ComboBox fx:id="button_reburst_Combox" onAction="#handleButton_Reburst_ComboBoxAction" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

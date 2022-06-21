@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.pwm.PWMViewer">
+   <children>
+      <TitledPane animated="false" collapsible="false" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <content>
+            <GridPane fx:id="mainGridPane" hgap="5.0" vgap="5.0">
+              <columnConstraints>
+                <ColumnConstraints />
+                  <ColumnConstraints />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                  <RowConstraints />
+                <RowConstraints />
+                  <RowConstraints />
+              </rowConstraints>
+               <children>
+                  <GridPane hgap="5.0" vgap="5.0" GridPane.rowIndex="1">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints />
+                     </rowConstraints>
+                     <children>
+                        <Label text="Select a Timer :" />
+                        <ComboBox fx:id="pwmTimerSel" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+                  <TitledPane collapsible="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Duty Cycle" GridPane.rowIndex="3" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
+                     <content>
+                        <GridPane hgap="5.0" vgap="5.0" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                          <columnConstraints>
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                              <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints />
+                            <RowConstraints />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Duty Cycle " />
+                              <Label text="PWMDC Value " GridPane.rowIndex="1" />
+                              <Label fx:id="periodValue" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="dutyCycle" alignment="CENTER" maxWidth="-Infinity" onAction="#onAction" prefWidth="76.0" GridPane.columnIndex="1" />
+                              <Label text="\%" GridPane.columnIndex="2" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane collapsible="false" text="PWM Parameters" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" GridPane.vgrow="NEVER">
+                     <content>
+                        <GridPane hgap="10.0" vgap="5.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowSpan="3">
+                          <columnConstraints>
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints />
+                            <RowConstraints />
+                            <RowConstraints />
+                              <RowConstraints />
+                          </rowConstraints>
+                           <children>
+                              <Label text="PWM Resolution " GridPane.rowIndex="3" />
+                              <Label text="PWM Frequency " GridPane.rowIndex="2" />
+                              <Label text="PWM Period " GridPane.rowIndex="1" />
+                              <Label text="PWM Polarity " />
+                              <ComboBox fx:id="pwmPolSelect" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" />
+                              <Label fx:id="pwmPeriod" text="0 s" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="pwmFrequency" text="0.0 Hz " GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <GridPane hgap="5.0" vgap="5.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label text="Bits" GridPane.columnIndex="1" />
+                                    <Label fx:id="pwmResolution" text="0 " />
+                                 </children>
+                              </GridPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <GridPane fx:id="gpEnable" hgap="5.0" vgap="5.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" />
+                      <ColumnConstraints hgrow="SOMETIMES" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints />
+                    </rowConstraints>
+                     <children>
+                        <CheckBox fx:id="enablePWM" mnemonicParsing="false" onAction="#onAction" text="Enable PWM" />
+                        <CheckBox fx:id="enableOutput" mnemonicParsing="false" onAction="#onAction" text="Enable pin Output" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+                  <TitledPane fx:id="tpAdditionalOutput" collapsible="false" text="Additional Pin output" GridPane.rowIndex="2">
+                     <content>
+                        <GridPane hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints vgrow="SOMETIMES" />
+                            <RowConstraints vgrow="SOMETIMES" />
+                            <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <CheckBox fx:id="enableAdditionalOutput1" mnemonicParsing="false" onAction="#onAction" text="Enable Additional Output1" />
+                              <CheckBox fx:id="enableAdditionalOutput2" mnemonicParsing="false" onAction="#onAction" text="Enable Additional Output2" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="enableAdditionalOutput3" mnemonicParsing="false" onAction="#onAction" text="Enable Additional Output3" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="enableAdditionalOutput4" mnemonicParsing="false" onAction="#onAction" text="Enable Additional Output4" GridPane.rowIndex="3" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </GridPane>
+        </content>
+      </TitledPane>
+   </children>
+</AnchorPane>

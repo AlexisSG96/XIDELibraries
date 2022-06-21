@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    <mapID target="mcu8_rtcc_controls" url="controls.html"/>
+    <mapID target="mcu8_rtcc_controls_output" url="controls.html#output"/>
+    <mapID target="mcu8_rtcc_controls_alarm" url="controls.html#alarm"/>
+    <mapID target="mcu8_rtcc_controls_clksource" url="controls.html#clksource"/>
+</map>

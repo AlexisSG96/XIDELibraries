@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.foundationservices.mcu16.modules.peripheraldriver.adc.ADCViewer">
+    <children>
+        <TitledPane layoutY="-2.0" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <GridPane fx:id="baseGridPane" hgap="5.0" vgap="5.0">
+                    <columnConstraints>
+                        <ColumnConstraints />
+                  <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                    </rowConstraints>
+                    <children>
+                        <CheckBox fx:id="enableADC" mnemonicParsing="false" onAction="#onAction" text="Enable ADC" />
+                  <CheckBox fx:id="enableAutoSampling" mnemonicParsing="false" onAction="#onAction" text="Enable Auto Sampling" GridPane.rowIndex="1" />
+                  <TitledPane animated="false" collapsible="false" text="ADC Clock" GridPane.rowIndex="2" GridPane.vgrow="NEVER">
+                     <content>
+                        <GridPane hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                              <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints />
+                            <RowConstraints />
+                            <RowConstraints />
+                              <RowConstraints />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Conversion Clock Source" />
+                              <Label text="Acquisition Time" GridPane.rowIndex="2" />
+                              <Label text="Conversion Clock" GridPane.rowIndex="1" />
+                              <Label text="TAD:" GridPane.rowIndex="3" />
+                              <ComboBox fx:id="convClockSource" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+                              <TextField fx:id="convClock" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="tad" editable="false" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label text="TCY" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <Label text="TAD" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="acquisitionTime" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <GridPane fx:id="optionsGridPane" hgap="5.0" vgap="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <columnConstraints>
+                      <ColumnConstraints />
+                      <ColumnConstraints />
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+                     <children>
+                        <Label fx:id="sampResLbl" text="Sampling Resolution" />
+                        <Label text="Differential Sampling" GridPane.rowIndex="1" />
+                        <Label text="Conversion Trigger" GridPane.rowIndex="2" />
+                        <Label text="Output Format" GridPane.rowIndex="3" />
+                        <RadioButton fx:id="bit10" mnemonicParsing="false" onAction="#onAction" text="10-bit" GridPane.columnIndex="1">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="sampRes" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="bit12" mnemonicParsing="false" onAction="#onAction" text="12-bit" toggleGroup="$sampRes" GridPane.columnIndex="2" />
+                        <ComboBox fx:id="diffSampling" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="conversionTrigger" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="outputFormat" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </GridPane>
+                  <CheckBox fx:id="enableADCInterrupt" mnemonicParsing="false" onAction="#onAction" text="Enable ADC Interrupt" GridPane.rowIndex="3" />
+                  <TitledPane animated="false" collapsible="false" text="Selected Channels" GridPane.columnSpan="2" GridPane.rowIndex="5">
+                     <content>
+                        <GridPane hgap="5.0" vgap="5.0">
+                           <children>
+                              <TableView fx:id="adcChannelTable" editable="true">
+                                 <columns>
+                                    <TableColumn fx:id="adcChannelColumn" maxWidth="-1.0" minWidth="125.0" prefWidth="-1.0" text="Channel " />
+                                    <TableColumn fx:id="customNameColumn" maxWidth="-1.0" minWidth="305.0" prefWidth="-1.0" text="Custom Name" />
+                                    <TableColumn fx:id="scanEnableColumn" maxWidth="-1.0" minWidth="125.0" prefWidth="-1.0" text="Scan Enable" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints />
+                           </columnConstraints>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <rowConstraints>
+                              <RowConstraints vgrow="NEVER" />
+                           </rowConstraints>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                    </children>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </padding>
+                </GridPane>
+            </content>
+        </TitledPane>
+    </children>
+    
+</AnchorPane>

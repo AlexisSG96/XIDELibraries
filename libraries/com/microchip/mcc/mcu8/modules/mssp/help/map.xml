@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    <mapID target="mcu8_mssp_controls" url="controls.html"/>
+    <mapID target="mcu8_mssp_controls_mode" url="controls.html#mode"/>
+    <mapID target="mcu8_mssp_controls_i2cmasterbrg" url="controls.html#i2cmasterbrg"/>
+    <mapID target="mcu8_mssp_controls_i2cslaveportmode" url="controls.html#i2cslaveportmode"/>
+    <mapID target="mcu8_mssp_controls_i2cslaveaddress" url="controls.html#i2cslaveaddress"/>
+    <mapID target="mcu8_mssp_controls_i2cslavemask" url="controls.html#i2cslavemask"/>
+    <mapID target="mcu8_mssp_controls_spimode" url="controls.html#spimode"/>
+    <mapID target="mcu8_mssp_controls_spimasterclocksource" url="controls.html#spimasterclocksource"/>
+    <mapID target="mcu8_mssp_controls_spimasterclockdivider" url="controls.html#spimasterclockdivider"/>
+    <mapID target="mcu8_mssp_i2c_wiki" url="http://microchip.wikidot.com/i2c:chip-select" wintype="external"/>
+</map>

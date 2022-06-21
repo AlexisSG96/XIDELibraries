@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mikrobus.nRFC.nRFCViewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" prefHeight="218.0" prefWidth="400.0" text="Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <HBox spacing="5.0">
+               <children>
+                  <TitledPane collapsible="false" text="Mode">
+                     <content>
+                        <VBox fx:id="addressVBOX">
+                           <children>
+                              <RadioButton fx:id="transmitRadioButton" mnemonicParsing="false" selected="true" text="Transmit">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="modeToggleGroup" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="receiveRadioButton" mnemonicParsing="false" text="Receive" toggleGroup="$modeToggleGroup">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </RadioButton>
+                           </children>
+                        </VBox>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" collapsible="false" text="Address Setup">
+                    <content>
+                      <AnchorPane>
+                           <children>
+                              <VBox spacing="15.0">
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <TextField fx:id="addr_p0_1" prefHeight="25.0" prefWidth="30.0" />
+                                          <TextField fx:id="addr_p0_2" prefHeight="25.0" prefWidth="30.0" />
+                                          <TextField fx:id="addr_p0_3" prefHeight="25.0" prefWidth="30.0" />
+                                          <TextField fx:id="addr_p0_4" prefHeight="25.0" prefWidth="30.0" />
+                                          <TextField fx:id="addr_p0_5" prefHeight="25.0" prefWidth="30.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="HBox1">
+                                       <children>
+                                          <TextField fx:id="addr_p1_1" prefHeight="25.0" prefWidth="30.0" />
+                                          <TextField fx:id="addr_p1_2" prefHeight="25.0" prefWidth="30.0" />
+                                          <TextField fx:id="addr_p1_3" prefHeight="25.0" prefWidth="30.0" />
+                                          <TextField fx:id="addr_p1_4" prefHeight="25.0" prefWidth="30.0" />
+                                          <TextField fx:id="addr_p1_5" prefHeight="25.0" prefWidth="30.0" />
+                                       </children>
+                                    </HBox>
+                                    <VBox spacing="10.0" fx:id="VBox1">
+                                       <children>
+                                          <HBox>
+                                             <children>
+                                                <Label prefHeight="25.0" prefWidth="30.0" fx:id="addr_p2_1"/>
+                                                <Label prefHeight="25.0" prefWidth="30.0" fx:id="addr_p2_2"/>
+                                                <Label prefHeight="25.0" prefWidth="30.0" fx:id="addr_p2_3"/>
+                                                <Label prefHeight="25.0" prefWidth="30.0" fx:id="addr_p2_4" />
+                                                <TextField layoutX="40.0" layoutY="10.0" prefHeight="25.0" prefWidth="30.0" fx:id="addr_p2"/>
+                                             </children>
+                                          </HBox>
+                                          <HBox layoutX="10.0" layoutY="10.0">
+                                             <children>
+                                                <Label prefHeight="25.0" prefWidth="30.0" fx:id="addr_p3_1"/>
+                                                <Label prefHeight="25.0" prefWidth="30.0" fx:id="addr_p3_2"/>
+                                                <Label prefHeight="25.0" prefWidth="30.0" fx:id="addr_p3_3"/>
+                                                <Label prefHeight="25.0" prefWidth="30.0" fx:id="addr_p3_4"/>
+                                                <TextField layoutX="40.0" layoutY="10.0" prefHeight="25.0" prefWidth="30.0" fx:id="addr_p3"/>
+                                             </children>
+                                          </HBox>
+                                          <HBox layoutX="10.0" layoutY="10.0">
+                                             <children>
+                                                <Label prefHeight="25.0" prefWidth="30.0" fx:id="addr_p4_1"/>
+                                                <Label prefHeight="25.0" prefWidth="30.0" fx:id="addr_p4_2"/>
+                                                <Label prefHeight="25.0" prefWidth="30.0" fx:id="addr_p4_3"/>
+                                                <Label prefHeight="25.0" prefWidth="30.0" fx:id="addr_p4_4"/>
+                                                <TextField layoutX="40.0" layoutY="10.0" prefHeight="25.0" prefWidth="30.0" fx:id="addr_p4"/>
+                                             </children>
+                                          </HBox>
+                                          <HBox layoutX="10.0" layoutY="35.0">
+                                             <children>
+                                                <Label prefHeight="25.0" prefWidth="30.0" fx:id="addr_p5_1"/>
+                                                <Label prefHeight="25.0" prefWidth="30.0" fx:id="addr_p5_2"/>
+                                                <Label prefHeight="25.0" prefWidth="30.0" fx:id="addr_p5_3"/>
+                                                <Label prefHeight="25.0" prefWidth="30.0" fx:id="addr_p5_4"/>
+                                                <TextField layoutX="40.0" layoutY="10.0" prefHeight="25.0" prefWidth="30.0" fx:id="addr_p5"/>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="15.0" top="15.0" />
+                                 </padding>
+                              </VBox>
+                           </children></AnchorPane>
+                    </content>
+                  </TitledPane>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" top="5.0" />
+               </padding>
+            </HBox>
+         </content>
+      </TitledPane>
+    </children>
+</AnchorPane>

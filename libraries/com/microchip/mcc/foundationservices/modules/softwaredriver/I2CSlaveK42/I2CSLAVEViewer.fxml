@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.foundationservices.modules.softwaredriver.I2CSlaveK42.I2CSLAVEViewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" layoutY="-2.0" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+            <VBox fx:id="subModuleSelectionBox">
+               <children>
+                  <Label text="EEPROM Mode" />
+                  <ComboBox fx:id="eepromMode" onAction="#setMode" prefWidth="150.0" />
+                  <Label text="Device Address" />
+                  <TextField fx:id="deviceAddress" promptText="0x00" text="0x00" />
+                  <Label text="Address Mask" />
+                  <TextField fx:id="addressMask" promptText="0x00" text="0x00" />
+               </children></VBox>
+            </content>
+        </TitledPane>
+    </children>
+    
+</AnchorPane>

@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>I2C Slave</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>I2C Slave</h2>
+        <hr>
+        <section>
+            <h3 id="revisionHistory" name="revisionHistory">Revision history</h3>
+            <p>
+                <ul type="disc">
+                    <li>v 0.0.0.1 Initial Commit</li>
+                </ul>
+                
+                The I2C Slave driver provides I2C slave functionality, that is:
+                <ul type="disc">
+                    <li>Responding when addressed by a master and reading bytes from the master</li>
+                    <li>Responding when addressed by a master and writing bytes to the master</li>
+                    <li>Handling bus contention/arbitration</li>
+                    <li>Handling bus errors</li>
+                </ul>
+			</p>
+			<p>
+			The I2C Slave driver interfaces with the application using an interrupt routine with callback handlers. The
+			driver can be used in a non-interrupt driven way by calling the _ISR() function in a polling loop.
+			</p>
+        </section>
+        <section>
+            <h3 id="driverConfiguration" name="driverConfiguration">Driver Configuration</h3>
+            <p>
+            The I2C Slave driver is configured using MCC Foundation Services. MCC allows the user to select 
+            various parameters,depending on the underlying hardware. If several I2C hardware instances are available
+			on the device, the user can select which I2C instance the driver shall use.
+            </p>
+        </section>
+        <section>
+            <h3 id="functionalDescription" name="functionalDescription">Functional Description</h3>
+            <p>
+            The I2C Slave driver has no internal state, but calls callback functions in response to events on the I2C
+			bus. The user defines his own callback functions, and hooks them up to the driver using driver API
+			functions.
+            </p>
+        </section>
+        <section>
+            <h4 id="callbackFunctions" name="callbackFunctions">Callback Functions</h4>
+            <p>
+            The I2C Slave driver allows the application to provide callback functions for the following events:
+            <ul type="disc">
+                    <li>Data Read: Master wants to read a byte from the slave.</li>
+                    <li>Data Write: Master wants to write a byte to the slave.</li>
+                    <li>Address match: The slave address issued by the master matches the slave's address.</li>
+                    <li>Stop: A STOP condition was received on the bus, signalling the end of a transmission.</li>
+                    <li>Write Collision: Several I2C slaves attempted to access the bus at the same time as us, and we lost
+						the arbitration. This typically happens during address resolution protocol (ARP).</li>
+                    <li>Bus error: AN illegal signal sequence occurred on the bus, typically a START followed by a STOP.</li>
+            </ul>
+
+            The I2C Slave API provides functions to hook up user-defined functions as callbacks to these events. The
+			callback functions take no parameters, and returns no values.
+            </p>
+        </section>
+		<section>
+            <h4 id="performingATransfer" name="performingATransfer">Performing a transfer</h4>
+            <p>
+            To perform an I2C transfer, do the following steps:
+				<ul type="disc">
+                    <li>Call i2c_slave_open(SLA) to enable I2C hardware, if disabled.</li>
+					<li>Hookup callback handlers to user-defined functions. For callback hooks with no defined callback
+						function, no function will be called when the event occurs.</li>
+					<li>Make sure that interrupts are enabled to use the polling version of the driver, or call
+						i2c_slave_ISR() in a polling loop for a non-IRQ driven version.</li>
+					<li>The read callback function should load the data byte to be written on the bus into the driver using
+						i2c_slave_write(). Thereafter, the function should call i2c_slave_sendAck()
+						or i2c_slave_sendNack() to transmit the data byte and final ACK or NACK.</li>
+					<li>The address match callback function should call i2c_slave_sendAck() or
+						i2c_slave_sendNack() to transmit the address ACK or NACK.</li>
+				</ul>
+            </p>
+        </section>
+		<section>
+            <h3 id="hardwareDependencies" name="hardwareDependencies">Hardware dependencies</h3>
+            <p>
+            The I2C Slave driver usually uses some sort of hardware that implements I2C functionality, even though it
+			is possible to implement a software I2C implemented by bit-banging I/O pins.
+            </p>
+			<p>
+			Different MCUs have I2C hardware with different names and functionalities, such as TWI, I2C, USI etc. In
+			MCC, the user selects a device and adds the I2C Slave driver. A device may have several possible
+			hardware resources available for the driver, such as I2C1(MSSP1), I2C2(MSSP2) etc. In this case the user must select
+			which one to use.
+			</p>
+			<p>
+			The configuration options in MCC displays options that are dependent on the hardware used to
+			implement the I2C driver.
+			</p>
+        </section>
+		<section>
+            <h3 id="softwareDependencies" name="softwareDependencies">Software dependencies</h3>
+            <p>
+            The interrupt-driven configurations use the interrupt functionality of the underlying I2C hardware. Make
+			sure that global interrupts are enabled (using INTERRUPT_GlobalInterruptEnable()) and that the Interrupt Controller, if present, is
+			configured so that any interrupts are serviced correctly.
+            </p>
+		</section>
+		<section>
+            <h3 id="functions" name="functions">Functions</h3>
+            <h4>i2c_slave_open</h4>									<!-- i2c_slave_open-->
+			<p>
+			Open the I2C for communication. Enables the module if disabled.<br><br>
+			<b>void i2c_slave_open(void)</b>
+			</p>
+			<br><br>
+			<h4>i2c_slave_close</h4>									<!-- i2c_slave_close-->
+			<p>
+			Close the I2C for communication. Disables the module if enabled. Disables address recognition.<br><br>
+			<b>void i2c_slave_close(void)</b>
+			</p>
+			<br><br>
+			<h4>i2c_slave_ISR</h4>								<!-- i2c_slave_ISR-->
+			<p>
+			The function called by the I2C IRQ handler. Can be called in a polling loop in a polled driver.<br><br>
+			<b>void i2c_slave_ISR(void)</b>
+			</p>
+            <br><br>
+			<h4>i2c_slave_read</h4>									<!-- i2c_slave_read-->
+			<p>
+			Read one byte from the data register of I2C_Slave.<br><br>
+			<b>uint8_t i2c_slave_read(void)</b>
+			</p>
+			<p>
+			Function will not block if a character is not available, so should only be called when data is available.
+			</p>
+			<table class="content_table">
+				<tbody>
+					<tr> 
+						<td><b>Returns: </b></td> 
+						<td>Type: uint8_t</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>Data read from the I2C_Slave module</td>
+					</tr>
+				</tbody>
+			</table>
+			<br><br>
+			<h4>i2c_slave_write</h4>									<!-- i2c_slave_write-->
+			<p>
+			Write one byte to the data register of I2C_Slave.<br><br>
+			<b>void i2c_slave_write(uint8_t data);</b>
+			</p>
+			<p>
+			Function will not block if data cannot be safely accepted, so should only be called when safe, i.e. in the
+			read callback handler.
+			</p>
+			<table class="content_table">
+				<tbody>
+                       <tr> 
+                           <td><b>Parameters:</b></td> 
+                       </tr>
+                       <tr> 
+                           <td>data </td> 
+                           <td>Type: uint8_t</td>
+                       </tr>
+                       <tr> 
+                           <td></td>
+                           <td>The character to write to the I2C</td>
+                       </tr>
+				</tbody>
+			</table>
+			<br><br>
+			<h4>i2c_slave_enable</h4>								<!-- i2c_slave_enable-->
+			<p>
+			Enable address recognition in I2C_Slave.<br><br>
+			<b>void i2c_slave_enable(void)</b>
+			<ul type="disc">
+                <li>If supported by the clock system, enables the clock to the module</li>
+                <li>Enables the I2C slave functionality by setting the enable-bit in the HW's control register</li>
+            </ul>
+			</p>
+            <br><br>
+			<h4>i2c_slave_sendAck</h4>								<!-- i2c_slave_sendAck-->
+			<p>
+			Send ACK to received address or data. Should only be called when appropriate, i.e. in the callback handlers.<br><br>
+			<b>void i2c_slave_sendAck(void)</b>
+			</p>
+            <br><br>
+			<h4>i2c_slave_sendNack</h4>								<!-- i2c_slave_sendNack-->
+			<p>
+			Send NACK to received address or data. Should only be called when appropriate, i.e. in the callback handlers.<br><br>
+			<b>void i2c_slave_sendNack(void)</b>
+			</p>
+            <br><br>
+			<h4>i2c_slave_setReadIntHandler</h4>								<!-- i2c_slave_setReadIntHandler-->
+			<p>
+			Interrupt handler for the event where the master wishes to read a byte from slave.<br><br>
+			<b>void i2c_slave_setReadIntHandler(interruptHandler handler)</b>
+			</p>
+            <table class="content_table">
+               <tbody>
+                   <tr> 
+                       <td><b>Parameters:</b></td> 
+                   </tr>
+                   <tr> 
+                       <td>handler </td> 
+                       <td>Type: interruptHandler</td>
+                   </tr>
+                   <tr> 
+                       <td></td>
+                       <td>Pointer to handler function</td>
+                   </tr>
+				</tbody>
+			</table>
+			<br><br>
+			<h4>i2c_slave_setWriteIntHandler</h4>								<!-- i2c_slave_setWriteIntHandler-->
+			<p>
+			Interrupt handler for the event where the master wishes to write a byte to slave.<br><br>
+			<b>void i2c_slave_setWriteIntHandler(interruptHandler handler)</b>
+			</p>
+            <table class="content_table">
+               <tbody>
+                   <tr> 
+                       <td><b>Parameters:</b></td> 
+                   </tr>
+                   <tr> 
+                       <td>handler </td> 
+                       <td>Type: interruptHandler</td>
+                   </tr>
+                   <tr> 
+                       <td></td>
+                       <td>Pointer to handler function</td>
+                   </tr>
+				</tbody>
+			</table>
+			<br><br>
+			<h4>i2c_slave_setAddrIntHandler</h4>								<!-- i2c_slave_setAddrIntHandler-->
+			<p>
+			Interrupt handler for the event where the slave has received its address.<br><br>
+			<b>void i2c_slave_setAddrIntHandler(interruptHandler handler)</b>
+			</p>
+            <table class="content_table">
+               <tbody>
+                   <tr> 
+                       <td><b>Parameters:</b></td> 
+                   </tr>
+                   <tr> 
+                       <td>handler </td> 
+                       <td>Type: interruptHandler</td>
+                   </tr>
+                   <tr> 
+                       <td></td>
+                       <td>Pointer to handler function</td>
+                   </tr>
+				</tbody>
+			</table>
+			<br><br>
+			<h4>i2c_slave_setIsrHandler</h4>								<!-- i2c_slave_setIsrHandler-->
+			<p>
+			Interrupt handler for the event where an interrupt occurs<br><br>
+			<b>void i2c_slave_setIsrHandler(interruptHandler handler)</b>
+			</p>
+            <table class="content_table">
+               <tbody>
+                   <tr> 
+                       <td><b>Parameters:</b></td> 
+                   </tr>
+                   <tr> 
+                       <td>handler </td> 
+                       <td>Type: interruptHandler</td>
+                   </tr>
+                   <tr> 
+                       <td></td>
+                       <td>Pointer to handler function</td>
+                   </tr>
+				</tbody>
+			</table>
+			<br><br>
+			<h4>i2c_slave_setBusCollisionISR</h4>								<!-- i2c_slave_setBusCollisionISR-->
+			<p>
+			Interrupt handler for the event where the slave detects a bus collision<br><br>
+			<b>void i2c_slave_setBusCollisionISR(interruptHandler handler)</b>
+			</p>
+            <table class="content_table">
+               <tbody>
+                   <tr> 
+                       <td><b>Parameters:</b></td> 
+                   </tr>
+                   <tr> 
+                       <td>handler </td> 
+                       <td>Type: interruptHandler</td>
+                   </tr>
+                   <tr> 
+                       <td></td>
+                       <td>Pointer to handler function</td>
+                   </tr>
+				</tbody>
+			</table>
+			<br><br>
+			<h4>i2c_slave_setWCOLIntHandler</h4>								<!-- i2c_slave_setWCOLIntHandler-->
+			<p>
+			Interrupt handler for the event where the slave detects a write collision<br><br>
+			<b>void i2c_slave_setWCOLIntHandler(interruptHandler handler)</b>
+			</p>
+            <table class="content_table">
+               <tbody>
+                   <tr> 
+                       <td><b>Parameters:</b></td> 
+                   </tr>
+                   <tr> 
+                       <td>handler </td> 
+                       <td>Type: interruptHandler</td>
+                   </tr>
+                   <tr> 
+                       <td></td>
+                       <td>Pointer to handler function</td>
+                   </tr>
+				</tbody>
+			</table>
+		</section>
+    </body>
+</html>

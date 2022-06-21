@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.hlt.HLTViewer">
+    <children>
+      <GridPane hgap="5.0" vgap="5.0">
+        <columnConstraints>
+          <ColumnConstraints maxWidth="-Infinity" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+          <RowConstraints vgrow="NEVER" />
+        </rowConstraints>
+         <children>
+              <TitledPane collapsible="false" text="Hardware Settings">
+                  <content>
+                      <GridPane hgap="5.0" maxWidth="-Infinity" vgap="5.0">
+                          <columnConstraints>
+                              <ColumnConstraints />
+                        <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints vgrow="NEVER" />
+                        <RowConstraints />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                        <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                          </rowConstraints>
+                          <children>
+                              <CheckBox fx:id="enable" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onAction" text="Enable HLT" GridPane.vgrow="NEVER" />
+                        <TitledPane animated="false" collapsible="false" text="Clock Source" GridPane.rowIndex="1">
+                           <content>
+                              <GridPane hgap="5.0" maxWidth="-Infinity" vgap="5.0">
+                                <columnConstraints>
+                                  <ColumnConstraints maxWidth="-Infinity" />
+                                  <ColumnConstraints maxWidth="-Infinity" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints vgrow="NEVER" />
+                                  <RowConstraints vgrow="NEVER" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label maxWidth="-Infinity" text="Prescaler" GridPane.vgrow="NEVER" />
+                                    <Label maxWidth="-Infinity" text="Postscaler" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                                    <ComboBox fx:id="comboPrescaler" maxWidth="-Infinity" onAction="#onAction" GridPane.columnIndex="1" GridPane.vgrow="NEVER" />
+                                    <ComboBox fx:id="comboPostscaler" maxWidth="-Infinity" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </GridPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane alignment="TOP_LEFT" animated="false" centerShape="false" collapsible="false" graphicTextGap="1.0" text="Signal Input" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.vgrow="NEVER">
+                           <content>
+                              <GridPane fx:id="gridSignalInput" focusTraversable="true" hgap="5.0" vgap="5.0">
+                                <columnConstraints>
+                                  <ColumnConstraints maxWidth="-Infinity" />
+                                  <ColumnConstraints maxWidth="-Infinity" />
+                                    <ColumnConstraints maxWidth="-Infinity" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints vgrow="NEVER" />
+                                  <RowConstraints vgrow="NEVER" />
+                                  <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label maxWidth="-Infinity" text="External reset source" GridPane.vgrow="NEVER" />
+                                    <Label fx:id="lbRisingSens" alignment="CENTER" maxWidth="-Infinity" text="Rising edge sensitivity" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                                    <Label fx:id="lbFallingSens" maxWidth="-Infinity" text="Falling egde sensitivity" GridPane.rowIndex="2" GridPane.vgrow="NEVER" />
+                                    <ComboBox fx:id="comboExtResetSource" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.vgrow="NEVER" />
+                                    <ComboBox fx:id="comboRisingSens" maxWidth="-Infinity" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                                    <ComboBox fx:id="comboFallingSens" maxWidth="-Infinity" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.vgrow="NEVER" />
+                                    <CheckBox fx:id="enableFallingEvent" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onAction" text="Enable falling event reset" GridPane.columnSpan="2" GridPane.rowIndex="4" GridPane.vgrow="NEVER" />
+                                    <CheckBox fx:id="enableRisingEvent" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onAction" text="Enable rising event reset" GridPane.columnSpan="2" GridPane.rowIndex="3" GridPane.vgrow="NEVER" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </GridPane>
+                           </content>
+                        </TitledPane>
+                        <CheckBox fx:id="enableInterrupt" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onAction" text="Enable Timer Interrupt" GridPane.rowIndex="3" GridPane.vgrow="NEVER" />
+                        <TitledPane alignment="TOP_LEFT" animated="false" collapsible="false" maxHeight="1.7976931348623157E308" text="Timer Period" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <content>
+                              <GridPane hgap="5.0" vgap="5.0">
+                                <columnConstraints>
+                                  <ColumnConstraints maxWidth="-Infinity" />
+                                  <ColumnConstraints maxWidth="-Infinity" />
+                                    <ColumnConstraints maxWidth="-Infinity" />
+                                    <ColumnConstraints />
+                                    <ColumnConstraints maxWidth="-Infinity" />
+                                    <ColumnConstraints maxWidth="-Infinity" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                    <RowConstraints vgrow="NEVER" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label maxWidth="-Infinity" text="Timer Period" GridPane.vgrow="NEVER" />
+                                    <Label fx:id="minTimerPeriod" maxWidth="-Infinity" text="1 us" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.vgrow="NEVER" />
+                                    <Label fx:id="maxTimerPeriod" maxWidth="-Infinity" text="256 us" GridPane.columnIndex="5" GridPane.vgrow="NEVER" />
+                                    <TextField fx:id="valueTimerPeriod" alignment="CENTER" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="3" GridPane.vgrow="NEVER" />
+                                    <Label maxWidth="-Infinity" text="≤" GridPane.columnIndex="2" GridPane.vgrow="NEVER" />
+                                    <Label maxWidth="-Infinity" text="≤" GridPane.columnIndex="4" GridPane.vgrow="NEVER" />
+                                    <Label maxWidth="-Infinity" text="Actual Period: " GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                                    <Label fx:id="actualPeriod" text="256 us" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </GridPane>
+                           </content>
+                        </TitledPane>
+                          </children>
+                          <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                          </padding>
+                      </GridPane>
+                  </content>
+              </TitledPane>
+            <TitledPane collapsible="false" text="Software Settings" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+               <content>
+                  <GridPane hgap="5.0" vgap="5.0">
+                    <columnConstraints>
+                      <ColumnConstraints maxWidth="-Infinity" />
+                      <ColumnConstraints maxWidth="-Infinity" />
+                        <ColumnConstraints maxWidth="-Infinity" />
+                        <ColumnConstraints maxWidth="-Infinity" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints vgrow="NEVER" />
+                    </rowConstraints>
+                     <children>
+                        <Label fx:id="labelCallBackFunctionRate" maxWidth="-Infinity" onDragDetected="#onAction" text="Callback Function Rate:" GridPane.vgrow="NEVER" />
+                        <Label fx:id="labelTimerPeriod" maxWidth="-Infinity" onDragDetected="#onAction" text="x Timer Period =" GridPane.columnIndex="2" GridPane.vgrow="NEVER" />
+                        <Label fx:id="valueCallBackLabel" maxWidth="-Infinity" text="0.0 us" GridPane.columnIndex="3" GridPane.vgrow="NEVER" />
+                        <TextField fx:id="callBackText" alignment="CENTER" maxWidth="-Infinity" onAction="#onAction" GridPane.columnIndex="1" GridPane.vgrow="NEVER" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </GridPane>
+               </content>
+            </TitledPane>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </GridPane>
+    </children>
+    
+</AnchorPane>

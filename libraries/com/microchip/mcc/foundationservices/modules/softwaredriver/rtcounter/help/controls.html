@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>REAL TIME COUNTER</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>TIMEOUT Driver</h2>
+        <hr>
+        <section>
+            <h3 id="revisionHistory" name="revisionHistory">Revision history</h3>
+            <p>
+                <ul type="disc">
+                    <li>v 0.0.0.1 Initial Commit</li>
+                </ul>
+            </p>    
+            <h3 id="driverDesc" name="driverDesc">Foundation Services driver description</h3>
+            <p>
+                The RTCounter is part of the Foundation Services HAL driver library, it has two modes of operation: 
+            </p>
+        </section>
+        <section>
+            <h3 id="functionalDescription" name="functionalDescription">Functional Description</h3>
+            <p>
+            It is important to note The RTCounter Software Library uses structures and linked-list implementation to perform 
+            functionalities such as creating, adding, and deleting timers. The term "timer" that we will be 
+            referring to in this discussion is represented by a structure rtcountStruct. Timer tasks can be scheduled for execution 
+            at a specified time by adding them to a scheduler queue. Tasks are added to the scheduler queue using the rtcount_create() function. 
+            This places the timer task, or more precisely, its struct at the correct place in a sorted linked list. 
+            The list is sorted by the task's scheduled time for	execution. The task to execute first is at the head of the list. 
+            The linked list will have as may elements as there are tasks scheduled for execution.
+            </p>
+			
+		<section>
+            <h3 id="hardwareDependencies" name="hardwareDependencies">Hardware dependencies</h3>
+            <p>
+            The RTCounter needs some sort of hardware that is able to measure a time interval. In MCUs, this is
+            typically implemented using some sort of timer/counter. Different MCUs have timers with different names
+            and functionalities, such as TMR0, TMR1/3/5, TMR2/4/6 etc. When the user has selected a device and
+            added the RTCounter, the Select timer field in the Hardware Settings pane in MCC will let the user select
+            the available hardware instances to use for implementing the Timeout functionality.
+            </p>
+			<p>
+			The corresponding selection will add the hardware instance of timer selected into the project resources. the user can set
+			many settings according to his need. For example, an option may allow changing the clock or prescaling used to
+			drive the underlying timer hardware.
+			</p>
+        </section>
+		<section>
+            <h3 id="softwareDependencies" name="softwareDependencies">Software dependencies</h3>
+            <p>
+			Many RTCounter implementations use the interrupt functionality of the underlying hardware timer. Make sure that global interrupts
+			are enabled (using INTERRUPT_GlobalInterruptEnable()) and that the Interrupt Controller, if present, is configured so
+			that the timer interrupt is serviced correctly.
+            </p>
+		</section>
+		
+		
+    </body>
+</html>

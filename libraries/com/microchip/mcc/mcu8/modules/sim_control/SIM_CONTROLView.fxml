@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.sim_control.SIM_CONTROLViewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" layoutY="-2.0" text="Hardware Settings" AnchorPane.bottomAnchor="-186.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-169.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <GridPane hgap="5.0" vgap="5.0">
+                    <columnConstraints>
+                        <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                    </rowConstraints>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </padding>
+               <children>
+                  <TitledPane animated="false" collapsible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <content>
+                        <GridPane fx:id="gpEnablePWM" hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                              <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                              <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                              <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                            <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                            <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                              <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                              <RowConstraints maxHeight="-Infinity" vgrow="NEVER" />
+                          </rowConstraints>
+                           <children>
+                              <CheckBox fx:id="chkbxEnablePWM5" mnemonicParsing="false" onAction="#onAction" text="Enable PWM5" GridPane.rowIndex="4" />
+                              <CheckBox fx:id="chkbxEnablePWM6" mnemonicParsing="false" onAction="#onAction" text="Enable PWM6" GridPane.rowIndex="5" />
+                              <CheckBox fx:id="chkbxEnablePWM1" mnemonicParsing="false" onAction="#onAction" text="Enable PWM1" />
+                              <CheckBox fx:id="chkbxEnablePWM2" mnemonicParsing="false" onAction="#onAction" text="Enable PWM2" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="chkbxEnablePWM3" mnemonicParsing="false" onAction="#onAction" text="Enable PWM3" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="chkbxEnablePWM4" mnemonicParsing="false" onAction="#onAction" text="Enable PWM4" GridPane.rowIndex="3" />
+                              <CheckBox fx:id="chkbxEnablePWM11" mnemonicParsing="false" onAction="#onAction" text="Enable PWM11" GridPane.rowIndex="6" />
+                              <CheckBox fx:id="chkbxEnablePWM12" mnemonicParsing="false" onAction="#onAction" text="Enable PWM12" GridPane.rowIndex="7" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" collapsible="false" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <content>
+                        <GridPane fx:id="gpEnableReloadBuff" hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <CheckBox fx:id="chkbxReloadPWM5" mnemonicParsing="false" onAction="#onAction" text="Enable PWM5 Reload Buffer" GridPane.rowIndex="4" />
+                              <CheckBox fx:id="chkbxReloadPWM6" mnemonicParsing="false" onAction="#onAction" text="Enable PWM6 Reload Buffer" GridPane.rowIndex="5" />
+                              <CheckBox fx:id="chkbxReloadPWM1" mnemonicParsing="false" onAction="#onAction" text="Enable PWM1 Reload Buffer" />
+                              <CheckBox fx:id="chkbxReloadPWM2" mnemonicParsing="false" onAction="#onAction" text="Enable PWM2 Reload Buffer" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="chkbxReloadPWM3" mnemonicParsing="false" onAction="#onAction" text="Enable PWM3 Reload Buffer" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="chkbxReloadPWM4" mnemonicParsing="false" onAction="#onAction" text="Enable PWM4 Reload Buffer" GridPane.rowIndex="3" />
+                              <CheckBox fx:id="chkbxReloadPWM11" mnemonicParsing="false" text="Enable PWM11 Reload Buffer" GridPane.rowIndex="6" />
+                              <CheckBox fx:id="chkbxReloadPWM12" mnemonicParsing="false" text="Enable PWM12 Reload Buffer" GridPane.rowIndex="7" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <CheckBox fx:id="chkbxEnableAll" mnemonicParsing="false" onAction="#onAction" text="Enable Simultaneously" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <CheckBox fx:id="chkbxReloadAll" mnemonicParsing="false" onAction="#onAction" text="Reload Simultaneously" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+               </children>
+                </GridPane>
+            </content>
+        </TitledPane>
+    </children>
+    
+</AnchorPane>

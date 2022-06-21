@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MCC View</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="../../../../common/ui/webui/bridge.js"></script>
+        <script type="text/javascript" src="../../../../common/ui/webui/library.js"></script>
+        <link rel="stylesheet" href="../../../../common/ui/webui/style.css" type="text/css" />
+    </head>
+    <body>
+        <div id="divContainer">
+                        <div class="divTable" data-collapse="false" >
+                <div class="divTableBar" id="divTableBar1">
+					<span class="expanded" id="divTableBar1Icon"></span>
+                    <span class="titleBarContent">Hardware Settings</span>
+                </div>
+                <div class="divTableBody" id="divTableBar1Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable ADC:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableAdc">
+                            <label for="enableAdc"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Clock Source Selection:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="clockSourceSelection"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Clock Divider:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="clockDivider"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Input Clock Frequency (kHz):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="adcInputClockFreq" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">1 TAD:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="oneTad" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Sampling Frequency (kHz):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="samplingFrequency" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Conversion Time:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="conversionTime" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Result Alignment:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="resultAlignment"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Auto-conversion Trigger:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="autoConversionTrigger"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Charge Pump:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableChargePump">
+                            <label for="enableChargePump"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Auto-Channel Scanning:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableAutoChannelScanning">
+                            <label for="enableAutoChannelScanning"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable ADC Interrupt:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableAdcInterrupt">
+                            <label for="enableAdcInterrupt"></label>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+            <div class="divTable" data-collapse="true" >
+                <div class="divTableBar" id="divTableBar2">
+					<span class="collapsed" id="divTableBar2Icon"></span>
+                    <span class="titleBarContent">Context 1 Settings</span>
+                </div>
+                <div class="divTableBody" id="divTableBar2Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Context 1:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableCtx1">
+                            <label for="enableCtx1"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Context 1 Label:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="labelCtx1" onkeyup="jsmodule.handleTextBox(this);">
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Operating Mode:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="operatingModeCtx1"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Positive Reference:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="positiveReferenceCtx1"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Negative Reference:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="negativeReferenceCtx1"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Channel Select:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="channelSelectCtx1"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Acquisition Count:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="acquisitionCountCtx1_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="acquisitionCountCtx1" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="acquisitionCountCtx1_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Acquisition Time:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="acquisitionTimeCtx1" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Previous Sample Input Select:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="previousSampleInputSelectCtx1"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Accumulator Clear:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableAccumulatorClearCtx1">
+                            <label for="enableAccumulatorClearCtx1"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Double Sample:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableDoubleSampleCtx1">
+                            <label for="enableDoubleSampleCtx1"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Context Scan:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableContextScanCtx1">
+                            <label for="enableContextScanCtx1"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Stop Scan On Interrupt (SSI):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableStopScanOnInterruptSSICtx1">
+                            <label for="enableStopScanOnInterruptSSICtx1"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Continuous Operation:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableContinuousOperationCtx1">
+                            <label for="enableContinuousOperationCtx1"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Stop Conversion on Interrupt (SOI):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableStopOnInterruptSOICtx1">
+                            <label for="enableStopOnInterruptSOICtx1"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Threshould Interrupt:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableThreshouldInterruptCtx1">
+                            <label for="enableThreshouldInterruptCtx1"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel"></div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="emptySpace1Ctx1" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel"><b>Use Computation Feature:</b></div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="useComputationFeatureCtx1">
+                            <label for="useComputationFeatureCtx1"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Error Calculation Mode:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="errorCalculationModeCtx1"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Threshold Setpoint:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="thresholdSetpointCtx1_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="thresholdSetpointCtx1" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="thresholdSetpointCtx1_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Threshold Interrupt Mode:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="thresholdInterruptModeCtx1"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Lower Threshold:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="lowerThresholdCtx1_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="lowerThresholdCtx1" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="lowerThresholdCtx1_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Upper Threshold:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="upperThresholdCtx1_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="upperThresholdCtx1" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="upperThresholdCtx1_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Repeat Threshold:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="repeatThresholdCtx1_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="repeatThresholdCtx1" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="repeatThresholdCtx1_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Accumulator Right Shift:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="accumulatorCtx1_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="accumulatorCtx1" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="accumulatorCtx1_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Cut-Off Frequency of LPF:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="cutOffFrequencyOfLpfCtx1_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="cutOffFrequencyOfLpfCtx1" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="cutOffFrequencyOfLpfCtx1_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel"></div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="emptySpace2Ctx1" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel"><b>Use CVD Features:</b></div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="useCVDFeaturesCtx1">
+                            <label for="useCVDFeaturesCtx1"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Precharge Count:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="prechargeCountCtx1_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="prechargeCountCtx1" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="prechargeCountCtx1_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Precharge Time:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="prechargeTimeCtx1" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Precharge Polarity:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="prechargePolarityCtx1"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Inverted Precharge:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableInvertedPrechargeCtx1">
+                            <label for="enableInvertedPrechargeCtx1"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Additional Sample Capacitor:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="additionalSampleCapacitorCtx1"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Guard Ring Polarity Selection:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="guardRingPolaritySelectionCtx1"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel"></div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="emptySpace3Ctx1" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+            <div class="divTable" data-collapse="true" >
+                <div class="divTableBar" id="divTableBar3">
+					<span class="collapsed" id="divTableBar3Icon"></span>
+                    <span class="titleBarContent">Context 2 Settings</span>
+                </div>
+                <div class="divTableBody" id="divTableBar3Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Context 2:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableCtx2">
+                            <label for="enableCtx2"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Context 2 Label:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="labelCtx2" onkeyup="jsmodule.handleTextBox(this);">
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Operating Mode:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="operatingModeCtx2"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Positive Reference:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="positiveReferenceCtx2"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Negative Reference:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="negativeReferenceCtx2"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Channel Select:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="channelSelectCtx2"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Acquisition Count:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="acquisitionCountCtx2_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="acquisitionCountCtx2" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="acquisitionCountCtx2_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Acquisition Time:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="acquisitionTimeCtx2" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Previous Sample Input Select:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="previousSampleInputSelectCtx2"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Accumulator Clear:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableAccumulatorClearCtx2">
+                            <label for="enableAccumulatorClearCtx2"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Double Sample:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableDoubleSampleCtx2">
+                            <label for="enableDoubleSampleCtx2"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Context Scan:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableContextScanCtx2">
+                            <label for="enableContextScanCtx2"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Stop Scan On Interrupt (SSI):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableStopScanOnInterruptSSICtx2">
+                            <label for="enableStopScanOnInterruptSSICtx2"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Continuous Operation:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableContinuousOperationCtx2">
+                            <label for="enableContinuousOperationCtx2"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Stop Conversion on Interrupt (SOI):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableStopOnInterruptSOICtx2">
+                            <label for="enableStopOnInterruptSOICtx2"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Threshould Interrupt:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableThreshouldInterruptCtx2">
+                            <label for="enableThreshouldInterruptCtx2"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel"></div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="emptySpace1Ctx2" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel"><b>Use Computation Feature:</b></div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="useComputationFeatureCtx2">
+                            <label for="useComputationFeatureCtx2"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Error Calculation Mode:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="errorCalculationModeCtx2"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Threshold Setpoint:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="thresholdSetpointCtx2_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="thresholdSetpointCtx2" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="thresholdSetpointCtx2_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Threshold Interrupt Mode:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="thresholdInterruptModeCtx2"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Lower Threshold:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="lowerThresholdCtx2_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="lowerThresholdCtx2" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="lowerThresholdCtx2_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Upper Threshold:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="upperThresholdCtx2_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="upperThresholdCtx2" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="upperThresholdCtx2_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Repeat Threshold:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="repeatThresholdCtx2_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="repeatThresholdCtx2" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="repeatThresholdCtx2_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Accumulator Right Shift:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="accumulatorCtx2_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="accumulatorCtx2" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="accumulatorCtx2_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Cut-Off Frequency of LPF:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="cutOffFrequencyOfLpfCtx2_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="cutOffFrequencyOfLpfCtx2" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="cutOffFrequencyOfLpfCtx2_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel"></div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="emptySpace2Ctx2" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel"><b>Use CVD Features:</b></div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="useCVDFeaturesCtx2">
+                            <label for="useCVDFeaturesCtx2"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Precharge Count:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="prechargeCountCtx2_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="prechargeCountCtx2" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="prechargeCountCtx2_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Precharge Time:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="prechargeTimeCtx2" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Precharge Polarity:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="prechargePolarityCtx2"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Inverted Precharge:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableInvertedPrechargeCtx2">
+                            <label for="enableInvertedPrechargeCtx2"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Additional Sample Capacitor:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="additionalSampleCapacitorCtx2"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Guard Ring Polarity Selection:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="guardRingPolaritySelectionCtx2"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel"></div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="emptySpace3Ctx2" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+            <div class="divTable" data-collapse="true" >
+                <div class="divTableBar" id="divTableBar4">
+					<span class="collapsed" id="divTableBar4Icon"></span>
+                    <span class="titleBarContent">Context 3 Settings</span>
+                </div>
+                <div class="divTableBody" id="divTableBar4Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Context 3:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableCtx3">
+                            <label for="enableCtx3"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Context 3 Label:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="labelCtx3" onkeyup="jsmodule.handleTextBox(this);">
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Operating Mode:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="operatingModeCtx3"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Positive Reference:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="positiveReferenceCtx3"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Negative Reference:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="negativeReferenceCtx3"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Channel Select:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="channelSelectCtx3"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Acquisition Count:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="acquisitionCountCtx3_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="acquisitionCountCtx3" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="acquisitionCountCtx3_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Acquisition Time:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="acquisitionTimeCtx3" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Previous Sample Input Select:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="previousSampleInputSelectCtx3"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Accumulator Clear:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableAccumulatorClearCtx3">
+                            <label for="enableAccumulatorClearCtx3"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Double Sample:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableDoubleSampleCtx3">
+                            <label for="enableDoubleSampleCtx3"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Context Scan:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableContextScanCtx3">
+                            <label for="enableContextScanCtx3"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Stop Scan On Interrupt (SSI):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableStopScanOnInterruptSSICtx3">
+                            <label for="enableStopScanOnInterruptSSICtx3"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Continuous Operation:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableContinuousOperationCtx3">
+                            <label for="enableContinuousOperationCtx3"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Stop Conversion on Interrupt (SOI):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableStopOnInterruptSOICtx3">
+                            <label for="enableStopOnInterruptSOICtx3"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Threshould Interrupt:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableThreshouldInterruptCtx3">
+                            <label for="enableThreshouldInterruptCtx3"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel"></div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="emptySpace1Ctx3" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel"><b>Use Computation Feature:</b></div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="useComputationFeatureCtx3">
+                            <label for="useComputationFeatureCtx3"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Error Calculation Mode:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="errorCalculationModeCtx3"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Threshold Setpoint:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="thresholdSetpointCtx3_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="thresholdSetpointCtx3" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="thresholdSetpointCtx3_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Threshold Interrupt Mode:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="thresholdInterruptModeCtx3"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Lower Threshold:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="lowerThresholdCtx3_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="lowerThresholdCtx3" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="lowerThresholdCtx3_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Upper Threshold:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="upperThresholdCtx3_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="upperThresholdCtx3" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="upperThresholdCtx3_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Repeat Threshold:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="repeatThresholdCtx3_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="repeatThresholdCtx3" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="repeatThresholdCtx3_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Accumulator Right Shift:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="accumulatorCtx3_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="accumulatorCtx3" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="accumulatorCtx3_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Cut-Off Frequency of LPF:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="cutOffFrequencyOfLpfCtx3_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="cutOffFrequencyOfLpfCtx3" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="cutOffFrequencyOfLpfCtx3_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel"></div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="emptySpace2Ctx3" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel"><b>Use CVD Features:</b></div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="useCVDFeaturesCtx3">
+                            <label for="useCVDFeaturesCtx3"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Precharge Count:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="prechargeCountCtx3_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="prechargeCountCtx3" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="prechargeCountCtx3_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Precharge Time:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="prechargeTimeCtx3" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Precharge Polarity:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="prechargePolarityCtx3"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Inverted Precharge:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableInvertedPrechargeCtx3">
+                            <label for="enableInvertedPrechargeCtx3"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Additional Sample Capacitor:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="additionalSampleCapacitorCtx3"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Guard Ring Polarity Selection:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="guardRingPolaritySelectionCtx3"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel"></div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="emptySpace3Ctx3" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+            <div class="divTable" data-collapse="true" >
+                <div class="divTableBar" id="divTableBar5">
+					<span class="collapsed" id="divTableBar5Icon"></span>
+                    <span class="titleBarContent">Context 4 Settings</span>
+                </div>
+                <div class="divTableBody" id="divTableBar5Body">
+                    <div class="divTableBodyTop"></div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Context 4:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableCtx4">
+                            <label for="enableCtx4"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Context 4 Label:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="labelCtx4" onkeyup="jsmodule.handleTextBox(this);">
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Operating Mode:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="operatingModeCtx4"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Positive Reference:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="positiveReferenceCtx4"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Negative Reference:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="negativeReferenceCtx4"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Channel Select:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="channelSelectCtx4"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Acquisition Count:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="acquisitionCountCtx4_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="acquisitionCountCtx4" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="acquisitionCountCtx4_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Acquisition Time:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="acquisitionTimeCtx4" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Previous Sample Input Select:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="previousSampleInputSelectCtx4"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Accumulator Clear:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableAccumulatorClearCtx4">
+                            <label for="enableAccumulatorClearCtx4"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Double Sample:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableDoubleSampleCtx4">
+                            <label for="enableDoubleSampleCtx4"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Context Scan:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableContextScanCtx4">
+                            <label for="enableContextScanCtx4"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Stop Scan On Interrupt (SSI):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableStopScanOnInterruptSSICtx4">
+                            <label for="enableStopScanOnInterruptSSICtx4"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Continuous Operation:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableContinuousOperationCtx4">
+                            <label for="enableContinuousOperationCtx4"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Stop Conversion on Interrupt (SOI):</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableStopOnInterruptSOICtx4">
+                            <label for="enableStopOnInterruptSOICtx4"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Threshould Interrupt:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableThreshouldInterruptCtx4">
+                            <label for="enableThreshouldInterruptCtx4"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel"></div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="emptySpace1Ctx4" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel"><b>Use Computation Feature:</b></div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="useComputationFeatureCtx4">
+                            <label for="useComputationFeatureCtx4"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Error Calculation Mode:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="errorCalculationModeCtx4"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Threshold Setpoint:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="thresholdSetpointCtx4_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="thresholdSetpointCtx4" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="thresholdSetpointCtx4_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Threshold Interrupt Mode:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="thresholdInterruptModeCtx4"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Lower Threshold:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="lowerThresholdCtx4_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="lowerThresholdCtx4" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="lowerThresholdCtx4_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Upper Threshold:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="upperThresholdCtx4_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="upperThresholdCtx4" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="upperThresholdCtx4_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Repeat Threshold:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="repeatThresholdCtx4_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="repeatThresholdCtx4" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="repeatThresholdCtx4_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Accumulator Right Shift:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="accumulatorCtx4_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="accumulatorCtx4" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="accumulatorCtx4_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Cut-Off Frequency of LPF:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="cutOffFrequencyOfLpfCtx4_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="cutOffFrequencyOfLpfCtx4" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="cutOffFrequencyOfLpfCtx4_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel"></div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="emptySpace2Ctx4" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel"><b>Use CVD Features:</b></div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="useCVDFeaturesCtx4">
+                            <label for="useCVDFeaturesCtx4"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Precharge Count:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <span  id="prechargeCountCtx4_MIN">min</span>
+                            <span>&nbsp;&le;</span>
+                            <input type="number" id="prechargeCountCtx4" onkeyup="jsmodule.handleRange(this);">
+                            <span>&nbsp;&le;</span>
+                            <span id="prechargeCountCtx4_MAX">max</span>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Precharge Time:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="prechargeTimeCtx4" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Precharge Polarity:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="prechargePolarityCtx4"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Enable Inverted Precharge:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="checkbox" onclick='jsmodule.handleCheck(this);' id="enableInvertedPrechargeCtx4">
+                            <label for="enableInvertedPrechargeCtx4"></label>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Additional Sample Capacitor:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="additionalSampleCapacitorCtx4"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel">Guard Ring Polarity Selection:</div>
+                        </div>
+                        <div class="divTableCell">
+                            <select class="cellCombobox" onchange="jsmodule.handleCombobox(this);" id="guardRingPolaritySelectionCtx4"></select>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="divTableCell">
+                            <div class="cellLabel"></div>
+                        </div>
+                        <div class="divTableCell">
+                            <input type="text" id="emptySpace3Ctx4" readonly>
+                        </div>
+                    </div>
+                    <div class="divTableBodyBottom"></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="../../../../common/ui/webui/uiControls.js"></script>
+        <script language="javascript">
+            function onInit() {
+                jsmodule.setBridge(bridge);
+                jsmodule.setLibrary(library);
+                jsmodule.init();
+            }
+            window.onload = onInit;
+        </script>
+    </body>
+</html>

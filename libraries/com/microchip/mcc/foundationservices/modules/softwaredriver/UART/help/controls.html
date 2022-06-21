@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>UART Driver</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>UART Driver</h2>
+        <hr>
+        <section>
+            <h3 id="revisionHistory" name="revisionHistory">Revision history</h3>
+            <p>
+                <ul type="disc">
+                    <li>v 0.0.0.1 Initial Commit</li>
+                </ul>
+            </p>    
+            <h3 id="driverDesc" name="driverDesc">Foundation Services driver description</h3>
+            <p>
+                The UART module is abstraction module that caters to instances of the Universal Synchronous and asynchronous receiver and transmitter
+(USART) modules that is present in PIC and AVR devices. The USART is used to transfer data from one device to the other.
+A USART is able to transmit a byte stream on an I/O pin (the TX pin), 
+and receive a byte stream on another I/O pin (the RX pin). The rate 
+at which bits are shifted out on the I/O pins is called the baud rate.
+The baud rate can be selected by the user, and configured in MCC and START.
+
+In general, the USART can operate in:
+                <ul type="disc">
+                    <li>Asynchronous mode</li>
+                    <li>Synchronous mode</li>
+                </ul>
+The USARTs are able to generate interrupts when a byte has been 
+transmitter or received. A USART driver can therefore either be:
+                <ul type="interruptmode">
+                    <li>Polled</li>
+                    <li>Interrupt mode</li>
+                </ul>
+            </p>
+        </section>
+        <section>
+            <h3 id="AsynchronousMode" name="asynchronousMode">Asynchronous mode</h3>
+            <p>
+			The receiver uses the baud rate setting to recover the individual bits.
+            </p>
+            <h3 id="SynchronousMode" name="synchronousMode">Synchronous mode</h3>
+            <p>
+		The transmitter uses an additional I/O pin, the XCK pin, to transmit a bit clock. The receiver uses the
+                XCK info to sample the incoming bits.
+            </p>
+        </section>
+        <section>
+            <h3 id="polledInterrupt" name="polledInterrupt">Polled mode</h3>
+            <p>
+                The driver must poll the USARTs status register to detect when a byte has been received or transmitted. Based 
+                on the result of the polling, the driver will write the next byte to be transmitted (TX data) or read the received byte 
+                (RX data) from the USART.
+            </p>
+            <h3 id="InterruptMode" name="InterruptMode"> Interrupt mode</h3>
+            <p>
+                The USART issues an interrupt when a byte has been received or transmitted. The driver's Interrupt 
+                Service Routine (ISR) will write TX the next data or read RX data from the USART. The RX and TX data are typically placed 
+                in circular buffers (ringbuffers).
+            </p>
+        </section>
+        <section>
+            <h3 id="hardwareDependencies" name="hardwareDependencies">Hardware Dependencies</h3>
+            <p>
+                The USART Basic driver usually uses some sort of hardware that implements USART functionality, even though it is 
+                possible to implement a software USART implemented by bit-banging I/O pins.
+            </p>    
+            <p>
+                Different MCUs have USART hardware with different names and functionalities, such as UART, USART, USI etc. In START, the user 
+                selects a device and adds the USART Basic driver. A device may have several possible hardware resources available for 
+                the driver, such as USART0, USART1 etc. In this case the user must select which one to use.
+            </p>    
+            <p>
+                The configuration options in START displays options that are dependent on the hardware used to implement the USART driver.
+                For example, an option may allow changing the baud rate used to drive the underlying USART hardware.
+            </p>
+			
+        </section>
+		<section>
+            <h3 id="softwareDependencies" name="softwareDependencies">Hardware dependencies</h3>
+            <p>
+                The interrupt-driven configurations use the interrupt functionality of the underlying USART hardware. Make sure that global interrupts 
+                are enabled (using sei()) and that the Interrupt Controller, if present, is configured so that any interrupts are serviced correctly.
+            </p>
+            
+        </section>
+		<section>
+            <h3 id="softwareDependencies" name="softwareDependencies">Software dependencies</h3>
+            <p>
+			Many Timeout implementations use the interrupt functionality of the underlying hardware timer. Make sure that global interrupts
+			are enabled (using INTERRUPT_GlobalInterruptEnable()) and that the Interrupt Controller, if present, is configured so
+			that the timer interrupt is serviced correctly.
+            </p>
+		</section>
+		
+    </body>
+</html>

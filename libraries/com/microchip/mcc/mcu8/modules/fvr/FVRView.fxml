@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.fvr.FVRViewer">
+   <children>
+      <GridPane hgap="5.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <columnConstraints>
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints vgrow="NEVER" />
+         </rowConstraints>
+         <children>
+            <TitledPane animated="false" collapsible="false" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" GridPane.hgrow="ALWAYS" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+               <content>
+                  <GridPane fx:id="gpAll" hgap="5.0" vgap="5.0">
+                     <children>
+                        
+                        
+                        <CheckBox fx:id="chkEnableFvr" mnemonicParsing="false" onAction="#onAction" text="Enable FVR" />
+                        <Label fx:id="lbFVRCmpDACCPS" text="FVR_buffer2 Gain" wrapText="true" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="cmbFvrAmountDacCmpCps" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="lbFVRADC" text="FVR_buffer1 Gain" wrapText="true" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="cmbFvrAmountAdc" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <CheckBox fx:id="chkEnableTempSensore" mnemonicParsing="false" onAction="#onAction" text="Enable Temperature Sensor" GridPane.rowIndex="3" />
+                        <Label fx:id="lbFvrVoltageRange" text="Voltage Range Selection" wrapText="true" GridPane.rowIndex="4" />
+                        <ComboBox fx:id="cmbFvrVoltageRangeSel" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="adfvrVoltage" text="lbl1" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Label fx:id="cdafvrVoltage" layoutX="282.0" layoutY="41.0" text="lbl2" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                        <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                     </rowConstraints>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </GridPane>
+               </content>
+            </TitledPane>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </GridPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mikrobus.ADC3.ADC3Viewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <GridPane hgap="5.0" vgap="5.0">
+              <columnConstraints>
+                <ColumnConstraints />
+                  <ColumnConstraints />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                  <RowConstraints />
+              </rowConstraints>
+               <children>
+                  <TitledPane fx:id="channel1Pane" animated="false" collapsible="false" text="Channel 1" GridPane.rowIndex="1">
+                     <content>
+                        <GridPane hgap="5.0" vgap="5.0">
+                           <children>
+                              <Label fx:id="ch1ResText" maxWidth="1.7976931348623157E308" text="Resolution:" />
+                              <Label fx:id="ch1GainText" maxWidth="1.7976931348623157E308" text="Gain:" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="ch1ResSelect" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" />
+                              <ComboBox fx:id="ch1GainSelect" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="10.0" prefWidth="111.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.0" minWidth="10.0" prefWidth="178.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" />
+                              <RowConstraints minHeight="10.0" />
+                           </rowConstraints>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane fx:id="channel4Pane" animated="false" collapsible="false" text="Channel 4" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <content>
+                        <GridPane hgap="5.0" vgap="5.0">
+                           <children>
+                              <Label fx:id="ch4ResText" maxWidth="1.7976931348623157E308" text="Resolution:" />
+                              <Label fx:id="ch4GainText" maxWidth="1.7976931348623157E308" text="Gain:" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="ch4ResSelect" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" />
+                              <ComboBox fx:id="ch4GainSelect" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="10.0" prefWidth="98.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.0" minWidth="10.0" prefWidth="167.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane fx:id="channel2Pane" animated="false" collapsible="false" text="Channel 2" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <content>
+                        <GridPane hgap="5.0" vgap="5.0">
+                           <children>
+                              <Label fx:id="ch2ResText" maxWidth="1.7976931348623157E308" text="Resolution:" />
+                              <Label fx:id="ch2GainText" maxWidth="1.7976931348623157E308" text="Gain:" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="ch2ResSelect" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" />
+                              <ComboBox fx:id="ch2GainSelect" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="10.0" prefWidth="111.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.0" minWidth="10.0" prefWidth="178.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <GridPane hgap="5.0" vgap="5.0" GridPane.columnSpan="2147483647">
+                     <children>
+                        <Label fx:id="inputText" text="Default Input Channel:" />
+                        <ComboBox fx:id="inputSelect" GridPane.columnIndex="1" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints minWidth="10.0" />
+                        <ColumnConstraints minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints />
+                     </rowConstraints>
+                  </GridPane>
+                  <TitledPane fx:id="channel3Pane" animated="false" collapsible="false" text="Channel 3" GridPane.rowIndex="2">
+                     <content>
+                        <GridPane hgap="5.0" vgap="5.0">
+                           <children>
+                              <Label fx:id="ch3ResText" maxWidth="1.7976931348623157E308" text="Resolution:" />
+                              <Label fx:id="ch3GainText" maxWidth="1.7976931348623157E308" text="Gain:" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="ch3ResSelect" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" />
+                              <ComboBox fx:id="ch3GainSelect" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="10.0" prefWidth="111.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.0" minWidth="10.0" prefWidth="178.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </GridPane>
+         </content>
+        </TitledPane>
+    </children>
+    
+</AnchorPane>

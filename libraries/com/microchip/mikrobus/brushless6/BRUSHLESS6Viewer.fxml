@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mikrobus.brushless6.BRUSHLESS6Viewer">
+   <children>
+      <TitledPane animated="false" collapsible="false" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <VBox>
+               <children>
+                  <HBox>
+                     <children>
+                        <Label text="Speed">
+                           <HBox.margin>
+                              <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                           </HBox.margin></Label>
+                        <Slider fx:id="speedSlider" blockIncrement="1.0" majorTickUnit="127.0" max="127.0" min="-127.0" minorTickCount="0" showTickMarks="true">
+                           <HBox.margin>
+                              <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                           </HBox.margin></Slider>
+                        <TextField fx:id="speedText" alignment="CENTER" text="0">
+                           <HBox.margin>
+                              <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                           </HBox.margin></TextField>
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <GridPane>
+                           <children>
+                              <Label text="Speed Value">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="3.0" left="3.0" right="6.0" top="3.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Motor Speed" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="3.0" left="6.0" right="3.0" top="3.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="0" GridPane.rowIndex="2" />
+                              <Label text="-127" GridPane.rowIndex="1" />
+                              <Label text="127" GridPane.rowIndex="3" />
+                              <Label text="-Max" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label text="Off" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label text="+Max" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" />
+                              <ColumnConstraints halignment="CENTER" />
+                              <ColumnConstraints halignment="CENTER" />
+                           </columnConstraints>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                           <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </TitledPane>
+   </children>
+</AnchorPane>

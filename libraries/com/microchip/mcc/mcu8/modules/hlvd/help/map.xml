@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    <mapID target="mcu8_hlvd_controls" url="controls.html"/>
+    <mapID target="mcu8_hlvd_controls_trippoint" url="controls.html#trippoint"/>
+    <mapID target="mcu8_hlvd_controls_tirvst" url="controls.html#tirvst"/>   
+    <mapID target="mcu8_hlvd_info" url="http://ww1.microchip.com/downloads/en/DeviceDoc/39725a.pdf"/>    
+</map>

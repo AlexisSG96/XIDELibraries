@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE toc PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 2.0//EN" "http://java.sun.com/products/javahelp/toc_2_0.dtd">
+<!-- quickinfo: <tocitem text=(text to be displayed) target=(refers to map.xml)/> -->
+<toc version="1.0" lang="en" dir="ltr">
+    <!--- mandatory tag to display under same parent "peripherals"; for libraries use "libraries"-->
+    <tocitem text="Peripherals" target="peripherals" >
+        <tocitem text="COG" target="mcu8_cog">
+            <tocitem text="User Interface" target=""  >
+                <tocitem text="Controls"            target="mcu8_cog_controls" />
+                <tocitem text="Hardware Settings"   target="mcu8_cog_hardware_settings" />        
+                <tocitem text="Events"              target="mcu8_cog_events" />
+                <tocitem text="Auto Shut Down"      target="mcu8_cog_shut_down" />                 
+                <tocitem text="Output Pin Config"   target="mcu8_cog_output_pin" />              
+            </tocitem>
+        </tocitem>    
+    </tocitem>    
+</toc>

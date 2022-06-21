@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>TIMEOUT Driver</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>TIMEOUT Driver</h2>
+        <hr>
+        <section>
+            <h3 id="revisionHistory" name="revisionHistory">Revision history</h3>
+            <p>
+                <ul type="disc">
+                    <li>v 0.0.0.1 Initial Commit</li>
+                </ul>
+            </p>    
+            <h3 id="driverDesc" name="driverDesc">Foundation Services driver description</h3>
+                The Timeout driver is part of the Foundation Services HAL driver library, it has two modes of operation: 
+                <ul type="disc">
+                    <li>Scheduler mode</li>
+                    <li>Stopwatch mode</li>
+                </ul>
+            </p>
+        </section>
+        <section>
+            <h3 id="schedulerMode" name="schedulerMode">Scheduler mode</h3>
+            <p>
+			The Scheduler mode allows timer tasks to be scheduled a specified number of timer ticks from now. A
+			timer task is a piece of code (i.e. a function) executed at a specific time by the timer after the task has
+			been added to the timers task queue. The execution delay or period is set in ticks, where one tick is
+			defined as a configurable number of clock cycles in the hardware timer implementing the Timeout driver.
+			Changing the number of clock cycles in a tick (by changing the timer prescaler) changes execution delays
+			for all tasks in the queue.
+            </p>
+        </section>
+        <section>
+            <h3 id="stopWatchMode" name="stopWatchMode">Stopwatch mode</h3>
+            <p>
+            The Stopwatch mode allows the program to start the stopwatch, do some operation, then stop the
+			stopwatch and measure the duration of the operation.
+            </p>
+        </section>
+        <section>
+            <h4 id="functionalDescription" name="functionalDescription">Functional Description</h4>
+            <p>
+            The Timeout Driver uses structures and linked-list implementations to perform functionalities such as
+			creating, adding, and deleting timers. The term "timer" that we will be referring to in this documentation is
+			represented by a structure timerStruct_t. Timer tasks can be scheduled for execution at a specified time 
+			by adding them to a scheduler queue. Tasks are added to the scheduler queue using the timeout_create()-function. 
+			This places the timer task, or more precisely, it's timer struct at the correct place in a sorted linked list. 
+			The list is sorted by the task's scheduled time for	execution. The task to execute first is at the head of the list. 
+			The linked list will have as may elements as there are tasks scheduled for execution.
+            </p>
+			<p>
+			Once the specified number of ticks has passed, the task is scheduled for execution. When this happens,
+			the timer struct is removed from the linked list, and the task's callback function and it's payload is placed
+			in another queue; the callback queue. Note that the callback function is not called automatically, the user
+			software must execute the callbacks in the callback queue using timeout_call_next_callback(). 
+			If no task has been scheduled for execution, this function returns immediately, so there is no need for any polling.
+			Using the timeout_call_next_callback() function instead of executing the callback immediately
+			allows the user code to check for pending callbacks and executing them at appropriate points in time, so
+			the execution won't disturb any timing-critical part of the application.
+			</p>
+			<p>
+			The task's callback function returns a value of type uint32_t. If this value is zero, the task will not
+			be rescheduled automatically. If this return value is non-null, the task will be automatically rescheduled for
+			execution after the number of ticks specified in the return value.
+			</p>
+			<p>
+			The stopwatch functionality is implemented using the same linked list as the scheduler mode. Multiple
+			stopwatches may be active at the same time. A variable of type timerStruct_t is used to hold
+			housekeeping information for each stopwatch. The linked list may hold timer structs of both scheduler
+			and stopwatch functionality at any time. A stopwatch cannot count longer than (timer_maximum range)/2.
+			After this point the stopwatch will automatically stop.
+			</p>
+        </section>
+		<section>
+            <h3 id="hardwareDependencies" name="hardwareDependencies">Hardware dependencies</h3>
+            <p>
+            The Timeout driver needs some sort of hardware that is able to measure a time interval. In MCUs, this is
+			typically implemented using some sort of timer/counter. Different MCUs have timers with different names
+			and functionalities, such as TMR0, TMR1/3/5, TMR2/4/6 etc. When the user has selected a device and
+			added the timeout driver, the Select timer field in the Hardware Settings pane in MCC will let the user select
+			the available hardware instances to use for implementing the Timeout functionality.
+            </p>
+			<p>
+			The corresponding selection will add the hardware instance of timer selected into the project resources. the user can set
+			many settings according to his need. For example, an option may allow changing the clock or prescaling used to
+			drive the underlying timer hardware.
+			</p>
+        </section>
+		<section>
+            <h3 id="softwareDependencies" name="softwareDependencies">Software dependencies</h3>
+            <p>
+			Many Timeout implementations use the interrupt functionality of the underlying hardware timer. Make sure that global interrupts
+			are enabled (using INTERRUPT_GlobalInterruptEnable()) and that the Interrupt Controller, if present, is configured so
+			that the timer interrupt is serviced correctly.
+            </p>
+		</section>
+		<section>
+            <h3 id="structures" name="structures">Structures</h3>
+            <h4> tmrStruct</h4>
+			<table class="content_table">
+				<tbody>
+					<tr> 
+						<td><b>Variables: </b></td> 
+					</tr>
+					<tr>
+						<td>timercallback_ptr_t</td>
+						<td>Pointer to a callback function that is called when this timer expires.</td>
+					</tr>
+					<tr> 
+                           <td>payload</td>
+                           <td>Pointer to data that user would like to pass along to the callback function.</td>
+                    </tr>
+					<tr> 
+                           <td>next</td> 
+                           <td>Pointer to a linked list of all timers that have expired and whose callback functions are due to be called</td>
+                    </tr>
+                    <tr> 
+                        <td>absoluteTime</td>
+                        <td>The number of ticks the timer will count before it expires.</td>
+                    </tr>						
+				</tbody>
+			</table>
+		</section>
+		<section>
+            <h3 id="typedefs" name="typedefs">Typedefs</h3>
+            <p>
+			<b>timercallback_ptr_t typedef</b><br>
+			typedef  uint32_t (*timercallback_ptr_t)(void *payload)<br><br>
+			<b>timerStruct_t typedef</b><br>
+			typedef  tmrStruct timerStruct_t
+            </p>
+		</section>
+		<section>
+            <h3 id="functions" name="functions">Functions</h3>
+            <h4>timeout_initialize</h4>									<!-- timeout_initialize-->
+			<p>
+			Initialize the Timeout driver.<br><br>
+			<b>void timeout_initialize(void)</b>
+			</p>
+            <br><br>
+			<h4>timeout_create</h4>									<!-- timeout_create-->
+			<p>
+			Schedule the specified timer task to execute at the specified time.<br><br>
+			<b>void timeout_create(timerStruct_t *timer, uint32_t timeout)</b>
+			</p>
+			<table class="content_table">
+				<tbody>
+					<tr> 
+						<td><b>Parameters: </b></td> 
+					</tr>
+					<tr>
+						<td>timer</td>
+						<td>Type: timerStruct_t typedef *</td>
+					</tr>
+					<tr> 
+                           <td></td>
+                           <td>Pointer to struct describing the task to execute</td>
+                    </tr>
+					<tr> 
+                           <td>timeout </td> 
+                           <td>Type: uint32_t</td>
+                    </tr>
+                    <tr> 
+                        <td></td>
+                        <td>Number of ticks to wait before executing the task</td>
+                    </tr>						
+				</tbody>
+			</table>
+			<br><br>
+			<h4>timeout_delete</h4>								<!-- timeout_delete-->
+			<p>
+			Delete the specified timer task so it won't be executed.<br><br>
+			<b>void timeout_delete(timerStruct_t *timer)</b>
+			</p>
+            <table class="content_table">
+                <tbody>
+                        <tr> 
+							<td><b>Parameters:</b></td> 
+                        </tr>
+                        <tr>
+							<td>timer</td>
+							<td>Type: timerStruct_t typedef *</td>
+						</tr>
+						<tr> 
+							<td></td>
+							<td>Pointer to struct describing the task to execute</td>
+						</tr>
+				</tbody>
+			</table>
+			<br><br>
+			<h4>timeout_flushAll</h4>									<!-- timeout_flushAll-->
+			<p>
+			Delete all scheduled timer tasks.<br><br>
+			<b>void timeout_flushAll(void)</b>
+			</p>
+			<br><br>
+			<h4>timeout_callNextCallback</h4>									<!-- timeout_callNextCallback-->
+			<p>
+			Execute the next timer task that has been scheduled for execution.<br><br>
+			<b>void timeout_callNextCallback(void)</b>
+			</p>
+			<br><br>
+			<h4>timeout_startTimer</h4>								<!-- timeout_startTimer-->
+			<p>
+			Start a stopwatch using the specified timer struct.<br><br>
+			<b>void timeout_startTimer(timerStruct_t *timer)</b>
+			</p>
+			<p>
+			Start a timer with (maximum range)/2. You cannot time more than this and the timer will stop after this
+			time elapses.
+			</p>
+            <table class="content_table">
+               <tbody>
+                    <tr> 
+						<td><b>Parameters:</b></td> 
+                    </tr>
+                    <tr> 
+						<td>timer </td> 
+                        <td>Type: timerStruct_t typedef *</td>
+                    </tr>
+                    <tr> 
+						<td></td>
+						<td>Struct holding the stopwatch</td>
+                    </tr>
+				</tbody>
+			</table>
+			<br><br>
+			<h4>timeout_stopTimer</h4>								<!-- timeout_stopTimer-->
+			<p>
+			Stop the specified stopwatch and return the elapsed number of ticks.<br><br>
+			<b>uint32_t timeout_stopTimer(timerStruct_t *timer)</b>
+			</p>
+            <table class="content_table">
+               <tbody>
+                    <tr> 
+						<td><b>Parameters:</b></td> 
+                    </tr>
+                    <tr> 
+						<td>timer </td> 
+                        <td>Type: timerStruct_t typedef *</td>
+                    </tr>
+                    <tr> 
+						<td></td>
+						<td>Struct holding the stopwatch</td>
+                    </tr>
+				</tbody>
+			</table>
+			<br>
+			<table class="content_table">
+				<tbody>
+					<tr> 
+						<td><b>Returns: </b></td> 
+						<td>Type: uint32_t</td>
+					</tr>
+				</tbody>
+			</table>
+			<p>
+			The number of ticks passed since starting the stopwatch.
+			</p>
+		</section>
+    </body>
+</html>

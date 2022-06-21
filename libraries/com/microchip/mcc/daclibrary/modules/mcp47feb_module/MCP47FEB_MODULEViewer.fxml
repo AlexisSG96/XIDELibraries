@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.daclibrary.modules.mcp47feb_module.MCP47FEB_MODULEViewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" layoutY="-2.0" text="MCP47FEBxx Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <VBox>
+                    <children>
+                  <HBox prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="25.0" text="Device">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <ComboBox fx:id="cboDevice" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </HBox>
+                  <Separator prefWidth="200.0" />
+                  <HBox prefHeight="40.0" prefWidth="358.0">
+                     <children>
+                        <Label prefHeight="25.0" text="MSSP">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin></Label>
+                                <ComboBox fx:id="cboMssp" />
+                        <CheckBox fx:id="ckI2cAddrLock" onAction="#onCheckBoxAction" text="Lock I2C Address">
+                           <HBox.margin>
+                              <Insets left="10.0" top="5.0" />
+                           </HBox.margin>
+                        </CheckBox>
+                     </children>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </HBox>
+                        <HBox>
+                            <children>
+                                <Label text="I2C Addrees (7bit - HEX)">
+                           <padding>
+                              <Insets right="5.0" top="3.0" />
+                           </padding></Label>
+                              <TextField fx:id="txtI2cAddress" promptText="Choose Value" />
+                        <Label fx:id="lblI2cAddress" style="-fx-text-fill: RED;" text="Error label" textFill="RED" />
+                            </children>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                        </HBox>
+                  <ScrollPane fitToWidth="true" prefHeight="382.0">
+                     <content>
+                        <VBox maxHeight="1.7976931348623157E308">
+                           <children>
+                              <TitledPane fx:id="titledPaneCh0" animated="false" expanded="true" text="Channel 0">
+                                 <content>
+                                    <AnchorPane>
+                                       <children>
+                                          <TabPane layoutY="-10.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <tabs>
+                                                <Tab text="Volatile">
+                                                   <content>
+                                                      <AnchorPane>
+                                                         <children>
+                                                            <Label fx:id="lblVolatileDacCh0" layoutX="1.0" layoutY="6.0" maxWidth="1.7976931348623157E308" text="DAC value (8 bit-HEX)" />
+                                                            <TextField fx:id="txtCh0VolatileDac" layoutX="86.0" layoutY="2.0" AnchorPane.leftAnchor="125.0" />
+                                                            <Label layoutX="1.0" layoutY="93.0" text="Vref" />
+                                                            <ComboBox fx:id="cboCh0VolatileGain" layoutX="86.0" layoutY="31.0" prefWidth="150.0" AnchorPane.leftAnchor="125.0" />
+                                                            <ComboBox fx:id="cboCh0VolatilePowerdown" layoutX="86.0" layoutY="61.0" prefWidth="150.0" AnchorPane.leftAnchor="125.0" />
+                                                            <Label layoutX="1.0" layoutY="65.0" text="Powerdown" />
+                                                            <Label layoutX="1.0" layoutY="35.0" text="Gain" />
+                                                            <ComboBox fx:id="cboCh0VolatileVref" layoutX="86.0" layoutY="89.0" prefWidth="150.0" AnchorPane.leftAnchor="125.0" />
+                                                            <Label fx:id="lblVolatileDacCh0Err" layoutX="275.0" layoutY="6.0" style="-fx-text-fill: RED;" text="Error label" textFill="RED" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </Tab>
+                                                <Tab text="Nonvolatile">
+                                                   <content>
+                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <Label fx:id="lblNonvolatileDacCh0" layoutX="1.0" layoutY="6.0" text="DAC value (8 bit-HEX)" />
+                                                                  <TextField fx:id="txtCh0NonvolatileDac" layoutX="86.0" layoutY="2.0" AnchorPane.leftAnchor="125.0" />
+                                                                  <Label layoutX="1.0" layoutY="93.0" text="Vref" />
+                                                                  <ComboBox fx:id="cboCh0NonvolatileGain" layoutX="125.0" layoutY="31.0" prefWidth="150.0" AnchorPane.leftAnchor="125.0" />
+                                                                  <ComboBox fx:id="cboCh0NonvolatilePowerdown" layoutX="125.0" layoutY="61.0" prefWidth="150.0" AnchorPane.leftAnchor="125.0" />
+                                                                  <Label layoutX="1.0" layoutY="65.0" text="Powerdown" />
+                                                                  <Label layoutX="1.0" layoutY="35.0" text="Gain" />
+                                                                  <ComboBox fx:id="cboCh0NonvolatileVref" layoutX="125.0" layoutY="89.0" prefWidth="150.0" AnchorPane.leftAnchor="125.0" />
+                                                                  <Label fx:id="lblNonvolatileDacCh0Err" layoutX="275.0" layoutY="6.0" style="-fx-text-fill: RED;" text="Error label" textFill="RED" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </Tab>
+                                                <Tab text="Wiperlock">
+                                                   <content>
+                                                      <AnchorPane>
+                                                         <children>
+                                                            <Label layoutX="4.0" layoutY="115.0" text="NOTE: HV commands are needed for the locks to be changed." />
+                                                            <ComboBox fx:id="cboCh0Locks" layoutX="18.0" layoutY="22.0" prefWidth="150.0" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </Tab>
+                                             </tabs>
+                                          </TabPane>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </TitledPane>
+                              <TitledPane fx:id="titledPaneCh1" animated="false" expanded="true" text="Channel 1">
+                                 <content>
+                                    <AnchorPane>
+                                       <children>
+                                          <TabPane layoutY="-10.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <tabs>
+                                                <Tab text="Volatile">
+                                                   <content>
+                                                      <AnchorPane>
+                                                         <children>
+                                                            <Label fx:id="lblVolatileDacCh1" layoutX="1.0" layoutY="6.0" text="DAC value (8 bit-HEX)">
+                                                               <padding>
+                                                                  <Insets right="10.0" />
+                                                               </padding></Label>
+                                                            <TextField fx:id="txtCh1VolatileDac" layoutX="86.0" layoutY="2.0" AnchorPane.leftAnchor="125.0" />
+                                                            <Label layoutX="1.0" layoutY="93.0" text="Vref" />
+                                                            <ComboBox fx:id="cboCh1VolatileGain" layoutX="86.0" layoutY="31.0" prefWidth="150.0" AnchorPane.leftAnchor="125.0" />
+                                                            <ComboBox fx:id="cboCh1VolatilePowerdown" layoutX="86.0" layoutY="61.0" prefWidth="150.0" AnchorPane.leftAnchor="125.0" />
+                                                            <Label layoutX="1.0" layoutY="65.0" text="Powerdown" />
+                                                            <Label layoutX="1.0" layoutY="35.0" text="Gain" />
+                                                            <ComboBox fx:id="cboCh1VolatileVref" layoutX="86.0" layoutY="89.0" prefWidth="150.0" AnchorPane.leftAnchor="125.0" />
+                                                            <Label fx:id="lblVolatileDacCh1Err" layoutX="275.0" layoutY="6.0" style="-fx-text-fill: RED;" text="Error label" textFill="RED" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </Tab>
+                                                <Tab text="Nonvolatile">
+                                                   <content>
+                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <Label fx:id="lblNonvolatileDacCh1" layoutX="1.0" layoutY="6.0" text="DAC value (8 bit-HEX)" />
+                                                                  <TextField fx:id="txtCh1NonvolatileDac" layoutX="86.0" layoutY="2.0" AnchorPane.leftAnchor="125.0" />
+                                                                  <Label layoutX="1.0" layoutY="93.0" text="Vref" />
+                                                                  <ComboBox fx:id="cboCh1NonvolatileGain" layoutX="125.0" layoutY="31.0" prefWidth="150.0" AnchorPane.leftAnchor="125.0" />
+                                                                  <ComboBox fx:id="cboCh1NonvolatilePowerdown" layoutX="86.0" layoutY="61.0" prefWidth="150.0" AnchorPane.leftAnchor="125.0" />
+                                                                  <Label layoutX="1.0" layoutY="65.0" text="Powerdown" />
+                                                                  <Label layoutX="1.0" layoutY="35.0" text="Gain" />
+                                                                  <ComboBox fx:id="cboCh1NonvolatileVref" layoutX="86.0" layoutY="89.0" prefWidth="150.0" AnchorPane.leftAnchor="125.0" />
+                                                                  <Label fx:id="lblNonvolatileDacCh1Err" layoutX="275.0" layoutY="6.0" style="-fx-text-fill: RED;" text="Error label" textFill="RED" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </Tab>
+                                                <Tab text="Wiperlock">
+                                                   <content>
+                                                      <AnchorPane>
+                                                         <children>
+                                                            <Label layoutX="7.0" layoutY="84.0" text="NOTE: HV commands are needed for the locks to be changed." />
+                                                            <ComboBox fx:id="cboCh1Locks" layoutX="21.0" layoutY="14.0" prefWidth="150.0" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </Tab>
+                                             </tabs>
+                                          </TabPane>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                              </TitledPane>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+                    </children>
+                </VBox>
+            </content>
+        </TitledPane>
+    </children>
+    
+</AnchorPane>

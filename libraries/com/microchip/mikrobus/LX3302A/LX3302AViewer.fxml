@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mikrobus.LX3302A.LX3302AViewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" layoutY="-2.0" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <TitledPane animated="false" text="Interface">
+               <content>
+                  <StackPane>
+                     <children>
+                        <VBox>
+                           <children>
+                              <VBox spacing="10.0">
+                                 <children>
+                                    <CheckBox fx:id="pwmCheckBox" mnemonicParsing="false" onAction="#onAction" selected="true" text="PWM" />
+                                    <CheckBox fx:id="analogCheckBox" mnemonicParsing="false" onAction="#onAction" selected="true" text="Analog" />
+                                    <CheckBox fx:id="sentCheckBox" mnemonicParsing="false" text="SENT" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </VBox>
+                              <TitledPane fx:id="pwmPane" animated="false" text="PWM">
+                                 <content>
+                                    <VBox spacing="10.0">
+                                       <children>
+                                          <Label text="Connect the CCP input pin to the PWM output of the LX3302A." />
+                                          <VBox spacing="5.0">
+                                             <children>
+                                                <Label text="Select CCP module for capturing PWM signal:" />
+                                                <ComboBox fx:id="ccpComboBox" />
+                                             </children>
+                                          </VBox>
+                                          <VBox spacing="5.0">
+                                             <children>
+                                                <Label text="Select CCP capture timer:" />
+                                                <ComboBox fx:id="ccpTimerComboBox" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </TitledPane>
+                              <TitledPane fx:id="sentPane" animated="false" layoutX="10.0" layoutY="189.0" text="SENT">
+                                 <content>
+                                    <VBox spacing="10.0">
+                                       <children>
+                                          <Label text="Select SENT" />
+                                          <ComboBox fx:id="sentComboBox" />
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </TitledPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </StackPane>
+               </content>
+            </TitledPane>
+         </content>
+        </TitledPane>
+    </children>
+    
+</AnchorPane>

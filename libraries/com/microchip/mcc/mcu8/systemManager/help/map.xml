@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    <mapID target="mcu8_system_controls" url="controls.html"/>
+    <mapID target="mcu8_system_controls_currentsysclock" url="controls.html#currentsysclock"/>
+    <mapID target="mcu8_system_controls_oscselect" url="controls.html#oscselect"/>
+    <mapID target="mcu8_system_controls_sysclockselect" url="controls.html#sysclockselect"/>
+    <mapID target="mcu8_system_controls_internalclock" url="controls.html#internalclock"/>
+    <mapID target="mcu8_system_controls_externalclock" url="controls.html#externalclock"/>
+    <mapID target="mcu8_system_controls_pllenabled" url="controls.html#pllenabled"/>
+    <mapID target="mcu8_system_controls_swpllenabled" url="controls.html#swpllenabled"/>
+    
+    <mapID target="mcu8_system_wiki_getstarted" url="http://microchip.wikidot.com/mcu1102:start" wintype="external"/>
+    <mapID target="mcu8_system_wiki_osc" url="http://microchip.wikidot.com/8bit:osc" wintype="external"/>
+
+</map>

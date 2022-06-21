@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.rtcc_8bit.RTCCViewer">
+    <children>
+      <TitledPane collapsible="false" layoutY="-2.0" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <GridPane fx:id="basePane" hgap="5.0" layoutY="-16.0" prefHeight="300.0" prefWidth="243.0" vgap="5.0">
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+               </rowConstraints>
+               <children>
+                  <TitledPane fx:id="alarmPane" collapsible="false" GridPane.columnSpan="4" GridPane.rowIndex="7" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                     <content>
+                        <GridPane fx:id="alarmGridPane" hgap="5.0" vgap="5.0">
+                           <children>
+                              <Label text="Alarm Frequency" GridPane.rowIndex="2" GridPane.vgrow="NEVER" />
+                              <ComboBox fx:id="cmbAlarmFrequency" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label text="Alarm Count" GridPane.rowIndex="3" />
+                              <CheckBox fx:id="enableAlarmRepeat" mnemonicParsing="false" onAction="#onAction" text="Repeat Alarm Count" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                              <Label text="Alarm Time" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                              <TextField fx:id="tfAlarmCountControl" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                           </columnConstraints>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints>
+                        </GridPane>
+                     </content>
+                     <graphic>
+                        <CheckBox fx:id="enableAlarm" mnemonicParsing="false" onAction="#onAction" text="Alarm Enable " />
+                     </graphic>
+                  </TitledPane>
+                  <CheckBox fx:id="enableRTCCInterrupt" mnemonicParsing="false" onAction="#onAction" text="Enable RTCC Interrupt" GridPane.columnSpan="3" GridPane.rowIndex="9" GridPane.valignment="TOP" GridPane.vgrow="NEVER" />
+                  <CheckBox fx:id="enableRTCC" mnemonicParsing="false" onAction="#onAction" text="Enable RTCC" />
+                  <Label text="Clock source" GridPane.rowIndex="3" />
+                  <Label fx:id="lbClockSel" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <CheckBox fx:id="enableRtccWREN" mnemonicParsing="false" onAction="#onAction" prefHeight="17.0" prefWidth="149.0" text="RTCC Write Enable" visible="false" GridPane.columnIndex="2" GridPane.columnSpan="2" />
+                  <Label text="Clock Source" GridPane.rowIndex="2" GridPane.vgrow="NEVER" />
+                  <ComboBox fx:id="cmbClockSource" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                  <Label text="Initial Time" GridPane.rowIndex="5" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </GridPane>
+         </content>
+      </TitledPane>
+    </children>
+    
+</AnchorPane>

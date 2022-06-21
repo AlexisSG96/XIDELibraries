@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>NCO</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>Numerically Controlled Oscillator</h2>
+        <hr>
+        <section>
+            <h3 id="mode" name="mode">NCO Mode</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Selects between fixed (FDC) or variable (PFM) duty cycle.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>On each NCO accumulator overflow, the output of the NCO module can be either toggled (which yields a 50% duty cycle, if the increment is constant), 
+                                or made active for a predefined number of clock periods (which yields a variable duty cycle, based on the Pulse Width Select clocks).
+                                Once you make a new Mode selection, the Actual NCO Output Frequency, the Accumulator Overflow Frequency and the Ton/Toff values are recalculated, according with the requested NCO Output Frequency.
+                            </td>
+                        </tr>                       
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="pulsewidthselect" name="pulsewidthselect">Pulse Width Select</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Defines the active state span of the NCO output.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>In Pulse Width Mode (PFM), you can define the number of clock periods for which the NCO Output remains active. The clock period is determined by the Clock Source.
+                                When the selected Pulse Width is greater than the accumulator overflow time frame, the output of the NCO operation is indeterminate.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Any change in the Pulse Width Select drop-down triggers a recalculation of the Ton and Toff timings.
+                            </td>
+                        </tr>                      
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Conditioned by the NCO mode selection (only available in PFM mode). </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>        
+        <section>
+            <h3 id="outputpolarity" name="outputpolarity">Output Polarity</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Selects the NCO Output signal logic.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>The output of the NCO module can be inverted by setting the Output Polarity to active low.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Any change triggers a switch between the Ton and Toff timings.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>  
+        <section>
+            <h3 id="clocksource" name="clocksource">Clock Source</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The clock signal driving the NCO module.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>The clock sources available as input to the NCO module are derived from the System Clock (Fosc) or from other peripherals.
+                                Whether you're selecting a CLC module output or the external signal supplied on the dedicated NCOCLK pin, you can fill in the Clock Source frequency in the CLC Clock or NCO External Clock input boxes.                             
+                                For any change in the Clock Source drop-down, MCC will attempt to reach the requested NCO Output Frequency by recalculating the Actual NCO Output Frequency, the Accumulator Overflow Frequency and the Ton/Toff timings.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>When selecting a Clock Source derived from another peripheral, a warning will be thrown in the Notifications tab, letting you know that you need to load and configure that specific peripheral.
+                            </td>
+                        </tr> 
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>    
+        <section>
+            <h3 id="clcclock" name="clcclock">CLC Clock</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Specifies the frequency of the CLC Output signal.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>When selecting the CLC Output as Clock Source, a CLC Clock input box will be made available. 
+                                You can use this input box to specify the frequency of the CLC module you've selected as NCO clock source.
+                                The input format is [Number][units], where units = Hz, kHz, MHz and must fall within the calculated range displayed.
+                                For any change in the CLC Clock input box, MCC will attempt to reach the requested NCO Output Frequency by recalculating the Actual NCO Output Frequency, the Accumulator Overflow Frequency and the Ton/Toff timings.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>If the input is out of range, a warning will be thrown in the Notifications tab.
+                                If the input contains other characters than the above format, the input will be considered as invalid and the input box will blink red until the input string becomes valid again.
+                            </td>
+                        </tr> 
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Conditioned by Clock Source selection (only available when Clock Source is a CLC module).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>   
+        <section>
+            <h3 id="clcclock" name="clcclock">NCO Clock</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Specifies the frequency of the signal on the NCOCLK pin.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>When selecting the NCOCLK pin as Clock Source, an NCO External Clock input box will be made available. 
+                                You can use this input box to specify the frequency of the signal driven into the NCOCLK pin.
+                                The input format is [Number][units], where units = Hz, kHz, MHz and must fall within the calculated range displayed.
+                                For any change in the NCO External Clock input box, MCC will attempt to reach the requested NCO Output Frequency by recalculating the Actual NCO Output Frequency, the Accumulator Overflow Frequency and the Ton/Toff timings.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>If the input is out of range, a warning will be thrown in the Notifications tab.
+                                If the input contains other characters than the above format, the input will be considered as invalid and the input box will blink red until the input string becomes valid again.
+                            </td>
+                        </tr> 
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Conditioned by Clock Source selection (only available when Clock Source is the NCOCLK pin).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>          
+        <section>
+            <h3 id="outputfrequency" name="outputfrequency">NCO Output Frequency</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The desired NCO Output Frequency</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>This input box allows you to directly specify the output frequency of the signal you want to obtain from the NCO module, without configuring all the NCO settings.
+                                MCC will do all the necessary calculations involving the Increment and Accumulator values in order to reach the requested Output Frequency.
+                                The result of these calculations is displayed in the Actual NCO Output Frequency label.
+                                If the Actual NCO Output Frequency is too far off from the desired one or if the desire frequency is out of the range specified for the NCO Output Frequency, you will need to modify some of the NCO settings. 
+                                In this case, you should start first with selecting a different Clock Source, preferably one offering a bigger input frequency - this will yield a greater range and resolution.
+                                Another important setting that might help is the NCO Mode - adjusting the PFM clocks can help with obtaining the resolution you need.                                
+                                The input format is [Number][units], where units = Hz, kHz, MHz and must fall within the calculated range displayed.
+                                For any change in the desired NCO Output Frequency input box, MCC will recalculate the Actual NCO Output Frequency, the Accumulator Overflow Frequency and the Ton/Toff timings.                                
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>If the input is out of range, a warning will be thrown in the Notifications tab.
+                                If the input contains other characters than the above format, the input will be considered as invalid and the input box will blink red until the input string becomes valid again.
+                            </td>
+                        </tr>                         
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>   
+        <section>
+            <h3 id="accfreq" name="accfreq">Accumulator Overflow Frequency</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Accumulator overflow rate</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>A fixed value is continuously added to the 20-bit Accumulator, which will periodically overflow with frequency determined by the following equation: Facc_overflow [Hz] = (NCO_Clock_Frequency * Increment_Value) / (2^20).
+                                This frequency can be further tailored to your needs by pulse streching (PFM Mode) and toggling a flip-flop (FDC Mode).                                
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Any change in the NCO Mode, Clock Source, desired NCO Output Frequency will result in an Accumulator Overflow Frequency recalculation.
+                            </td>
+                        </tr> 
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. Non-editable.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>         
+        <section>
+            <h3 id="tontoff" name="tontoff">Ton and Toff</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The timings of the Active and Inactive states of the NCO Output signal .</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>These timings are especially useful to check when doing pulse stretching (PFM Mode). 
+                                In this case, the Ton value represents a multiple of Clock Source periods, defined by the Pulse Width Select drop-down. Toff is then deduced from Ton and the Actual NCO Output Frequency.
+                                When using the FDC mode, the NCO output is basically a toggled Clock Source, therefore Ton will be equal to Toff.                                
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Any change in the NCO Mode, Pulse Width Select, Clock Source, desired NCO Output Frequency, Output Polarity will result in Ton and Toff recalculations.
+                            </td>
+                        </tr> 
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. Non-editable.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>        
+    </body>
+</html>

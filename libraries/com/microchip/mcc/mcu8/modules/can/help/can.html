@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>CAN</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>Enhanced Universal Control Area Network (ECAN)</h2>
+        <hr>
+        <section>
+            <h3 id="bus_settings" name=bus_settings">CAN Bus Settings</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>These settings control the CAN bus speed and transmission settings. </td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>You have the options to select the CAN BUS speed. Depending on the processor frequency and the CAN BUS speed a series of Tq values are being calculated and recommended. The software will automatically select the timing parameters for your current settings. The </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Based on the current Time Quanta selected, the Propagation Segment, the Phase Segment 1, and Phase Segment 2 are being calculated so the Sample Point is as close to 80% as possible. The user can manually override these settings, provided that the sum of the segments matches the selected Time Quanta.</td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>The CAN BUS settings are always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="general_settings" name="general_settings">General Settings</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td>Summary:</td>
+                            <td>These settings allow you to select the wake-up options.</td>
+                        </tr>
+                        <tr>
+                            <td>Description:</td>
+                            <td>The CAN Activity wake-up setting allows you to enable the wake-up on any CAN activity. The CAN line filter wake-up enable allows you to enable the wake-up on CAN Line Filter.</td>
+                        </tr>
+                        <tr>
+                            <td> Additional Information:</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td> Availability:</td>
+                            <td>The General Settings are always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="mode" name="mode">CAN Mode and CAN IDs</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td> Summary:</td>
+                            <td>Selects the CAN mode of operation.</td>
+                        </tr>
+                        <tr>
+                            <td> Description:</td>
+                            <td>Allows you to select the CAN mode of operation. Select between Mode0, Mode1, and Mode2. Depending on the current selected mode, the CAN hardware module will be configured different. Add the CAN Id,Mask, Filter, and Buffer information and then clock on the Add button. If a row needs to be deleted, select that row and press the Remove button.</td>
+                        </tr>
+                        <tr>
+                            <td> Additional Information:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Availability:</td>
+                            <td>The Mode Settings are always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>            
+            
+            
+    </body>
+</html>

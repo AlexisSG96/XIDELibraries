@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>UART</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>Universal Asynchronous Receiver Transmitter (UART)</h2>
+        <hr>
+        <section>
+            <h3 id="baudrate" name="baudrate">UART Baud Rate</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The Baud Rate dropdown box allows the user to specify the desired UART baud rate. The use can select one of the predefined baud rates, or enter a numeric value for the desired baud. </td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>After a baud rate is selected, MCC will calculate all of the possible baud rates for the device based on the current system clock setting. From these possible baud rates, the baud rate which is closest to the desired baud rate will be selected. The registers that control the baud rate will be updated to produce the actual baud rate. </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>The baud rate can be set using two different methods.  The baud rate can be selected on the Easy Setup tab, or on the Registers tab, the registers that control the baud rate can be set directly.  The behavior of MCC is different depending on the method used to set the baud rate.Setting the baud rate from the Easy Setup window, MCC will always use the desired baud rate setting to findan actual baud that is closest to the desired baud rate.  If the System Clock is later changed in MCC, the desired baud rate will not change.MCC will again search for an actual baud that is closest to the desired baud, based on the new System Clock value.Setting the baud rate by configuring the registers from the Registers window, MCC will discard desired baud rate. The baud rate dropdown box will display the actual baud rate that will be produced from the register settings. The register settings that control the baud rate will not be changed by MCC.  If The System Clock is later changed in MCC,the new actual baud rate will be calculated and shown in the Baud Rate dropdown box. </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>The Baud Rate Dropdown is always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="txrxbuffer" name="txrxbuffer">Software Transmit/Receive Buffer Size</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td> Summary:</td>
+                            <td>The Software Transmit and Receive Buffer size dropdown boxes allow the buffer size to be specified</td>
+                        </tr>
+                        <tr>
+                            <td> Description:</td>
+                            <td>When using interrupts to process the UART data, buffers must be provided to allow the interrupt service routine to store data to be sent or received.  These controls specify the size of the ring buffer that will be used.</td>
+                        </tr>
+                        <tr>
+                            <td> Additional Information:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td> Availability:</td>
+                            <td>The Software Transmit and Receive Buffer Size dropdown boxes are only available if the &#39;Enable UART Interrupts&#39; check box is checked.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+		<section>
+            <h3 id="rxaddr" name="rxaddr">Receiver Address</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The Receiver Address text box allows the user to enter the receiver address in Asynchronous 9-bit mode.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>In Asynchronous 9-bit mode, after the receiver address is entered in the text box and generates the code, the receiver address is placed in the &#39;UXP2L&#39; register of the Initialize function. </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>The receiver address can be set using two different methods.  The receiver address can be enetered in the Easy Setup tab or directly entered in the &#39;UXP2L&#39; text field in the Registers view. This will be placed in the &#39;UXP2L&#39; register of the Initialize function.  Also we can use &#39;UARTx_SetAddresstoTransmit(uint8_t txAddress)&#39; function to set the receiver address.</td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>The Receiver Address text box is only available to edit in Asynchronous 9-bit mode. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>ZCD</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>Zero Cross Detection (ZCD)</h2>
+        <hr>
+        <section>
+            <h3 id="outputpolarity" name="outputpolarity">ZCD Logic Output Polarity</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td> The Logic Output Polarity dropdown box can be set to invert or not the ZCDxOUT bit. </td>   
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td> The output of the ZCD module is monitored by the state of the ZCDxOUT bit which can be controlled by setting the ZCDxPOL bit. Changing the ZCDxPOL bit will cause an interrupt, regardless of the level if the ZCDxEN bit.  </td>   
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td> The Logic Output Polarity is always available. </td>   
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+    </body>
+</html>

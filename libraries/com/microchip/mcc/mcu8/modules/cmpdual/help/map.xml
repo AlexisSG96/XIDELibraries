@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    <mapID target="mcu8_cmp_controls" url="controls.html"/>
+    <mapID target="mcu8_cmp_positiveinput" url="controls.html#positiveinput"/>
+    <mapID target="mcu8_cmp_negativeinput" url="controls.html#negativeinput"/>
+    <mapID target="mcu8_cmp_edgetriggeredinterrupt" url="controls.html#edgetriggeredinterrupt"/>
+    <mapID target="mcu8_cmp_wiki" url="http://microchip.wikidot.com/8bit:cmp" wintype="external"/>
+    <mapID target="mcu8_cmp_basics" url="http://microchip.wikidot.com/asp0107:comparators" wintype="external"/>
+    <mapID target="mcu8_cmp_cmpfvr" url="http://microchip.wikidot.com/projects:mcu1101-project-8" wintype="external"/>
+</map>

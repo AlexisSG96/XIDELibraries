@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mikrobus.THERMO5.Thermo5Viewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" prefHeight="218.0" prefWidth="400.0" text="Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+            </content>
+            <content>
+                <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                    <children>
+                        <CheckBox mnemonicParsing="false" text="Internal Diode" fx:id="Int_Diode" onAction="#onAction"/>
+                        <CheckBox mnemonicParsing="false" text="External Diode 1" fx:id="Ext_Diode1" onAction="#onAction"/>
+                        <CheckBox mnemonicParsing="false" text="External Diode 2" fx:id="Ext_Diode2" onAction="#onAction"/>
+                        <CheckBox mnemonicParsing="false" text="External Diode 3" fx:id="Ext_Diode3" onAction="#onAction"/>
+                        <CheckBox mnemonicParsing="false" text="Extended Range" fx:id="Ext_Range" onAction="#onAction"/>
+                        <CheckBox mnemonicParsing="false" text="Alert Comp. Mode" fx:id="Comp_Mode" onAction="#onAction"/>
+                    </children>
+                </VBox>
+            </content>
+        </TitledPane>
+    </children>
+</AnchorPane>

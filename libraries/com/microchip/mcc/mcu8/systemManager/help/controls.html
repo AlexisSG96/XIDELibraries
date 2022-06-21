@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>SYSTEM</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>System Module</h2>
+        <hr>
+        <section>
+            <h3 id="currentsysclock" name="currentsysclock">Current System Clock</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The microntroller clock frequency (Fosc).</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>This is the clock frequency that the microcontroller core operates with. All timings are determined by this value.
+                                You can change its value using a combination of the settings below.
+                            </td>
+                        </tr>   
+                        <tr> 
+                            <td>Additional information: </td> 
+                            <td>This is not the clock frequency driven to peripherals, which is Fosc/4.
+                            </td>
+                        </tr>                         
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. Not directly writable.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+         <section>
+            <h3 id="oscselect" name="oscselect">Oscillator Select</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Defines via the Configuration Registers the oscillator used to generate the System Clock.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>A variety of clock sources is available for each device. 
+                                The clock source list may vary from one device to another, but you will always have the basic choice between using internal or external clock sources.   
+                                Selecting an internal clock disables the External Clock input box, while selecting an external clock disables the Internal Clock drop-down.
+                                Your selection is mapped into the FOSC setting found in the device Configuration Registers. 
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Each new selection triggers a Current System Clock update.
+                                All time-sensitive peripherals (i.e. EUSART, Timers, PWM) are notified by this change and, if needed, some timings are recalculated.
+                            </td>
+                        </tr>                         
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+         <section>
+            <h3 id="sysclockselect" name="sysclockselect">System Clock Select</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Override control for defining the system clock.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>Depending on the device, you have the choice to define your System Clock source from:
+                                <p> - the FOSC setting in the device Configuration Registers (selectable from the Oscillator Select comobobox or via the Registers View of MCC). </p>
+                                <p> - the Internal Osccilator (INTOSC), via the IRCF setting in the Oscillator module . </p>
+                                <p> - the Secondary Oscillator (SCS) </p>
+                                <p> - the clock supplied to the Timer1 Oscillator circuitry</p>
+                            </td>
+                        </tr> 
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Each new selection triggers a Current System Clock update.
+                                All time-sensitive peripherals (i.e. EUSART, Timers, PWM) are notified by this change and, if needed, some timings are recalculated.
+                            </td>
+                        </tr>                         
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. Options may vary.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>        
+         <section>
+            <h3 id="internalclock" name="internalclock">Internal Clock</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>INTOSC clock frequency.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>Selects between several internal clock frequencies. Some devices offer multiple options for the same clock frequency which are generated using different INTOSC modes of operation.
+                                Most devices contain explicitly marked options that can be used together with an internal Phase Locked Loop (PLL) multiplier to reach higher clock frequencies. 
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Each new selection triggers a Current System Clock update.
+                                All time-sensitive peripherals (i.e. EUSART, Timers, PWM) are notified by this change and, if needed, some timings are recalculated.
+                            </td>
+                        </tr>                         
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>The Internal Clock is disabled when the External Clock is enabled and viceversa.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>       
+         <section>
+            <h3 id="externalclock" name="externalclock">External Clock</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The clock frequency of the selected external clock source.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>If you select an external clock source via the Oscillator Select drop-down, the Internal Clock drop-down is disabled and the External Clock is enabled instead.
+                                You are required to input the external clock frequency you will be supplying on the oscillator pins. 
+                                This is crucial for time-dependent peripherals and, though it may be left unchanged if you don't use time-dependent modules, you are strongly encouraged to fill it in to match your actual application.
+                                The input format is [Number][units], where units = Hz, kHz, MHz. Using a value greater than the device maximum frequency will result into a warning in the Notifications tab.
+                                Using an input string non-compliant with this format will yield the input box invalid and blinking red until the input becomes valid again or the focus is shifted.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Each new selection triggers a Current System Clock update.
+                                All time-sensitive peripherals (i.e. EUSART, Timers, PWM) are notified by this change and, if needed, some timings are recalculated.
+                            </td>
+                        </tr>                         
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>The Internal Clock is disabled when the External Clock is enabled and viceversa.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>   
+         <section>
+            <h3 id="pllenabled" name="pllenabled">PLL Enabled</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Enables the PLL via the Configuration Registers.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>If enabled, this setting will override the Software PLL Enabled setting as it is mapped directly into the Configuration Registers instead of the Oscillator module registers.
+                                In this case, the Software PLL Enabled checkbox is unchecked and disabled.
+                                Depending on the multiplication factor (typically 3x or 4x) and if the selected clock can be used with the PLL, the Current System Clock (FOSC) is recalculated.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>All time-sensitive peripherals (i.e. EUSART, Timers, PWM) are notified by this change and, if needed, some timings are recalculated.
+                                A warning is thrown in the Notifications tab if you have selected the PLL Enabled checkbox and if the System Clock Select is set to INTOSC.
+                            </td>
+                        </tr>                         
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Not usable for non-PLL frequencies or if the System Clock Select is set to INTOSC.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>       
+         <section>
+            <h3 id="swpllenabled" name="swpllenabled">Software PLL Enabled</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Enables the PLL via the Oscillator Registers.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>If the PLL Enabled setting is also enabled, this setting will be overridden and therefore unusable.
+                                In this case, the Software PLL Enabled checkbox is unchecked and disabled.
+                                Depending on the multiplication factor (typically 3x or 4x) and if the selected clock can be used with the PLL, the Current System Clock (FOSC) is recalculated.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>All time-sensitive peripherals (i.e. EUSART, Timers, PWM) are notified by this change and, if needed, some timings are recalculated.
+                                A warning is thrown in the Notifications tab if you have selected the PLL Enabled checkbox and if the System Clock Select is set to INTOSC.
+                            </td>
+                        </tr>                         
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Not usable for non-PLL frequencies or if the System Clock Select is set to INTOSC.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>          
+    </body>
+</html>

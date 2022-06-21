@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    
+    <!-- main help files -->
+    <mapID target="fatfs_main" url="controls.html"/>
+    <mapID target="fatfs_link" url="controls.html#fatfs_link"/>
+    <mapID target="fatfs_config_demo" url="config_demo.html"/>
+    <mapID target="fatfs_config_function" url="config_function.html"/>
+    <mapID target="fatfs_config_locale" url="config_locale.html"/>
+    <mapID target="fatfs_config_system" url="config_system.html"/>
+    <mapID target="fatfs_config_driver_table" url="config_driver_table.html"/>
+    
+    <!-- GUI control redirects -->
+    <mapID target="fatfs_demo_enable" url="config_demo.html#enable_demo"/>
+    
+    <mapID target="fatfs_functions" url="config_function.html"/>
+    <mapID target="fatfs_read_only" url="config_function.html#read_only"/>
+    <mapID target="fatfs_function_optimization" url="config_function.html#function_optimization"/>
+    <mapID target="fatfs_string_options" url="config_function.html#string_options"/>
+    <mapID target="fatfs_use_find" url="config_function.html#use_find"/>
+    <mapID target="fatfs_use_mkfs" url="config_function.html#use_mkfs"/>
+    <mapID target="fatfs_use_fast_seek" url="config_function.html#use_fast_seek"/>
+    <mapID target="fatfs_use_expand" url="config_function.html#use_expand"/>
+    <mapID target="fatfs_use_chmod" url="config_function.html#use_chmod"/>
+    <mapID target="fatfs_use_label" url="config_function.html#use_label"/>
+    <mapID target="fatfs_use_forward" url="config_function.html#use_foward_function"/>
+    <mapID target="fatfs_rpath" url="config_function.html#rpath"/>
+    <mapID target="fatfs_getcwd" url="config_function.html#getcwd"/>
+    <mapID target="fatfs_trust_free_cluster" url="config_function.html#trust_free_cluster"/>
+    <mapID target="fatfs_trust_last_allocated" url="config_function.html#trust_last_allocated"/>
+    <mapID target="fatfs_multi_partition" url="config_function.html#multi_partition"/>
+    <mapID target="fatfs_use_trim" url="config_function.html#use_trim"/>
+    <mapID target="fatfs_lock_enable" url="config_function.html#lock_enable"/>
+    <mapID target="fatfs_lock" url="config_function.html#lock"/>
+    
+    <mapID target="fatfs_lfn" url="config_long_file_names.html"/>
+    <mapID target="fatfs_use_lfn" url="config_long_file_names.html#use_lfn"/>
+    <mapID target="fatfs_max_lfn" url="config_long_file_names.html#max_lfn"/>
+    <mapID target="fatfs_lfn_unicode" url="config_long_file_names.html#lfn_unicode"/>
+    <mapID target="fatfs_lfn_buf" url="config_long_file_names.html#lfn_buf"/>
+    <mapID target="fatfs_sfn_buf" url="config_long_file_names.html#sfn_buf"/>
+    <mapID target="fatfs_strf_encode" url="config_long_file_names.html#strf_encoding"/>
+    
+    <mapID target="fatfs_locale" url="config_locale.html"/>
+    <mapID target="fatfs_code_page" url="config_locale.html#code_page"/>
+    <mapID target="fatfs_volume_id_format" url="config_locale.html#volume_id_format"/>
+    <mapID target="fatfs_min_sector" url="config_locale.html#min_sector"/>
+    <mapID target="fatfs_max_sector" url="config_locale.html#max_sector"/>
+    <mapID target="fatfs_file_data_buffer" url="config_locale.html#file_data_buffer"/>
+    
+    <mapID target="fatfs_driver_table" url="config_driver_table.html"/>
+
+    <mapID target="fatfs_system_settings" url="config_system.html"/>
+    <mapID target="fatfs_exfat" url="config_system.html#exfat"/>
+    <mapID target="fatfs_timestamp" url="config_system.html#timestamp"/>
+    <mapID target="fatfs_reentrant" url="config_system.html#reentrant"/>
+    <mapID target="fatfs_timeout" url="config_system.html#timeout"/>
+    <mapID target="fatfs_sync" url="config_system.html#sync"/>
+    
+    <mapID target="fatfs_drive_table" url="config_driver_table.html"/>
+    <mapID target="fatfs_drive_insert" url="config_driver_table.html#insert_drive"/>
+    <mapID target="fatfs_drive_delete" url="config_driver_table.html#delete_drive"/>
+    <mapID target="fatfs_drive_firmware" url="config_driver_table.html#drive_driver"/>
+    <mapID target="fatfs_drive_number" url="config_driver_table.html#drive_number"/>
+    <mapID target="fatfs_drive_label" url="config_driver_table.html#drive_label"/>
+    <mapID target="fatfs_drive_remove" url="config_driver_table.html#remove_drive"/>
+    
+    <!-- FatFs page links -->
+    <mapID target="fatfs_homepage" url="http://elm-chan.org/fsw/ff/00index_e.html" wintype="external"/>
+    <mapID target="fatfs_FF_FS_READONLY" url="config_function.html#read_only"/>
+    <mapID target="fatfs_FF_FS_MINIMIZE" url="config_function.html#function_optimization" />
+    <mapID target="fatfs_FF_USE_STRFUNC" url="config_function.html#string_options" />
+    <mapID target="fatfs_FF_USE_FIND" url="config_function.html#use_find"/>
+    <mapID target="fatfs_FF_USE_MKFS" url="config_function.html#use_mkfs"/>
+    <mapID target="fatfs_FF_USE_FASTSEEK" url="config_function.html#use_fast_seek"/>
+    <mapID target="fatfs_FF_USE_EXPAND" url="config_function.html#use_expand"/>
+    <mapID target="fatfs_FF_USE_CHMOD" url="config_function.html#use_chmod"/>
+    <mapID target="fatfs_FF_USE_LABEL" url="config_function.html#use_label"/>
+    <mapID target="fatfs_FF_USE_FORWARD" url="config_function.html#use_foward_function"/>
+    <mapID target="fatfs_FF_CODE_PAGE" url="config_locale.html#code_page"/>
+    <mapID target="fatfs_FF_USE_LFN" url="config_locale.html#use_lfn"/>
+    <mapID target="fatfs_FF_MAX_LFN" url="config_locale.html#max_lfn"/>
+    <mapID target="fatfs_FF_LFN_UNICODE" url="config_locale.html#lfn_unicode"/>
+    <mapID target="fatfs_FF_LFN_BUF" url="config_locale.html#lfn_buf"/>
+    <mapID target="fatfs_FF_SFN_BUF" url="config_locale.html#sfn_buf"/>
+    <mapID target="fatfs_FF_STRF_ENCODE" url="config_locale.html#strf_encoding"/>
+    <mapID target="fatfs_FF_FS_RPATH" url="config_function.html#rpath"/>
+    <mapID target="fatfs_FF_VOLUMES" url="config_driver_table.html"/>
+    <mapID target="fatfs_FF_STR_VOLUME_ID" url="config_drives.html#volume_id_format"/>
+    <mapID target="fatfs_FF_VOLUME_STRS" url="config_driver_table.html"/>
+    <mapID target="fatfs_FF_MULTI_PARTITION" url="config_drives.html#multi_partition"/>
+    <mapID target="fatfs_FF_MIN_SS" url="config_drives.html#min_sector"/>
+    <mapID target="fatfs_FF_MAX_SS" url="config_drives.html#max_sector"/>
+    <mapID target="fatfs_FF_USE_TRIM" url="config_drives.html#use_trim"/>
+    <mapID target="fatfs_FF_FS_NOFSINFO" url="config_drives.html#trust_free_cluster"/>
+    <mapID target="fatfs_FF_FS_TINY" url="config_locale.html#file_data_buffer"/>
+    <mapID target="fatfs_FF_FS_EXFAT" url="config_system.html#exfat"/>
+    <mapID target="fatfs_FF_FS_NORTC" url="config_system.html#timestamp"/>
+    <mapID target="fatfs_FF_NORTC_MON" url="config_system.html#timestamp"/>
+    <mapID target="fatfs_FF_NORTC_MDAY" url="config_system.html#timestamp"/>
+    <mapID target="fatfs_FF_NORTC_YEAR" url="config_system.html#timestamp"/>
+    <mapID target="fatfs_FF_FS_LOCK" url="config_system.html#lock"/>
+    <mapID target="fatfs_FF_FS_REENTRANT" url="config_system.html#reentrant"/>
+    <mapID target="fatfs_FF_FS_TIMEOUT" url="config_system.html#timeout"/>
+    <mapID target="fatfs_FF_SYNC_t" url="config_system.html#sync"/>
+</map>

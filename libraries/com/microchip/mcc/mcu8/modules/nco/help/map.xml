@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    <mapID target="mcu8_nco_controls" url="controls.html"/>
+    <mapID target="mcu8_nco_controls_mode" url="controls.html#mode"/>
+    <mapID target="mcu8_nco_controls_pulsewidthselect" url="controls.html#pulsewidthselect"/>
+    <mapID target="mcu8_nco_controls_outputpolarity" url="controls.html#outputpolarity"/>
+    <mapID target="mcu8_nco_controls_clocksource" url="controls.html#clocksource"/>
+    <mapID target="mcu8_nco_controls_clcclock" url="controls.html#clcclock"/>
+    <mapID target="mcu8_nco_controls_ncoexternalclock" url="controls.html#ncoexternalclock"/>
+    <mapID target="mcu8_nco_controls_outputfrequency" url="controls.html#outputfrequency"/>
+    <mapID target="mcu8_nco_controls_accfreq" url="controls.html#accfreq"/>
+    <mapID target="mcu8_nco_controls_tontoff" url="controls.html#tontoff"/>  
+
+    <mapID target="mcu8_nco_wiki" url="http://microchip.wikidot.com/8bit:nco" wintype="external"/>
+</map>

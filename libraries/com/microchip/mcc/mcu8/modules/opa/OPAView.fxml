@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mcc.mcu8.modules.opa.OPAViewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" layoutY="-2.0" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <GridPane fx:id="opAmpGridPane" hgap="5.0" vgap="5.0">
+                    <columnConstraints>
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints vgrow="NEVER" />
+                    </rowConstraints>
+                    <children>
+                        <CheckBox fx:id="enableOpAmp" mnemonicParsing="false" onAction="#onAction" text="Enable OPAMP" />
+                  <GridPane fx:id="powerModeGridePane" hgap="5.0" vgap="5.0" GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints />
+                      <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints vgrow="NEVER" />
+                    </rowConstraints>
+                     <children>
+                        <Label fx:id="powerModeLb" text="Power Mode" />
+                        <ComboBox fx:id="powerModeSelect" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </GridPane>
+                  <TitledPane fx:id="channelSelectTitlePane" collapsible="false" text="Channel Select" GridPane.rowIndex="2">
+                     <content>
+                        <GridPane fx:id="channelSelectGridPane" hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints vgrow="NEVER" />
+                            <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                          </rowConstraints>
+                           <children>
+                              <Label fx:id="posChannelLb" text="Positive Channel" GridPane.vgrow="NEVER" />
+                              <Label fx:id="negChannelLb" text="Negative Channel" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                              <ComboBox fx:id="positiveChannel" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.vgrow="NEVER" />
+                              <ComboBox fx:id="negativeChannel" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                              <Label fx:id="opAmpChannelLb" text="OpAmp Channel" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="opAmpChannel" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane fx:id="overrideControlTitlePane" collapsible="false" text="Override Control" GridPane.rowIndex="3" GridPane.vgrow="NEVER">
+                     <content>
+                        <GridPane fx:id="overrideGridPane" hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints vgrow="NEVER" />
+                            <RowConstraints vgrow="NEVER" />
+                              <RowConstraints vgrow="NEVER" />
+                          </rowConstraints>
+                           <children>
+                              <Label fx:id="overrideModeLb" text="Mode:" GridPane.vgrow="NEVER" />
+                              <Label fx:id="intModeSelectLabel" text="Source:" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                              <ComboBox fx:id="modeSelect" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.vgrow="NEVER" />
+                              <ComboBox fx:id="sourceSelect" maxWidth="1.7976931348623157E308" onAction="#onAction" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="invertedSourcePolarityEnable" mnemonicParsing="false" onAction="#onAction" text="Inverted Source Polarity" GridPane.rowIndex="2" GridPane.vgrow="NEVER" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <CheckBox fx:id="unityGainConfigEnable" mnemonicParsing="false" onAction="#onAction" text="Unity Gain Configuration" GridPane.rowIndex="5" />
+                    </children>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </padding>
+                </GridPane>
+            </content>
+        </TitledPane>
+    </children>
+    
+</AnchorPane>

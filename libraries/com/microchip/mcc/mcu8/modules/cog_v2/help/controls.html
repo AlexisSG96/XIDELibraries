@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>COG</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css"></link>
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>COG</h2>
+        <hr>
+        <section>
+            <h3 id="hardware_settings" name="hardware_settings">Hardware Settings</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Sets the various COG hardware operating settings.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>Allows the user to select the general hardware settings, such as the clock source and an interrupt enable.</td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td></td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>The Hardware Settings are always available.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>                      
+        <section>
+            <h3 id="events" name="events">Events</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td> Summary:</td>
+                            <td>Sets the COG events parameters.</td>
+                        </tr>
+                        <tr>
+                            <td> Description:</td>
+                            <td>Select the parameters for the rising event and falling event. The two events are independent and there are separate settings for both of them. For both the rising and falling event you can select the source. Options may vary depending on the current selected device. The event source may be edge sensitive or level sensitive.  Typical options include Comparator Output, CCP, and COG. Other options include a dead-band count, blanking count and a phase delay.</td>
+                        </tr>
+                        <tr>
+                            <td> Additional Information:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td> Availability:</td>
+                            <td>The Events Settings are always available.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>   
+        <section>
+            <h3 id="output_pin" name="output_pin">Output Pins</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td> Summary:</td>
+                            <td>These settings enable the COGx output pins.</td>
+                        </tr>
+                        <tr>
+                            <td> Description:</td>
+                            <td>There are separate options for both outputs of the COG module. Both outputs can be enabled or disabled and the polarity is user-selectable.</td>
+                        </tr>
+                        <tr>
+                            <td> Additional Information:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td> Availability:</td>
+                            <td>The Output Pins Settings are always available.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="shut_down" name="shut_down">Auto Shut Down</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr>
+                            <td>Summary:</td>
+                            <td>Sets the the automatic shutdown settings.</td>
+                        </tr>
+                        <tr>
+                            <td>Description:</td>
+                            <td>The auto-shutdown section controls different auto-shutdown sources and options. Typical sources include comparators. The user also has the option to select the override logic level for both outputs of the COG.</td>
+                        </tr>
+                        <tr>
+                            <td>Additional Information:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td> Availability:</td>
+                            <td>The Auto Shut Down options are always available.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section> 
+    </body>
+</html>

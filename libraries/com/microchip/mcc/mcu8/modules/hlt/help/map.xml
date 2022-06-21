@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    <mapID target="mcu8_hlt_controls" url="controls.html"/>
+    <mapID target="mcu8_hlt_clock_source" url="controls.html#clock_source"/>    
+    <mapID target="mcu8_hlt_timer_period" url="controls.html#timer_period"/>
+    <mapID target="mcu8_hlt_signal_input" url="controls.html#signal_input"/> 
+    <mapID target="mcu8_hlt_software_settings" url="controls.html#software_settings"/>
+    <mapID target="mcu8_hlt_limit_timer" url="http://microchipdeveloper.com/8bit:hltmr" wintype="external"/>
+</map>

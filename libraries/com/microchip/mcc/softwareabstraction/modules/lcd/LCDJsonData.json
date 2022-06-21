@@ -1,0 +1,14 @@
+{"groupName": "LCD",
+	"packageInfo": [
+                {
+		"classNames": ["com.microchip.mcc.softwareabstraction.modules.lcd.LCD"],                          
+		"features": ["FEATURE_CLOCK",
+                 "FEATURE_MULTIPLEX_MODE",
+                 "FEATURE_WAVEFORM_TYPE",
+                 "FEATURE_BIAS_MODE",
+                 "FEATURE_INTERRUPT_SETTINGS",
+                 "FEATURE_BIAS_CONTROL",
+                 "FEATURE_INTERNAL_RESISTOR_LADDER"]
+                } 
+	]
+}

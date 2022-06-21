@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>ECCP</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>Enhanced Capture/Compare/PWM</h2>
+        <hr>
+        <section>
+            <h3 id="mode" name="mode">ECCP Mode</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>ECCP Mode Selection drop-down,</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>Selects between Capture, Compare and Enhanced PWM modes of operation of the ECCP module. Depending on the selection, only the corresponding settings below this drop-down are shown.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Some devices do not operate in any mode by default(ECCP Mode: disabled).</td>
+                        </tr>                         
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="timerselection" name="timerselection">Timer Selection</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Assigns a timer to the ECCP module for mode-specific functions.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>Irrespective of the selected mode, the ECCP module will need a timer to perform the desired functions. 
+                                In Capture mode, the timer is used in counter mode; in capture mode, the timer is left free-running to match a predefined value; in PWM mode, the timer period forms the base of the PWM period.
+                                When you make a timer selection a notification will pop-up in the notifications tab, letting you know you need to load and configure the timer you assigned to the ECCP module.
+                                Once you have loaded the timer module, the notification will change its type from Warning to Info, serving as a reminder you have assigned that timer module to the ECCP module.
+                                As a particular case, in the PWM mode, for each timer selected and loaded, the PWM Parameters section is updated with data (period, frequency, resolution) calculated based on information collected from the timer you selected.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>For some devices, the timer selection is disabled due to a single selection being available for that ECCP module.</td>
+                        </tr>                      
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Conditioned by the ECCP mode selection. Not available when ECCP Mode is disabled. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>        
+        <section>
+            <h3 id="dutycycle" name="dutycycle">Duty Cycle</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Defines the PWM duty cycle as percentage.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>Based on the PWM period and resolution, MCC converts the percentage input into a ECCP period register value. The resolution of the input is up to one decimal place (i.e. xx.x format).
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Using an out of range percentage input or non-numeric characters in the Duty Cycle input box will result in an invalid input which will render the box red until the input becomes valid again.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Conditioned by the ECCP mode selection. Not available when ECCP Mode is disabled, Capture or Compare. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>  
+        <section>
+            <h3 id="pwmdelaycounts" name="pwmdelaycounts">Enhanced PWM Delay Counts</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Sets the Programmable Dead-Band Delay</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>Most useful when Enhanced PWM mode is set to Half Bridge. It prevents a current shoot-through on the bridge using a customizable delay between turning on the high-side and low-side switches.
+                                You can input the delay as a number of instruction cycles (up to 64 cycles). An instruction cycle is defined as Tcy = Fosc/4, where Fosc = System Clock.
+                                The PWM Delay label will be updated with the corresponding calculated time slice.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Using an out of range input will throw a warning in the Notifications tab. Using non-integer or non-numeric characters will result in an invalid input which will render the box red until the input becomes valid again.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>On selected devices and only when ECCP Mode = Enhanced PWM. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>          
+        <section>
+            <h3 id="epwmmode" name="epwmmode">Enhanced PWM Mode</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Selects the PWM control mode.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>Offers different PWM control schemes, like independent output or n-bridge topologies. 
+                                Depending on the Enhanced PWM mode and the PWM Pins Polarity selections, the appropriate pins are selected automatically in the Pin Manager window. 
+                                Selecting the Single Output option allows you to use the Steering functionality which is disabled for all the other modes.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Only when ECCP Mode = Enhanced PWM. Options may vary.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>   
+        <section>
+            <h3 id="epwmsteering" name="epwmsteering">Enhanced PWM Steering</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Enable and configure the Pulse Steering functionality per each EPWM pin.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>If you only need to drive the same PWM output to one or multiple pins, you should use Pulse Steering.
+                                Once you enable steering via the Enable Steering checkbox, all steering-related settings are also enabled. 
+                                You can now select the EPWM pins you want to drive the same PWM signal to, by checking the corresponding checkbox. 
+                                Each checkbox is connected to the pin inside the Pin Manager window, so any selections in the Steering section will automatically select the pin in the Pin Manager window. 
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>When ECCP Mode = Enhanced PWM and Enhanced PWM Mode = Single Output. On some devices the PWM Mode may have two Single Output options, with and without Steering. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>  
+        <section>
+            <h3 id="autoshutdown" name="autoshutdown">Auto-shutdown</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Enable and configure the Auto-shutdown feature.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>This is a safety-related feature that allows defining the system behavior in case of an electrical fault. 
+                                Using the auto-shutdown drop-down you can select between various potential sources of failure and combinations of them, appealing to different scenarios.
+                                Once you've selected an auto-shutdown source (i.e. Auto-shutdown on != disabled) all the Auto-shutdown controls are made available for configuration.
+                                You can define the shut-down pin state and choose if the shutdown is followed by a restart automatically.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>On selected devices and only when ECCP Mode = Enhanced PWM. Auto-shutdown sources may vary from one device to another.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>        
+    </body>
+</html>

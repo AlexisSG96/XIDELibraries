@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:id="rootNode" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.microchip.mikrobus.SECURE4.SECURE4Viewer">
+    <children>
+        <TitledPane animated="false" collapsible="false" layoutY="-2.0" text="Hardware Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <VBox prefHeight="460.0" prefWidth="656.0">
+                    <children>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Label alignment="CENTER" text="IMPORTANT!" textAlignment="CENTER" textFill="#ff0101">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="28.0" prefWidth="636.0">
+                     <children>
+                        <Label alignment="CENTER" text="A brand-new blank Secure ECC608 device can only be initialized and provisioned ONCE!" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="24.0" prefWidth="636.0">
+                     <children>
+                        <Label alignment="CENTER" text="Please double-check your settings before clicking the &quot;Generate&quot; button.">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Separator prefHeight="19.0" prefWidth="637.0" />
+                     </children>
+                  </HBox>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="313.0" minWidth="10.0" prefWidth="271.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="380.0" minWidth="10.0" prefWidth="365.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <HBox>
+                           <children>
+                              <CheckBox fx:id="lockConfigzone" mnemonicParsing="false" text="Lock Configuration Zone" />
+                           </children>
+                        </HBox>
+                        <HBox GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Label text="Device Address" />
+                              <TextField fx:id="textDeviceaddress" translateX="33.0" />
+                           </children>
+                        </HBox>
+                        <HBox GridPane.rowIndex="1">
+                           <children>
+                              <Label text="Comms Mode" />
+                              <ComboBox disable="true" promptText="I2C Mode" translateX="33.0" />
+                           </children>
+                        </HBox>
+                        <HBox GridPane.rowIndex="2">
+                           <children>
+                              <Label text="OTP Mode" />
+                              <ComboBox fx:id="cmbOTPmode" translateX="51.0" />
+                           </children>
+                        </HBox>
+                        <HBox GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <children>
+                              <Label text="Watchdog Duration" />
+                              <ComboBox fx:id="cmbWDT" translateX="10.0" />
+                           </children>
+                        </HBox>
+                        <HBox GridPane.rowIndex="3">
+                           <children>
+                              <Label text="Selector Mode" />
+                              <ComboBox fx:id="cmbSelectmode" translateX="30.0" />
+                           </children>
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </HBox>
+                        <HBox GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <children>
+                              <Label text="TTL input level" />
+                              <ComboBox fx:id="cmbTTL" translateX="38.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </GridPane>
+                    </children>
+                </VBox>
+            </content>
+        </TitledPane>
+    </children>
+    
+</AnchorPane>

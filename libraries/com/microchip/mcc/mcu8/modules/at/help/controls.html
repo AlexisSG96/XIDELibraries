@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>AT</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>Angular Timer (AT)</h2>
+        <hr>
+        <section>
+            <h3 id="resolution" name="resolution">Resolution</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The Resolution section allows the user to configure the period measurement resolution of the Angular Timer. </td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>The Phase Count is always equal to the period measurement resolution, irrespective of the operating mode of the Angular Timer (single/multi-pulse). 
+                                Therefore, by modifying the Max Phase Value and Expected Pulse input boxes the Phase Count changes and with it, the Resolution (displayed in degrees) changes as well. 
+                                The Expected Pulse is limited by the Max Phase Value and is available for modification only when using Multiple Pulse Mode, otherwise it is always 1 by default.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Using out of range or non-numeric characters for both the Max Phase Value and Expected Pulse input boxes will result in an invalid input which will render the boxes red until the input becomes valid again.</td>
+                        </tr>                         
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="missing_pulse" name="missing_pulse">Missing Pulse</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The Missing Pulse section allows the user to define the necessary delay for missing pulse detection. </td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>The value you fill into the Missing Pulse Count input box can be translated as the amount of time between the current counter value and predefined latched Period value. 
+                                The actual delay is recalculated and displayed each time there's an update on the Missing Pulse Count input box.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Using out of range or non-numeric characters for the Missing Pulse Count input box will result in an invalid input which will render the box red until the input becomes valid again.</td>
+                        </tr>                      
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>        
+        <section>
+            <h3 id="set_point" name="set_point">Set Point</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>This section allows defining a reference for the error calculation of the predefined period.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>The Set Point input box can be used to specify a period frequency which is translated to period counts and then compared to the predefined Period (see the Period section).
+                                The difference between the set point value thus obtained and the period value constitutes the Set Point error of the timer measurement.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Using an out of range frequency input in the Set Point input box will result in an invalid input which will render the box red until the input becomes valid again.
+                                The correct input format is [Frequency value][Frequency units], where Frequency units can be: MHz, kHz, Hz, i.e.: 10 kHz.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>  
+        <section>
+            <h3 id="period" name="period">Input Signal Period</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The Input Signal section allows you to select the AT signal source and configure its period.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>Once you selected the input signal for the Angular Timer via the Signal Selection drop-down, you can calculate the timer period by filling in the frequency of the selected signal into the Input Frequency input box.
+                                Along with the period value, the Period Count and the Period Error are also calculated.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Using an out of range frequency input in the Set Point input box will result in an invalid input which will render the box red until the input becomes valid again.
+                                The correct input format is [Frequency value][Frequency units], where Frequency units can be: MHz, kHz, Hz, i.e.: 10 kHz.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>   
+        <section>
+            <h3 id="compare_value" name="compare_value">Capture/Compare modules</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Configures the Capture/Compare modules of the Angular Timer.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>The Phase Counter output inside the Angular Timer is routed to Capture/Compare modules, also built-in. 
+                                This allows you to utilize the Angular Timer output to take certain decisions needed by your application, including rising an interrupt for each of the Capture/Compare modules (see the Interrupts section).
+                                In the Capture mode, use the Input Polarity and Input Selection drop-downs to configure the module.
+                                In the Compare mode, use the Compare Value input box to predefine the value that the Capture/Compare module will use to match the output of the Angular timer against.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Using out of range or non-numeric characters for the Missing Pulse Count input box will result in an invalid input which will render the box red until the input becomes valid again.</td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. In the Capture mode, the Ouput Polarity drop-down and the Compare Value input box are disabled. 
+                                In the Compare Mode, the Input Polarity and Input Selection drop-downs are disabled. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>         
+    </body>
+</html>

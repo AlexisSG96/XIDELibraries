@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>CRC</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>Cyclic Redundancy Check (CRC)</h2>
+        <hr>
+        <section>
+            <h3 id="predefinedpolynomial" name="predefinedpolynomial">Predefined Polynomial</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Selects between several predefined classic polynomials. </td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>Besides offering the possibility of introducing a custom polynomial, the graphical interface allows selecting between several well-known polynomials.  
+                                For each selection the Polynomial input box is updated with the selected Polynomial expression.
+                                Also, each predefined polynomial comes with its own fixed size, therefore, if you're using a predefined polynomial, the Polynomial Word Width input box will be disabled.                                
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Please note that for all predefined polynomials you can use only the Direct Seed Method.</td>
+                        </tr>                         
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Conditioned by the "Use pre-defined polynomials" checkbox.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+        <section>
+            <h3 id="polynomialwordwidth" name="polynomialwordwidth">Polynomial Word Width</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The bit size of the chosen Polynomial.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>If using a predefined polynomial, it will only display the bit size of the selected polynomial expression without any editing possibilities.
+                                Editing is allowed only for custom polynomials ("Use Predefined Polynomial" deselected).
+                                You can use manual input or the Up/Down arrow-buttons to increase/decrease the size of the polynomial.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Editing the polynomial input box is possible only using the decimal number format. 
+                                Any other input types or non numeric characters will render the input invalid and the input box will blink red until the input becomes valid again or the focus is shifted to another graphical component - in this case, the invalid input is discarded and the input box reverts to the previous content.                            
+                            </td>
+                        </tr>                      
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. Editing allowed only "Use Predefined Polynomial" checkbox is cleared.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>          
+        <section>
+            <h3 id="polynomial" name="polynomial">Polynomial</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The polynomial expression for the CRC calculation.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>If using a predefined polynomial, it will only display the selected polynomial expression without any editing possibilities.
+                                Editing is allowed only for custom polynomials ("Use Predefined Polynomial" deselected).
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Editing the polynomial input box is possible only using decimal and hexadecimal number formats. 
+                                Any other input types or non numeric characters will render the input invalid and the input box will blink red until the input becomes valid again or the focus is shifted to another graphical component - in this case, the invalid input is discarded and the input box reverts to the previous content.
+                                If the size of the input is greater than the Polynomial Word Width a warning notification will be raised in the Notifications tab. If the size of the input exceeds 32 bits the input box becomes invalid and it will blink red until the input becomes valid again</td>
+                        </tr>                      
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. Editing allowed only "Use Predefined Polynomial" checkbox is cleared.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>        
+        <section>
+            <h3 id="seed" name="seed">Seed</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td> CRC Seed value.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>When calculating the CRC for a string, the CRC result for one character becomes the Seed for the next one and so on.
+                                By changing the Seed Method (direct/indirect), you trigger a recalculation of the Seed value. 
+                                For example, if you input Seed = 0x245 and then change the Seed method in any direction, the Seed value is recalculated based on the selected Seed Method. 
+                                Changing the method back to the original option will yield the original Seed value.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>A notification will pop-up in the Notifications tab if the bit size of your Seed value exceeds the Polynomial Word Width.
+                                Editing the polynomial input box is possible only using decimal and hexadecimal number formats. 
+                                Any other input types or non numeric characters will render the input invalid and the input box will blink red until the input becomes valid again or the focus is shifted to another graphical component - in this case, the invalid input is discarded and the input box reverts to the previous content.                            
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>  
+        <section>
+            <h3 id="seedmethod" name="seedmethod">Seed Method</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Allows selecting between Direct and Indirect Seed methods</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>In both methods, the CRC algorithm will split an input string into separate characters to which it would add a number of extra zero bits.
+                                In order to avoid processing these augmented zero bits, you can shift and XOR the input with the CRC. 
+                                Mathematically speaking, the Direct method can be expressed as: (x^n × inputString) mod P(x), where n = order of polynomial P(x), so x^n is in fact the zero bits augmentation done by a left-shift by n bits operation.
+                                The Indirect method can be expressed as: augmentedInputString mod P(x), where augmentedInputString is the inputString shifted by n bits.
+                                Both algorithms are identical if the inputString is processed all at once. When dividing it into blocks of data, these blocks may be processed independently and the summed output may vary. 
+                                In the direct method all blocks would be augmented by n zeros, while in the indirect method only the last block would be augmented by n zeros.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>The XOR operation can be configured in the CRC Calculation section.    
+                                Augmentation with zeros can be enabled/disabled via the Augmentation Mode drop-down.
+                                The direction of the shifting process can be selected via the Data Shift Direction drop-down.                                
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>   
+        <section>
+            <h3 id="datawordwidth" name="datawordwidth">Data Word Width (bits)</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Selects the width of the CRC input data.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>You can select between 1 and 16 using either manual input or the Up/Down arrows to increase/decrease the Data Width.
+                                Keep in mind that the Data Word Width impacts the Data Sequence input in the CRC Calculation section.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Using out of range values is not allowed, the value will be limited to 16 bits.
+                                Using non-numeric characters will result in an invalid input which will render the box red until the input becomes valid again.</td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>       
+        <section>
+            <h3 id="datasequence" name="datasequence">Data Sequence</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Sample input data for the CRC.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>This input box is not directly editable. You can modify the sequence only by modifying the Data Word Width.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>    
+        <section>
+            <h3 id="finalxorvalue" name="finalxorvalue">Final XOR Value</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Last step before CRC Calculation</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>As a means for decrypting obfuscation, a CRC algorithm might include non-trivial initial value and a final XOR value.
+                                Both are not very solid ways of encrypting as they can be reverse engineered using well-known methods.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Editing the Final XOR Value input box is possible only using decimal and hexadecimal number formats. 
+                                Any other input types or non numeric characters will render the input invalid and the input box will blink red until the input becomes valid again or the focus is shifted to another graphical component - in this case, the invalid input is discarded and the input box reverts to the previous content.
+                                If the size of the input is greater than the Polynomial Word Width a warning notification will be raised in the Notifications tab. 
+                                If the size of the input exceeds 32 bits the input box becomes invalid and it will blink red until the input becomes valid again.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>     
+        <section>
+            <h3 id="result" name="result">Result</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The result of the CRC Calculation.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>By default, the input box is non-editable and will only read "Calculate". 
+                                Once you have set all the necessary parameters you may go ahead and click the Calculate button below the Result box.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Any alteration of the following components will result in a need to recalculate the CRC: Use Predefined Polynomial, Predefined Polynomial, Polynomial Word Width, Seed, Seed Method, Seed Shift Direction, Data Shift Direction, Data Word Width, Reverse CRC Value, Final XOR Value.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>CRC calculation will not be possible (i.e. the Calculate button will be disabled) if any of the following parameters are out of range: Polynomial Word Width, Polynomial, Seed, Final XOR Value.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>           
+    </body>
+</html>

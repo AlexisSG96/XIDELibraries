@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>SRLATCH</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>SRLATCH</h2>
+        <hr>
+        <section>
+            <h3 id="prescaler" name="prescaler">Prescaler</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td> The Prescaler drop-down box is used to reduce a higher frequency of the clock to a lower frequency </td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td> The purpose of the prescaler is to allow the timer to be clocked at a desired value, hence modifying the Internal/External Clock value in the System Module and the Prescler in the SRLATCH module will result in a certain value displayed under the Clock tag. Thus, obtaining the desired Clock frequency requires both steps mantioned previously. </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td> The Prescaler drop-down box is always available </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+                <section>
+            <h3 id="enable" name="enable">Enable CMP Set/Reset</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td> The Latch can be set or reset by the Comparator1 (CMP1) , Comparator2 (CMP2), SRI pin (check Enable Peripheral Set/Reset checkbox), software control (check Pulse Set/Reset Input checkbox ) or by the programmable clock (check Enable Set/Reset Clock checkbox ). </td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td> Setting one of the CMP1 or CMP2 set/reset checkbox will trigger a hint in the notifications tab which will inform the user to load the CMP module used. </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td> The checkboxes are always available.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>
+    </body>
+</html>

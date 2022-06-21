@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>PWM (16-bit)</title>
+        <meta name="description" content="Content" />
+        <meta name="robots" content="noarchive" />
+        <link rel="stylesheet" type="text/css" href="../../../Core/common/style.css">
+    </head>
+    <body>
+        <div class="iframeWrapper">
+            <iframe id="leftHeader" src="../../../Core/common/header.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe id="rightHeader" src="../version.html" frameborder="0" 
+            hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"/></iframe>
+            <br/><br/>
+        </div>
+        
+        <h2>Pulse Width Modulation</h2>
+        <hr>
+        <section>
+            <h3 id="pwmmode" name="pwmmode">PWM Mode</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Selectable PWM functions.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>Depending on the device, the PWM module can be configured to provide a Standard PWM, Set/Toggle Output on phase count match or Center-Aligned Output.  
+                                Selecting/Deselecting the Center-Aligned mode enables/disables the Match On and Trigger Source drop-downs in the PWM Offset section.
+                            </td>
+                        </tr>                     
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>        
+        <section>
+            <h3 id="clocksource" name="clocksource">Clock Source</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The input clock signal to the PWM module.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>The Clock Source drop-down allows you to select the base clock signal for the PWM module.
+                                Options may vary among different devices and may include derivations of Fosc, Timers, or external clock signals.
+                                Any Clock Source change results in MCC attempting to recalculate its parameters to match the requested Period value.
+                                Both the Period and Offset ranges are recalculated with each Clock Source selection.
+                                A warning will be added to the Notifications tab if the requested Period cannot be reached with the new Clock Source selection.                               
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>You can further refine a Clock Source using the Prescaler drop-down.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>  
+        <section>
+            <h3 id="clockprescaler" name="clockprescaler">Clock Prescaler</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>A prescaler for the input clock signal to the PWM module.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>You can further refine a Clock Source using the Prescaler drop-down.  Both the Period and Offset ranges are recalculated with each Clock Prescaler selection.                             
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>  
+        <section>
+            <h3 id="offsetmatchon" name="offsetmatchon">Offset Match</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The PWM Timer slope where the offset match occurs</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>When The PWM module is configured to operate in the Center-Aligned mode, you are able to select whether the offset match will occur on the rising or falling counter slopes of the PWM Timer.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Any PWM Mode selection other than Center-Aligned will disable the Offset Match On drop-down.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>          
+        <section>
+            <h3 id="offsetmode" name="offsetmode">Offset Mode</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Defines a timing relationship to another PWM signal on the device.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>Using this drop-down, you are able to synchronize the output of the current PWM module to another PWM module output on the device, introducing different offsets.
+                                If you don't need to synchronize to another internal PWM signal, you can operate in the Independent Run mode of the PWM module.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>The Trigger Source drop-down is disabled when the PWM Offset Mode is set to Independent Run.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section> 
+        <section>
+            <h3 id="offsettriggersource" name="offsettriggersource">Offset Trigger Source</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Selects the offset signal to match against.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>This drop-down offers several internal PWM signals you can use as offset signals to the current PWM module.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Disabled when the PWM Offset Mode is set to Independent Run.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>    
+        <section>
+            <h3 id="period" name="period">Period</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The PWM Period.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>Use this input box to specify the desired PWM period as a time slice. MCC will do all necessary calculations attempting to reach the value you set, given the selected Clock Source
+                                The Period Count is also recalculated for each change in Period or Period range.
+                                Make sure the Period input uses the format [Number][Units], where Units = {ns, us, ms, s} and falls within the range specified.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Using an input which is out of the specified range will throw a waning in the Notifications tab.
+                                Using other characters than the format above will be considered as invalid input and the input box will blink red until a valid input is added or the focus is lost by the input box.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section> 
+        <section>
+            <h3 id="phase" name="phase">Phase</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The Phase of the PWM signal, expressed in degrees.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>The predefined Phase Count value is constantly compared to the PWMTMR timer counter.
+                                You can define the Phase Count by expressing it in degrees (which is more suitable from an application viewpoint) and MCC will convert it to Phase Count.
+                                Make sure the Phase input is an unsigned integer value and falls within the range specified (0 - 360 degrees).
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Using an input which is out of the specified range will throw a waning in the Notifications tab.
+                                Using non-integer values or non-numeric characters will be considered as invalid input and the input box will blink red until a valid input is added or the focus is lost by the input box.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>   
+        <section>
+            <h3 id="offset" name="offset">Offset</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The offset between the PWM signal of the current module and a signal from another PWM module</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>Use this input box to specify the desired Offset time slice. MCC will do all necessary calculations attempting to reach the value you set, given the selected Clock Source
+                                Make sure the Offset input uses the format [Number][Units], where Units = {ns, us, ms, s} and falls within the range specified.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Using an input which is out of the specified range will throw a waning in the Notifications tab.
+                                Using other characters than the format above will be considered as invalid input and the input box will blink red until a valid input is added or the focus is lost by the input box.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>     
+        <section>
+            <h3 id="offset" name="offset">Offset</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>The offset between the PWM signal of the current module and a signal from another PWM module</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>Use this input box to specify the desired Offset time slice. MCC will do all necessary calculations attempting to reach the value you set, given the selected Clock Source
+                                Make sure the Offset input uses the format [Number][Units], where Units = {ns, us, ms, s} and falls within the range specified.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Using an input which is out of the specified range will throw a waning in the Notifications tab.
+                                Using other characters than the format above will be considered as invalid input and the input box will blink red until a valid input is added or the focus is lost by the input box.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section> 
+        <section>
+            <h3 id="dutycycle" name="dutycycle">Duty Cycle</h3>
+            <p>
+                <table class="content_table">
+                    <tbody>
+                        <tr> 
+                            <td>Summary:</td> 
+                            <td>Defines the PWM duty cycle as percentage.</td>
+                        </tr>
+                        <tr> 
+                            <td>Description: </td> 
+                            <td>Based on the PWM period and resolution, MCC converts the percentage input into a PWM period register value. The resolution of the input is up to one decimal place (i.e. xx.x format).
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Additional Information: </td>
+                            <td>Using an out of range percentage input or non-numeric characters in the Duty Cycle input box will result in an invalid input which will render the box red until the input becomes valid again.
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>Availability: </td> 
+                            <td>Always available. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </section>        
+    </body>
+</html>

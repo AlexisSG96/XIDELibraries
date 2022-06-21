@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    <mapID target="mcu8_cvref_controls" url="controls.html"/>
+    <mapID target="mcu8_cvref_controls_level" url="controls.html#level"/>
+    <mapID target="mcu8_cvref_controls_calculator" url="controls.html#calculator"/>
+    <mapID target="mcu8_cvref_controls_outputval" url="controls.html#outputval"/>
+    <mapID target="mcu8_cvref_stepbystep" url="http://microchip.wikidot.com/projects:mcu1101-project-8" wintype="external"/>    
+</map>
